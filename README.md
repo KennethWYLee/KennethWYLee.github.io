@@ -17,8 +17,7 @@ Serve the repository root with any static HTTP server, then open `index.html` th
 ## Structure
 
 - `index.html` — page content and metadata
-- `css/site.css` — responsive design and visual styles
-- `js/site.js` — mobile navigation and publication filters
+- `css/site.css` — responsive, information-first visual styles
 - `images/og.png` — social sharing preview
 
 The current site is an original rewrite and does not load the legacy Bootstrap template or its third-party assets.
