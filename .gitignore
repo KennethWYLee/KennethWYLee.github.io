@@ -1,0 +1,28 @@
+# Local dependencies and generated files
+node_modules/
+dist/
+.cache/
+.tmp/
+*.log
+
+# Environment files and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*recovery-code*
+*recovery_codes*
+credentials.*
+secrets.*
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
