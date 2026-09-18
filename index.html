@@ -42,34 +42,14 @@
 
   <main id="main">
     <section class="profile" id="top" aria-labelledby="profile-title">
-      <p class="label">Academic profile</p>
-      <h1 id="profile-title">Wen-Yi Kenneth Lee</h1>
+      <h1 id="profile-title">Wen-Yi Kenneth Lee <span class="chinese-name" lang="zh-Hant">李文毅</span></h1>
       <p class="position">Associate Professor, Department of Information Management<br>National Taipei University of Business</p>
-      <p class="summary">My recent research examines parametric portfolio policies that combine momentum and market sentiment, and relative robust gain-loss models for portfolio decisions under return uncertainty. My recent courses cover AI applications, AI in financial technology, business intelligence, database management, and web design.</p>
+      <p class="summary">I study portfolio allocation under uncertainty, with a focus on market sentiment, gain–loss models, and rebalancing.</p>
       <div class="primary-links" aria-label="Profile links">
         <a href="mailto:wy.lee@ntub.edu.tw">wy.lee@ntub.edu.tw</a>
         <a href="https://imd.ntub.edu.tw/p/412-1043-6919.php?Lang=en" target="_blank" rel="noopener noreferrer">NTUB faculty profile <span aria-hidden="true">↗</span></a>
         <a href="https://github.com/KennethWYLee" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </div>
-
-      <dl class="profile-facts">
-        <div>
-          <dt>Current position</dt>
-          <dd>Associate Professor</dd>
-        </div>
-        <div>
-          <dt>Research</dt>
-          <dd>Parametric portfolio policies, sentiment trading, robust gain-loss optimization</dd>
-        </div>
-        <div>
-          <dt>Teaching</dt>
-          <dd>AI models and applications, AI in FinTech, business intelligence, databases, web design</dd>
-        </div>
-        <div>
-          <dt>Location</dt>
-          <dd>Taipei, Taiwan</dd>
-        </div>
-      </dl>
     </section>
 
     <section id="research" aria-labelledby="research-title">
@@ -79,16 +59,28 @@
       </div>
       <div class="focus-list">
         <article>
-          <h3>Parametric portfolio policy and sentiment trading</h3>
-          <p>Examines how momentum and market sentiment can be incorporated into characteristic vectors for portfolio allocation, including transaction costs and long-horizon rebalancing.</p>
+          <h3>Market sentiment and portfolio allocation</h3>
+          <div>
+            <p>This work examines how momentum and market sentiment can inform portfolio allocation. It incorporates both into a parametric portfolio policy, accounting for transaction costs and rebalancing.</p>
+            <p class="research-links"><a href="https://doi.org/10.1371/journal.pone.0335462" target="_blank" rel="noopener noreferrer">PLOS One (2025) <span aria-hidden="true">↗</span></a></p>
+          </div>
         </article>
         <article>
-          <h3>Relative robust gain-loss portfolio optimization</h3>
-          <p>Uses minimax regret within an Omega framework to balance gains and losses under return uncertainty and to evaluate portfolio rebalancing across rolling investment windows.</p>
+          <h3>Portfolio decisions under return uncertainty</h3>
+          <div>
+            <p>This work studies how to balance portfolio gains and losses when returns are uncertain. A relative robust gain-loss model uses minimax regret within an Omega framework and is evaluated across rolling investment windows.</p>
+            <p class="research-links"><a href="https://doi.org/10.1007/s11227-025-08123-8" target="_blank" rel="noopener noreferrer">The Journal of Supercomputing (2025) <span aria-hidden="true">↗</span></a></p>
+          </div>
         </article>
         <article>
-          <h3>Portfolio rebalancing under changing market conditions</h3>
-          <p>Studies intraday momentum and reversal strategies and time-varying return thresholds in Omega portfolio models, including trading costs and different market conditions.</p>
+          <h3>Rebalancing under changing market conditions</h3>
+          <div>
+            <p>This work examines intraday trading and adjustments to portfolio return thresholds. Omega portfolio models incorporate momentum and reversal strategies or dynamic return thresholds to study decisions under different market conditions.</p>
+            <p class="research-links">
+              <a href="https://doi.org/10.1371/journal.pone.0291119" target="_blank" rel="noopener noreferrer">Intraday trading (2023) <span aria-hidden="true">↗</span></a>
+              <a href="https://doi.org/10.1111/itor.13153" target="_blank" rel="noopener noreferrer">Dynamic return thresholds (2023) <span aria-hidden="true">↗</span></a>
+            </p>
+          </div>
         </article>
       </div>
     </section>
@@ -238,27 +230,32 @@
       <div class="section-heading">
         <p class="label">Teaching</p>
         <h2 id="teaching-title">Selected recent courses</h2>
-        <p class="section-summary">Across the 2025–26 academic year, my teaching spans AI models and applications, AI in FinTech, business intelligence, database-management systems practice, web design, information technology management, and seminars on emerging technologies.</p>
+        <p class="section-summary">Selected courses from the 2025–26 academic year, covering AI applications, financial technology, business intelligence, databases, and web design.</p>
       </div>
       <ul class="teaching-list">
         <li>
           <h3>Application to Artificial Intelligence</h3>
+          <p class="course-level">Post-baccalaureate</p>
           <p>End-to-end machine-learning projects, classification, support vector machines, decision trees, and ensemble learning.</p>
         </li>
         <li>
           <h3>Artificial Intelligence in FinTech</h3>
+          <p class="course-level">Graduate</p>
           <p>Machine learning and data-driven optimization for portfolio management, including robust optimization and explainable AI in finance.</p>
         </li>
         <li>
           <h3>Business Intelligence</h3>
+          <p class="course-level">Graduate</p>
           <p>Strategic use of business intelligence, data mining, big-data management and analysis, and econometric methods.</p>
         </li>
         <li>
           <h3>Database Management</h3>
+          <p class="course-level">Undergraduate</p>
           <p>ER and EER modeling, relational design, SQL, functional and multivalued dependencies, and normalization.</p>
         </li>
         <li>
           <h3>Web Design</h3>
+          <p class="course-level">Undergraduate</p>
           <p>HTML, CSS, JavaScript, jQuery, Ajax, and responsive web design.</p>
         </li>
       </ul>
