@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "packages": [
+    {
+      "name": "Inter",
+      "version": "4.1",
+      "license": "OFL-1.1",
+      "repository": "https://github.com/rsms/inter",
+      "revision": "e3a3d4c57d5ecc01453a575621882a384c1995a3"
+    },
+    {
+      "name": "modern-normalize",
+      "version": "3.0.1",
+      "license": "MIT",
+      "repository": "https://github.com/sindresorhus/modern-normalize",
+      "revision": "3faa07fc91b8ffbe6243bc4f91e880a00185d0a2"
+    },
+    {
+      "name": "Tabler Icons",
+      "version": "3.49.0",
+      "license": "MIT",
+      "repository": "https://github.com/tabler/tabler-icons",
+      "revision": "bbed884d15354b5cebf2493371f20dc2d5e83eaf"
+    }
+  ],
+  "files": [
+    {
+      "path": "inter/InterVariable.woff2",
+      "package": "Inter",
+      "bytes": 352240,
+      "sha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/rsms/inter/e3a3d4c57d5ecc01453a575621882a384c1995a3/docs/font-files/InterVariable.woff2",
+          "sha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3"
+        }
+      ]
+    },
+    {
+      "path": "inter/LICENSE.txt",
+      "package": "Inter",
+      "bytes": 4380,
+      "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/rsms/inter/e3a3d4c57d5ecc01453a575621882a384c1995a3/LICENSE.txt",
+          "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a"
+        }
+      ]
+    },
+    {
+      "path": "modern-normalize/LICENSE.txt",
+      "package": "modern-normalize",
+      "bytes": 1177,
+      "sha256": "52390989c3437957416a692ac5fd2fbe08d8c7dcb725ef5f43d1c817640c04ae",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/sindresorhus/modern-normalize/3faa07fc91b8ffbe6243bc4f91e880a00185d0a2/license",
+          "sha256": "52390989c3437957416a692ac5fd2fbe08d8c7dcb725ef5f43d1c817640c04ae"
+        }
+      ]
+    },
+    {
+      "path": "modern-normalize/modern-normalize.css",
+      "package": "modern-normalize",
+      "bytes": 3338,
+      "sha256": "b4ad31da9b1b17de182a08e4c39159496574d90a82464c6d5afeda7133f0e110",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/sindresorhus/modern-normalize/3faa07fc91b8ffbe6243bc4f91e880a00185d0a2/modern-normalize.css",
+          "sha256": "b4ad31da9b1b17de182a08e4c39159496574d90a82464c6d5afeda7133f0e110"
+        }
+      ]
+    },
+    {
+      "path": "tabler/icons.svg",
+      "package": "Tabler Icons",
+      "bytes": 1812,
+      "sha256": "9e7a51ccd2ce47844c50acb67ecd49a4b379b4871a1af32f8501616234aef592",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/tabler/tabler-icons/bbed884d15354b5cebf2493371f20dc2d5e83eaf/icons/outline/mail.svg",
+          "sha256": "94ca7eed1a9b89c7d3345e7c62a622060a502645b4ae10b7ed160294583d3c33"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tabler/tabler-icons/bbed884d15354b5cebf2493371f20dc2d5e83eaf/icons/outline/building-bank.svg",
+          "sha256": "4ed04931200303958f332ace00f94f10f2297270f99ec39a7975aa2cc0b631b1"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tabler/tabler-icons/bbed884d15354b5cebf2493371f20dc2d5e83eaf/icons/outline/brand-github.svg",
+          "sha256": "1ba4d43069f269d4aedc71bd5887632ae08b17435d64f47f331b18c316ffeb37"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tabler/tabler-icons/bbed884d15354b5cebf2493371f20dc2d5e83eaf/icons/outline/arrow-up-right.svg",
+          "sha256": "b7d952b0b6fbd089b110d85639ffffc001bb41fe53040e5e7f3e3f65ddc22595"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tabler/tabler-icons/bbed884d15354b5cebf2493371f20dc2d5e83eaf/icons/outline/chevron-down.svg",
+          "sha256": "5a2e5c2a155ce06264a3f7299073ed636142dfd0b324b747387d9cfbf9fb5e3e"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tabler/tabler-icons/bbed884d15354b5cebf2493371f20dc2d5e83eaf/icons/outline/arrow-up.svg",
+          "sha256": "c0a58436629c59996826b7980b0cbdfff51bfa289eefb2cceee494a964c5105e"
+        }
+      ]
+    },
+    {
+      "path": "tabler/LICENSE.txt",
+      "package": "Tabler Icons",
+      "bytes": 1073,
+      "sha256": "b740a1d46122672da62833e97f7e7c8a13fa85cbc7445b584b297cc00dde93db",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/tabler/tabler-icons/bbed884d15354b5cebf2493371f20dc2d5e83eaf/LICENSE",
+          "sha256": "b740a1d46122672da62833e97f7e7c8a13fa85cbc7445b584b297cc00dde93db"
+        }
+      ]
+    }
+  ]
+}
