@@ -7,7 +7,12 @@
   try {
     const data = JSON.parse(document.getElementById('informs-data').textContent);
     const byCode = new Map([...data.sessions, ...data.alternatives].map(s => [s.code, s]));
-    const initial = () => ({ day: data.days[0].date, priorityOnly: true, view: 'route', selections: {} });
+    const talks = data.special_talks || [];
+    const groupId = talk => `${talk.date}_${talk.start.replace(':', '')}_${talk.end.replace(':', '')}`;
+    const groups = [...new Map(talks.map(t => [groupId(t), { id: groupId(t), date: t.date, start: t.start, end: t.end }])).values()]
+      .map(g => ({ ...g, talks: talks.filter(t => groupId(t) === g.id) }));
+    const overlaps = (a, b) => a.date === b.date && a.start < b.end && a.end > b.start;
+    const initial = () => ({ day: data.days[0].date, priorityOnly: true, view: 'route', selections: {}, specialSelections: {} });
     let state = initial();
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
@@ -19,6 +24,10 @@
           const selected = saved.selections?.[slot.code];
           if ([slot.code, ...slot.alternative_codes].includes(selected)) state.selections[slot.code] = selected;
         }
+        for (const group of groups) {
+          const key = saved.specialSelections?.[group.id];
+          if (group.talks.some(t => t.key === key)) state.specialSelections[group.id] = key;
+        }
       }
     } catch { /* A blocked or invalid store must not prevent the itinerary from opening. */ }
 
@@ -26,6 +35,31 @@
     const selected = slot => byCode.get(state.selections[slot.code] || slot.code);
     const sourcePages = s => s.source_pages.length > 1 ? `${s.source_pages[0]}–${s.source_pages.at(-1)}` : s.source_pages[0];
     const badgeClass = slot => ({ 優先安排: 'badge-priority', 保留: 'badge-reserved', 可加聽: 'badge-optional' }[slot.priority]);
+    const chosenTalks = () => groups.flatMap(g => g.talks.filter(t => state.specialSelections[g.id] === t.key));
+    const techConflicts = talk => [...data.sessions, ...data.alternatives].filter(s => overlaps(talk, s));
+    const label = event => event.special ? event.speaker : selected(event.slot).code;
+    let displayedEvents = [];
+
+    function eventConflicts(event) {
+      return displayedEvents.filter(other => other !== event && overlaps(event, other));
+    }
+
+    function specialOptions(day) {
+      return groups.filter(g => g.date === day.date).sort((a, b) => a.start.localeCompare(b.start)).map(group => {
+        const chosen = state.specialSelections[group.id] || '';
+        const mutual = group.talks.length > 1;
+        const options = group.talks.map(t => {
+          const conflicts = techConflicts(t);
+          return `<label class="special-option"><input type="radio" name="special-${group.id}" data-special-group="${group.id}" value="${t.key}"${chosen === t.key ? ' checked' : ''}><span><strong class="talk-speaker">${escape(t.speaker)}</strong><span class="talk-title" lang="en">${escape(t.title)}</span><span class="talk-location">${escape(t.kind)} · ${escape(t.room_short || '教室待官方確認')}${t.floor ? ' · ' + escape(t.floor) : ''}</span><span class="talk-status">${conflicts.length ? '與技術場次 ' + escape(conflicts.map(s => s.code).join('、')) + ' 撞場' : '與表列技術場次無時間重疊'} · ${t.room ? '教室待複核' : '尚無可核教室'}</span></span></label>`;
+        }).join('');
+        return `<div class="special-slot" data-group="${group.id}"><div class="special-slot-heading"><h4>${escape(group.start)}–${escape(group.end)}</h4><span class="${mutual ? 'conflict-badge' : 'no-conflict'}">${mutual ? group.talks.length + ' 場同時段互撞，需擇一' : '本時段 1 場演講'}</span></div><div class="special-options"><fieldset><legend class="sr-only">${escape(group.start)}演講，擇一加入路線</legend><label class="special-option special-skip"><input type="radio" name="special-${group.id}" data-special-group="${group.id}" value=""${chosen ? '' : ' checked'}><span>不加入此時段演講</span></label>${options}</fieldset></div></div>`;
+      }).join('');
+    }
+
+    function specialCard(event) {
+      const clashes = eventConflicts(event);
+      return `<article class="session-card special-card" id="special-card-${event.key}" data-special-key="${event.key}"><div class="session-time"><time datetime="${event.date}T${event.start}:00-08:00">${escape(event.start)}</time><span>— ${escape(event.end)}</span></div><div class="session-content"><div class="session-topline"><span class="badge badge-special">${escape(event.type)}</span>${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(label).join('、')) + ' 撞場</span>' : '<span class="no-conflict">與已選行程無時間重疊</span>'}</div><h3 class="session-title" lang="en">${escape(event.title)}</h3><p><strong>${escape(event.speaker)}</strong> · ${escape(event.kind)}</p><p class="session-location">${escape(event.room_short || '教室待官方確認')}${event.floor ? ' · ' + escape(event.floor) : ''}</p><p class="source-pages">${event.source_pages.length ? '書冊第 ' + escape(sourcePages(event)) + ' 頁 · 教室待複核' : '教室尚無可核資料'} · 題名與時間依10/27官方演講頁</p></div></article>`;
+    }
 
     function save() {
       try {
@@ -47,7 +81,8 @@
     }
 
     function badges(slot, session) {
-      return `<span class="badge ${badgeClass(slot)}">${escape(slot.priority)}</span>${session.key_session ? '<span class="badge badge-core">優先留意</span>' : ''}${session.code !== slot.code ? '<span class="badge">已改選備選</span>' : ''}`;
+      const clashes = chosenTalks().filter(t => overlaps(t, session));
+      return `<span class="badge ${badgeClass(slot)}">${escape(slot.priority)}</span>${session.key_session ? '<span class="badge badge-core">優先留意</span>' : ''}${session.code !== slot.code ? '<span class="badge">已改選備選</span>' : ''}${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(t => t.speaker).join('、')) + ' 撞場</span>' : ''}`;
     }
 
     function question(slot, session) {
@@ -71,8 +106,13 @@
       </article>`;
     }
 
-    function table(slots, day) {
-      const rows = slots.map(slot => {
+    function table(events, day) {
+      const rows = events.map(event => {
+        if (event.special) {
+          const clashes = eventConflicts(event);
+          return `<tr class="special-table-row" data-special-key="${event.key}"><td data-label="時間"><div class="cell-content table-time">${escape(event.start)}–${escape(event.end)}</div></td><td data-label="場次"><div class="cell-content"><span class="badge badge-special">${escape(event.type)}</span><strong>${escape(event.speaker)}</strong><p class="session-title" lang="en">${escape(event.title)}</p></div></td><td data-label="教室"><div class="cell-content"><strong>${escape(event.room_short || '教室待官方確認')}</strong>${event.floor ? '<br>' + escape(event.floor) : ''}<br><small>教室待複核</small></div></td><td data-label="重點與備選"><div class="cell-content">${escape(event.kind)}<p class="${clashes.length ? 'conflict-badge' : 'no-conflict'}">${clashes.length ? '與 ' + escape(clashes.map(label).join('、')) + ' 撞場' : '與已選行程無時間重疊'}</p></div></td></tr>`;
+        }
+        const slot = event.slot;
         const s = selected(slot);
         const prompt = question(slot, s);
         return `<tr id="table-row-${slot.code}" data-code="${escape(s.code)}"><td data-label="時間"><div class="cell-content table-time">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><div class="session-topline"><strong class="session-code">${escape(s.code)}</strong>${badges(slot, s)}</div><p class="session-title" lang="en">${escape(s.title)}</p></div></td><td data-label="教室"><div class="cell-content"><strong>${escape(s.room_short)}</strong><br>${escape(s.floor)}<br><small>教室待複核</small></div></td><td data-label="重點與備選"><div class="cell-content">${prompt ? `<p>${escape(prompt)}</p>` : ''}${choiceList(slot, 'table')}<p class="source-pages">書冊第 ${escape(sourcePages(s))} 頁</p></div></td></tr>`;
@@ -84,21 +124,37 @@
       const day = data.days.find(d => d.date === state.day);
       const daySlots = data.sessions.filter(s => s.date === state.day);
       const slots = daySlots.filter(s => !state.priorityOnly || isPriority(s));
+      const specials = chosenTalks().filter(t => t.date === state.day);
+      displayedEvents = [...slots.map(slot => ({ date: slot.date, start: slot.start, end: slot.end, slot })), ...specials.map(t => ({ ...t, special: true }))].sort((a, b) => a.start.localeCompare(b.start) || a.end.localeCompare(b.end));
       document.getElementById('day-tabs').innerHTML = data.days.map(d => `<button type="button" class="day-tab" data-day="${d.date}" aria-pressed="${d.date === state.day}" aria-label="${escape(d.label)}">${escape(d.label.replace(/（(.)）/, ' $1'))}</button>`).join('');
       document.getElementById('priority-only').checked = state.priorityOnly;
       for (const button of document.querySelectorAll('[data-view]')) button.setAttribute('aria-pressed', String(button.dataset.view === state.view));
       document.getElementById('day-title').textContent = day.label;
       document.getElementById('day-theme').textContent = day.theme;
-      document.getElementById('day-count').textContent = `${slots.length} 場已顯示 · 當天共 ${daySlots.length} 個建議時段`;
-      document.getElementById('route-stops').innerHTML = slots.map(slot => {
+      document.getElementById('day-count').textContent = `${slots.length} 場技術場次 · ${specials.length} 場演講已加入`;
+      document.getElementById('route-stops').innerHTML = displayedEvents.map(event => {
+        if (event.special) return `<li class="route-stop special-stop" data-special-key="${event.key}"><span class="stop-code">${escape(event.type)}</span><strong class="stop-room">${escape(event.room_short || '教室待官方確認')}</strong><span class="stop-floor">${escape(event.floor || '尚無可核教室')}</span><span class="stop-speaker">${escape(event.speaker)}</span></li>`;
+        const slot = event.slot;
         const s = selected(slot);
         return `<li class="route-stop" data-code="${escape(s.code)}"><span class="stop-code">${escape(s.code)}</span><strong class="stop-room">${escape(s.room_short)}</strong><span class="stop-floor">${escape(s.floor)}</span></li>`;
       }).join('');
-      document.getElementById('timeline').innerHTML = slots.map(card).join('');
-      document.getElementById('table-view').innerHTML = table(slots, day);
+      document.getElementById('timeline').innerHTML = displayedEvents.map(e => e.special ? specialCard(e) : card(e.slot)).join('');
+      document.getElementById('table-view').innerHTML = table(displayedEvents, day);
+      const specialRoot = document.getElementById('special-options');
+      if (specialRoot) specialRoot.innerHTML = specialOptions(day);
+      const specialCount = document.getElementById('special-count');
+      if (specialCount) specialCount.textContent = `${talks.filter(t => t.date === state.day).length} 場可選 · ${specials.length} 場已加入路線`;
+      const conflicts = [];
+      for (let i = 0; i < displayedEvents.length; i++) for (let j = i + 1; j < displayedEvents.length; j++) if (overlaps(displayedEvents[i], displayedEvents[j])) conflicts.push([displayedEvents[i], displayedEvents[j]]);
+      const summary = document.getElementById('conflict-summary');
+      if (summary) {
+        summary.className = `conflict-summary ${conflicts.length ? 'has-conflict' : 'no-conflict'}`;
+        const hasConcurrentOptions = groups.some(g => g.date === state.day && g.talks.length > 1);
+        summary.innerHTML = conflicts.length ? `<strong>已選行程有 ${conflicts.length} 組時間重疊</strong><ul class="conflict-list">${conflicts.map(pair => '<li>' + escape(pair.map(label).join(' ↔ ')) + '</li>').join('')}</ul>` : '<strong>目前已選行程沒有時間重疊。</strong><span>' + (hasConcurrentOptions ? ' 晚間同時段 keynote 仍須擇一；下方會列出同時段選項。' : ' 依已選場次的實際起迄時間比較。') + '</span>';
+      }
       document.getElementById('timeline').hidden = state.view !== 'route';
       document.getElementById('table-view').hidden = state.view !== 'table';
-      status.textContent = `${day.label} · ${slots.length} 場 · 時間均為舊金山當地時間。`;
+      status.textContent = `${day.label} · ${slots.length} 場技術場次＋${specials.length} 場演講 · 舊金山當地時間。`;
     }
 
     document.getElementById('day-tabs').addEventListener('click', event => {
@@ -123,6 +179,17 @@
     });
 
     document.getElementById('interactive-route').addEventListener('change', event => {
+      const specialInput = event.target.closest('input[data-special-group]');
+      if (specialInput) {
+        const group = groups.find(g => g.id === specialInput.dataset.specialGroup);
+        if (!group || (specialInput.value && !group.talks.some(t => t.key === specialInput.value))) return;
+        const value = specialInput.value;
+        state.specialSelections[group.id] = value;
+        render();
+        save();
+        document.querySelector(`input[data-special-group="${group.id}"][value="${value}"]`)?.focus({ preventScroll: true });
+        return;
+      }
       const input = event.target.closest('input[data-slot]');
       if (!input) return;
       const slot = data.sessions.find(s => s.code === input.dataset.slot);

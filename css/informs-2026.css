@@ -1121,3 +1121,364 @@
     display: none;
   }
 }
+
+.conference-page .special-program {
+  min-width: 0;
+  margin: 0 0 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--conference-radius);
+  background: var(--white);
+}
+
+.conference-page .special-program-heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+}
+
+.special-program-heading > p {
+  max-width: 80ch;
+  margin: 0.4rem 0 1rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.75;
+}
+
+.special-slot {
+  min-width: 0;
+  padding-block: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.special-slot:last-of-type {
+  padding-bottom: 0.25rem;
+}
+
+.special-slot-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.conference-page .special-slot-heading h4 {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+}
+
+.conflict-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid #ead3a3;
+  border-radius: 4px;
+  color: var(--conference-amber);
+  background: var(--conference-amber-surface);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.special-slot-heading .no-conflict {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.special-options,
+.special-options fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+fieldset.special-options,
+.special-options fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.65rem;
+}
+
+.special-option {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  flex: 1 1 230px;
+  align-content: start;
+  align-items: start;
+  gap: 0.65rem;
+  min-width: 0;
+  min-height: 44px;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--white);
+  cursor: pointer;
+}
+
+.special-option > input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0.2rem 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.special-option > span {
+  min-width: 0;
+}
+
+.talk-speaker,
+.talk-title,
+.talk-location,
+.talk-status {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.talk-speaker {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.talk-speaker strong {
+  font-weight: 650;
+}
+
+.talk-title {
+  margin-top: 0.3rem;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+
+.talk-location {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.talk-status {
+  margin-top: 0.25rem;
+  color: var(--conference-amber);
+  font-size: 0.6875rem;
+  line-height: 1.6;
+}
+
+.special-option.special-skip {
+  flex: 1 0 100%;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.special-skip > input[type="radio"] {
+  margin-top: 0;
+}
+
+.special-option:hover {
+  border-color: #9bb7bd;
+  background: var(--surface);
+}
+
+.special-option:has(input:checked) {
+  border-color: #8bb0b8;
+  background: var(--accent-light);
+}
+
+.special-option:has(input:checked) .talk-speaker {
+  color: var(--accent-dark);
+}
+
+.special-option.special-skip:has(input:checked) {
+  border-color: #c6d2d9;
+  background: var(--surface);
+}
+
+.special-option:has(input:focus-visible) {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.special-selection-note {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.75;
+}
+
+.conflict-summary {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.conflict-summary > :first-child {
+  margin-top: 0;
+}
+
+.conflict-summary > :last-child {
+  margin-bottom: 0;
+}
+
+.conflict-summary.no-conflict,
+.conflict-summary .no-conflict {
+  color: var(--accent-dark);
+}
+
+.conflict-summary.has-conflict {
+  border-color: #dfbf92;
+  color: #873f27;
+  background: var(--conference-amber-surface);
+}
+
+.conflict-summary .has-conflict {
+  color: #873f27;
+  font-weight: 600;
+}
+
+.conflict-list ul,
+ul.conflict-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.conflict-list li + li {
+  margin-top: 0.35rem;
+}
+
+.session-card.special-card {
+  border-color: #b0cbd0;
+  background: #fcfefe;
+}
+
+.special-card .session-time {
+  border-right-color: #c3d8dc;
+}
+
+.badge-special {
+  border-color: #b5d0d4;
+  color: var(--accent-dark);
+  background: #eaf4f4;
+}
+
+.route-stop.special-stop {
+  border-color: #b0cbd0;
+  background: #f4f9f9;
+}
+
+.special-stop .stop-code {
+  overflow-wrap: anywhere;
+}
+
+.stop-speaker {
+  display: block;
+  min-width: 0;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.schedule-table .special-table-row td {
+  background: #f4f9f9;
+}
+
+@media (max-width: 760px) {
+  .conference-page .special-program {
+    padding: 1rem;
+  }
+
+  .special-option {
+    flex-basis: 100%;
+    padding: 0.85rem;
+  }
+
+  .special-slot-heading {
+    gap: 0.35rem 0.65rem;
+  }
+
+  .special-card .session-time {
+    border-right: 0;
+    border-bottom-color: #c3d8dc;
+  }
+
+  .schedule-table .special-table-row {
+    border-color: #b0cbd0;
+    background: #f4f9f9;
+  }
+}
+
+@media (max-width: 480px) {
+  .special-stop .stop-speaker {
+    grid-column: 2;
+  }
+
+  .special-option.special-skip {
+    font-size: 0.75rem;
+  }
+}
+
+@media print {
+  .conference-page .special-program {
+    display: none !important;
+  }
+
+  .conflict-summary,
+  .conflict-summary.no-conflict,
+  .conflict-summary.has-conflict {
+    margin-bottom: 0.8rem;
+    padding: 0.5rem 0.65rem;
+    border-color: #aaa;
+    color: #222;
+    background: transparent;
+    font-size: 8.5pt;
+    break-inside: avoid;
+  }
+
+  .conflict-summary :is(.no-conflict, .has-conflict) {
+    color: #222;
+  }
+
+  .session-card.special-card,
+  .route-stop.special-stop,
+  .schedule-table .special-table-row,
+  .schedule-table .special-table-row td {
+    border-color: #aaa;
+    background: transparent;
+  }
+
+  .special-card .session-time {
+    border-right: 1px solid #bbb;
+    border-bottom: 0;
+  }
+
+  .badge-special {
+    border-color: #aaa;
+    color: #222;
+    background: transparent;
+  }
+
+  .special-stop .stop-speaker {
+    grid-column: auto;
+    color: #333;
+    font-size: 7.5pt;
+  }
+}

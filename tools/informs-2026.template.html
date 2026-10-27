@@ -38,7 +38,7 @@
 
       <aside class="source-notice" aria-label="議程核對狀態">
         <strong>教室與個別場次仍待複核</strong>
-        <p>以下依 10 月 14 日議程書冊暫排。整體技術場次時間已於 10 月 27 日對照<a href="https://meetings.informs.org/wordpress/annual/agenda/" target="_blank" rel="noopener noreferrer">官方總議程</a>；出發前仍請核對各場教室與題名。</p>
+        <p>技術場次與可核對的教室依 10 月 14 日書冊暫排；keynote／plenary 的題名與時間已於 10 月 27 日核對<a href="https://meetings.informs.org/wordpress/annual/plenaries-keynotes/" target="_blank" rel="noopener noreferrer">官方演講頁</a>。各場教室仍待官方複核；Yinyu Ye 的教室尚無可核資料。</p>
       </aside>
 
       <p id="load-status" class="status-line" role="status">下方提供完整表格；互動行程正在載入。</p>
@@ -60,25 +60,31 @@
           <div><h2 id="day-title"></h2><p id="day-theme" class="day-theme"></p></div>
           <p id="day-count"></p>
         </div>
+        <div id="conflict-summary" class="conflict-summary" role="status"></div>
         <section class="route-panel" aria-labelledby="route-title">
           <h3 id="route-title">今天的前往順序</h3>
           <ol id="route-stops" class="route-stops"></ol>
           <p>這是教室的先後順序；樓層依議程標示，不含步行距離或時間。</p>
         </section>
+        <section class="special-program" aria-labelledby="special-program-title">
+          <div class="special-program-heading"><h3 id="special-program-title">Keynote / Plenary</h3><p id="special-count"></p></div>
+          <p class="special-selection-note">以下演講都可查看；選定後才會依時間加入路線與表格。同時段多場演講請擇一，原有技術場次不會被自動取消。</p>
+          <div id="special-options"></div>
+        </section>
         <div id="timeline" class="session-list"></div>
         <div id="table-view" hidden></div>
-        <p class="status-line">同時段只選一場。可加聽場次可改成休息、交流或整理；勾選「只看優先與保留」時，每天最多三場。選場會保存在目前瀏覽器。</p>
+        <p class="status-line">可加聽場次可改成休息、交流或整理。「只看優先與保留」僅篩選技術場次，每天最多三場；keynote／plenary 另選。所有選場保存在目前瀏覽器。</p>
       </div>
 
       <div id="static-schedule">
         <h2>完整建議行程</h2>
-        <p>16 個主選時段。可加聽不列為必聽；備選請對照官方議程。</p>
+        <p>16 個技術主選時段與13場 keynote／plenary。晚間同時段演講需擇一，以下演講清單不代表已全部加入行程。</p>
         {{STATIC_SCHEDULE}}
       </div>
 
       <footer class="conference-footer">
         <p>優先留意 MB40、MD18、ME36、TC30；WB35 保留整場。表中只列整場 session，不推算單篇報告時間。</p>
-        <p><a href="https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/default.aspx" target="_blank" rel="noopener noreferrer">完整技術議程 ↗</a> · <a href="https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx" target="_blank" rel="noopener noreferrer">Program Book ↗</a> · <a href="https://arxiv.org/abs/2606.21773" target="_blank" rel="noopener noreferrer">MD18 教程原稿 ↗</a></p>
+        <p><a href="https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/default.aspx" target="_blank" rel="noopener noreferrer">完整技術議程 ↗</a> · <a href="https://meetings.informs.org/wordpress/annual/plenaries-keynotes/" target="_blank" rel="noopener noreferrer">Keynote / Plenary 官方頁 ↗</a> · <a href="https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx" target="_blank" rel="noopener noreferrer">Program Book ↗</a> · <a href="https://arxiv.org/abs/2606.21773" target="_blank" rel="noopener noreferrer">MD18 教程原稿 ↗</a></p>
         <p>MD18 內容採新版 Decision-Focused Learning 教程；時間與教室仍依原書冊。這份行程為會前安排。</p>
       </footer>
     </main>

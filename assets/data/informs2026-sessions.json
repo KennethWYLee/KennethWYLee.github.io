@@ -739,6 +739,313 @@
     "agenda": "https://meetings.informs.org/wordpress/annual/agenda/",
     "program": "https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/default.aspx",
     "program_book": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-    "tutorial": "https://arxiv.org/abs/2606.21773"
+    "tutorial": "https://arxiv.org/abs/2606.21773",
+    "plenaries_keynotes": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+  },
+  "special_talks": [
+    {
+      "key": "jordan",
+      "title": "A Collectivist, Economic Perspective on AI",
+      "speaker": "Michael I. Jordan",
+      "date": "2026-11-01",
+      "start": "09:30",
+      "end": "10:45",
+      "kind": "Plenary",
+      "room": "Moscone South-25 (Exhibit Level)",
+      "room_short": "South-25",
+      "floor": "Exhibit Level",
+      "source_pages": [
+        108,
+        109
+      ],
+      "type": "Plenary",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "wang",
+      "title": "LabOS: The AI-XR Co-Scientist That Sees and Works With Humans",
+      "speaker": "Mengdi Wang",
+      "date": "2026-11-01",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "Omega-Rho Lecture",
+      "room": "Moscone South-153 (Upper Mezz)",
+      "room_short": "South-153",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        539
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "dwork",
+      "title": "Indistinguishability: The Stuff of Magic",
+      "speaker": "Cynthia Dwork",
+      "date": "2026-11-01",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "Keynote",
+      "room": "Moscone South-154 (Upper Mezz)",
+      "room_short": "South-154",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        539,
+        540
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "vanroy",
+      "title": "Aligning Superintelligence",
+      "speaker": "Benjamin Van Roy",
+      "date": "2026-11-01",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "Philip McCord Morse Lectureship",
+      "room": "Moscone South-155 (Upper Mezz)",
+      "room_short": "South-155",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        540
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "smilowitz",
+      "title": "The Use of Optimization Models in Public Sector Decision-making",
+      "speaker": "Karen Smilowitz",
+      "date": "2026-11-02",
+      "start": "09:45",
+      "end": "10:45",
+      "kind": "Plenary",
+      "room": "Moscone South-25 (Exhibit Level)",
+      "room_short": "South-25",
+      "floor": "Exhibit Level",
+      "source_pages": [
+        694
+      ],
+      "type": "Plenary",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "microsoft",
+      "title": "Microsoft Cloud Supply Chain: Democratizing Hyperscale Optimization for Cloud Fulfillment",
+      "speaker": "Kayla Kummerlowe, Konstantina Mellou, Ishai Menache, Jeevan Pathuri",
+      "date": "2026-11-02",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "Franz Edelman Award Reprise",
+      "room": "Moscone South-153 (Upper Mezz)",
+      "room_short": "South-153",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        1116,
+        1117
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "romero",
+      "title": "Optimization Models for Group-Level Explainability in Machine Learning",
+      "speaker": "Dolores Romero Morales",
+      "date": "2026-11-02",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "Keynote",
+      "room": "Moscone South-154 (Upper Mezz)",
+      "room_short": "South-154",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        1117
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "ye",
+      "title": "Mathematical Optimization in the Era of AI",
+      "speaker": "Yinyu Ye",
+      "date": "2026-11-02",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "Keynote",
+      "room": null,
+      "room_short": null,
+      "floor": null,
+      "source_pages": [],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方確認（原書冊未列此講者）",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "allgor",
+      "title": "From Manual Integration to Autonomous Decisions: Organizational and Data Challenges Using AI to Optimize Supply Chain Operations",
+      "speaker": "Russell Allgor",
+      "date": "2026-11-03",
+      "start": "09:45",
+      "end": "10:45",
+      "kind": "Plenary",
+      "room": "Moscone South-25 (Exhibit Level)",
+      "room_short": "South-25",
+      "floor": "Exhibit Level",
+      "source_pages": [
+        1212
+      ],
+      "type": "Plenary",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "shen",
+      "title": "Engineering Medicine: Technology, Convergence, and the Transformation of Human Health",
+      "speaker": "Tueng T. Shen",
+      "date": "2026-11-03",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "Keynote",
+      "room": "Moscone South-154 (Upper Mezz)",
+      "room_short": "South-154",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        1633
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "sokol",
+      "title": "2026 UPS George D. Smith Reprise",
+      "speaker": "Joel Sokol / Georgia Institute of Technology team",
+      "date": "2026-11-03",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "UPS George D. Smith Prize Reprise",
+      "room": "Moscone South-153 (Upper Mezz)",
+      "room_short": "South-153",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        1632
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "fernandez",
+      "title": "Location Science, Once More: New Challenges for a Mature Area",
+      "speaker": "Elena Fernández",
+      "date": "2026-11-03",
+      "start": "17:45",
+      "end": "18:35",
+      "kind": "IFORS Distinguished Lecture",
+      "room": "Moscone South-155 (Upper Mezz)",
+      "room_short": "South-155",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        1632,
+        1633
+      ],
+      "type": "Keynote",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    },
+    {
+      "key": "lodi",
+      "title": "Three Ideas toward GPU-Enhanced Mixed-Integer Optimization",
+      "speaker": "Andrea Lodi",
+      "date": "2026-11-04",
+      "start": "11:00",
+      "end": "12:00",
+      "kind": "Closing Plenary",
+      "room": "Moscone South-25 (Exhibit Level)",
+      "room_short": "South-25",
+      "floor": "Exhibit Level",
+      "source_pages": [
+        1815,
+        1816
+      ],
+      "type": "Plenary",
+      "time_verified_on": "2026-10-27",
+      "room_live_verified": false,
+      "room_status": "教室待官方複核",
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+    }
+  ],
+  "special_talks_checked_on": "2026-10-27",
+  "conflict_rule": "同一天開始時間早於另一場結束、結束時間晚於另一場開始，才算時間重疊；相接不算撞場。",
+  "conflict_summary": {
+    "technical_primary_overlap_pairs": [],
+    "technical_alternative_overlap_pairs": [],
+    "evening_conflict_groups": [
+      {
+        "date": "2026-11-01",
+        "start": "17:45",
+        "end": "18:35",
+        "talk_keys": [
+          "wang",
+          "dwork",
+          "vanroy"
+        ],
+        "selection_note": "這三場互相重疊，只能選一場完整聽。"
+      },
+      {
+        "date": "2026-11-02",
+        "start": "17:45",
+        "end": "18:35",
+        "talk_keys": [
+          "microsoft",
+          "romero",
+          "ye"
+        ],
+        "selection_note": "這三場互相重疊，只能選一場完整聽。"
+      },
+      {
+        "date": "2026-11-03",
+        "start": "17:45",
+        "end": "18:35",
+        "talk_keys": [
+          "shen",
+          "sokol",
+          "fernandez"
+        ],
+        "selection_note": "這三場互相重疊，只能選一場完整聽。"
+      }
+    ]
   }
 }
