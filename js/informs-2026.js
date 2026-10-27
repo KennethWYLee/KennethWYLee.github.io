@@ -39,6 +39,17 @@
     const techConflicts = talk => [...data.sessions, ...data.alternatives].filter(s => overlaps(talk, s));
     const label = event => event.special ? event.speaker : selected(event.slot).code;
     let displayedEvents = [];
+    const openAbstracts = new Set();
+
+    function abstractDetails(talk, context) {
+      if (!talk.abstract?.summary_zh) return '';
+      const abstract = talk.abstract;
+      const instance = `${context}-${talk.key}`;
+      const paragraphs = abstract.summary_zh.split(/\n+/).filter(Boolean).map(text => `<p>${escape(text)}</p>`).join('');
+      const url = abstract.source_url;
+      const source = typeof url === 'string' && url.startsWith('https://') ? `<a href="${escape(url)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a>` : '';
+      return `<details class="event-abstract" data-abstract-instance="${instance}"${openAbstracts.has(instance) ? ' open' : ''}><summary aria-label="查看 ${escape(talk.speaker)} 的摘要">摘要</summary><div class="abstract-body" lang="zh-Hant"><p class="abstract-meta">${escape(abstract.summary_label || '中文重點整理')}</p>${paragraphs}<p class="abstract-source">${escape(abstract.abstract_version_note || '')}${source ? ' · ' + source : ''}</p></div></details>`;
+    }
 
     function eventConflicts(event) {
       return displayedEvents.filter(other => other !== event && overlaps(event, other));
@@ -50,7 +61,7 @@
         const mutual = group.talks.length > 1;
         const options = group.talks.map(t => {
           const conflicts = techConflicts(t);
-          return `<label class="special-option"><input type="radio" name="special-${group.id}" data-special-group="${group.id}" value="${t.key}"${chosen === t.key ? ' checked' : ''}><span><strong class="talk-speaker">${escape(t.speaker)}</strong><span class="talk-title" lang="en">${escape(t.title)}</span><span class="talk-location">${escape(t.kind)} · ${escape(t.room_short || '教室待官方確認')}${t.floor ? ' · ' + escape(t.floor) : ''}</span><span class="talk-status">${conflicts.length ? '與技術場次 ' + escape(conflicts.map(s => s.code).join('、')) + ' 撞場' : '與表列技術場次無時間重疊'} · ${t.room ? '教室待複核' : '尚無可核教室'}</span></span></label>`;
+          return `<div class="special-option-card"><label class="special-option"><input type="radio" name="special-${group.id}" data-special-group="${group.id}" value="${t.key}"${chosen === t.key ? ' checked' : ''}><span><strong class="talk-speaker">${escape(t.speaker)}</strong><span class="talk-title" lang="en">${escape(t.title)}</span><span class="talk-location">${escape(t.kind)} · ${escape(t.room_short || '教室待官方確認')}${t.floor ? ' · ' + escape(t.floor) : ''}</span><span class="talk-status">${conflicts.length ? '與技術場次 ' + escape(conflicts.map(s => s.code).join('、')) + ' 撞場' : '與表列技術場次無時間重疊'} · ${t.room ? '教室待複核' : '尚無可核教室'}</span></span></label>${abstractDetails(t, 'option')}</div>`;
         }).join('');
         return `<div class="special-slot" data-group="${group.id}"><div class="special-slot-heading"><h4>${escape(group.start)}–${escape(group.end)}</h4><span class="${mutual ? 'conflict-badge' : 'no-conflict'}">${mutual ? group.talks.length + ' 場同時段互撞，需擇一' : '本時段 1 場演講'}</span></div><div class="special-options"><fieldset><legend class="sr-only">${escape(group.start)}演講，擇一加入路線</legend><label class="special-option special-skip"><input type="radio" name="special-${group.id}" data-special-group="${group.id}" value=""${chosen ? '' : ' checked'}><span>不加入此時段演講</span></label>${options}</fieldset></div></div>`;
       }).join('');
@@ -58,7 +69,7 @@
 
     function specialCard(event) {
       const clashes = eventConflicts(event);
-      return `<article class="session-card special-card" id="special-card-${event.key}" data-special-key="${event.key}"><div class="session-time"><time datetime="${event.date}T${event.start}:00-08:00">${escape(event.start)}</time><span>— ${escape(event.end)}</span></div><div class="session-content"><div class="session-topline"><span class="badge badge-special">${escape(event.type)}</span>${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(label).join('、')) + ' 撞場</span>' : '<span class="no-conflict">與已選行程無時間重疊</span>'}</div><h3 class="session-title" lang="en">${escape(event.title)}</h3><p><strong>${escape(event.speaker)}</strong> · ${escape(event.kind)}</p><p class="session-location">${escape(event.room_short || '教室待官方確認')}${event.floor ? ' · ' + escape(event.floor) : ''}</p><p class="source-pages">${event.source_pages.length ? '書冊第 ' + escape(sourcePages(event)) + ' 頁 · 教室待複核' : '教室尚無可核資料'} · 題名與時間依10/27官方演講頁</p></div></article>`;
+      return `<article class="session-card special-card" id="special-card-${event.key}" data-special-key="${event.key}"><div class="session-time"><time datetime="${event.date}T${event.start}:00-08:00">${escape(event.start)}</time><span>— ${escape(event.end)}</span></div><div class="session-content"><div class="session-topline"><span class="badge badge-special">${escape(event.type)}</span>${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(label).join('、')) + ' 撞場</span>' : '<span class="no-conflict">與已選行程無時間重疊</span>'}</div><h3 class="session-title" lang="en">${escape(event.title)}</h3><p><strong>${escape(event.speaker)}</strong> · ${escape(event.kind)}</p><p class="session-location">${escape(event.room_short || '教室待官方確認')}${event.floor ? ' · ' + escape(event.floor) : ''}</p>${abstractDetails(event, 'card')}<p class="source-pages">${event.source_pages.length ? '書冊第 ' + escape(sourcePages(event)) + ' 頁 · 教室待複核' : '教室尚無可核資料'} · 題名與時間依10/27官方演講頁</p></div></article>`;
     }
 
     function save() {
@@ -110,7 +121,7 @@
       const rows = events.map(event => {
         if (event.special) {
           const clashes = eventConflicts(event);
-          return `<tr class="special-table-row" data-special-key="${event.key}"><td data-label="時間"><div class="cell-content table-time">${escape(event.start)}–${escape(event.end)}</div></td><td data-label="場次"><div class="cell-content"><span class="badge badge-special">${escape(event.type)}</span><strong>${escape(event.speaker)}</strong><p class="session-title" lang="en">${escape(event.title)}</p></div></td><td data-label="教室"><div class="cell-content"><strong>${escape(event.room_short || '教室待官方確認')}</strong>${event.floor ? '<br>' + escape(event.floor) : ''}<br><small>教室待複核</small></div></td><td data-label="重點與備選"><div class="cell-content">${escape(event.kind)}<p class="${clashes.length ? 'conflict-badge' : 'no-conflict'}">${clashes.length ? '與 ' + escape(clashes.map(label).join('、')) + ' 撞場' : '與已選行程無時間重疊'}</p></div></td></tr>`;
+          return `<tr class="special-table-row" data-special-key="${event.key}"><td data-label="時間"><div class="cell-content table-time">${escape(event.start)}–${escape(event.end)}</div></td><td data-label="場次"><div class="cell-content"><span class="badge badge-special">${escape(event.type)}</span><strong>${escape(event.speaker)}</strong><p class="session-title" lang="en">${escape(event.title)}</p></div></td><td data-label="教室"><div class="cell-content"><strong>${escape(event.room_short || '教室待官方確認')}</strong>${event.floor ? '<br>' + escape(event.floor) : ''}<br><small>教室待複核</small></div></td><td data-label="重點與備選"><div class="cell-content">${escape(event.kind)}<p class="${clashes.length ? 'conflict-badge' : 'no-conflict'}">${clashes.length ? '與 ' + escape(clashes.map(label).join('、')) + ' 撞場' : '與已選行程無時間重疊'}</p>${abstractDetails(event, 'table')}</div></td></tr>`;
         }
         const slot = event.slot;
         const s = selected(slot);
@@ -177,6 +188,14 @@
       render();
       save();
     });
+
+    document.getElementById('interactive-route').addEventListener('toggle', event => {
+      const details = event.target;
+      if (!details.matches?.('details.event-abstract')) return;
+      const instance = details.dataset.abstractInstance;
+      if (details.open) openAbstracts.add(instance);
+      else openAbstracts.delete(instance);
+    }, true);
 
     document.getElementById('interactive-route').addEventListener('change', event => {
       const specialInput = event.target.closest('input[data-special-group]');

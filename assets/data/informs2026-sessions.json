@@ -762,7 +762,18 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將從整體系統看AI，討論人與電腦如何因參與誘因而提供資料、合作並取得價值。講者將以equilibria的計算為重點，透過案例連結microeconomics、learning、統計與決策，說明共同活動及個體行為如何影響系統。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          108,
+          109
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第108–109頁。"
+      }
     },
     {
       "key": "wang",
@@ -782,7 +793,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將介紹LabOS如何結合multimodal perception、self-evolving agents與XR，讓AI理解實驗現場並協助執行。講者將以生醫及材料研究為例，說明多個AI模型、smart glasses與robots如何支援人與AI共同參與實驗。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          539
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第539頁。"
+      }
     },
     {
       "key": "dwork",
@@ -803,7 +824,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將以indistinguishability連結zero-knowledge proofs、privacy與cryptography等概念，說明在特定條件下無法區分兩種情況，如何成為演算法設計的基礎。講者也將討論不同形式的應用，以及這類定義對現代計算系統價值問題的意義。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          539
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第539頁。"
+      }
     },
     {
       "key": "vanroy",
@@ -823,7 +854,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將討論AI採用未能充分表達人類偏好的目標時，為何可能出現不良結果。講者預告會定義catastrophic performance，說明能力足夠高時，固定consequentialist objective與此結果的關係，並介紹alignment近期工作。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          540
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第540頁。"
+      }
     },
     {
       "key": "smilowitz",
@@ -843,7 +884,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將以公共教育近用為主，連結教育議題與optimization、computing及geographic information systems的進展。講者會透過與學區合作的重整案例，說明模型如何進入實務規劃，並討論公共部門採用模型時面對的挑戰，以及研究與實務合作的經驗。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          694
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第694頁。"
+      }
     },
     {
       "key": "microsoft",
@@ -864,7 +915,15 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "官方介紹IFS與OptiGuide如何支援雲端供應鏈規劃。重點包括自動安排全球出貨、解釋規劃結果，以及協助人員探索不同情境。",
+        "summary_label": "中文重點整理｜官方專案介紹重點",
+        "source_type": "official_project_introduction",
+        "source_pages": [],
+        "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+        "abstract_version_note": "來源：10/27官方專案介紹；10/14書冊未附摘要。"
+      }
     },
     {
       "key": "romero",
@@ -884,7 +943,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將從LIME與SHAP等個別解釋出發，討論如何理解多個人的模型行為。重點包括群體中哪些特徵影響解釋、解釋是否一致與公平，以及如何共同呈現解釋相近的人；講者將說明Operations Research如何處理這些問題，從個別解釋進一步理解群體。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          1117
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第1117頁。"
+      }
     },
     {
       "key": "ye",
@@ -902,7 +971,15 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方確認（原書冊未列此講者）",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "將介紹AI與ML輔助Linear Programming及SDP的近期進展。重點涵蓋GPU實作，並說明這些進展在計算與決策上，如何影響LLM serving等領域的應用。",
+        "summary_label": "中文重點整理",
+        "source_type": "current_official_page",
+        "source_pages": [],
+        "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+        "abstract_version_note": "來源：10/27官方演講摘要。"
+      }
     },
     {
       "key": "allgor",
@@ -922,7 +999,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將討論供應鏈模型如何從提出建議走向獲准執行決策。講者強調需先設定目標與限制，以人工基準及困難案例評估，再逐步擴大權限，並保留負責人、例外處理與停止機制；重點是組織、資料與問責如何支援實際部署。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          1212
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第1212頁。"
+      }
     },
     {
       "key": "shen",
@@ -942,7 +1029,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將以AI-assisted emergency care、home-based robotics、wearable biosensors及optical imaging等研究為例，討論工程與醫學從研究初期合作的可能方式。講者主張這種整合可把醫療重點移向預防、早期發現與介入，也會討論機構與個人需要作出的改變。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          1633
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第1633頁。"
+      }
     },
     {
       "key": "sokol",
@@ -962,7 +1059,15 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "官方介紹MSA教育專案如何整合跨領域課程與企業實作。並說明實體及線上學習、彈性進修與學習支持，以服務不同背景的學生。",
+        "summary_label": "中文重點整理｜官方專案介紹重點",
+        "source_type": "official_project_introduction",
+        "source_pages": [],
+        "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+        "abstract_version_note": "來源：10/27官方專案介紹；10/14書冊未附摘要。"
+      }
     },
     {
       "key": "fernandez",
@@ -983,7 +1088,17 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將回顧Location Science由幾何與經濟問題發展成多種實務模型的過程，並討論整合不同決策的hybrid models及多方目標的multi-level problems。講者也將探討研究範圍擴張時，研究者社群聯繫可能減弱的原因，以及未來的挑戰與方向。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          1633
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第1633頁。"
+      }
     },
     {
       "key": "lodi",
@@ -1004,7 +1119,18 @@
       "time_verified_on": "2026-10-27",
       "room_live_verified": false,
       "room_status": "教室待官方複核",
-      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/"
+      "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+      "abstract": {
+        "summary_zh": "演講將討論配合GPU設計Mixed-Integer Optimization的構想。原書冊提出批次處理LP與branch-and-bound節點；現行官方摘要另列neural proxies與graph neural networks的想法，並將其與保留exactness的要求一起討論。",
+        "summary_label": "中文重點整理",
+        "source_type": "user_provided_program_book_with_current_official_supplement",
+        "source_pages": [
+          1815,
+          1816
+        ],
+        "source_url": "https://meetings.informs.org/wordpress/annual/plenaries-keynotes/",
+        "abstract_version_note": "來源：10/14議程書冊第1815–1816頁，另補充10/27官網的第3項構想。"
+      }
     }
   ],
   "special_talks_checked_on": "2026-10-27",
@@ -1047,5 +1173,6 @@
         "selection_note": "這三場互相重疊，只能選一場完整聽。"
       }
     ]
-  }
+  },
+  "special_talk_abstracts_checked_on": "2026-10-27"
 }

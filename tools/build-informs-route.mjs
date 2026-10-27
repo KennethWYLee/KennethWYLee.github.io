@@ -23,6 +23,13 @@ for (const session of data.sessions) {
   }
 }
 const overlaps = (a, b) => a.date === b.date && a.start < b.end && a.end > b.start;
+function abstractDetails(talk) {
+  assert(talk.abstract?.summary_zh, `Missing abstract: ${talk.key}`);
+  const abstract = talk.abstract;
+  const paragraphs = abstract.summary_zh.split(/\n+/).filter(Boolean).map(text => `<p>${escape(text)}</p>`).join('');
+  assert(abstract.source_url?.startsWith('https://'), `Missing abstract source: ${talk.key}`);
+  return `<details class="event-abstract"><summary aria-label="查看 ${escape(talk.speaker)} 的摘要">摘要</summary><div class="abstract-body" lang="zh-Hant"><p class="abstract-meta">${escape(abstract.summary_label)}</p>${paragraphs}<p class="abstract-source">${escape(abstract.abstract_version_note)} · <a href="${escape(abstract.source_url)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></p></div></details>`;
+}
 const fallback = data.days.map(day => {
   const events = [...data.sessions, ...data.special_talks].filter(s => s.date === day.date).sort((a, b) => a.start.localeCompare(b.start));
   const rows = events.map(s => {
@@ -30,7 +37,7 @@ const fallback = data.days.map(day => {
     const technicalClashes = special ? [...data.sessions, ...data.alternatives].filter(t => overlaps(s, t)).map(t => t.code) : [];
     const mutual = special ? data.special_talks.filter(t => t.key !== s.key && overlaps(s, t)) : [];
     const note = special ? `${escape(s.kind)}；${technicalClashes.length ? '與技術場次 ' + escape(technicalClashes.join('、')) + ' 撞場' : '與表列技術場次無重疊'}${mutual.length ? '；同時段另有' + mutual.length + '場演講，需擇一' : ''}` : escape(s.priority);
-    return `<tr${special ? ' class="special-table-row"' : ''}><td data-label="時間"><div class="cell-content">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><strong>${escape(s.code || s.speaker)}</strong><br>${escape(s.title)}</div></td><td data-label="教室"><div class="cell-content">${escape(s.room || '教室待官方確認')}</div></td><td data-label="安排"><div class="cell-content">${note}</div></td></tr>`;
+    return `<tr${special ? ' class="special-table-row"' : ''}><td data-label="時間"><div class="cell-content">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><strong>${escape(s.code || s.speaker)}</strong><br>${escape(s.title)}</div></td><td data-label="教室"><div class="cell-content">${escape(s.room || '教室待官方確認')}</div></td><td data-label="安排"><div class="cell-content">${note}${special ? abstractDetails(s) : ''}</div></td></tr>`;
   }).join('\n');
   return `<section class="static-day"><h3>${escape(day.label)}</h3><div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}建議場次 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">安排</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }).join('\n');
