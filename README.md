@@ -9,6 +9,7 @@ Static personal academic website for GitHub Pages.
 - Verified journal publication record, 2011–2025
 - Academic experience and education
 - Teaching areas and contact links
+- INFORMS 2026 daily session itinerary, room order, and same-time alternatives
 
 ## Local preview
 
@@ -37,3 +38,11 @@ Assets are pinned to immutable upstream commits, retain their licenses, and do n
 - `tools/vendor.mjs` — optional asset download and offline integrity check; not loaded by the webpage
 
 The current site is an original rewrite and does not load the legacy Bootstrap template or its third-party assets.
+
+## Conference itinerary
+
+`informs-2026.html` adds a Chinese-language itinerary with four day selectors, route and table views, a priority filter, same-time alternatives, and printing. Choices are stored in the visitor's browser; no server or external service receives them. A full 16-session table remains available when JavaScript is disabled.
+
+Maintain `assets/data/informs2026-sessions.json` and `tools/informs-2026.template.html`, then regenerate the page with `node tools/build-informs-route.mjs`. The behavior and styles are maintained in `js/informs-2026.js` and `css/informs-2026.css`. The generation command needs only Node.js built-ins and does not change the homepage.
+
+All times are San Francisco local time. Overall technical-session time blocks were checked against the official agenda on October 27, 2026; individual titles and rooms still follow the October 14 program book and remain provisional. The itinerary gives room order without inventing walking times or individual paper schedules.

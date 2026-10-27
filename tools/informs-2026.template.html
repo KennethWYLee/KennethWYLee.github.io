@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="INFORMS 2026 聽會行程：每日場次、教室前往順序、撞場備選及表格。時間均為舊金山當地時間。">
+  <meta name="theme-color" content="#f6f8fa">
+  <meta name="robots" content="noindex, nofollow">
+  <title>INFORMS 2026 聽會行程 | Wen-Yi Kenneth Lee</title>
+  <link rel="icon" type="image/png" href="images/og.png">
+  <link rel="preload" href="assets/vendor/inter/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/vendor/modern-normalize/modern-normalize.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/informs-2026.css">
+  <script src="js/informs-2026.js" defer></script>
+</head>
+<body class="conference-page">
+  <a class="skip-link" href="#main">跳至行程</a>
+  <div class="conference-shell">
+    <header class="conference-header">
+      <a class="brand-link" href="index.html">Wen-Yi Kenneth Lee</a>
+      <a class="back-link" href="index.html">← 個人首頁</a>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <div class="conference-hero">
+        <div>
+          <p class="conference-kicker">2026 INFORMS Annual Meeting</p>
+          <h1>每天去哪一場？</h1>
+          <p>按時間看場次與教室，替每天留下一條清楚的前往順序。</p>
+        </div>
+        <dl class="event-meta">
+          <div><dt>日期</dt><dd>November 1–4, 2026</dd></div>
+          <div><dt>場地</dt><dd>Moscone Center South</dd></div>
+          <div><dt>時間</dt><dd>舊金山當地時間</dd></div>
+        </dl>
+      </div>
+
+      <aside class="source-notice" aria-label="議程核對狀態">
+        <strong>教室與個別場次仍待複核</strong>
+        <p>以下依 10 月 14 日議程書冊暫排。整體技術場次時間已於 10 月 27 日對照<a href="https://meetings.informs.org/wordpress/annual/agenda/" target="_blank" rel="noopener noreferrer">官方總議程</a>；出發前仍請核對各場教室與題名。</p>
+      </aside>
+
+      <p id="load-status" class="status-line" role="status">下方提供完整表格；互動行程正在載入。</p>
+      <div id="interactive-route" hidden>
+        <div class="conference-controls" aria-label="行程選項">
+          <div id="day-tabs" class="day-tabs" role="group" aria-label="選擇日期"></div>
+          <div class="toolbar-actions">
+            <label class="priority-filter"><input id="priority-only" type="checkbox" checked> 只看優先與保留</label>
+            <div class="view-switch" role="group" aria-label="顯示方式">
+              <button class="view-button" type="button" data-view="route" aria-pressed="true">行程</button>
+              <button class="view-button" type="button" data-view="table" aria-pressed="false">表格</button>
+            </div>
+            <button id="print-day" type="button">列印這一天</button>
+            <button id="reset-route" type="button">恢復原建議</button>
+          </div>
+        </div>
+
+        <div class="day-heading">
+          <div><h2 id="day-title"></h2><p id="day-theme" class="day-theme"></p></div>
+          <p id="day-count"></p>
+        </div>
+        <section class="route-panel" aria-labelledby="route-title">
+          <h3 id="route-title">今天的前往順序</h3>
+          <ol id="route-stops" class="route-stops"></ol>
+          <p>這是教室的先後順序；樓層依議程標示，不含步行距離或時間。</p>
+        </section>
+        <div id="timeline" class="session-list"></div>
+        <div id="table-view" hidden></div>
+        <p class="status-line">同時段只選一場。可加聽場次可改成休息、交流或整理；勾選「只看優先與保留」時，每天最多三場。選場會保存在目前瀏覽器。</p>
+      </div>
+
+      <div id="static-schedule">
+        <h2>完整建議行程</h2>
+        <p>16 個主選時段。可加聽不列為必聽；備選請對照官方議程。</p>
+        {{STATIC_SCHEDULE}}
+      </div>
+
+      <footer class="conference-footer">
+        <p>優先留意 MB40、MD18、ME36、TC30；WB35 保留整場。表中只列整場 session，不推算單篇報告時間。</p>
+        <p><a href="https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/default.aspx" target="_blank" rel="noopener noreferrer">完整技術議程 ↗</a> · <a href="https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx" target="_blank" rel="noopener noreferrer">Program Book ↗</a> · <a href="https://arxiv.org/abs/2606.21773" target="_blank" rel="noopener noreferrer">MD18 教程原稿 ↗</a></p>
+        <p>MD18 內容採新版 Decision-Focused Learning 教程；時間與教室仍依原書冊。這份行程為會前安排。</p>
+      </footer>
+    </main>
+  </div>
+  <script id="informs-data" type="application/json">{{SESSION_DATA}}</script>
+</body>
+</html>
