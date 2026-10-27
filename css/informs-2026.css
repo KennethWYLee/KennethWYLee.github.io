@@ -569,6 +569,28 @@
   color: var(--accent-dark);
 }
 
+.session-choice-item {
+  min-width: 0;
+  margin-bottom: 0.75rem;
+}
+
+.session-choice-item > .session-choice {
+  margin-bottom: 0;
+  border-radius: 7px 7px 0 0;
+}
+
+.conference-page .session-choice-item > .event-abstract {
+  margin: 0;
+  padding-inline: 0.8rem;
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 7px 7px;
+}
+
+.static-alternative {
+  margin-block: 1rem;
+}
+
 .source-pages {
   display: flex;
   flex-wrap: wrap;
