@@ -40,6 +40,7 @@
     const label = event => event.special ? event.speaker : selected(event.slot).code;
     let displayedEvents = [];
     const openAbstracts = new Set();
+    const openPapers = new Set();
 
     function abstractDetails(item, context) {
       if (!item.abstract?.summary_zh) return '';
@@ -49,6 +50,19 @@
       const url = abstract.source_url;
       const source = typeof url === 'string' && url.startsWith('https://') ? `<a href="${escape(url)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a>` : '';
       return `<details class="event-abstract" data-abstract-instance="${instance}"${openAbstracts.has(instance) ? ' open' : ''}><summary aria-label="查看 ${escape(item.speaker || item.code)} 的摘要">摘要</summary><div class="abstract-body" lang="zh-Hant"><p class="abstract-meta">${escape(abstract.summary_label || '中文重點整理')}</p>${paragraphs}<p class="abstract-source">${escape(abstract.abstract_version_note || '')}${source ? ' · ' + source : ''}</p></div></details>`;
+    }
+
+    function paperList(session, context, collapsed = false) {
+      if (!session.papers?.length) return '';
+      const heading = `論文題目與作者（${session.papers.length}）`;
+      const papers = session.papers.map(paper => {
+        const instance = `${context}-${session.code}-${paper.key}`;
+        const paragraphs = paper.summary_zh.split(/\n+/).filter(Boolean).map(text => `<p>${escape(text)}</p>`).join('');
+        const source = paper.source_url?.startsWith('https://') ? `<a href="${escape(paper.source_url)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a>` : '';
+        const authorSource = paper.authors_source_url?.startsWith('https://') ? ` · <a href="${escape(paper.authors_source_url)}" target="_blank" rel="noopener noreferrer">作者資料 ↗</a>` : '';
+        return `<details class="paper-item" data-paper-instance="${instance}" data-paper-key="${paper.key}" data-session-code="${session.code}"${openPapers.has(instance) ? ' open' : ''}><summary class="paper-summary"><span class="paper-heading"><span class="paper-number">${paper.number}.</span> <span class="paper-title" lang="en">${escape(paper.title)}</span></span><span class="paper-authors"><span>作者：</span><span lang="en">${escape(paper.authors.join('; '))}</span></span></summary><div class="abstract-body paper-abstract" lang="zh-Hant"><p class="abstract-meta">${escape(paper.summary_label)}</p>${paragraphs}<p class="abstract-source">${escape(paper.source_note)}${source ? ' · ' + source : ''}${authorSource}</p></div></details>`;
+      }).join('');
+      return collapsed ? `<details class="paper-list-disclosure"><summary>${heading}</summary><div class="paper-items">${papers}</div></details>` : `<section class="session-papers" aria-label="${session.code} ${heading}"><h4>${heading}</h4><div class="paper-items">${papers}</div></section>`;
     }
 
     function eventConflicts(event) {
@@ -86,7 +100,7 @@
       const choices = [slot.code, ...slot.alternative_codes].map(code => {
         const option = byCode.get(code);
         const checked = selected(slot).code === code ? ' checked' : '';
-        return `<div class="session-choice-item"><label class="session-choice"><input type="radio" name="${context}-${slot.code}" value="${escape(code)}" data-slot="${slot.code}"${checked}><span><strong>${escape(code)}${code === slot.code ? ' · 原建議' : ''}</strong> ${escape(option.title)}<small>${escape(option.room_short)} · ${escape(option.floor)}</small></span></label>${abstractDetails(option, `${context}-alternative-${slot.code}`)}</div>`;
+        return `<div class="session-choice-item"><label class="session-choice"><input type="radio" name="${context}-${slot.code}" value="${escape(code)}" data-slot="${slot.code}"${checked}><span><strong>${escape(code)}${code === slot.code ? ' · 原建議' : ''}</strong> ${escape(option.title)}<small>${escape(option.room_short)} · ${escape(option.floor)}</small></span></label>${abstractDetails(option, `${context}-alternative-${slot.code}`)}${paperList(option, `${context}-alternative-${slot.code}`, true)}</div>`;
       }).join('');
       return `<details class="session-alternatives"><summary>同時段備選（${slot.alternative_codes.length}）</summary><div class="choice-list"><fieldset><legend class="sr-only">${escape(slot.start)}至${escape(slot.end)}，只選一場</legend>${choices}</fieldset><p>${escape(slot.selection_note)}</p></div></details>`;
     }
@@ -113,6 +127,7 @@
         <p class="session-location">${escape(s.room_short)} <span>· ${escape(s.floor)}</span></p>
         ${prompt ? `<p class="session-question">${escape(prompt)}</p>` : ''}
         ${abstractDetails(s, 'card')}
+        ${paperList(s, 'card')}
         ${choiceList(slot, 'card')}
         <p class="source-pages">書冊第 ${escape(sourcePages(s))} 頁 · 教室待官方複核</p></div>
       </article>`;
@@ -127,7 +142,7 @@
         const slot = event.slot;
         const s = selected(slot);
         const prompt = question(slot, s);
-        return `<tr id="table-row-${slot.code}" data-code="${escape(s.code)}"><td data-label="時間"><div class="cell-content table-time">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><div class="session-topline"><strong class="session-code">${escape(s.code)}</strong>${badges(slot, s)}</div><p class="session-title" lang="en">${escape(s.title)}</p></div></td><td data-label="教室"><div class="cell-content"><strong>${escape(s.room_short)}</strong><br>${escape(s.floor)}<br><small>教室待複核</small></div></td><td data-label="重點與備選"><div class="cell-content">${prompt ? `<p>${escape(prompt)}</p>` : ''}${abstractDetails(s, 'table')}${choiceList(slot, 'table')}<p class="source-pages">書冊第 ${escape(sourcePages(s))} 頁</p></div></td></tr>`;
+        return `<tr id="table-row-${slot.code}" data-code="${escape(s.code)}"><td data-label="時間"><div class="cell-content table-time">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><div class="session-topline"><strong class="session-code">${escape(s.code)}</strong>${badges(slot, s)}</div><p class="session-title" lang="en">${escape(s.title)}</p></div></td><td data-label="教室"><div class="cell-content"><strong>${escape(s.room_short)}</strong><br>${escape(s.floor)}<br><small>教室待複核</small></div></td><td data-label="重點與備選"><div class="cell-content">${prompt ? `<p>${escape(prompt)}</p>` : ''}${abstractDetails(s, 'table')}${paperList(s, 'table')}${choiceList(slot, 'table')}<p class="source-pages">書冊第 ${escape(sourcePages(s))} 頁</p></div></td></tr>`;
       }).join('');
       return `<div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}的目前安排 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">重點與備選</th></tr></thead><tbody>${rows}</tbody></table></div>`;
     }
@@ -192,6 +207,12 @@
 
     document.getElementById('interactive-route').addEventListener('toggle', event => {
       const details = event.target;
+      if (details.matches?.('details.paper-item')) {
+        const instance = details.dataset.paperInstance;
+        if (details.open) openPapers.add(instance);
+        else openPapers.delete(instance);
+        return;
+      }
       if (!details.matches?.('details.event-abstract')) return;
       const instance = details.dataset.abstractInstance;
       if (details.open) openAbstracts.add(instance);

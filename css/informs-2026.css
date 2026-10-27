@@ -591,6 +591,136 @@
   margin-block: 1rem;
 }
 
+.session-papers,
+.paper-list-disclosure {
+  min-width: 0;
+  margin-top: 1rem;
+}
+
+.conference-page .session-papers > h4 {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 550;
+  line-height: 1.6;
+}
+
+.paper-items {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.paper-item {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--white);
+}
+
+.paper-summary {
+  position: relative;
+  display: block;
+  min-height: 44px;
+  padding: 0.8rem 2rem 0.8rem 0.8rem;
+  list-style: none;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.paper-summary::-webkit-details-marker,
+.paper-list-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.paper-summary::after,
+.paper-list-disclosure > summary::after {
+  position: absolute;
+  top: 1.1rem;
+  right: 0.8rem;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  color: var(--accent);
+  transform: rotate(45deg);
+  content: "";
+}
+
+.paper-item[open] > .paper-summary::after,
+.paper-list-disclosure[open] > summary::after {
+  transform: rotate(225deg);
+}
+
+.paper-summary:hover,
+.paper-list-disclosure > summary:hover {
+  background: var(--surface);
+}
+
+.paper-summary:focus-visible,
+.paper-list-disclosure > summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.paper-heading {
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1.6;
+}
+
+.paper-number {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.paper-authors {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.conference-page .paper-abstract {
+  padding: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.paper-list-disclosure > summary {
+  position: relative;
+  min-height: 44px;
+  padding: 0.65rem 2rem 0.65rem 0.8rem;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.paper-list-disclosure > .paper-items {
+  padding: 0.5rem 0.8rem 0.8rem;
+}
+
+.session-choice-item > .paper-list-disclosure {
+  margin-top: 0;
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 7px 7px;
+}
+
+.conference-page .session-choice-item > .event-abstract:has(+ .paper-list-disclosure) {
+  border-radius: 0;
+}
+
+@media print {
+  .session-papers,
+  .paper-list-disclosure {
+    display: none !important;
+  }
+}
+
 .source-pages {
   display: flex;
   flex-wrap: wrap;
