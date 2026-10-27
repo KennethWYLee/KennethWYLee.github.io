@@ -675,6 +675,40 @@
   font-variant-numeric: tabular-nums;
 }
 
+.paper-item.is-recommended {
+  border-color: #83aab0;
+}
+
+.paper-item.is-recommended > .paper-summary {
+  background: #f7fbfc;
+}
+
+.paper-focus-badge {
+  display: inline-block;
+  margin-right: 0.25rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid #9fbdc5;
+  border-radius: 4px;
+  color: #205764;
+  background: #e6f2f3;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.6;
+  vertical-align: 0.1em;
+}
+
+.paper-recommendation {
+  display: block;
+  margin-top: 0.65rem;
+  padding: 0.55rem 0.65rem;
+  border-left: 3px solid var(--accent);
+  color: #244d56;
+  background: #edf6f7;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
 .paper-authors {
   display: block;
   margin-top: 0.4rem;

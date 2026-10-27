@@ -228,7 +228,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第152頁。"
+          "source_note": "來源：10/14議程書冊，第152頁。",
+          "recommendation": {
+            "reason_zh": "直接檢查樣本平均估計風險時的樂觀偏差，連結資料不確定性與風險決策。可比較右尾無界、分布配適與 bootstrap 的假設，以及估計偏差如何改變保險定價。"
+          }
         },
         {
           "key": "paper-00418",
@@ -264,7 +267,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第152–153頁。"
+          "source_note": "來源：10/14議程書冊，第152–153頁。",
+          "recommendation": {
+            "reason_zh": "直接把迴歸模型未知與誤設納入 DRO，連結模型不確定性與 SAA。可比較有限樣本、漸近條件，以及模型假設對條件式投資組合決策的影響。"
+          }
         },
         {
           "key": "paper-00420",
@@ -461,7 +467,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第378頁。"
+          "source_note": "來源：10/14議程書冊，第378頁。",
+          "recommendation": {
+            "reason_zh": "以有限狀態與行動的 MDP 研究時間一致的 DCVaR，連結隨機決策與尾端風險。可比較其與 static CVaR 的下界關係，以及風險目標改變後的政策含義。"
+          }
         },
         {
           "key": "paper-01060",
@@ -478,7 +487,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第378頁。"
+          "source_note": "來源：10/14議程書冊，第378頁。",
+          "recommendation": {
+            "reason_zh": "同時處理混合權重與常態分布參數的估計誤差，直接對應分布不確定下的投資組合。可比較兩種穩健性衡量，以及它們如何改變指數效用最佳化的決策。"
+          }
         },
         {
           "key": "paper-01061",
@@ -528,7 +540,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第379頁。"
+          "source_note": "來源：10/14議程書冊，第379頁。",
+          "recommendation": {
+            "reason_zh": "以 SAA 的樣本複雜度連結分布尾部假設與隨機規劃。可比較只要求 p≥2 階矩存在時，資料尾部與維度如何影響樣本界限，作為選擇抽樣規模的理論參考。"
+          }
         }
       ]
     },
@@ -660,7 +675,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第479頁。"
+          "source_note": "來源：10/14議程書冊，第479頁。",
+          "recommendation": {
+            "reason_zh": "直接處理多期 DRO 的時間一致性，適合比較新資訊實現後的分布更新。也可比較何種連續變數設定會轉為對參數取最壞情況，及其對後續決策的影響。"
+          }
         },
         {
           "key": "paper-01364",
@@ -731,7 +749,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第753–754頁。"
+          "source_note": "來源：10/14議程書冊，第753–754頁。",
+          "recommendation": {
+            "reason_zh": "從 risk measure 推導不確定性的表達，可補上 UQ 到決策之間的連結。適合比較不同風險偏好如何改變不確定性表示、行動規則及有限樣本保證的條件。"
+          }
         },
         {
           "key": "paper-02138",
@@ -786,7 +807,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第754頁。"
+          "source_note": "來源：10/14議程書冊，第754頁。",
+          "recommendation": {
+            "reason_zh": "把條件預測分布的校準接到 Wasserstein DRO，直接連結不確定性與 robust optimization。適合比較依 context 調整的分布與 ambiguity set，如何影響決策及校準檢查。"
+          }
         }
       ]
     },
@@ -899,7 +923,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第871–872頁。"
+          "source_note": "來源：10/14議程書冊，第871–872頁。",
+          "recommendation": {
+            "reason_zh": "直接對應portfolio allocation under uncertainty，將downside risk與分布不確定性共同建模。可比較不同成本函數及參考分布下，最適投組與風險偏好之間的關係如何改變。"
+          }
         },
         {
           "key": "paper-02492",
@@ -1091,7 +1118,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1067–1068頁。"
+          "source_note": "來源：10/14議程書冊，第1067–1068頁。",
+          "recommendation": {
+            "reason_zh": "直接處理多期stochastic programs的scenario trees，在離散process與固定拓樸下比較兩種transport距離。適合看機率與樹結構保留了什麼，以及後續如何評估決策影響。"
+          }
         },
         {
           "key": "paper-03066",
@@ -1127,7 +1157,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1068頁。"
+          "source_note": "來源：10/14議程書冊，第1068頁。",
+          "recommendation": {
+            "reason_zh": "把有限資料、非平穩需求與多期DRO連起來，可看regimes與轉移結構如何影響序列決策。庫存與投組設定雖不同，分布狀態估計、ambiguity sets及決策影響可作具體對照。"
+          }
         }
       ]
     },
@@ -1250,7 +1283,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1177頁。"
+          "source_note": "來源：10/14議程書冊，第1177頁。",
+          "recommendation": {
+            "reason_zh": "將生成模型用於 robust contextual stochastic optimization，能連接你的三個方向。值得比較其連續密度與 bilevel 設定，以及收斂分析依賴的條件。"
+          }
         }
       ]
     },
@@ -1356,7 +1392,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1269頁。"
+          "source_note": "來源：10/14議程書冊，第1269頁。",
+          "recommendation": {
+            "reason_zh": "直接連接預測誤差、模型錯置與robust決策，且以投組作實驗。可比較robust SPO loss與實際重視的風險是否一致，以及正則化如何改變決策。"
+          }
         }
       ]
     },
@@ -1443,7 +1482,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1366頁。"
+          "source_note": "來源：10/14議程書冊，第1366頁。",
+          "recommendation": {
+            "reason_zh": "在多階段決策中處理 entropic risk 抽樣，可補上 stochastic 方向的風險與計算觀點。值得比較 SDDP 近似品質對抽樣分布與估計精度的影響。"
+          }
         },
         {
           "key": "paper-03884",
@@ -1461,7 +1503,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1367頁。"
+          "source_note": "來源：10/14議程書冊，第1367頁。",
+          "recommendation": {
+            "reason_zh": "同時處理多階段隨機規劃與未知分布，直接符合三個方向。可比較新資料到來時Wasserstein半徑的縮減規則，以及穩健解何時接近原隨機規劃解。"
+          }
         },
         {
           "key": "paper-03885",
@@ -1576,7 +1621,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1499頁。"
+          "source_note": "來源：10/14議程書冊，第1499頁。",
+          "recommendation": {
+            "reason_zh": "把市場狀態、交易成本與動態投組配置連到 stochastic 決策，與你既有投組研究貼近。可比較 belief-MDP 的資訊假設、不交易區域及 SDDP 近似對決策的影響。"
+          }
         },
         {
           "key": "paper-04251",
@@ -2061,7 +2109,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1782頁。"
+          "source_note": "來源：10/14議程書冊，第1782頁。",
+          "recommendation": {
+            "reason_zh": "以迴歸為設定，分析Interval CVaR在資料污染及擾動下的統計穩健性，與風險量測方向直接相連。可比較截除損失的規則、breakdown point與Prokhorov條件，釐清不同的robustness意義。"
+          }
         }
       ]
     }
@@ -2927,7 +2978,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第961頁。"
+          "source_note": "來源：10/14議程書冊，第961頁。",
+          "recommendation": {
+            "reason_zh": "將回歸殘差轉成decision-dependent SAA情境，直接對應contextual stochastic optimization。可看預測模型如何嵌入決策，並比較估計誤差、樣本外成本與求解負擔的條件。"
+          }
         },
         {
           "key": "paper-02747",
@@ -3068,7 +3122,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1057–1058頁。"
+          "source_note": "來源：10/14議程書冊，第1057–1058頁。",
+          "recommendation": {
+            "reason_zh": "可與 MD30 的殘差 SAA 對照：同樣結合回歸與決策依賴不確定性，這篇另建 Wasserstein ambiguity set。適合比較估計條件、有限樣本保證與計算負擔。"
+          }
         }
       ]
     },
@@ -3253,7 +3310,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1373頁。"
+          "source_note": "來源：10/14議程書冊，第1373頁。",
+          "recommendation": {
+            "reason_zh": "處理沒有目標分布樣本時的 robust 隨機決策，且含投組案例。可比較共同 meta-distribution 的假設、來源分布關係與保守程度，如何影響決策。"
+          }
         },
         {
           "key": "paper-03906",
@@ -4281,5 +4341,16 @@
   },
   "special_talk_abstracts_checked_on": "2026-10-27",
   "technical_session_abstracts_checked_on": "2026-10-27",
-  "paper_details_checked_on": "2026-10-27"
+  "paper_details_checked_on": "2026-10-27",
+  "paper_recommendations": {
+    "prepared_on": "2026-10-27",
+    "interests": [
+      "uncertainty",
+      "robust optimization",
+      "stochastic"
+    ],
+    "secondary_context": "既有個人頁的投組、風險量度、交易成本與再平衡研究",
+    "selection_basis": "依議程摘要中的研究設定、處理的不確定性與決策問題，挑選具直接關聯的報告。",
+    "recommended_count": 20
+  }
 }
