@@ -9,16 +9,17 @@ const data = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-
 const template = await readFile(path.join(root, 'tools/informs-2026.template.html'), 'utf8');
 const reading = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-reading.json'), 'utf8'));
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
-assert.equal(data.sessions.length, 16);
-assert.equal(data.alternatives.length, 15);
+assert.equal(data.sessions.length, 17);
+assert.equal(data.alternatives.length, 18);
 assert.equal(data.special_talks.length, 13);
 assert.equal(new Set(data.special_talks.map(t => t.key)).size, 13);
-assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, 31);
+assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, 35);
 const papers = [...data.sessions, ...data.alternatives].flatMap(session => session.papers || []);
-assert.equal(papers.length, 147);
-assert.equal(new Set(papers.map(paper => paper.key)).size, 147);
+assert.equal(papers.length, 168);
+assert.equal(new Set(papers.map(paper => paper.key)).size, 168);
 for (const session of data.sessions) {
   assert(session.start < session.end);
+  assert((session.previous_codes || []).every(code => session.alternative_codes.includes(code)));
   for (const code of session.alternative_codes) {
     const alternative = data.alternatives.find(a => a.code === code);
     assert(alternative);
@@ -70,8 +71,8 @@ const fallback = data.days.map(day => {
   return `<section class="static-day"><h3>${escape(day.label)}</h3><div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}建議場次 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">安排</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }).join('\n');
 const readingNav = `<nav class="reading-entry-links" aria-label="每日閱讀入口">${reading.guides.map(guide => `<a class="reading-entry" href="#${escape(guide.id)}"><span>${escape(guide.date.slice(5).replace('-', '/'))}</span> ${escape(guide.title)} →</a>`).join('')}</nav>`;
-const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{READING_NAV}}', readingNav).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c'));
-assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|READING_NAV|SESSION_DATA)\}\}/.test(output));
+const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{READING_NAV}}', readingNav).replace('{{TECHNICAL_SLOT_COUNT}}', String(data.sessions.length)).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c'));
+assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|READING_NAV|TECHNICAL_SLOT_COUNT|SESSION_DATA)\}\}/.test(output));
 assert(!/[CD]:[\\/]|file:\/\/\//.test(output));
 await writeFile(path.join(root, 'informs-2026.html'), output, 'utf8');
-console.log('Generated informs-2026.html: 16 technical slots, 15 alternatives, 13 special talks, 4 days.');
+console.log(`Generated informs-2026.html: ${data.sessions.length} technical slots, ${data.alternatives.length} alternatives, ${data.special_talks.length} special talks, ${reading.guides.length} days.`);

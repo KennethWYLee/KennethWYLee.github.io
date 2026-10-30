@@ -28,7 +28,7 @@
         <div>
           <p class="conference-kicker">2026 INFORMS Annual Meeting</p>
           <h1>每天聽什麼，先讀什麼？</h1>
-          <p>按日期看行程，用例子先理解問題，再留下每天能說清楚的收穫。</p>
+          <p>按日期看行程，用投資例子理解情境生成、風險與配置，再留下每天能說清楚的收穫。</p>
           {{READING_NAV}}
         </div>
         <dl class="event-meta">
@@ -43,6 +43,8 @@
         <p>技術場次與可核對的教室依 10 月 14 日書冊暫排；keynote／plenary 的題名與時間已於 10 月 27 日核對<a href="https://meetings.informs.org/wordpress/annual/plenaries-keynotes/" target="_blank" rel="noopener noreferrer">官方演講頁</a>。各場教室仍待官方複核；Yinyu Ye 的教室尚無可核資料。</p>
       </aside>
 
+      <p class="status-line">10/31 更新：第二天主選 MA47 → MC48 → ME48，第三天主選 TA47 → TC35 → TD47。原場次保留為備選或可加聽；每日教材依本版主選整理，plenary／keynote 全部保留作延伸閱讀。</p>
+
       <p id="load-status" class="status-line" role="status">下方提供完整表格；互動行程正在載入。</p>
       <div id="interactive-route" hidden>
         <div class="conference-controls" aria-label="行程選項">
@@ -54,7 +56,7 @@
               <button class="view-button" type="button" data-view="table" aria-pressed="false">表格</button>
             </div>
             <button id="print-day" type="button">列印這一天</button>
-            <button id="reset-route" type="button">恢復原建議</button>
+            <button id="reset-route" type="button">套用本版建議</button>
           </div>
         </div>
 
@@ -63,7 +65,7 @@
           <p id="day-count"></p>
         </div>
         <p class="status-line">各場可點「摘要」閱讀整場重點；下方列出各篇題目與作者，點論文題目可展開中文摘要與來源。MD18 採教程原稿。同時段備選也可先閱讀再選場。</p>
-        <p class="status-line">「重點」依 uncertainty、robust optimization、stochastic 方向挑選，也參考既有投組與風險研究；各篇旁列推薦理由，供安排聽會與閱讀。</p>
+        <p class="status-line">「重點」依情境生成、投組、風險與不確定性挑選；各篇旁列推薦理由。若曾自行選場，瀏覽器會保留原選擇，可按「套用本版建議」切換。</p>
         <div id="conflict-summary" class="conflict-summary" role="status"></div>
         <section class="route-panel" aria-labelledby="route-title">
           <h3 id="route-title">今天的前往順序</h3>
@@ -82,14 +84,14 @@
 
       <div id="static-schedule">
         <h2>完整建議行程</h2>
-        <p>16 個技術主選時段與13場 keynote／plenary；主選與備選均可展開摘要。晚間同時段演講需擇一，以下演講清單不代表已全部加入行程。</p>
+        <p>{{TECHNICAL_SLOT_COUNT}} 個技術時段（含可加聽）與13場 keynote／plenary；主選與備選均可展開摘要。晚間同時段演講需擇一，以下演講清單不代表已全部加入行程。</p>
         {{STATIC_SCHEDULE}}
       </div>
 
       {{READING_GUIDES}}
 
       <footer class="conference-footer">
-        <p>優先留意 MB40、MD18、ME36、TC30；WB35 保留整場。表中只列整場 session，不推算單篇報告時間。</p>
+        <p>第二天：MA47、MC48、ME48；第三天：TA47、TC35、TD47。WB35 保留整場。表中只列整場 session，不推算單篇報告時間。</p>
         <p><a href="https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/default.aspx" target="_blank" rel="noopener noreferrer">完整技術議程 ↗</a> · <a href="https://meetings.informs.org/wordpress/annual/plenaries-keynotes/" target="_blank" rel="noopener noreferrer">Keynote / Plenary 官方頁 ↗</a> · <a href="https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx" target="_blank" rel="noopener noreferrer">Program Book ↗</a> · <a href="https://arxiv.org/abs/2606.21773" target="_blank" rel="noopener noreferrer">MD18 教程原稿 ↗</a></p>
         <p>MD18 內容採新版 Decision-Focused Learning 教程；時間與教室仍依原書冊。這份行程為會前安排。</p>
       </footer>

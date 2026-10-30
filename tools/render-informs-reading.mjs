@@ -90,7 +90,8 @@ export function renderReadingGuides(reading, program) {
     assert.equal(stepIdsUsed.size, guide.steps.length, 'Unused reading lessons');
     assert.deepEqual(new Set(events.filter(e => e.item.code).map(e => e.item.code)), new Set(guide.session_codes));
     assert.deepEqual(new Set(events.filter(e => !e.item.code).map(e => e.item.key)), new Set(guide.special_keys || []));
-    assert.deepEqual(new Set(guide.session_codes), new Set(program.sessions.filter(session => session.date === guide.date).map(session => session.code)), 'Missing main sessions');
+    const requiredSessions = program.sessions.filter(session => session.date === guide.date && session.priority !== '可加聽');
+    requiredSessions.forEach(session => assert(guide.session_codes.includes(session.code), `Missing priority reading: ${session.code}`));
     assert.deepEqual(new Set(guide.special_keys), new Set(program.special_talks.filter(talk => talk.date === guide.date).map(talk => talk.key)), 'Missing special talks');
     return `<article class="daily-reading-guide" id="${guide.id}" aria-labelledby="${guide.id}-title">
       <header class="reading-header"><p class="reading-date"><time datetime="${guide.date}">${escape(guide.date)}</time> · 舊金山當地時間</p><h3 id="${guide.id}-title">${escape(guide.title)}</h3><p class="reading-theme">${escape(guide.theme)}</p></header>

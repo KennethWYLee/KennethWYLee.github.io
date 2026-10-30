@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "prepared_on": "2026-10-27",
+  "prepared_on": "2026-10-31",
   "event": {
     "name": "2026 INFORMS Annual Meeting",
     "dates": "November 1–4, 2026",
@@ -9,7 +9,7 @@
     "time_zone": "America/Los_Angeles"
   },
   "program_printed_on": "2026-10-14",
-  "time_blocks_verified_on": "2026-10-27",
+  "time_blocks_verified_on": "2026-10-31",
   "individual_session_title_room_live_verified": false,
   "days": [
     {
@@ -20,12 +20,12 @@
     {
       "date": "2026-11-02",
       "label": "11/2（一）",
-      "theme": "Uncertainty quantification · Decision-focused learning"
+      "theme": "金融情境生成、回測與資產相依"
     },
     {
       "date": "2026-11-03",
       "label": "11/3（二）",
-      "theme": "Robust optimization · Multistage decisions"
+      "theme": "條件情境、未見市場狀態與再平衡"
     },
     {
       "date": "2026-11-04",
@@ -702,6 +702,115 @@
       ]
     },
     {
+      "code": "MA47",
+      "title": "Best Student Paper Competition in Finance Cluster",
+      "date": "2026-11-02",
+      "start": "08:00",
+      "end": "09:15",
+      "room": "Moscone South-310 (Level 3)",
+      "room_short": "South-310",
+      "floor": "Level 3",
+      "source_pages": [
+        661,
+        662,
+        663
+      ],
+      "priority": "優先安排",
+      "question": "產生時間序列時如何避免使用未來資訊？非平穩市場中，資料時間與避險模型的誤差如何處理？",
+      "focus": "第1篇 Diffusion Models for Adaptive Sequential Data Generation.；第3篇 Adversarial Training for Deep Hedging in Nonstationary Markets",
+      "selection_note": "依使用者關注的時間序列生成與非平穩避險安排；場次與教室須現場核對。",
+      "alternative_codes": [],
+      "key_session": true,
+      "order": 6,
+      "abstract": {
+        "summary_zh": "本場四篇報告涵蓋循序資料生成、多目標家庭投資、非平穩市場避險及動態避險。第1篇考慮生成序列時可取得的歷史資訊，第3篇討論市場路徑權重與分布變動；第2篇議程摘要在原冊中截斷。",
+        "summary_label": "中文重點整理｜依場內4篇報告摘要",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          661,
+          662,
+          663
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊；個別場次與教室尚未即時核實。",
+        "paper_count": 4
+      },
+      "papers": [
+        {
+          "key": "paper-01878",
+          "number": 1,
+          "title": "Diffusion Models for Adaptive Sequential Data Generation.",
+          "authors": [
+            "Yinbin Han"
+          ],
+          "summary_zh": "研究依已生成的歷史循序產生資料，避免在生成時使用尚未取得的未來資訊；作者給出特定條件下的統計分析，並以合成資料與均值變異數投組示例。",
+          "source_pages": [
+            661,
+            662
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第661、662頁。",
+          "recommendation": {
+            "reason_zh": "主題直接關聯時間序列生成與可使用資訊；可聽作者如何保留跨期關係，並核對模擬與投組示例的條件。"
+          }
+        },
+        {
+          "key": "paper-01879",
+          "number": 2,
+          "title": "Portfolio Choice with Competing Precautionary",
+          "authors": [
+            "Ananya Parashar"
+          ],
+          "summary_zh": "研究家庭同時準備隨機期限與固定期限目標的投資選擇，以 Black–Scholes 市場及特定強制支付規則分析兩類目標的交互影響；原議程摘要末句截斷，後續結論待查。",
+          "source_pages": [
+            662
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第662頁。"
+        },
+        {
+          "key": "paper-01880",
+          "number": 3,
+          "title": "Adversarial Training for Deep Hedging in Nonstationary Markets",
+          "authors": [
+            "Philipp Schneider"
+          ],
+          "summary_zh": "研究非平穩市場的深度避險，對歷史路徑給不同權重，再考慮機率重新分配及路徑擾動；作者在合成與校準資料設定報告樣本外比較。",
+          "source_pages": [
+            662
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第662頁。",
+          "recommendation": {
+            "reason_zh": "直接對應非平穩市場與避險，可比較資料時間的權重、分布變動設定與樣本外評估條件。"
+          }
+        },
+        {
+          "key": "paper-01881",
+          "number": 4,
+          "title": "Tradable Itô Signatures: A Model-Free, Interpretable Framework for Dynamic Hedging",
+          "authors": [
+            "Binnan Wang"
+          ],
+          "summary_zh": "研究以 Itô signature 表示價格路徑，並以相應交易策略構造動態避險；摘要報告理論誤差界及模擬與指數選擇權資料比較，適用條件需看全文。",
+          "source_pages": [
+            662,
+            663
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第662、663頁。"
+        }
+      ]
+    },
+    {
       "code": "MB40",
       "title": "Bridging Uncertainty Quantification and Decision Making",
       "date": "2026-11-02",
@@ -714,13 +823,13 @@
         753,
         754
       ],
-      "priority": "優先安排",
+      "priority": "可加聽",
       "question": "保證是對整體資料、特定情境還是特定risk measure？",
       "focus": "Decision-Theoretic Foundations of Risk-Aware Uncertainty Quantification；Trustworthy Decision-Aware Predictive Distributions via Transport Maps",
-      "selection_note": "這場以UQ與決策為主，先保留。",
+      "selection_note": "本版三場優先技術場次以外的延伸，可改為休息或整理；本日詳細閱讀依新主選安排。這場以UQ與決策為主，先保留。",
       "alternative_codes": [],
-      "key_session": true,
-      "order": 6,
+      "key_session": false,
+      "order": 7,
       "abstract": {
         "summary_zh": "本場4篇報告把uncertainty quantification連到風險偏好、策略互動與人類決策。內容包括VaR目標下的不確定性表達、面對no-regret learners時如何使用建議，以及人類獨有資訊與預測呈現的影響。另一篇以transport maps校準條件分布，再建立Wasserstein DRO集合，提供貼近決策的診斷。",
         "summary_label": "中文重點整理｜依場內4篇報告摘要",
@@ -815,137 +924,174 @@
       ]
     },
     {
-      "code": "MC47",
-      "title": "Machine Learning and Robust Portfolios",
+      "code": "MC48",
+      "title": "Machine Learning, Volatility, and Financial Risk",
       "date": "2026-11-02",
       "start": "13:15",
       "end": "14:30",
-      "room": "Moscone South-310 (Level 3)",
-      "room_short": "South-310",
+      "room": "Moscone South-311 (Level 3)",
+      "room_short": "South-311",
       "floor": "Level 3",
       "source_pages": [
-        870,
-        871,
-        872
+        872,
+        873,
+        874
       ],
-      "priority": "可加聽",
-      "question": "訓練窗口與模型複雜度如何共同影響決策？",
-      "focus": "The Nonstationarity-Complexity Tradeoff in Return Prediction；Distributionally Robust Downside Risk Optimization",
-      "selection_note": "MC24偏異質資料與decision-dependent uncertainty；目前以portfolio為連結，先選MC47。若當日只聽三場，這場可改會後索文。",
+      "priority": "優先安排",
+      "question": "回測使用的每一項資料，在當時決策時點是否真的可取得？",
+      "focus": "第1篇 Auditing Point-in-Time Integrity in Financial Machine Learning Workflows",
+      "selection_note": "本版先看第1篇的回測時間洩漏；MC47保留為報酬預測、非平穩性與下檔風險備選，MC24為其他不確定性應用。",
       "alternative_codes": [
+        "MC47",
         "MC24"
       ],
-      "key_session": false,
-      "order": 7,
+      "key_session": true,
+      "order": 8,
       "abstract": {
-        "summary_zh": "本場5篇報告討論非平穩報酬預測、互相依賴的生醫投資、模型公開前後的回測偏誤、DRO downside risk與algorithmic pricing。重點包括模型複雜度與訓練窗口的共同選擇、分散投資與目標報酬的取捨，以及演算法學習造成的進入障礙。DRO投組的解析結果則採Mahalanobis distance與elliptical reference distribution等具體設定。",
-        "summary_label": "中文重點整理｜依場內5篇報告摘要",
+        "summary_zh": "本場七篇報告涵蓋金融機器學習的時間有效性、衍生品定價、保險與氣候、波動率校準、投組及供應鏈風險。第1篇整理如何檢查決策時點是否誤用了未來資訊。",
+        "summary_label": "中文重點整理｜依場內7篇報告摘要",
         "source_type": "user_provided_program_book",
         "source_pages": [
-          870,
-          871,
-          872
+          872,
+          873,
+          874
         ],
         "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "來源：10/14議程書冊，第870–872頁。",
-        "paper_count": 5
+        "abstract_version_note": "來源：10/14議程書冊；個別場次與教室尚未即時核實。",
+        "paper_count": 7
       },
       "papers": [
         {
-          "key": "paper-02488",
+          "key": "paper-02493",
           "number": 1,
-          "title": "The Nonstationarity-Complexity Tradeoff in Return Prediction",
+          "title": "Auditing Point-in-Time Integrity in Financial Machine Learning Workflows",
           "authors": [
-            "Kaizheng Wang",
-            "Agostino Capponi",
-            "Chengpiao Huang",
-            "Jose Sidaoui",
-            "Jiacheng Zou"
+            "Bruce Wilcox"
           ],
-          "summary_zh": "同時選擇報酬預測模型類別與訓練窗口，以處理模型誤設、估計變異與非平穩性間的取捨。作者以非平穩驗證資料進行tournament選模，並在17個產業投組報酬上報告樣本外預測與交易結果。",
+          "summary_zh": "整理金融機器學習流程中可能使用決策當時不可得資訊的情況，區分可由程式偵測、需警示及需查核中繼資料的風險，並提出原型及評估設計。",
           "source_pages": [
-            870,
-            871
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第870–871頁。"
-        },
-        {
-          "key": "paper-02489",
-          "number": 2,
-          "title": "Valuation and Portfolio Theory for Biomedical Investments",
-          "authors": [
-            "Chaoyi Zhao",
-            "Andrew Lo"
-          ],
-          "summary_zh": "把生醫專案估值與portfolio construction放在同一架構中，考慮共同科學、市場、策略互動及分階段投資。報告說明分散投資雖可能降低傳統風險指標，卻也可能降低達成目標報酬倍數的機率。",
-          "source_pages": [
-            871
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第871頁。"
-        },
-        {
-          "key": "paper-02490",
-          "number": 3,
-          "title": "The Anachronistic Testing-Date Bias of Machine Learning Strategies",
-          "authors": [
-            "Federico Tiberga"
-          ],
-          "summary_zh": "檢查機器學習策略的回測優勢，是否部分來自模型尚未公開、競爭者尚不能採用的測試期間。作者比較2005–2022年的八類模型與公開前後表現，報告部分alpha差異及局部窗口結果。",
-          "source_pages": [
-            871
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第871頁。"
-        },
-        {
-          "key": "paper-02491",
-          "number": 4,
-          "title": "Distributionally Robust Downside Risk Optimization",
-          "authors": [
-            "Zheng Liu",
-            "Nathan Lassance",
-            "Steven Vanduffel",
-            "Jing Yao"
-          ],
-          "summary_zh": "以lower partial moment描述downside risk，並用Wasserstein ball納入分布不確定性。報告推導convex dual與Slater條件，另在Mahalanobis成本和elliptical reference distribution下分析最適投組及其與mean–variance frontier的關係。",
-          "source_pages": [
-            871,
             872
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第871–872頁。",
+          "source_note": "來源：10/14議程書冊，第872頁。",
           "recommendation": {
-            "reason_zh": "直接對應portfolio allocation under uncertainty，將downside risk與分布不確定性共同建模。可比較不同成本函數及參考分布下，最適投組與風險偏好之間的關係如何改變。"
+            "reason_zh": "可直接檢查回測中的資料發布時點、特徵建構與驗證方式，釐清哪些錯誤須靠中繼資料才能判定。"
           }
         },
         {
-          "key": "paper-02492",
-          "number": 5,
-          "title": "Entry Deterrence by Algorithmic Pricing",
+          "key": "paper-02494",
+          "number": 2,
+          "title": "Caratheodory Neural Network (CaraNN) for Fast Derivative Pricing",
           "authors": [
-            "Patrick Chang",
-            "Alvaro Cartea",
-            "Jose Penalva"
+            "Joshua Kendrick",
+            "Liming Feng",
+            "Charlie Che"
           ],
-          "summary_zh": "以高頻交易市場模型研究自動定價演算法能否阻止其他交易商進入。作者指出，在所研究模擬中，即使均衡分析不支持持續排除，學習演算法仍可能形成limit price結果，且慢速交易商的最佳反應可穩定此學習結果。",
+          "summary_zh": "研究以神經網路近似衍生品定價，並在歐式、美式選擇權及可轉債測試預測與計算效率；摘要所述表現限於其測試設定。",
           "source_pages": [
-            872
+            872,
+            873
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第872頁。"
+          "source_note": "來源：10/14議程書冊，第872、873頁。"
+        },
+        {
+          "key": "paper-02495",
+          "number": 3,
+          "title": "A Deep Dive into Insurance Vulnerability to Climate Change",
+          "authors": [
+            "Joseph Wagner",
+            "Aparna Gupta",
+            "Krupa Viswanathan"
+          ],
+          "summary_zh": "結合長期氣候事件資料與保險公司業務及州別活動，分析不同地區和保險業者面臨的氣候風險與脆弱性。",
+          "source_pages": [
+            873
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第873頁。"
+        },
+        {
+          "key": "paper-02496",
+          "number": 4,
+          "title": "Volatility Calibration via Automatic Local Regression",
+          "authors": [
+            "ruozhong yang",
+            "Hao Qin",
+            "Charlie Che",
+            "Liming Feng"
+          ],
+          "summary_zh": "研究在局部波動率校準前平滑市場資料，以降低曲面與避險敏感度的不穩定；摘要報告特定數值測試結果。",
+          "source_pages": [
+            873
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第873頁。"
+        },
+        {
+          "key": "paper-02497",
+          "number": 5,
+          "title": "Robust and Fast Bass Local Volatility",
+          "authors": [
+            "Hao Qin",
+            "Charlie Che",
+            "ruozhong yang",
+            "Liming Feng"
+          ],
+          "summary_zh": "研究 Bass local volatility 所需邊際分布的構造與數值卷積，並以選擇權定價模型及市場案例比較校準與計算表現。",
+          "source_pages": [
+            873,
+            874
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第873、874頁。"
+        },
+        {
+          "key": "paper-02498",
+          "number": 6,
+          "title": "Countercyclical Risk Aversion and Volatility-Managed Portfolios",
+          "authors": [
+            "Xia Xu"
+          ],
+          "summary_zh": "研究風險趨避程度隨景氣變化與波動率管理投組的關係；作者以因子與交易異常資料報告相關策略比較，結果受樣本及方法限制。",
+          "source_pages": [
+            874
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第874頁。"
+        },
+        {
+          "key": "paper-02499",
+          "number": 7,
+          "title": "Structural Sensitivity in Supply Chain Networks",
+          "authors": [
+            "Amirmohammad Ebrahimi",
+            "Hamed Amini"
+          ],
+          "summary_zh": "研究供應鏈網路中生產力衝擊的傳遞，以及固定一個部門產出後對整體反應的影響；以美國投入產出資料及產業報酬估計比較。",
+          "source_pages": [
+            874
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第874頁。"
         }
+      ],
+      "previous_codes": [
+        "MC47"
       ]
     },
     {
@@ -961,15 +1107,15 @@
         942,
         943
       ],
-      "priority": "優先安排",
+      "priority": "可加聽",
       "question": "哪些預測或分布差異會改變決策？",
       "focus": "Mo Liu教程，聚焦stochastic linear programming、資料收集與分布比較；本機原稿",
-      "selection_note": "MD30 Contextual and Data-Driven Stochastic Optimization，South-208 (Level 2)。MD18先幫你判斷評估標準；已有明確DDU／adaptive robust問題時才改MD30。",
+      "selection_note": "本版三場優先技術場次以外的延伸，可改為休息或整理；本日詳細閱讀依新主選安排。MD30 Contextual and Data-Driven Stochastic Optimization，South-208 (Level 2)。MD18先幫你判斷評估標準；已有明確DDU／adaptive robust問題時才改MD30。",
       "alternative_codes": [
         "MD30"
       ],
-      "key_session": true,
-      "order": 8,
+      "key_session": false,
+      "order": 9,
       "abstract": {
         "summary_zh": "教程以stochastic linear programming與shortest-path例子，說明prediction error降低為何未必改善decision loss。內容從固定可行域、未知成本向量的設定出發，討論應在決策可能改變的區域蒐集資料，並以SPO loss評估預測所導致的決策。原稿也用normal cones解釋Wasserstein distance的幾何差異如何與決策差異不同，進一步介紹decision-focused distance。",
         "summary_label": "中文重點整理｜教程原稿重點",
@@ -1015,279 +1161,275 @@
       ]
     },
     {
-      "code": "ME36",
-      "title": "Distributionally Robust Optimization: Theory and Ambiguity Sets",
+      "code": "ME48",
+      "title": "Stock Return Prediction and Factor Models",
       "date": "2026-11-02",
       "start": "16:15",
       "end": "17:30",
-      "room": "Moscone South-214 (Level 2)",
-      "room_short": "South-214",
-      "floor": "Level 2",
+      "room": "Moscone South-311 (Level 3)",
+      "room_short": "South-311",
+      "floor": "Level 3",
       "source_pages": [
-        1066,
-        1067,
-        1068
+        1085,
+        1086,
+        1087
       ],
       "priority": "優先安排",
-      "question": "情境樹保留了哪些分布與結構？",
-      "focus": "第4篇 Scenario Tree Design under Wasserstein and Fused Gromov-Wasserstein Distances；第6篇 Ordering and Inventory Planning under Distributionally Robust Optimization with Regime Switching",
-      "selection_note": "ME30 Data-Driven Methods in Stochastic Optimization，South-208 (Level 2)。本輪以scenario-tree設計為先，保留ME36。",
+      "question": "如何根據各資產的邊際分布及市場資訊估計聯合相依結構？",
+      "focus": "第3篇 Recovering a model-free dependence implied in the foreign exchange market by solving a three-dimensional assignment problem",
+      "selection_note": "本版先看第3篇的多資產相依；ME36保留為情境樹與分布集合設計備選，ME30偏資料更新與求解資訊重用。",
       "alternative_codes": [
+        "ME36",
         "ME30"
       ],
       "key_session": true,
-      "order": 9,
+      "order": 10,
       "abstract": {
-        "summary_zh": "本場6篇報告涵蓋noncommutative Wasserstein、relaxed joint chance constraints、secretary problems中的DRO限制、scenario trees、擾動近似及regime-switching庫存規劃。scenario-tree研究以離散process與固定樹拓樸比較Wasserstein和Fused Gromov-Wasserstein；庫存研究從有限歷史資料估計需求狀態與轉移結構。另有報告探討允許部分期間違約的可靠度取捨，以及不用完整min–max求解近似DRO統計效應的構想。",
+        "summary_zh": "本場六篇報告涵蓋股票報酬預測、金融資產間相依性、因子報酬、投組估計及股權結構。第3篇使用外匯市場資訊研究三種貨幣的聯合相依性。",
         "summary_label": "中文重點整理｜依場內6篇報告摘要",
         "source_type": "user_provided_program_book",
         "source_pages": [
-          1066,
-          1067,
-          1068
+          1085,
+          1086,
+          1087
         ],
         "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "來源：10/14議程書冊，第1066–1068頁。",
+        "abstract_version_note": "來源：10/14議程書冊；個別場次與教室尚未即時核實。",
         "paper_count": 6
       },
       "papers": [
         {
-          "key": "paper-03062",
+          "key": "paper-03115",
           "number": 1,
-          "title": "Distributionally Robust Statistical Modeling with Noncommutative Wasserstein Ambiguity Sets",
+          "title": "Multi-relational graph convolutional network based on transformer architecture for stock market forecasting",
           "authors": [
-            "Martin Wang"
+            "Fang He"
           ],
-          "summary_zh": "將optimal transport延伸至density matrices等matrix-valued states，以noncommutative Wasserstein balls建立DRO集合。報告以有限資料估計矩陣結構後的抽樣誤差與模型不穩定為動機，討論robust regression、covariance modeling及診斷。",
+          "summary_zh": "以時間序列與資產間不同關係建構股票報酬預測模型；作者在四組資料上報告排名與預測表現。",
           "source_pages": [
-            1067
+            1085
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1067頁。"
+          "source_note": "來源：10/14議程書冊，第1085頁。"
         },
         {
-          "key": "paper-03063",
+          "key": "paper-03116",
           "number": 2,
-          "title": "Relaxed Joint Chance Constraints with Surrogate Tail Bounds",
+          "title": "When Noise Helps: Improving High-Dimensional Stock-Return Prediction by Random Perturbation",
           "authors": [
-            "Arjun Ramachandra",
-            "Bismark Singh"
+            "Shingo Goto",
+            "Masahiro Watanabe",
+            "Toru Yamada"
           ],
-          "summary_zh": "提出relaxed joint chance constraints，控制可未滿足限制的期間數量，以平衡可靠度與彈性。在finite support下，作者推導確定性等價式與tail-bound surrogate，並以風力資料比較目標值及計算表現。",
+          "summary_zh": "研究在高維股票報酬預測中對預測變數加入隨機擾動，並以美國股票特徵資料比較樣本外表現。",
           "source_pages": [
-            1067
+            1085,
+            1086
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1067頁。"
+          "source_note": "來源：10/14議程書冊，第1085、1086頁。"
         },
         {
-          "key": "paper-03064",
+          "key": "paper-03117",
           "number": 3,
-          "title": "When Worst-Case Isn't Robust: On the Limitations of Distributionally Robust Formulations in Secretary Problems",
+          "title": "Recovering a model-free dependence implied in the foreign exchange market by solving a three-dimensional assignment problem",
           "authors": [
-            "Anas Abdelhakmi",
-            "Andrew Lim"
+            "Norio Hibiki",
+            "Koki Arima",
+            "Yoshinori Kanamura",
+            "Riki Kase",
+            "Koichi Fujii"
           ],
-          "summary_zh": "在多種secretary problem設定及KL、Wasserstein集合下，作者發現DRO最適決策可能與nominal決策相同，卻未降低最壞偏離的報酬敏感度。報告以探索過程的衝擊解釋此現象，並討論付費召回已拒絕選項等hedging機制。",
+          "summary_zh": "研究以三維指派問題估計外匯市場三種貨幣的相依結構，再將邊際分布與 copula 結合為聯合分布；摘要報告模擬與歷史資料比較。",
           "source_pages": [
-            1067
+            1086
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1067頁。"
+          "source_note": "來源：10/14議程書冊，第1086頁。",
+          "recommendation": {
+            "reason_zh": "直接關聯多資產聯合分布與相依性；可辨認邊際分布、相依結構及資料來源如何影響估計。"
+          }
         },
         {
-          "key": "paper-03065",
+          "key": "paper-03118",
           "number": 4,
-          "title": "Scenario Tree Design under Wasserstein and Fused Gromov-Wasserstein Distances",
+          "title": "Monetary Factor Momentum",
           "authors": [
-            "Aysenur Karagoz",
-            "Shiqian Ma",
-            "Andrew Schaefer"
+            "Hongtao Qiu",
+            "Adam Farago",
+            "Erik Hjalmarsson",
+            "Ming Zeng"
           ],
-          "summary_zh": "在真實process為離散分布且scenario tree拓樸固定時，比較逐期Wasserstein與Fused Gromov-Wasserstein近似。兩種方法都形成連續非凸問題，並以block coordinate descent交替調整分布配置與成本結構。",
+          "summary_zh": "分析聯準會公開市場委員會公告後的因子報酬延續現象及其與市場條件的關係；機制解釋與實證結果為作者主張。",
           "source_pages": [
-            1067,
-            1068
+            1086
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1067–1068頁。",
-          "recommendation": {
-            "reason_zh": "直接處理多期stochastic programs的scenario trees，在離散process與固定拓樸下比較兩種transport距離。適合看機率與樹結構保留了什麼，以及後續如何評估決策影響。"
-          }
+          "source_note": "來源：10/14議程書冊，第1086頁。"
         },
         {
-          "key": "paper-03066",
+          "key": "paper-03119",
           "number": 5,
-          "title": "Fast Variability Approximation: Enhancing Statistical-Computational Tradeoffs of Distributionally Robust Optimization via Perturbation-Based Equivalents",
+          "title": "Integrate Mean-Variance Estimation with Portfolio Optimization",
           "authors": [
-            "Mohamed Lakhnichi",
-            "Henry Lam"
+            "Sirong Luo",
+            "Ziyang Wang"
           ],
-          "summary_zh": "研究能否擾動SAA得到的經驗最適解，以較低計算成本近似DRO的統計與robustness效應。報告建立擾動方向的分析架構，並討論直接梯度計算與可處理非光滑成本的bootstrap實作。",
+          "summary_zh": "將均值與共變異數估計連接投組決策目標，並以凸替代損失訓練；作者報告多組股票資料的樣本外比較。",
           "source_pages": [
-            1068
+            1086,
+            1087
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1068頁。"
+          "source_note": "來源：10/14議程書冊，第1086、1087頁。"
         },
         {
-          "key": "paper-03067",
+          "key": "paper-03120",
           "number": 6,
-          "title": "Ordering and Inventory Planning under Distributionally Robust Optimization with Regime Switching",
+          "title": "Price Efficiency Implications of Dual Class Structures in Public Firms: An Empirical Examination",
           "authors": [
-            "Yue WU",
-            "Xueliang Zheng",
-            "Zhenzhen Yan",
-            "Yuanguang Zhong"
+            "Susanna Khavul",
+            "Natalia Maganini",
+            "Nitin Singh",
+            "Abdul Rasheed"
           ],
-          "summary_zh": "針對需求在高低狀態間切換的多期庫存問題，從有限歷史資料估計regimes與轉移結構，建立Wasserstein DRO模型。作者推導copositive programming重寫及分布包含機率的保證，並以零件零售案例比較樣本外表現。",
+          "summary_zh": "使用配對樣本與首次公開發行公司資料，研究雙重股權與單一股權結構的價格效率；摘要將結果列為初步。",
           "source_pages": [
-            1068
+            1087
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1068頁。",
-          "recommendation": {
-            "reason_zh": "把有限資料、非平穩需求與多期DRO連起來，可看regimes與轉移結構如何影響序列決策。庫存與投組設定雖不同，分布狀態估計、ambiguity sets及決策影響可作具體對照。"
-          }
+          "source_note": "來源：10/14議程書冊，第1087頁。"
         }
+      ],
+      "previous_codes": [
+        "ME36"
       ]
     },
     {
-      "code": "TA40",
-      "title": "Artificial Intelligence and Robust Optimization",
+      "code": "TA47",
+      "title": "Generative and Predictive Learning: Theory, Algorithms, and Finance Applications",
       "date": "2026-11-03",
       "start": "08:00",
       "end": "09:15",
-      "room": "Moscone South-302 (Level 3)",
-      "room_short": "South-302",
+      "room": "Moscone South-310 (Level 3)",
+      "room_short": "South-310",
       "floor": "Level 3",
       "source_pages": [
-        1176,
-        1177
+        1186,
+        1187,
+        1188
       ],
       "priority": "優先安排",
-      "question": null,
-      "focus": "TA40的generative robust contextual工作。",
-      "selection_note": "TA30偏隨機數值演算法與oracle條件；TA40的generative robust contextual工作更貼目前建模問題。",
+      "question": "外部事件如何改變生成資料的條件分布？時間相依資料的預測區間如何評估？",
+      "focus": "第4篇 Conditioning Pretrained Diffusion Dynamics on External Events via Propagated Likelihoods；第3篇 Online Conformal Prediction for Non-Exchangeable Panel Data",
+      "selection_note": "本版先看第4篇的外部事件條件生成，第3篇為區間校準延伸；TA40保留為AI與robust建模備選，TA30偏求解理論。",
       "alternative_codes": [
+        "TA40",
         "TA30"
       ],
-      "key_session": false,
-      "order": 10,
+      "key_session": true,
+      "order": 11,
       "abstract": {
-        "summary_zh": "涵蓋不確定性下的投組建模、部分交易紀錄下的商品組合決策、Schrödinger bridge、風險規避強化學習，以及生成模型求解。報告將討論 LLM 如何區分建模與程式錯誤、多種合理模型設定的評估、歷史資料不足時的保守決策，以及 robust contextual stochastic optimization 的計算難度。",
-        "summary_label": "中文重點整理｜依場內5篇報告摘要",
+        "summary_zh": "本場四篇報告涵蓋擴散模型的策略學習、影像修補、縱橫資料的線上預測區間，以及依外部事件調整既有擴散生成過程。第4篇從外部事件的條件分布出發，第3篇討論時間相依與單位異質性。",
+        "summary_label": "中文重點整理｜依場內4篇報告摘要",
         "source_type": "user_provided_program_book",
         "source_pages": [
-          1176,
-          1177
+          1186,
+          1187,
+          1188
         ],
         "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "來源：10/14議程書冊，第1176–1177頁。",
-        "paper_count": 5
+        "abstract_version_note": "來源：10/14議程書冊；個別場次與教室尚未即時核實。",
+        "paper_count": 4
       },
       "papers": [
         {
-          "key": "paper-03364",
+          "key": "paper-03394",
           "number": 1,
-          "title": "PortOptBench: Benchmarking LLMs for Portfolio Optimization Modeling Under Uncertainty",
+          "title": "Expressivity and Statistical Trade-offs in Diffusion Policy Learning",
           "authors": [
-            "Shuhan Kou",
-            "Shutian Li",
-            "Man Yiu Tsang",
-            "Jiaqi Wang"
+            "Jiacheng Zhang"
           ],
-          "summary_zh": "提出PortOptBench，以投組問題評估LLM在不確定性下的建模能力。評估先容許等價或合理的不同模型，再分開檢查數學模型與求解程式的正確性。",
+          "summary_zh": "研究以 diffusion 表示強化學習策略時，模型表達能力與有限樣本估計之間的取捨；摘要給出特定模型類別下的理論收斂速率。",
           "source_pages": [
-            1176
+            1187
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1176頁。"
+          "source_note": "來源：10/14議程書冊，第1187頁。"
         },
         {
-          "key": "paper-03365",
+          "key": "paper-03395",
           "number": 2,
-          "title": "PUMA: Pessimistic Learning under Partial Logging for Model-Free Assortment Optimization",
+          "title": "Amortized Guidance for Image Inpainting with Pretrained Diffusion Models",
           "authors": [
-            "Yiqi Yang",
-            "Rui Gao"
+            "Yilie Huang",
+            "Xunyu Zhou"
           ],
-          "summary_zh": "針對交易紀錄不完整、目標商品組合未曾出現的情況，提出PUMA保守收益評分。在決策資訊覆蓋條件下建立收益下界與regret結果，並以合成及半合成資料測試。",
+          "summary_zh": "研究維持預訓練 diffusion 模型不變，另訓練可重用的引導模組處理影像修補；作者以多種影像資料與遮罩比較品質和速度。",
           "source_pages": [
-            1176,
-            1177
+            1187
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1176–1177頁。"
+          "source_note": "來源：10/14議程書冊，第1187頁。"
         },
         {
-          "key": "paper-03366",
+          "key": "paper-03396",
           "number": 3,
-          "title": "Schrödinger Bridge with Transport Relaxation",
+          "title": "Online Conformal Prediction for Non-Exchangeable Panel Data",
           "authors": [
-            "Luhao Zhang"
+            "Daohong Tu"
           ],
-          "summary_zh": "以運輸成本罰則放寬Schrödinger bridge的邊際限制，處理有限樣本形成的經驗分布。研究推導對偶與解的性質，並為梯度上升及Sinkhorn-type演算法建立線性收斂結果。",
+          "summary_zh": "研究時間相依、不同單位的 panel data 之線上預測集合；方法使用當下可觀察的其他單位與歷史資訊調整校準，摘要報告覆蓋性結論及測試結果，需核對條件。",
           "source_pages": [
-            1177
+            1187
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1177頁。"
-        },
-        {
-          "key": "paper-03367",
-          "number": 4,
-          "title": "On the Global Convergence of Risk-Averse Natural Policy Gradient Methods with Expected Conditional Risk Measures",
-          "authors": [
-            "Xian Yu",
-            "Lei Ying"
-          ],
-          "summary_zh": "研究動態時間一致的ECRMs風險衡量下的natural policy gradient。採softmax參數化與熵正則化，在精確或近似策略評估下分析全域最適性及迭代複雜度，並以隨機Cliffwalk測試。",
-          "source_pages": [
-            1177
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1177頁。"
-        },
-        {
-          "key": "paper-03368",
-          "number": 5,
-          "title": "Generative Neural Networks for Robust Contextual Stochastic Optimization",
-          "authors": [
-            "Jie Wang"
-          ],
-          "summary_zh": "提出以生成模型從primal角度處理robust contextual stochastic optimization的計算難度。作者利用連續機率密度空間中的bilevel optimization工具，在其假設下建立全域收斂結果。",
-          "source_pages": [
-            1177
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1177頁。",
+          "source_note": "來源：10/14議程書冊，第1187頁。",
           "recommendation": {
-            "reason_zh": "將生成模型用於 robust contextual stochastic optimization，能連接你的三個方向。值得比較其連續密度與 bilevel 設定，以及收斂分析依賴的條件。"
+            "reason_zh": "可作時間序列預測區間的次重點，聽其在何種資料與資訊可得條件下討論覆蓋。"
+          }
+        },
+        {
+          "key": "paper-03397",
+          "number": 4,
+          "title": "Conditioning Pretrained Diffusion Dynamics on External Events via Propagated Likelihoods",
+          "authors": [
+            "Zhengyi Guo"
+          ],
+          "summary_zh": "研究在既有 diffusion 生成器固定時，利用目標變數與外部變數的配對資料，調整生成過程以反映外部事件條件；摘要說明透過事件似然修正動態。",
+          "source_pages": [
+            1187,
+            1188
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1187、1188頁。",
+          "recommendation": {
+            "reason_zh": "直接連結外部事件條件與生成分布；可問外部事件資料如何取得、條件機率如何估計及何時可用。"
           }
         }
+      ],
+      "previous_codes": [
+        "TA40"
       ]
     },
     {
@@ -1303,13 +1445,13 @@
         1268,
         1269
       ],
-      "priority": "優先安排",
+      "priority": "可加聽",
       "question": "訓練的robust loss與實際重視的portfolio risk是否一致？",
       "focus": "Integrated Learning and Robust Optimization；When Do Forecasts Create More Value? A Bayesian Newsvendor Perspective",
-      "selection_note": "接續MD18，優先看robust loss與portfolio例子。",
+      "selection_note": "本版三場優先技術場次以外的延伸，可改為休息或整理；本日詳細閱讀依新主選安排。接續MD18，優先看robust loss與portfolio例子。",
       "alternative_codes": [],
       "key_session": false,
-      "order": 11,
+      "order": 12,
       "abstract": {
         "summary_zh": "以庫存與投組決策為例，討論如何把預測訓練對準決策價值。報告包含預測資訊價值、以 conformal prediction 校準時序需求、缺貨造成需求不可見時的生成式補全，以及讓學習損失配合下游 robust optimization。",
         "summary_label": "中文重點整理｜依場內4篇報告摘要",
@@ -1400,133 +1542,163 @@
       ]
     },
     {
-      "code": "TC30",
-      "title": "Multi-stage Stochastic Programming",
+      "code": "TC35",
+      "title": "Robust, Federated, and Out-of-Distribution Learning",
       "date": "2026-11-03",
       "start": "13:15",
       "end": "14:30",
-      "room": "Moscone South-208 (Level 2)",
-      "room_short": "South-208",
+      "room": "Moscone South-213 (Level 2)",
+      "room_short": "South-213",
       "floor": "Level 2",
       "source_pages": [
-        1366,
-        1367
+        1373,
+        1374,
+        1375
       ],
       "priority": "優先安排",
-      "question": "抽樣預算應放在哪些路徑？",
-      "focus": "第3篇 Policy‑Guided Importance Sampling for Entropic Risk in Multi‑Stage Stochastic Programming；第4篇 Multistage Distributionally Robust Optimization under Streaming Data",
-      "selection_note": "TC35 Robust, Federated, and Out-of-Distribution Learning，South-213 (Level 2)。若改以未見目標分布／多來源資料為主，再選TC35。",
+      "question": "決策前沒有目標市場資料，需要哪些額外結構或先驗假設，才能對未見環境推論？",
+      "focus": "第1篇 Robust Out-of-Distribution Stochastic Optimization；第2篇 On the Learnability of Out-of-Distribution Generalization",
+      "selection_note": "本版先看第1、2篇：沒有目標市場資料時，哪些額外假設支援可靠性？TC30保留為多階段與串流資料備選。",
       "alternative_codes": [
-        "TC35"
+        "TC30"
       ],
       "key_session": true,
-      "order": 12,
+      "order": 13,
       "abstract": {
-        "summary_zh": "圍繞多階段決策如何使用逐步更新的資訊，涵蓋颶風滾動預報、Lagrangian cuts、entropic risk 下的 importance sampling、串流資料下的分布穩健模型，以及交通感測與長期規劃。各篇分別討論預報建模、計算加速、估計變異及新增資料如何改變決策。",
-        "summary_label": "中文重點整理｜依場內5篇報告摘要",
+        "summary_zh": "涵蓋未見目標分布時的穩健決策、OOD 可學習條件、跨客戶端預測與時間動態，以及利用損失尾部或學習式對抗搜尋處理穩健問題。報告分別依分布的生成假設、客戶端間的關係、可分享資訊或不確定集合變動來建立方法與保證。",
+        "summary_label": "中文重點整理｜依場內6篇報告摘要",
         "source_type": "user_provided_program_book",
         "source_pages": [
-          1366,
-          1367
+          1373,
+          1374,
+          1375
         ],
         "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "來源：10/14議程書冊，第1366–1367頁。",
-        "paper_count": 5
+        "abstract_version_note": "來源：10/14議程書冊，第1373–1375頁。",
+        "paper_count": 6
       },
       "papers": [
         {
-          "key": "paper-03881",
+          "key": "paper-03905",
           "number": 1,
-          "title": "Multi-stage Stochastic Programming for Hurricane Relief Logistics Planning under Rolling Forecast Uncertainty",
+          "title": "Robust Out-of-Distribution Stochastic Optimization",
           "authors": [
-            "Yongjia Song",
-            "Sudhan Bhattarai"
+            "Xianyu Li",
+            "Huan Xu",
+            "Xiaolin Huang",
+            "Chao Shang"
           ],
-          "summary_zh": "比較三種把滾動颶風預報納入救災物流的方法，包括MMFE、時序預報誤差模型及rolling-horizon策略。以實際颶風案例衡量樣本外成本與計算效率，討論預報精度和求解難度的取捨。",
+          "summary_zh": "針對決策前無法取得目標分布資料的情況，從相關來源分布學習RKHS不確定集合。作者假設各分布來自共同meta-distribution，據此建立泛化與近似結果，並以庫存、投組問題測試。",
           "source_pages": [
-            1366
+            1373
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1366頁。"
+          "source_note": "來源：10/14議程書冊，第1373頁。",
+          "recommendation": {
+            "reason_zh": "本版主選：釐清未見市場狀態下的資料限制與可靠性條件；第1篇有投組測試，但保證不能脫離其分布假設。"
+          }
         },
         {
-          "key": "paper-03882",
+          "key": "paper-03906",
           "number": 2,
-          "title": "Computational Advancements in Generating Lagrangian Cuts for Multi-stage Stochastic Mixed- Integer Programming",
+          "title": "On the Learnability of Out-of-Distribution Generalization",
           "authors": [
-            "Haoxiang Yang"
+            "Haotian Xie",
+            "Yingdong Lu",
+            "Simon Zhang",
+            "Cathy Xia"
           ],
-          "summary_zh": "分析多階段隨機混合整數問題的Lagrangian cuts，提出Pareto-optimal及square minimization兩種強化方式。報告涵蓋對偶求解、不可行處理與切割共享，並以兩階段及多階段案例比較計算表現。",
+          "summary_zh": "討論訓練與測試分布不同時，可靠泛化需要哪些結構與先驗假設。報告從理論角度說明，缺乏額外條件時未必可學習，並比較不同限制如何影響OOD問題的可學習性。",
           "source_pages": [
-            1366
+            1373,
+            1374
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1366頁。"
+          "source_note": "來源：10/14議程書冊，第1373–1374頁。",
+          "recommendation": {
+            "reason_zh": "本版主選：釐清未見市場狀態下的資料限制與可靠性條件；第1篇有投組測試，但保證不能脫離其分布假設。"
+          }
         },
         {
-          "key": "paper-03883",
+          "key": "paper-03907",
           "number": 3,
-          "title": "Policy‑Guided Importance Sampling for Entropic Risk in Multi‑Stage Stochastic Programming",
+          "title": "Learning Beyond Local Support: Federated Prediction Under Concept Shift by Cross-Client Moment Sharing",
           "authors": [
-            "Chenqi Jiang",
-            "David Morton"
+            "Jinah Lee",
+            "Juhuhn Kim",
+            "Jong-Seok Lee"
           ],
-          "summary_zh": "針對entropic risk下蒙地卡羅估計的高變異，利用SDDP產生的策略與cuts設計importance sampling。作者分析抽樣分布隨cuts收斂的性質，並在容量配置模型中觀察信賴區間縮小。",
+          "summary_zh": "讓查詢超出本地資料範圍的客戶端，利用其他客戶端曾觀察的區域進行預測。方法分享資料涵蓋範圍與低階矩，估計客戶端間的仿射關係，結合少量目標觀測及多步傳遞，改善不同預測區域交界處的連續性。",
           "source_pages": [
-            1366
+            1374
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1366頁。",
-          "recommendation": {
-            "reason_zh": "在多階段決策中處理 entropic risk 抽樣，可補上 stochastic 方向的風險與計算觀點。值得比較 SDDP 近似品質對抽樣分布與估計精度的影響。"
-          }
+          "source_note": "來源：10/14議程書冊，第1374頁。"
         },
         {
-          "key": "paper-03884",
+          "key": "paper-03908",
           "number": 4,
-          "title": "Multistage Distributionally Robust Optimization under Streaming Data",
+          "title": "Federated Learning of Nonlinear Temporal Dynamics with Graph Attention-based Cross-Client Interpretability",
           "authors": [
-            "Tian Xia",
-            "Guzin Bayraksan",
-            "Harsha Gangammanavar"
+            "Ayse Tursucular",
+            "Ayush Mohanty",
+            "Nazal Mohamed",
+            "Nagi Gebraeel"
           ],
-          "summary_zh": "在串流資料下以Wasserstein集合建立多階段分布穩健模型，讓集合半徑隨資料增加縮小。提出MDRSD求解，並說明其解與目標值在特定條件下，如何漸近接近原隨機規劃問題。",
+          "summary_zh": "在原始量測不能分享、各端模型固定的工業感測情境中，以局部潛在狀態學習跨客戶端時間關係。中央GAT模型利用Jacobian與注意力係數解釋交互影響，並以合成及實際資料檢查收斂與預測表現。",
           "source_pages": [
-            1367
+            1374
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1367頁。",
-          "recommendation": {
-            "reason_zh": "同時處理多階段隨機規劃與未知分布，直接符合三個方向。可比較新資料到來時Wasserstein半徑的縮減規則，以及穩健解何時接近原隨機規劃解。"
-          }
+          "source_note": "來源：10/14議程書冊，第1374頁。"
         },
         {
-          "key": "paper-03885",
+          "key": "paper-03909",
           "number": 5,
-          "title": "Optimal Design and Adaptive Operation of Transportation Networks under Incomplete Information",
+          "title": "Stochastic set-valued optimization and its application to robust learning",
           "authors": [
-            "Lukai Li",
-            "Mattia Solla",
-            "Yueyue Fan",
-            "Johannes Royset"
+            "Jingfu Tan",
+            "Luis Nunes Vicente",
+            "Tommaso Giovannelli"
           ],
-          "summary_zh": "將短期自適應交通操作納入長期路網設計，並處理需求未完全觀察的情況。研究利用路網計數感測資料補充資訊，以不同規模網路測試決策效果，所報案例顯示可減少壅塞。",
+          "summary_zh": "將robust learning寫成隨機set-valued optimization，再把特定集合形式轉成多目標問題。研究以subquantiles與superquantiles同時描述損失兩端，使用多梯度方法與Pareto knee選解，並測試分布轉移下的表現。",
           "source_pages": [
-            1367
+            1375
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1367頁。"
+          "source_note": "來源：10/14議程書冊，第1375頁。"
+        },
+        {
+          "key": "paper-03910",
+          "number": 6,
+          "title": "L2O-CCG: Adversarial Learning with Set Generalization for Adaptive Robust Optimization",
+          "authors": [
+            "Zhiyi Zhou",
+            "Jan Drgona",
+            "Yury Dvorkin"
+          ],
+          "summary_zh": "針對兩階段adaptive robust optimization中的最壞情況子問題，提出L2O-CCG學習式求解框架。以神經網路近似recourse價值並產生迭代步長，分析不確定集合改變時的軌跡差異，並以建築空調管理測試。",
+          "source_pages": [
+            1375
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1375頁。"
         }
+      ],
+      "previous_codes": [
+        "TC30"
       ]
     },
     {
@@ -1544,15 +1716,15 @@
         1500,
         1501
       ],
-      "priority": "可加聽",
-      "question": "狀態、交易成本與生成路徑如何進入再平衡？",
-      "focus": "Dynamic Portfolio Optimization with Regime-Switching and Transaction Costs: An Approximate Dynamic Programming Approach；Scenario-Based Mean-Variance Portfolio Optimization Under Regime Uncertainty: Evidence from the Zimbabwe Stock Exchange",
-      "selection_note": "TD24偏Bayesian decision與模型可信度。若要降低當日負荷，TD47先作會後索文清單。",
+      "priority": "優先安排",
+      "question": "情境與市場狀態改變時，何時值得重新配置？觸發重新求解是否必然交易？",
+      "focus": "第3篇市場狀態與交易成本；第5篇 Coupling Interpretable Allocation, Model-Predictive Control, and Tail-Aware Forecasting for Live Portfolio Management",
+      "selection_note": "本版優先第3、5篇，連到交易成本、厚尾情境與重新配置時機；TD24仍可另行比較，與本場撞場。",
       "alternative_codes": [
         "TD24"
       ],
-      "key_session": false,
-      "order": 13,
+      "key_session": true,
+      "order": 14,
       "abstract": {
         "summary_zh": "涵蓋高階矩與 mean-variance 投組的大規模計算、含市場狀態變化及交易成本的動態配置，以及以情境、尾部風險與控制機制調整持倉。另有報告探討下注金額、保險股利及投資人的信念更新。Zimbabwe 案例的樣本外滾動驗證仍在進行。",
         "summary_label": "中文重點整理｜依場內8篇報告摘要",
@@ -1657,7 +1829,10 @@
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1500頁。"
+          "source_note": "來源：10/14議程書冊，第1500頁。",
+          "recommendation": {
+            "reason_zh": "本版主選：看厚尾與市場狀態情境如何用於重新配置的觸發條件。摘要的即時測試為模擬交易帳戶，不代表真實資金績效。"
+          }
         },
         {
           "key": "paper-04253",
@@ -1732,12 +1907,12 @@
       "priority": "可加聽",
       "question": null,
       "focus": "非平穩序列學習。",
-      "selection_note": "TE46 Decision-Focused Learning，South-308 (Level 3)。TE30偏非平穩序列學習；若想延續DFL、可行性與online regret則改TE46。",
+      "selection_note": "本版三場優先技術場次以外的延伸，可改為休息或整理；本日詳細閱讀依新主選安排。TE46 Decision-Focused Learning，South-308 (Level 3)。TE30偏非平穩序列學習；若想延續DFL、可行性與online regret則改TE46。",
       "alternative_codes": [
         "TE46"
       ],
       "key_session": false,
-      "order": 14,
+      "order": 15,
       "abstract": {
         "summary_zh": "討論不確定性下的排程、資源分配與序列學習，包含多類別過載佇列、分時段分布改變的線上線性規劃，以及強化學習中隨資料增加而調整的穩健性與探索取捨。另兩篇分析 diffusion RLHF 的抽樣隨機性，及 LLM 代理在特定市場泡沫遊戲中的行為。",
         "summary_label": "中文重點整理｜依場內5篇報告摘要",
@@ -1873,7 +2048,7 @@
         "WA25"
       ],
       "key_session": false,
-      "order": 15,
+      "order": 16,
       "abstract": {
         "summary_zh": "本場5篇報告涵蓋Human–AI分工、可解釋海運運價預測、cardinality-constrained預測與最佳化、DFFL，以及Decision-Focused Clustering。首篇的coverage指AI自行處理案件的比例，研究其與accuracy的取捨。其餘報告分別以XAI分析運價、以L0挑選決策相關特徵，或比較DFFL的資料共享收益與異質性代價；分群研究則以SPO loss選擇代表決策或環境。",
         "summary_label": "中文重點整理｜依場內5篇報告摘要",
@@ -2004,7 +2179,7 @@
         "WB19"
       ],
       "key_session": false,
-      "order": 16,
+      "order": 17,
       "abstract": {
         "summary_zh": "本場5篇報告涵蓋Rashomon sets中的variable importance分散、GPU optimal regression trees、少數類別ordinal regression、proximity data降維與Interval CVaR regression。第一篇以特徵是否提供資訊、能否相互替代或需共同使用，解釋重要性差異；其餘報告研究GPU branch-and-bound、TPR/TNR設定、robust M-estimation與截除極端損失。內容同時包含計算實驗、降維演算法的monotone descent及污染或擾動下的統計性質。",
         "summary_label": "中文重點整理｜依場內5篇報告摘要",
@@ -2243,6 +2418,57 @@
       ]
     },
     {
+      "code": "SB18",
+      "title": "Deep Learning for Sequential Decision Making under Uncertainty: Foundations, Frameworks, and Frontiers",
+      "date": "2026-11-01",
+      "start": "11:00",
+      "end": "12:15",
+      "room": "Moscone South-156 (Upper Mezz)",
+      "room_short": "South-156",
+      "floor": "Upper Mezz",
+      "source_pages": [
+        134,
+        135
+      ],
+      "priority": "備選",
+      "question": null,
+      "focus": null,
+      "selection_note": "SB31偏support-informed DRO與內生不確定性；SB18是較廣的深度學習序列決策導讀。",
+      "alternative_codes": [],
+      "key_session": false,
+      "order": null,
+      "abstract": {
+        "summary_zh": "這場 tutorial 從 OR/MS 觀點梳理深度學習如何支援不確定下隨時間進行的決策，說明神經網路、transformers、LLMs 與 deep reinforcement learning 的角色。內容以三條主線展開：預測與決策共同考量、在限制與跨期關係下產生決策，以及序列與組合決策的學習。摘要強調以最佳化表達限制、recourse 與決策品質，並涵蓋供應鏈、醫療及能源等應用。",
+        "summary_label": "中文重點整理｜依場內1篇報告摘要",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          134,
+          135
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第134–135頁。",
+        "paper_count": 1
+      },
+      "papers": [
+        {
+          "key": "paper-00374",
+          "number": 1,
+          "title": "Deep Learning for Sequential Decision Making under Uncertainty: Foundations, Frameworks, and Frontiers",
+          "authors": [
+            "Esra Buyuktahtakin Toy"
+          ],
+          "summary_zh": "從 OR/MS 觀點梳理深度學習與不確定下的序列決策。涵蓋 predict-then-optimize、受限決策生成及 deep reinforcement learning，連結神經架構與跨期限制。",
+          "source_pages": [
+            135
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第135頁。"
+        }
+      ]
+    },
+    {
       "code": "SB31",
       "title": "Optimization under Complex and Endogenous Uncertainty",
       "date": "2026-11-01",
@@ -2369,57 +2595,6 @@
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
           "source_note": "來源：10/14議程書冊，第155頁。"
-        }
-      ]
-    },
-    {
-      "code": "SB18",
-      "title": "Deep Learning for Sequential Decision Making under Uncertainty: Foundations, Frameworks, and Frontiers",
-      "date": "2026-11-01",
-      "start": "11:00",
-      "end": "12:15",
-      "room": "Moscone South-156 (Upper Mezz)",
-      "room_short": "South-156",
-      "floor": "Upper Mezz",
-      "source_pages": [
-        134,
-        135
-      ],
-      "priority": "備選",
-      "question": null,
-      "focus": null,
-      "selection_note": "SB31偏support-informed DRO與內生不確定性；SB18是較廣的深度學習序列決策導讀。",
-      "alternative_codes": [],
-      "key_session": false,
-      "order": null,
-      "abstract": {
-        "summary_zh": "這場 tutorial 從 OR/MS 觀點梳理深度學習如何支援不確定下隨時間進行的決策，說明神經網路、transformers、LLMs 與 deep reinforcement learning 的角色。內容以三條主線展開：預測與決策共同考量、在限制與跨期關係下產生決策，以及序列與組合決策的學習。摘要強調以最佳化表達限制、recourse 與決策品質，並涵蓋供應鏈、醫療及能源等應用。",
-        "summary_label": "中文重點整理｜依場內1篇報告摘要",
-        "source_type": "user_provided_program_book",
-        "source_pages": [
-          134,
-          135
-        ],
-        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "來源：10/14議程書冊，第134–135頁。",
-        "paper_count": 1
-      },
-      "papers": [
-        {
-          "key": "paper-00374",
-          "number": 1,
-          "title": "Deep Learning for Sequential Decision Making under Uncertainty: Foundations, Frameworks, and Frontiers",
-          "authors": [
-            "Esra Buyuktahtakin Toy"
-          ],
-          "summary_zh": "從 OR/MS 觀點梳理深度學習與不確定下的序列決策。涵蓋 predict-then-optimize、受限決策生成及 deep reinforcement learning，連結神經架構與跨期限制。",
-          "source_pages": [
-            135
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第135頁。"
         }
       ]
     },
@@ -2894,6 +3069,138 @@
       ]
     },
     {
+      "code": "MC47",
+      "title": "Machine Learning and Robust Portfolios",
+      "date": "2026-11-02",
+      "start": "13:15",
+      "end": "14:30",
+      "room": "Moscone South-310 (Level 3)",
+      "room_short": "South-310",
+      "floor": "Level 3",
+      "source_pages": [
+        870,
+        871,
+        872
+      ],
+      "priority": "可加聽",
+      "question": "訓練窗口與模型複雜度如何共同影響決策？",
+      "focus": "The Nonstationarity-Complexity Tradeoff in Return Prediction；Distributionally Robust Downside Risk Optimization",
+      "selection_note": "MC24偏異質資料與decision-dependent uncertainty；目前以portfolio為連結，先選MC47。若當日只聽三場，這場可改會後索文。",
+      "alternative_codes": [],
+      "key_session": false,
+      "order": 7,
+      "abstract": {
+        "summary_zh": "本場5篇報告討論非平穩報酬預測、互相依賴的生醫投資、模型公開前後的回測偏誤、DRO downside risk與algorithmic pricing。重點包括模型複雜度與訓練窗口的共同選擇、分散投資與目標報酬的取捨，以及演算法學習造成的進入障礙。DRO投組的解析結果則採Mahalanobis distance與elliptical reference distribution等具體設定。",
+        "summary_label": "中文重點整理｜依場內5篇報告摘要",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          870,
+          871,
+          872
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第870–872頁。",
+        "paper_count": 5
+      },
+      "papers": [
+        {
+          "key": "paper-02488",
+          "number": 1,
+          "title": "The Nonstationarity-Complexity Tradeoff in Return Prediction",
+          "authors": [
+            "Kaizheng Wang",
+            "Agostino Capponi",
+            "Chengpiao Huang",
+            "Jose Sidaoui",
+            "Jiacheng Zou"
+          ],
+          "summary_zh": "同時選擇報酬預測模型類別與訓練窗口，以處理模型誤設、估計變異與非平穩性間的取捨。作者以非平穩驗證資料進行tournament選模，並在17個產業投組報酬上報告樣本外預測與交易結果。",
+          "source_pages": [
+            870,
+            871
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第870–871頁。"
+        },
+        {
+          "key": "paper-02489",
+          "number": 2,
+          "title": "Valuation and Portfolio Theory for Biomedical Investments",
+          "authors": [
+            "Chaoyi Zhao",
+            "Andrew Lo"
+          ],
+          "summary_zh": "把生醫專案估值與portfolio construction放在同一架構中，考慮共同科學、市場、策略互動及分階段投資。報告說明分散投資雖可能降低傳統風險指標，卻也可能降低達成目標報酬倍數的機率。",
+          "source_pages": [
+            871
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第871頁。"
+        },
+        {
+          "key": "paper-02490",
+          "number": 3,
+          "title": "The Anachronistic Testing-Date Bias of Machine Learning Strategies",
+          "authors": [
+            "Federico Tiberga"
+          ],
+          "summary_zh": "檢查機器學習策略的回測優勢，是否部分來自模型尚未公開、競爭者尚不能採用的測試期間。作者比較2005–2022年的八類模型與公開前後表現，報告部分alpha差異及局部窗口結果。",
+          "source_pages": [
+            871
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第871頁。"
+        },
+        {
+          "key": "paper-02491",
+          "number": 4,
+          "title": "Distributionally Robust Downside Risk Optimization",
+          "authors": [
+            "Zheng Liu",
+            "Nathan Lassance",
+            "Steven Vanduffel",
+            "Jing Yao"
+          ],
+          "summary_zh": "以lower partial moment描述downside risk，並用Wasserstein ball納入分布不確定性。報告推導convex dual與Slater條件，另在Mahalanobis成本和elliptical reference distribution下分析最適投組及其與mean–variance frontier的關係。",
+          "source_pages": [
+            871,
+            872
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第871–872頁。",
+          "recommendation": {
+            "reason_zh": "直接對應portfolio allocation under uncertainty，將downside risk與分布不確定性共同建模。可比較不同成本函數及參考分布下，最適投組與風險偏好之間的關係如何改變。"
+          }
+        },
+        {
+          "key": "paper-02492",
+          "number": 5,
+          "title": "Entry Deterrence by Algorithmic Pricing",
+          "authors": [
+            "Patrick Chang",
+            "Alvaro Cartea",
+            "Jose Penalva"
+          ],
+          "summary_zh": "以高頻交易市場模型研究自動定價演算法能否阻止其他交易商進入。作者指出，在所研究模擬中，即使均衡分析不支持持續排除，學習演算法仍可能形成limit price結果，且慢速交易商的最佳反應可穩定此學習結果。",
+          "source_pages": [
+            872
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第872頁。"
+        }
+      ]
+    },
+    {
       "code": "MD30",
       "title": "Contextual and Data-Driven Stochastic Optimization",
       "date": "2026-11-02",
@@ -3130,6 +3437,154 @@
       ]
     },
     {
+      "code": "ME36",
+      "title": "Distributionally Robust Optimization: Theory and Ambiguity Sets",
+      "date": "2026-11-02",
+      "start": "16:15",
+      "end": "17:30",
+      "room": "Moscone South-214 (Level 2)",
+      "room_short": "South-214",
+      "floor": "Level 2",
+      "source_pages": [
+        1066,
+        1067,
+        1068
+      ],
+      "priority": "優先安排",
+      "question": "情境樹保留了哪些分布與結構？",
+      "focus": "第4篇 Scenario Tree Design under Wasserstein and Fused Gromov-Wasserstein Distances；第6篇 Ordering and Inventory Planning under Distributionally Robust Optimization with Regime Switching",
+      "selection_note": "ME30 Data-Driven Methods in Stochastic Optimization，South-208 (Level 2)。本輪以scenario-tree設計為先，保留ME36。",
+      "alternative_codes": [],
+      "key_session": false,
+      "order": 9,
+      "abstract": {
+        "summary_zh": "本場6篇報告涵蓋noncommutative Wasserstein、relaxed joint chance constraints、secretary problems中的DRO限制、scenario trees、擾動近似及regime-switching庫存規劃。scenario-tree研究以離散process與固定樹拓樸比較Wasserstein和Fused Gromov-Wasserstein；庫存研究從有限歷史資料估計需求狀態與轉移結構。另有報告探討允許部分期間違約的可靠度取捨，以及不用完整min–max求解近似DRO統計效應的構想。",
+        "summary_label": "中文重點整理｜依場內6篇報告摘要",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          1066,
+          1067,
+          1068
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第1066–1068頁。",
+        "paper_count": 6
+      },
+      "papers": [
+        {
+          "key": "paper-03062",
+          "number": 1,
+          "title": "Distributionally Robust Statistical Modeling with Noncommutative Wasserstein Ambiguity Sets",
+          "authors": [
+            "Martin Wang"
+          ],
+          "summary_zh": "將optimal transport延伸至density matrices等matrix-valued states，以noncommutative Wasserstein balls建立DRO集合。報告以有限資料估計矩陣結構後的抽樣誤差與模型不穩定為動機，討論robust regression、covariance modeling及診斷。",
+          "source_pages": [
+            1067
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1067頁。"
+        },
+        {
+          "key": "paper-03063",
+          "number": 2,
+          "title": "Relaxed Joint Chance Constraints with Surrogate Tail Bounds",
+          "authors": [
+            "Arjun Ramachandra",
+            "Bismark Singh"
+          ],
+          "summary_zh": "提出relaxed joint chance constraints，控制可未滿足限制的期間數量，以平衡可靠度與彈性。在finite support下，作者推導確定性等價式與tail-bound surrogate，並以風力資料比較目標值及計算表現。",
+          "source_pages": [
+            1067
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1067頁。"
+        },
+        {
+          "key": "paper-03064",
+          "number": 3,
+          "title": "When Worst-Case Isn't Robust: On the Limitations of Distributionally Robust Formulations in Secretary Problems",
+          "authors": [
+            "Anas Abdelhakmi",
+            "Andrew Lim"
+          ],
+          "summary_zh": "在多種secretary problem設定及KL、Wasserstein集合下，作者發現DRO最適決策可能與nominal決策相同，卻未降低最壞偏離的報酬敏感度。報告以探索過程的衝擊解釋此現象，並討論付費召回已拒絕選項等hedging機制。",
+          "source_pages": [
+            1067
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1067頁。"
+        },
+        {
+          "key": "paper-03065",
+          "number": 4,
+          "title": "Scenario Tree Design under Wasserstein and Fused Gromov-Wasserstein Distances",
+          "authors": [
+            "Aysenur Karagoz",
+            "Shiqian Ma",
+            "Andrew Schaefer"
+          ],
+          "summary_zh": "在真實process為離散分布且scenario tree拓樸固定時，比較逐期Wasserstein與Fused Gromov-Wasserstein近似。兩種方法都形成連續非凸問題，並以block coordinate descent交替調整分布配置與成本結構。",
+          "source_pages": [
+            1067,
+            1068
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1067–1068頁。",
+          "recommendation": {
+            "reason_zh": "直接處理多期stochastic programs的scenario trees，在離散process與固定拓樸下比較兩種transport距離。適合看機率與樹結構保留了什麼，以及後續如何評估決策影響。"
+          }
+        },
+        {
+          "key": "paper-03066",
+          "number": 5,
+          "title": "Fast Variability Approximation: Enhancing Statistical-Computational Tradeoffs of Distributionally Robust Optimization via Perturbation-Based Equivalents",
+          "authors": [
+            "Mohamed Lakhnichi",
+            "Henry Lam"
+          ],
+          "summary_zh": "研究能否擾動SAA得到的經驗最適解，以較低計算成本近似DRO的統計與robustness效應。報告建立擾動方向的分析架構，並討論直接梯度計算與可處理非光滑成本的bootstrap實作。",
+          "source_pages": [
+            1068
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1068頁。"
+        },
+        {
+          "key": "paper-03067",
+          "number": 6,
+          "title": "Ordering and Inventory Planning under Distributionally Robust Optimization with Regime Switching",
+          "authors": [
+            "Yue WU",
+            "Xueliang Zheng",
+            "Zhenzhen Yan",
+            "Yuanguang Zhong"
+          ],
+          "summary_zh": "針對需求在高低狀態間切換的多期庫存問題，從有限歷史資料估計regimes與轉移結構，建立Wasserstein DRO模型。作者推導copositive programming重寫及分布包含機率的保證，並以零件零售案例比較樣本外表現。",
+          "source_pages": [
+            1068
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1068頁。",
+          "recommendation": {
+            "reason_zh": "把有限資料、非平穩需求與多期DRO連起來，可看regimes與轉移結構如何影響序列決策。庫存與投組設定雖不同，分布狀態估計、ambiguity sets及決策影響可作具體對照。"
+          }
+        }
+      ]
+    },
+    {
       "code": "TA30",
       "title": "Advances in Adaptive Stochastic Optimization",
       "date": "2026-11-03",
@@ -3259,154 +3714,254 @@
       ]
     },
     {
-      "code": "TC35",
-      "title": "Robust, Federated, and Out-of-Distribution Learning",
+      "code": "TA40",
+      "title": "Artificial Intelligence and Robust Optimization",
       "date": "2026-11-03",
-      "start": "13:15",
-      "end": "14:30",
-      "room": "Moscone South-213 (Level 2)",
-      "room_short": "South-213",
-      "floor": "Level 2",
+      "start": "08:00",
+      "end": "09:15",
+      "room": "Moscone South-302 (Level 3)",
+      "room_short": "South-302",
+      "floor": "Level 3",
       "source_pages": [
-        1373,
-        1374,
-        1375
+        1176,
+        1177
       ],
-      "priority": "備選",
+      "priority": "優先安排",
       "question": null,
-      "focus": null,
-      "selection_note": "TC35 Robust, Federated, and Out-of-Distribution Learning，South-213 (Level 2)。若改以未見目標分布／多來源資料為主，再選TC35。",
+      "focus": "TA40的generative robust contextual工作。",
+      "selection_note": "TA30偏隨機數值演算法與oracle條件；TA40的generative robust contextual工作更貼目前建模問題。",
       "alternative_codes": [],
       "key_session": false,
-      "order": null,
+      "order": 10,
       "abstract": {
-        "summary_zh": "涵蓋未見目標分布時的穩健決策、OOD 可學習條件、跨客戶端預測與時間動態，以及利用損失尾部或學習式對抗搜尋處理穩健問題。報告分別依分布的生成假設、客戶端間的關係、可分享資訊或不確定集合變動來建立方法與保證。",
-        "summary_label": "中文重點整理｜依場內6篇報告摘要",
+        "summary_zh": "涵蓋不確定性下的投組建模、部分交易紀錄下的商品組合決策、Schrödinger bridge、風險規避強化學習，以及生成模型求解。報告將討論 LLM 如何區分建模與程式錯誤、多種合理模型設定的評估、歷史資料不足時的保守決策，以及 robust contextual stochastic optimization 的計算難度。",
+        "summary_label": "中文重點整理｜依場內5篇報告摘要",
         "source_type": "user_provided_program_book",
         "source_pages": [
-          1373,
-          1374,
-          1375
+          1176,
+          1177
         ],
         "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "來源：10/14議程書冊，第1373–1375頁。",
-        "paper_count": 6
+        "abstract_version_note": "來源：10/14議程書冊，第1176–1177頁。",
+        "paper_count": 5
       },
       "papers": [
         {
-          "key": "paper-03905",
+          "key": "paper-03364",
           "number": 1,
-          "title": "Robust Out-of-Distribution Stochastic Optimization",
+          "title": "PortOptBench: Benchmarking LLMs for Portfolio Optimization Modeling Under Uncertainty",
           "authors": [
-            "Xianyu Li",
-            "Huan Xu",
-            "Xiaolin Huang",
-            "Chao Shang"
+            "Shuhan Kou",
+            "Shutian Li",
+            "Man Yiu Tsang",
+            "Jiaqi Wang"
           ],
-          "summary_zh": "針對決策前無法取得目標分布資料的情況，從相關來源分布學習RKHS不確定集合。作者假設各分布來自共同meta-distribution，據此建立泛化與近似結果，並以庫存、投組問題測試。",
+          "summary_zh": "提出PortOptBench，以投組問題評估LLM在不確定性下的建模能力。評估先容許等價或合理的不同模型，再分開檢查數學模型與求解程式的正確性。",
           "source_pages": [
-            1373
+            1176
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1373頁。",
+          "source_note": "來源：10/14議程書冊，第1176頁。"
+        },
+        {
+          "key": "paper-03365",
+          "number": 2,
+          "title": "PUMA: Pessimistic Learning under Partial Logging for Model-Free Assortment Optimization",
+          "authors": [
+            "Yiqi Yang",
+            "Rui Gao"
+          ],
+          "summary_zh": "針對交易紀錄不完整、目標商品組合未曾出現的情況，提出PUMA保守收益評分。在決策資訊覆蓋條件下建立收益下界與regret結果，並以合成及半合成資料測試。",
+          "source_pages": [
+            1176,
+            1177
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1176–1177頁。"
+        },
+        {
+          "key": "paper-03366",
+          "number": 3,
+          "title": "Schrödinger Bridge with Transport Relaxation",
+          "authors": [
+            "Luhao Zhang"
+          ],
+          "summary_zh": "以運輸成本罰則放寬Schrödinger bridge的邊際限制，處理有限樣本形成的經驗分布。研究推導對偶與解的性質，並為梯度上升及Sinkhorn-type演算法建立線性收斂結果。",
+          "source_pages": [
+            1177
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1177頁。"
+        },
+        {
+          "key": "paper-03367",
+          "number": 4,
+          "title": "On the Global Convergence of Risk-Averse Natural Policy Gradient Methods with Expected Conditional Risk Measures",
+          "authors": [
+            "Xian Yu",
+            "Lei Ying"
+          ],
+          "summary_zh": "研究動態時間一致的ECRMs風險衡量下的natural policy gradient。採softmax參數化與熵正則化，在精確或近似策略評估下分析全域最適性及迭代複雜度，並以隨機Cliffwalk測試。",
+          "source_pages": [
+            1177
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1177頁。"
+        },
+        {
+          "key": "paper-03368",
+          "number": 5,
+          "title": "Generative Neural Networks for Robust Contextual Stochastic Optimization",
+          "authors": [
+            "Jie Wang"
+          ],
+          "summary_zh": "提出以生成模型從primal角度處理robust contextual stochastic optimization的計算難度。作者利用連續機率密度空間中的bilevel optimization工具，在其假設下建立全域收斂結果。",
+          "source_pages": [
+            1177
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1177頁。",
           "recommendation": {
-            "reason_zh": "處理沒有目標分布樣本時的 robust 隨機決策，且含投組案例。可比較共同 meta-distribution 的假設、來源分布關係與保守程度，如何影響決策。"
+            "reason_zh": "將生成模型用於 robust contextual stochastic optimization，能連接你的三個方向。值得比較其連續密度與 bilevel 設定，以及收斂分析依賴的條件。"
+          }
+        }
+      ]
+    },
+    {
+      "code": "TC30",
+      "title": "Multi-stage Stochastic Programming",
+      "date": "2026-11-03",
+      "start": "13:15",
+      "end": "14:30",
+      "room": "Moscone South-208 (Level 2)",
+      "room_short": "South-208",
+      "floor": "Level 2",
+      "source_pages": [
+        1366,
+        1367
+      ],
+      "priority": "優先安排",
+      "question": "抽樣預算應放在哪些路徑？",
+      "focus": "第3篇 Policy‑Guided Importance Sampling for Entropic Risk in Multi‑Stage Stochastic Programming；第4篇 Multistage Distributionally Robust Optimization under Streaming Data",
+      "selection_note": "TC35 Robust, Federated, and Out-of-Distribution Learning，South-213 (Level 2)。若改以未見目標分布／多來源資料為主，再選TC35。",
+      "alternative_codes": [],
+      "key_session": false,
+      "order": 12,
+      "abstract": {
+        "summary_zh": "圍繞多階段決策如何使用逐步更新的資訊，涵蓋颶風滾動預報、Lagrangian cuts、entropic risk 下的 importance sampling、串流資料下的分布穩健模型，以及交通感測與長期規劃。各篇分別討論預報建模、計算加速、估計變異及新增資料如何改變決策。",
+        "summary_label": "中文重點整理｜依場內5篇報告摘要",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          1366,
+          1367
+        ],
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "abstract_version_note": "來源：10/14議程書冊，第1366–1367頁。",
+        "paper_count": 5
+      },
+      "papers": [
+        {
+          "key": "paper-03881",
+          "number": 1,
+          "title": "Multi-stage Stochastic Programming for Hurricane Relief Logistics Planning under Rolling Forecast Uncertainty",
+          "authors": [
+            "Yongjia Song",
+            "Sudhan Bhattarai"
+          ],
+          "summary_zh": "比較三種把滾動颶風預報納入救災物流的方法，包括MMFE、時序預報誤差模型及rolling-horizon策略。以實際颶風案例衡量樣本外成本與計算效率，討論預報精度和求解難度的取捨。",
+          "source_pages": [
+            1366
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1366頁。"
+        },
+        {
+          "key": "paper-03882",
+          "number": 2,
+          "title": "Computational Advancements in Generating Lagrangian Cuts for Multi-stage Stochastic Mixed- Integer Programming",
+          "authors": [
+            "Haoxiang Yang"
+          ],
+          "summary_zh": "分析多階段隨機混合整數問題的Lagrangian cuts，提出Pareto-optimal及square minimization兩種強化方式。報告涵蓋對偶求解、不可行處理與切割共享，並以兩階段及多階段案例比較計算表現。",
+          "source_pages": [
+            1366
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1366頁。"
+        },
+        {
+          "key": "paper-03883",
+          "number": 3,
+          "title": "Policy‑Guided Importance Sampling for Entropic Risk in Multi‑Stage Stochastic Programming",
+          "authors": [
+            "Chenqi Jiang",
+            "David Morton"
+          ],
+          "summary_zh": "針對entropic risk下蒙地卡羅估計的高變異，利用SDDP產生的策略與cuts設計importance sampling。作者分析抽樣分布隨cuts收斂的性質，並在容量配置模型中觀察信賴區間縮小。",
+          "source_pages": [
+            1366
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第1366頁。",
+          "recommendation": {
+            "reason_zh": "在多階段決策中處理 entropic risk 抽樣，可補上 stochastic 方向的風險與計算觀點。值得比較 SDDP 近似品質對抽樣分布與估計精度的影響。"
           }
         },
         {
-          "key": "paper-03906",
-          "number": 2,
-          "title": "On the Learnability of Out-of-Distribution Generalization",
-          "authors": [
-            "Haotian Xie",
-            "Yingdong Lu",
-            "Simon Zhang",
-            "Cathy Xia"
-          ],
-          "summary_zh": "討論訓練與測試分布不同時，可靠泛化需要哪些結構與先驗假設。報告從理論角度說明，缺乏額外條件時未必可學習，並比較不同限制如何影響OOD問題的可學習性。",
-          "source_pages": [
-            1373,
-            1374
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1373–1374頁。"
-        },
-        {
-          "key": "paper-03907",
-          "number": 3,
-          "title": "Learning Beyond Local Support: Federated Prediction Under Concept Shift by Cross-Client Moment Sharing",
-          "authors": [
-            "Jinah Lee",
-            "Juhuhn Kim",
-            "Jong-Seok Lee"
-          ],
-          "summary_zh": "讓查詢超出本地資料範圍的客戶端，利用其他客戶端曾觀察的區域進行預測。方法分享資料涵蓋範圍與低階矩，估計客戶端間的仿射關係，結合少量目標觀測及多步傳遞，改善不同預測區域交界處的連續性。",
-          "source_pages": [
-            1374
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1374頁。"
-        },
-        {
-          "key": "paper-03908",
+          "key": "paper-03884",
           "number": 4,
-          "title": "Federated Learning of Nonlinear Temporal Dynamics with Graph Attention-based Cross-Client Interpretability",
+          "title": "Multistage Distributionally Robust Optimization under Streaming Data",
           "authors": [
-            "Ayse Tursucular",
-            "Ayush Mohanty",
-            "Nazal Mohamed",
-            "Nagi Gebraeel"
+            "Tian Xia",
+            "Guzin Bayraksan",
+            "Harsha Gangammanavar"
           ],
-          "summary_zh": "在原始量測不能分享、各端模型固定的工業感測情境中，以局部潛在狀態學習跨客戶端時間關係。中央GAT模型利用Jacobian與注意力係數解釋交互影響，並以合成及實際資料檢查收斂與預測表現。",
+          "summary_zh": "在串流資料下以Wasserstein集合建立多階段分布穩健模型，讓集合半徑隨資料增加縮小。提出MDRSD求解，並說明其解與目標值在特定條件下，如何漸近接近原隨機規劃問題。",
           "source_pages": [
-            1374
+            1367
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1374頁。"
+          "source_note": "來源：10/14議程書冊，第1367頁。",
+          "recommendation": {
+            "reason_zh": "同時處理多階段隨機規劃與未知分布，直接符合三個方向。可比較新資料到來時Wasserstein半徑的縮減規則，以及穩健解何時接近原隨機規劃解。"
+          }
         },
         {
-          "key": "paper-03909",
+          "key": "paper-03885",
           "number": 5,
-          "title": "Stochastic set-valued optimization and its application to robust learning",
+          "title": "Optimal Design and Adaptive Operation of Transportation Networks under Incomplete Information",
           "authors": [
-            "Jingfu Tan",
-            "Luis Nunes Vicente",
-            "Tommaso Giovannelli"
+            "Lukai Li",
+            "Mattia Solla",
+            "Yueyue Fan",
+            "Johannes Royset"
           ],
-          "summary_zh": "將robust learning寫成隨機set-valued optimization，再把特定集合形式轉成多目標問題。研究以subquantiles與superquantiles同時描述損失兩端，使用多梯度方法與Pareto knee選解，並測試分布轉移下的表現。",
+          "summary_zh": "將短期自適應交通操作納入長期路網設計，並處理需求未完全觀察的情況。研究利用路網計數感測資料補充資訊，以不同規模網路測試決策效果，所報案例顯示可減少壅塞。",
           "source_pages": [
-            1375
+            1367
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1375頁。"
-        },
-        {
-          "key": "paper-03910",
-          "number": 6,
-          "title": "L2O-CCG: Adversarial Learning with Set Generalization for Adaptive Robust Optimization",
-          "authors": [
-            "Zhiyi Zhou",
-            "Jan Drgona",
-            "Yury Dvorkin"
-          ],
-          "summary_zh": "針對兩階段adaptive robust optimization中的最壞情況子問題，提出L2O-CCG學習式求解框架。以神經網路近似recourse價值並產生迭代步長，分析不確定集合改變時的軌跡差異，並以建築空調管理測試。",
-          "source_pages": [
-            1375
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第1375頁。"
+          "source_note": "來源：10/14議程書冊，第1367頁。"
         }
       ]
     },
@@ -4340,17 +4895,22 @@
     ]
   },
   "special_talk_abstracts_checked_on": "2026-10-27",
-  "technical_session_abstracts_checked_on": "2026-10-27",
-  "paper_details_checked_on": "2026-10-27",
+  "technical_session_abstracts_checked_on": "2026-10-31",
+  "paper_details_checked_on": "2026-10-31",
   "paper_recommendations": {
-    "prepared_on": "2026-10-27",
+    "prepared_on": "2026-10-31",
     "interests": [
+      "scenario generation",
+      "portfolio",
+      "risk",
       "uncertainty",
       "robust optimization",
       "stochastic"
     ],
     "secondary_context": "既有個人頁的投組、風險量度、交易成本與再平衡研究",
-    "selection_basis": "依議程摘要中的研究設定、處理的不確定性與決策問題，挑選具直接關聯的報告。",
-    "recommended_count": 20
-  }
+    "selection_basis": "依議程摘要的研究問題與條件，優先金融情境生成與驗證、資產相依、未見市場狀態及再平衡；第一、四天原安排保留。",
+    "recommended_count": 28
+  },
+  "selection_updated_on": "2026-10-31",
+  "selection_note": "依使用者確認，第二天改以MA47、MC48、ME48，第三天改以TA47、TC35、TD47為優先；原場次保留為可加聽或同時段備選。"
 }

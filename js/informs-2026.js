@@ -21,7 +21,9 @@
         if (typeof saved.priorityOnly === 'boolean') state.priorityOnly = saved.priorityOnly;
         if (['route', 'table'].includes(saved.view)) state.view = saved.view;
         for (const slot of data.sessions) {
-          const selected = saved.selections?.[slot.code];
+          const selected = [slot.code, ...(slot.previous_codes || [])]
+            .map(code => saved.selections?.[code])
+            .find(code => [slot.code, ...slot.alternative_codes].includes(code));
           if ([slot.code, ...slot.alternative_codes].includes(selected)) state.selections[slot.code] = selected;
         }
         for (const group of groups) {
@@ -102,7 +104,7 @@
       const choices = [slot.code, ...slot.alternative_codes].map(code => {
         const option = byCode.get(code);
         const checked = selected(slot).code === code ? ' checked' : '';
-        return `<div class="session-choice-item"><label class="session-choice"><input type="radio" name="${context}-${slot.code}" value="${escape(code)}" data-slot="${slot.code}"${checked}><span><strong>${escape(code)}${code === slot.code ? ' · 原建議' : ''}</strong> ${escape(option.title)}<small>${escape(option.room_short)} · ${escape(option.floor)}</small></span></label>${abstractDetails(option, `${context}-alternative-${slot.code}`)}${paperList(option, `${context}-alternative-${slot.code}`, true)}</div>`;
+        return `<div class="session-choice-item"><label class="session-choice"><input type="radio" name="${context}-${slot.code}" value="${escape(code)}" data-slot="${slot.code}"${checked}><span><strong>${escape(code)}${code === slot.code ? ' · 本版主選' : ''}</strong> ${escape(option.title)}<small>${escape(option.room_short)} · ${escape(option.floor)}</small></span></label>${abstractDetails(option, `${context}-alternative-${slot.code}`)}${paperList(option, `${context}-alternative-${slot.code}`, true)}</div>`;
       }).join('');
       return `<details class="session-alternatives"><summary>同時段備選（${slot.alternative_codes.length}）</summary><div class="choice-list"><fieldset><legend class="sr-only">${escape(slot.start)}至${escape(slot.end)}，只選一場</legend>${choices}</fieldset><p>${escape(slot.selection_note)}</p></div></details>`;
     }
@@ -253,7 +255,7 @@
       state = { ...initial(), day: state.day, view: state.view };
       render();
       save();
-      status.textContent += ' 已恢復原建議。';
+      status.textContent += ' 已套用本版建議。';
     });
     document.getElementById('print-day').addEventListener('click', () => window.print());
     render();
