@@ -69,8 +69,9 @@ const fallback = data.days.map(day => {
   }).join('\n');
   return `<section class="static-day"><h3>${escape(day.label)}</h3><div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}建議場次 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">安排</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }).join('\n');
-const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c'));
-assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|SESSION_DATA)\}\}/.test(output));
+const readingNav = `<nav class="reading-entry-links" aria-label="每日閱讀入口">${reading.guides.map(guide => `<a class="reading-entry" href="#${escape(guide.id)}"><span>${escape(guide.date.slice(5).replace('-', '/'))}</span> ${escape(guide.title)} →</a>`).join('')}</nav>`;
+const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{READING_NAV}}', readingNav).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c'));
+assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|READING_NAV|SESSION_DATA)\}\}/.test(output));
 assert(!/[CD]:[\\/]|file:\/\/\//.test(output));
 await writeFile(path.join(root, 'informs-2026.html'), output, 'utf8');
 console.log('Generated informs-2026.html: 16 technical slots, 15 alternatives, 13 special talks, 4 days.');

@@ -13,6 +13,20 @@
   text-decoration: none;
 }
 .reading-entry span { font-size: .875rem; font-weight: 400; }
+.conference-page .reading-entry-links { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1.25rem 0 1.5rem; }
+.conference-page .reading-entry-links .reading-entry { margin: 0; }
+.daily-reading-guide + .daily-reading-guide { margin-top: 4rem; padding-top: 2.5rem; border-top: 2px solid var(--line); }
+.reading-goals { margin: 1.25rem 0; padding: 1rem 1.25rem; background: var(--surface); border-radius: 8px; }
+.conference-page .reading-goals h4 { margin: 0 0 .6rem; font-size: 1rem; line-height: 1.6; }
+.reading-goals ul { margin: 0; padding-left: 1.3rem; }
+.reading-goals li + li { margin-top: .4rem; }
+.reading-completion { padding-top: .85rem; border-top: 1px solid #c7dddd; font-size: .875rem; }
+.reading-terms { margin: 1.3rem 0; padding: .4rem 1rem; border: 1px solid var(--line); border-radius: 8px; font-size: .875rem; }
+.reading-terms > summary { min-height: 44px; padding-block: .5rem; color: var(--accent); cursor: pointer; font-weight: 550; }
+.reading-terms dl { margin: .5rem 0; }
+.reading-terms dl > div + div { margin-top: .9rem; }
+.reading-terms dt { font-weight: 650; }
+.reading-terms dd { margin: .2rem 0 0; color: var(--muted); }
 .conference-page .reading-section {
   margin-top: 3rem;
   padding-top: 2rem;

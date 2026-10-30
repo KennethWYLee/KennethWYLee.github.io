@@ -30,6 +30,9 @@ export function renderReadingGuides(reading, program) {
     assert(program.days.some(day => day.date === guide.date) && !dates.has(guide.date));
     dates.add(guide.date);
     uniqueId(guide.id);
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(guide.special_verified_on), 'Missing special-talk verification date');
+    assert(guide.goals?.length === 3 && guide.completion_note, 'Missing daily learning checks');
+    assert(guide.terms?.length && guide.terms.every(term => term.length === 2 && term.every(Boolean)), 'Missing reading vocabulary');
     guide.session_codes.forEach(code => {
       const session = byCode.get(code);
       assert(session?.date === guide.date, `Invalid reading session: ${code}`);
@@ -50,7 +53,7 @@ export function renderReadingGuides(reading, program) {
       const reference = paper || talk;
       const referenceLabel = paper ? `對應報告：${session.code} 第 ${paper.number} 篇` : `對應演講：${talk.type}`;
       const people = paper ? paper.authors.join('; ') : talk.speaker;
-      const sourceNote = paper ? paper.source_note : '依主辦單位演講說明整理；題名與時段於 10/31 核對。';
+      const sourceNote = paper ? paper.source_note : `依主辦單位演講說明整理；題名與時段於 ${guide.special_verified_on} 核對。`;
       const extras = (step.extra_examples || []).map(example => {
         assert(example.title && example.paragraphs?.length);
         return `<div class="reading-extra-example"><h5>${escape(example.title)}</h5>${paragraphs(example.paragraphs)}${exampleTable(example.table, example.title)}</div>`;
@@ -87,13 +90,17 @@ export function renderReadingGuides(reading, program) {
     assert.equal(stepIdsUsed.size, guide.steps.length, 'Unused reading lessons');
     assert.deepEqual(new Set(events.filter(e => e.item.code).map(e => e.item.code)), new Set(guide.session_codes));
     assert.deepEqual(new Set(events.filter(e => !e.item.code).map(e => e.item.key)), new Set(guide.special_keys || []));
+    assert.deepEqual(new Set(guide.session_codes), new Set(program.sessions.filter(session => session.date === guide.date).map(session => session.code)), 'Missing main sessions');
+    assert.deepEqual(new Set(guide.special_keys), new Set(program.special_talks.filter(talk => talk.date === guide.date).map(talk => talk.key)), 'Missing special talks');
     return `<article class="daily-reading-guide" id="${guide.id}" aria-labelledby="${guide.id}-title">
       <header class="reading-header"><p class="reading-date"><time datetime="${guide.date}">${escape(guide.date)}</time> · 舊金山當地時間</p><h3 id="${guide.id}-title">${escape(guide.title)}</h3><p class="reading-theme">${escape(guide.theme)}</p></header>
-      <p>${escape(guide.intro)}</p><p class="reading-instruction">${escape(guide.reading_note)}</p><nav class="reading-agenda" aria-label="本日閱讀時間目錄"><ol>${events.map(({event,item,label}) => `<li><a href="#${event.id}"><span class="reading-agenda-time">${escape(item.start)}</span><strong>${escape(label)}</strong><span>${escape(event.focus)}</span></a></li>`).join('')}</ol></nav>${guide.conflict_note ? `<p class="reading-concurrent">${escape(guide.conflict_note)}</p>` : ''}<p class="reading-version">${escape(guide.version_note)}</p>
+      <p>${escape(guide.intro)}</p><p class="reading-instruction">${escape(guide.reading_note)}</p><section class="reading-goals" aria-labelledby="${guide.id}-goals"><h4 id="${guide.id}-goals">今天讀完，先檢查三件事</h4><ul>${guide.goals.map(goal => `<li>${escape(goal)}</li>`).join('')}</ul></section><nav class="reading-agenda" aria-label="本日閱讀時間目錄"><ol>${events.map(({event,item,label}) => `<li><a href="#${event.id}"><span class="reading-agenda-time">${escape(item.start)}</span><strong>${escape(label)}</strong><span>${escape(event.focus)}</span></a></li>`).join('')}</ol></nav>${guide.conflict_note ? `<p class="reading-concurrent">${escape(guide.conflict_note)}</p>` : ''}<p class="reading-version">${escape(guide.version_note)}</p>
+      <details class="reading-terms"><summary>先認得這幾個英文</summary><dl>${guide.terms.map(([term,description]) => `<div><dt>${escape(term)}</dt><dd>${escape(description)}</dd></div>`).join('')}</dl></details>
       ${events.map(event => event.html).join('')}
-      <section class="reading-review" aria-labelledby="${guide.id}-review"><h4 id="${guide.id}-review">讀完，試著用自己的話說</h4><p>${escape(guide.review_question)}</p><details class="reading-answer"><summary>展開回顧提示</summary><p>${escape(guide.review_answer)}</p></details><p>${escape(guide.onsite_note)}</p></section>
+      <section class="reading-review" aria-labelledby="${guide.id}-review"><h4 id="${guide.id}-review">讀完，試著用自己的話說</h4><p>${escape(guide.review_question)}</p><details class="reading-answer"><summary>展開回顧提示</summary><p>${escape(guide.review_answer)}</p></details><p>${escape(guide.onsite_note)}</p><p class="reading-completion">${escape(guide.completion_note)}</p></section>
       <details class="reading-sources"><summary>來源與查閱範圍</summary><p>報告內容主要依議程摘要；數字例子為教學自擬。作者的結果與保證仍需核對全文的條件。</p><ul>${guide.sources.map(source => `<li>${externalLink(source.label, source.url)}</li>`).join('')}</ul></details>
     </article>`;
   }).join('');
-  return `<section class="reading-section" id="daily-reading" aria-labelledby="daily-reading-title"><div class="reading-section-heading"><h2 id="daily-reading-title">每日閱讀重點</h2><nav aria-label="已整理的閱讀日期">${reading.guides.map(guide => `<a href="#${guide.id}">${escape(guide.title)}</a>`).join('')}</nav></div>${guides}</section>`;
+  assert.deepEqual(dates, new Set(program.days.map(day => day.date)), 'Missing daily reading guides');
+  return `<section class="reading-section" id="daily-reading" aria-labelledby="daily-reading-title"><div class="reading-section-heading"><h2 id="daily-reading-title">每日閱讀重點</h2><nav aria-label="已整理的閱讀日期">${reading.guides.map(guide => `<a href="#${guide.id}">${escape(guide.date.slice(5).replace('-', '/'))} ${escape(guide.title)}</a>`).join('')}</nav></div>${guides}</section>`;
 }
