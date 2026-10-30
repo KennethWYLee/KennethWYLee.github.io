@@ -2,10 +2,12 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { renderReadingGuides } from './render-informs-reading.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-sessions.json'), 'utf8'));
 const template = await readFile(path.join(root, 'tools/informs-2026.template.html'), 'utf8');
+const reading = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-reading.json'), 'utf8'));
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 assert.equal(data.sessions.length, 16);
 assert.equal(data.alternatives.length, 15);
@@ -67,8 +69,8 @@ const fallback = data.days.map(day => {
   }).join('\n');
   return `<section class="static-day"><h3>${escape(day.label)}</h3><div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}建議場次 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">安排</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }).join('\n');
-const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c'));
-assert(!/\{\{(?:STATIC_SCHEDULE|SESSION_DATA)\}\}/.test(output));
-assert(!/C:[\\/]|file:\/\/\//.test(output));
+const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c'));
+assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|SESSION_DATA)\}\}/.test(output));
+assert(!/[CD]:[\\/]|file:\/\/\//.test(output));
 await writeFile(path.join(root, 'informs-2026.html'), output, 'utf8');
 console.log('Generated informs-2026.html: 16 technical slots, 15 alternatives, 13 special talks, 4 days.');
