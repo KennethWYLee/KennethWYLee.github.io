@@ -56,7 +56,7 @@
 
     function paperList(session, context, collapsed = false) {
       if (!session.papers?.length) return '';
-      const heading = `論文題目與作者（${session.papers.length}）`;
+      const heading = session.papers_complete === false ? `本頁精選報告（${session.papers.length}／全場${session.total_paper_count}）` : `論文題目與作者（${session.papers.length}）`;
       const papers = session.papers.map(paper => {
         const instance = `${context}-${session.code}-${paper.key}`;
         const paragraphs = paper.summary_zh.split(/\n+/).filter(Boolean).map(text => `<p>${escape(text)}</p>`).join('');
@@ -111,7 +111,7 @@
 
     function badges(slot, session) {
       const clashes = chosenTalks().filter(t => overlaps(t, session));
-      return `<span class="badge ${badgeClass(slot)}">${escape(slot.priority)}</span>${session.key_session ? '<span class="badge badge-core">優先留意</span>' : ''}${session.code !== slot.code ? '<span class="badge">已改選備選</span>' : ''}${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(t => t.speaker).join('、')) + ' 撞場</span>' : ''}`;
+      return `<span class="badge ${badgeClass(slot)}">${escape(slot.priority === '可加聽' ? '自由探索' : slot.priority)}</span>${session.key_session ? '<span class="badge badge-core">優先留意</span>' : ''}${session.code !== slot.code ? '<span class="badge">已改選備選</span>' : ''}${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(t => t.speaker).join('、')) + ' 撞場</span>' : ''}`;
     }
 
     function question(slot, session) {

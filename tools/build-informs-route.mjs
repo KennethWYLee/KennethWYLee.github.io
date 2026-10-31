@@ -3,20 +3,22 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { renderReadingGuides } from './render-informs-reading.mjs';
+import { renderModelOverview, renderTeacherPage } from './render-informs-extra.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-sessions.json'), 'utf8'));
 const template = await readFile(path.join(root, 'tools/informs-2026.template.html'), 'utf8');
 const reading = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-reading.json'), 'utf8'));
+const modelling = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-modelling.json'), 'utf8'));
+const teacher = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-teacher.json'), 'utf8'));
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 assert.equal(data.sessions.length, 17);
-assert.equal(data.alternatives.length, 18);
 assert.equal(data.special_talks.length, 13);
 assert.equal(new Set(data.special_talks.map(t => t.key)).size, 13);
-assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, 35);
+assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, data.sessions.length + data.alternatives.length);
 const papers = [...data.sessions, ...data.alternatives].flatMap(session => session.papers || []);
-assert.equal(papers.length, 168);
-assert.equal(new Set(papers.map(paper => paper.key)).size, 168);
+assert.equal(new Set(papers.map(paper => paper.key)).size, papers.length);
+for (const day of data.days) assert.equal(data.sessions.filter(s => s.date === day.date && s.priority !== '可加聽').length, 2, `Need two main sessions: ${day.date}`);
 for (const session of data.sessions) {
   assert(session.start < session.end);
   assert((session.previous_codes || []).every(code => session.alternative_codes.includes(code)));
@@ -38,7 +40,7 @@ function abstractDetails(item) {
 }
 function paperList(session, collapsed = false) {
   assert.equal(session.papers?.length, session.abstract.paper_count, `Missing papers: ${session.code}`);
-  const heading = `論文題目與作者（${session.papers.length}）`;
+  const heading = session.papers_complete === false ? `本頁精選報告（${session.papers.length}／全場${session.total_paper_count}）` : `論文題目與作者（${session.papers.length}）`;
   const papers = session.papers.map(paper => {
     assert(paper.title && paper.authors?.length && paper.summary_zh && paper.source_note, `Incomplete paper: ${paper.key}`);
     assert(paper.source_url?.startsWith('https://'), `Missing paper source: ${paper.key}`);
@@ -65,14 +67,17 @@ const fallback = data.days.map(day => {
     const special = !!s.key;
     const technicalClashes = special ? [...data.sessions, ...data.alternatives].filter(t => overlaps(s, t)).map(t => t.code) : [];
     const mutual = special ? data.special_talks.filter(t => t.key !== s.key && overlaps(s, t)) : [];
-    const note = special ? `${escape(s.kind)}；${technicalClashes.length ? '與技術場次 ' + escape(technicalClashes.join('、')) + ' 撞場' : '與表列技術場次無重疊'}${mutual.length ? '；同時段另有' + mutual.length + '場演講，需擇一' : ''}` : escape(s.priority);
+    const note = special ? `${escape(s.kind)}；${technicalClashes.length ? '與技術場次 ' + escape(technicalClashes.join('、')) + ' 撞場' : '與表列技術場次無重疊'}${mutual.length ? '；同時段另有' + mutual.length + '場演講，需擇一' : ''}` : escape(s.priority === '可加聽' ? '自由探索' : s.priority);
     return `<tr${special ? ' class="special-table-row"' : ''}><td data-label="時間"><div class="cell-content">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><strong>${escape(s.code || s.speaker)}</strong><br>${escape(s.title)}</div></td><td data-label="教室"><div class="cell-content">${escape(s.room || '教室待官方確認')}</div></td><td data-label="安排"><div class="cell-content">${note}${abstractDetails(s)}${special ? '' : paperList(s) + alternativeDetails(s)}</div></td></tr>`;
   }).join('\n');
   return `<section class="static-day"><h3>${escape(day.label)}</h3><div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}建議場次 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">安排</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }).join('\n');
 const readingNav = `<nav class="reading-entry-links" aria-label="每日閱讀入口">${reading.guides.map(guide => `<a class="reading-entry" href="#${escape(guide.id)}"><span>${escape(guide.date.slice(5).replace('-', '/'))}</span> ${escape(guide.title)} →</a>`).join('')}</nav>`;
-const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{READING_NAV}}', readingNav).replace('{{TECHNICAL_SLOT_COUNT}}', String(data.sessions.length)).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c'));
-assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|READING_NAV|TECHNICAL_SLOT_COUNT|SESSION_DATA)\}\}/.test(output));
+const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{READING_NAV}}', readingNav).replace('{{MODELLING_OVERVIEW}}', renderModelOverview(modelling)).replace('{{TECHNICAL_SLOT_COUNT}}', String(data.sessions.length)).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c')).replace(/[\t ]+$/gm, '');
+assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|READING_NAV|MODELLING_OVERVIEW|TECHNICAL_SLOT_COUNT|SESSION_DATA)\}\}/.test(output));
 assert(!/[CD]:[\\/]|file:\/\/\//.test(output));
 await writeFile(path.join(root, 'informs-2026.html'), output, 'utf8');
+const teacherOutput = renderTeacherPage(teacher);
+assert(!/[CD]:[\\/]|file:\/\/\//.test(teacherOutput));
+await writeFile(path.join(root, 'informs-2026-teacher.html'), teacherOutput, 'utf8');
 console.log(`Generated informs-2026.html: ${data.sessions.length} technical slots, ${data.alternatives.length} alternatives, ${data.special_talks.length} special talks, ${reading.guides.length} days.`);

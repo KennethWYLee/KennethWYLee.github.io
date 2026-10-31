@@ -58,13 +58,14 @@ export function renderReadingGuides(reading, program) {
         assert(example.title && example.paragraphs?.length);
         return `<div class="reading-extra-example"><h5>${escape(example.title)}</h5>${paragraphs(example.paragraphs)}${exampleTable(example.table, example.title)}</div>`;
       }).join('');
-      return `<details class="reading-step" id="${step.id}"${first ? ' open' : ''}>
-        <summary><span class="reading-step-number" aria-hidden="true">${lessonNumber}</span><span><span class="reading-step-title">${escape(step.title)}</span><span class="reading-step-summary">${escape(step.summary)}</span></span></summary>
+      return `<details class="reading-step simple-reading-step" id="${step.id}"${first ? ' open' : ''}>
+        <summary><span class="reading-step-number" aria-hidden="true">${lessonNumber}</span><span><span class="reading-step-title">${escape(step.title)}</span><span class="reading-step-summary">${escape(step.takeaway)}</span></span></summary>
         <div class="reading-step-body">${paragraphs(step.paragraphs)}${exampleTable(step.table, step.title)}${step.after_example ? `<p>${escape(step.after_example)}</p>` : ''}
-          <div class="reading-question"><p><strong>先自己想：</strong>${escape(step.question)}</p><details class="reading-answer"><summary>展開答案與說明</summary><p>${escape(step.answer)}</p></details></div>
+          <p class="reading-takeaway"><strong>Take away：</strong>${escape(step.takeaway)}</p>
+          <p class="reading-listen"><strong>現場先聽：</strong>${escape(step.listen_for)}</p>
+          <details class="reading-paper"><summary>原題、作者與來源</summary><p class="reading-paper-label">${escape(referenceLabel)}</p><h5 lang="en">${escape(reference.title)}</h5><p class="reading-paper-authors">${paper ? '作者' : '講者'}：<span lang="en">${escape(people)}</span></p><p class="reading-source">${escape(sourceNote)} · ${externalLink('查看來源', reference.source_url)}</p></details>
+          <details class="reading-answer"><summary>再想一題</summary><p>${escape(step.question)}</p><p>${escape(step.answer)}</p></details>
           ${extras ? `<details class="reading-more-examples"><summary>再看一個例子</summary>${extras}</details>` : ''}
-          <div class="reading-paper"><p class="reading-paper-label">${escape(referenceLabel)}</p><h5 lang="en">${escape(reference.title)}</h5><p class="reading-paper-authors">${paper ? '作者' : '講者'}：<span lang="en">${escape(people)}</span></p><p>${escape(step.paper_explanation)}</p><p class="reading-listen"><strong>現場先聽這一件事：</strong>${escape(step.listen_for)}</p><p class="reading-source">${escape(sourceNote)} · ${externalLink('查看來源', reference.source_url)}</p></div>
-          <p class="reading-takeaway"><strong>這段要帶走的是：</strong>${escape(step.takeaway)}</p>
         </div>
       </details>`;
     };
@@ -78,14 +79,14 @@ export function renderReadingGuides(reading, program) {
       lastStart = item.start;
       const clashes = event.special_key ? program.special_talks.filter(other => other.key !== item.key && other.date === item.date && other.start < item.end && other.end > item.start) : [];
       const label = item.code || item.speaker;
-      const arrangement = item.code ? item.priority : item.type;
+      const arrangement = item.code ? (item.priority === '可加聽' ? '自由探索' : item.priority === '保留' ? '保留整場' : '先聽這場') : item.type;
       const content = event.step_ids.map(id => {
         const step = stepById.get(id);
         assert(step && !stepIdsUsed.has(id), `Invalid or reused lesson: ${id}`);
         stepIdsUsed.add(id);
         return renderStep(step, event, index === 0 && event.step_ids[0] === id);
       }).join('');
-      return { event, item, label, html: `<section class="reading-event" id="${event.id}" aria-labelledby="${event.id}-title"><header class="reading-event-heading"><p class="reading-event-time">${escape(item.start)}–${escape(item.end)} <span>${escape(arrangement)}</span></p><h4 id="${event.id}-title">${escape(label)}</h4><p class="reading-event-title" lang="en">${escape(item.title)}</p><p>${escape(event.focus)}</p>${clashes.length ? '<p class="reading-concurrent">晚間三場 keynote 同時進行，現場完整聽會需擇一。</p>' : ''}</header>${content}</section>` };
+      return { event, item, label, html: `<section class="reading-event${event.kind === 'explore' ? ' is-exploration' : ''}" id="${event.id}" aria-labelledby="${event.id}-title"><header class="reading-event-heading"><p class="reading-event-time">${escape(item.start)}–${escape(item.end)} <span>${escape(arrangement)}</span></p><h4 id="${event.id}-title">${escape(label)}</h4><p class="reading-event-title" lang="en">${escape(item.title)}</p><p>${escape(event.focus)}</p>${clashes.length ? '<p class="reading-concurrent">晚間三場 keynote 同時進行，現場完整聽會需擇一。</p>' : ''}</header>${content}</section>` };
     });
     assert.equal(stepIdsUsed.size, guide.steps.length, 'Unused reading lessons');
     assert.deepEqual(new Set(events.filter(e => e.item.code).map(e => e.item.code)), new Set(guide.session_codes));
@@ -95,7 +96,7 @@ export function renderReadingGuides(reading, program) {
     assert.deepEqual(new Set(guide.special_keys), new Set(program.special_talks.filter(talk => talk.date === guide.date).map(talk => talk.key)), 'Missing special talks');
     return `<article class="daily-reading-guide" id="${guide.id}" aria-labelledby="${guide.id}-title">
       <header class="reading-header"><p class="reading-date"><time datetime="${guide.date}">${escape(guide.date)}</time> · 舊金山當地時間</p><h3 id="${guide.id}-title">${escape(guide.title)}</h3><p class="reading-theme">${escape(guide.theme)}</p></header>
-      <p>${escape(guide.intro)}</p><p class="reading-instruction">${escape(guide.reading_note)}</p><section class="reading-goals" aria-labelledby="${guide.id}-goals"><h4 id="${guide.id}-goals">今天讀完，先檢查三件事</h4><ul>${guide.goals.map(goal => `<li>${escape(goal)}</li>`).join('')}</ul></section><nav class="reading-agenda" aria-label="本日閱讀時間目錄"><ol>${events.map(({event,item,label}) => `<li><a href="#${event.id}"><span class="reading-agenda-time">${escape(item.start)}</span><strong>${escape(label)}</strong><span>${escape(event.focus)}</span></a></li>`).join('')}</ol></nav>${guide.conflict_note ? `<p class="reading-concurrent">${escape(guide.conflict_note)}</p>` : ''}<p class="reading-version">${escape(guide.version_note)}</p>
+      <p>${escape(guide.intro)}</p><p class="reading-instruction">${escape(guide.reading_note)}</p><nav class="reading-agenda" aria-label="本日閱讀時間目錄"><ol>${events.map(({event,item,label}) => `<li class="${event.kind === 'explore' ? 'agenda-explore' : ''}"><a href="#${event.id}"><span class="reading-agenda-time">${escape(item.start)}</span><strong>${escape(label)}${event.kind === 'explore' ? ' · 自由探索' : ''}</strong><span>${escape(event.focus)}</span></a></li>`).join('')}</ol></nav>${guide.conflict_note ? `<p class="reading-concurrent">${escape(guide.conflict_note)}</p>` : ''}<p class="reading-version">${escape(guide.version_note)}</p>
       <details class="reading-terms"><summary>先認得這幾個英文</summary><dl>${guide.terms.map(([term,description]) => `<div><dt>${escape(term)}</dt><dd>${escape(description)}</dd></div>`).join('')}</dl></details>
       ${events.map(event => event.html).join('')}
       <section class="reading-review" aria-labelledby="${guide.id}-review"><h4 id="${guide.id}-review">讀完，試著用自己的話說</h4><p>${escape(guide.review_question)}</p><details class="reading-answer"><summary>展開回顧提示</summary><p>${escape(guide.review_answer)}</p></details><p>${escape(guide.onsite_note)}</p><p class="reading-completion">${escape(guide.completion_note)}</p></section>

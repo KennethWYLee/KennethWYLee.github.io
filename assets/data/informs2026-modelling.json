@@ -1,0 +1,331 @@
+{
+  "prepared_on": "2026-11-01",
+  "intro": "先看要做什麼決定、希望達到什麼、哪些要求不能違反，再讀數學式。以下用一般投資問題整理閱讀方向；例子全部自擬，並非原論文實驗。文獻對照說明已有工作及適用範圍，不表示每個問題都已構成新的研究缺口。",
+  "cases": [
+    {
+      "id": "forecast-loss",
+      "title": "預測：數字接近，方向就會正確嗎？",
+      "question": "用當時可取得的資料預測收盤時，應優先避免數值誤差、方向錯誤，還是交易決策的損失？",
+      "decision": "常見模型可以選擇使用哪些預測變數，以及每項變數的係數。",
+      "objective": "例如讓歷史擬合的絕對誤差較小；若改重視大錯誤或決策後果，就要改相應的衡量方式。",
+      "constraints": "可以限制變數數量，並要求每項資料在提出預測時已經可取得。",
+      "example": "教學自擬，非原論文實驗：昨日收盤100點，今日事前預測A為99.99、B為101；最後收盤100.1。A只差0.11點卻猜錯方向，B差0.9點但猜對方向。",
+      "takeaway": "先說清楚要避免哪種預測錯誤，再看模型的目標是否對應它。",
+      "nearest": [
+        {
+          "title": "Time series modeling and forecasting by mathematical programming",
+          "authors": "Bogdan Bichescu; George G. Polak",
+          "year": "2023",
+          "url": "https://doi.org/10.1016/j.cor.2022.106079",
+          "relation": "已有透過數學規劃共同選擇時間落後項與係數，並用數量限制控制模型複雜度的研究。",
+          "difference": "本頁分開問預測數值、漲跌方向與投資決策後果；該文是否處理各項，未讀相關全文前不判斷。加入其他資訊也不單獨構成新貢獻。",
+          "scope": "本輪只讀到出版社可見的Introduction，尚未取得完整第4節與附錄，未完成逐式比較；作者姓名另核對出版社CRediT聲明。"
+        },
+        {
+          "title": "Forecasting stock returns: the role of VIX-based upper and lower shadow of Japanese candlestick",
+          "authors": "Zhifeng Dai; Haoyang Zhu; Xiaoming Chang; Fenghua Wen",
+          "year": "2025",
+          "url": "https://link.springer.com/article/10.1186/s40854-024-00682-8",
+          "relation": "已研究以VIX價格資訊預測月度股票超額報酬，並分開評估預測誤差與投資用途。",
+          "difference": "月度超額報酬與每日收盤水準的目標、資訊時點及估計窗口不同，原結果不能直接移用。",
+          "scope": "已讀原PDF第5–6、8、15–16頁的資料、變數、預測與評估段落。"
+        }
+      ],
+      "boundary": "較小的擬合誤差不保證樣本外方向正確，也不保證扣費後賺得更多。"
+    },
+    {
+      "id": "gains-and-shortfall",
+      "title": "收益與不足額：願意放棄多少上漲？",
+      "question": "相對指定報酬門檻，投資人願意犧牲多少上漲機會，以減少低於門檻的不足額或配置集中程度？",
+      "decision": "模型選資產比例；收益、不足額與分散配置的相對重要性由投資人事先設定，若用資料挑選，須另外說明挑選準則。",
+      "objective": "在高於門檻的收益和低於門檻的不足額間取捨，也可以對較大的權重範數加入代價。",
+      "constraints": "可以要求長倉，且投資金額與當次買賣費合計不得超過現有財富。",
+      "example": "教學自擬，非原論文實驗：門檻設0%，兩種情況各半，A報酬為+6%、−2%，B為+3%、−1%。B的跌幅減半，上漲也減半；較重視不足額的人，可能願意接受這項取捨。",
+      "takeaway": "減少不足額可能付出收益代價；目標中的懲罰是在表達願意交換多少。",
+      "nearest": [
+        {
+          "title": "Worst-case Omega ratio under distribution uncertainty with its application in robust portfolio selection",
+          "authors": "Qiuyang Li; Xinqiao Xie",
+          "year": "2024（線上出版2023）",
+          "url": "https://doi.org/10.1017/S0269964823000141",
+          "relation": "已有在均值與Wasserstein距離條件下研究最壞情況Omega比率的模型。",
+          "difference": "固定收益與不足額的權衡、直接最大化比率、在多種分布中保護比率，是不同要求。",
+          "scope": "已讀原PDF第13–15、17頁的模型、條件與實驗設定；未重新審查全部證明。"
+        }
+      ],
+      "boundary": "固定的收益短缺效用不等於Omega比率；加入權重懲罰也不自動等於精確的分布穩健模型或未來財富保證。"
+    },
+    {
+      "id": "required-holdings",
+      "title": "額外持股：選到一檔股票，應投入多少？",
+      "question": "若某個選股分數要求額外投資幾檔股票，最低持股要求會改變哪些報酬、風險與交易取捨？",
+      "decision": "先決定哪些股票必須持有，再由配置模型決定各檔比例。",
+      "objective": "在符合指定持股要求的配置中，依投資人的收益、風險及交易代價選擇。",
+      "constraints": "可對指定股票設定最低比例，其他股票則在共同的資金與長倉限制內自由配置。",
+      "example": "教學自擬，非原論文實驗：100元原本全投A，改成90元A、10元B且暫不計費。若A漲10%、B跌10%，得到108元；反過來則得92元，原本全投A分別是110、90元。",
+      "takeaway": "分數決定誰被選到；最低比重和配置目標才決定投入多少資本。",
+      "nearest": [
+        {
+          "title": "The multi-armed bandit problem under the mean-variance setting",
+          "authors": "Hongda Hu; Arthur Charpentier; Mario Ghossoub; Alexander Schied",
+          "year": "2025",
+          "url": "https://doi.org/10.1016/j.ejor.2025.03.011",
+          "relation": "已有考慮收益與風險的bandit研究，並分析跨選項相關與固定組合的延伸。",
+          "difference": "只觀察被選項目的回饋，和可見全部股票價格後再指定最低持股，資訊與配置機制不同。",
+          "scope": "已讀正式期刊PDF第3–5頁；各選項的時間樣本仍須符合iid及sub-Gaussian條件，不能說已處理一般非平穩市場。"
+        }
+      ],
+      "boundary": "強制持有可能改善或犧牲之後的結果；分數的名稱不能替代資訊假設、配置效果或理論保證。"
+    },
+    {
+      "id": "scenario-probabilities",
+      "title": "情境機率：換一組機率，還能接受嗎？",
+      "question": "未來結果相同但機率不確定時，原本優於基準的配置，在哪些有理由檢查的機率下仍可接受？",
+      "decision": "選資產比例，也交代用哪些情境機率評估目標與基準要求。",
+      "objective": "例如依參考機率追求較高平均報酬，同時支付交易費。",
+      "constraints": "可以要求在多組指定機率下，都通過對基準所訂的報酬或分布比較條件。",
+      "example": "教學自擬，非原論文實驗：A在兩種情況為+8%、−3%，B總是+1%。機率各半時A平均2.5%；若變為20%、80%，A平均是−0.8%。這只比較平均，不是完整SSD判定。",
+      "takeaway": "機率也是模型假設；哪些機率值得檢查，需要資料或決策理由。",
+      "nearest": [
+        {
+          "title": "Portfolio diversification based on stochastic dominance under incomplete probability information",
+          "authors": "Juuso Liesiö; Peng Xu; Timo Kuosmanen",
+          "year": "2020",
+          "url": "https://doi.org/10.1016/j.ejor.2020.03.042",
+          "relation": "已研究機率資訊不完整時，在指定機率集合下進行SSD比較與投資決策。",
+          "difference": "更換機率集合、比較基準或容許偏離，會改變要求，但差異本身不證明文獻缺口。",
+          "scope": "已讀期刊第755–759、764頁，尤其Definition 2、Theorem 1及第6節。"
+        },
+        {
+          "title": "Portfolio Optimization Based on Almost Second-Degree Stochastic Dominance",
+          "authors": "Chunling Luo; Piao Chen; Patrick Jaillet",
+          "year": "2025卷期（線上出版2024）",
+          "url": "https://doi.org/10.1287/mnsc.2022.01092",
+          "relation": "已有以幾乎二階隨機優勢建立投資模型及有限網格充分條件的研究。",
+          "difference": "允許有限偏離與嚴格SSD的要求不同；沒有通過充分條件，也不能反推原關係一定不成立。",
+          "scope": "已讀作者稿PDF第10、12、15頁；不把作者稿頁碼當期刊頁碼。"
+        }
+      ],
+      "boundary": "情境機率不是資產配置權重，也未必是真實機率；某組機率下的樣本比較不等於未來保證。"
+    },
+    {
+      "id": "trading-costs",
+      "title": "交易成本：少交易是否就比較好？",
+      "question": "從同一份持倉出發，調整帶來的機會和費用如何取捨？",
+      "decision": "決定繼續持有，或買賣哪些資產、調整多少。",
+      "objective": "可把報酬、風險與交易項放在同一目標中，表達願意為調整付多少代價。",
+      "constraints": "實際交易仍須支付費用，且符合資金、長倉與其他既定持倉限制。",
+      "example": "教學自擬，非原論文實驗：100元在A、B各半。賣10元B、買A且買賣各收0.1%，合計費約0.02元。若之後A漲10%、B不動，可能值得調整；A若下跌，結果也可能更差。",
+      "takeaway": "省下交易費不是完整結果，還要算改變持倉得到或失去的報酬。",
+      "nearest": [
+        {
+          "title": "Adaptive robust online portfolio selection",
+          "authors": "Man Yiu Tsang; Tony Sit; Hoi Ying Wong",
+          "year": "2022作者預印本v1；2025期刊版",
+          "url": "https://arxiv.org/abs/2206.01064",
+          "relation": "已有扣費後預算、額外交易懲罰及隨資訊調整參數的投資模型。",
+          "difference": "多期線上決策與同一起始持倉的局部比較不同；懲罰權重也不是市場實收的費率。",
+          "scope": "已讀2022作者稿PDF第6–8、36–37頁；尚未與2025正式期刊版逐段比較。"
+        },
+        {
+          "title": "Markowitz Portfolio Construction at Seventy",
+          "authors": "Stephen Boyd; Kasper Johansson; Ronald Kahn; Philipp Schiele; Thomas Schmelzer",
+          "year": "2024",
+          "url": "https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf",
+          "relation": "已有交易成本項、可調成本權重與交易限制的投資配置整理。",
+          "difference": "把交易當可交換的代價，與訂出不得超過的交易額，是不同需求。",
+          "scope": "已讀作者稿第15–18頁、第24頁第4.1節及第29頁的成本尺度討論。"
+        }
+      ],
+      "boundary": "取消目標中的交易懲罰，不代表實際交易免付費；成本近似、預算扣費與帳戶財富須分開核對。"
+    },
+    {
+      "id": "es-limit",
+      "title": "ES上限：這次最多可以投入多少？",
+      "question": "已有固定股票籃子時，風險與資金要求允許投入多少，應否為了少交易而保留更多現金？",
+      "decision": "決定投入固定籃子的比例，其餘保留現金。",
+      "objective": "可以在風險限制內盡量投入，也可以先容許少投一些，再選擇較少的調整。",
+      "constraints": "用指定的ES評估控制尾端平均損失，並預留資金支付當次交易費。",
+      "example": "教學自擬，非原論文實驗：假設固定籃子的評估ES為8%，現金報酬為零且暫不計費；若整體ES上限4%，最多投入50%。這只決定投入程度，還沒有選籃子內的個股。",
+      "takeaway": "風險限制決定哪些投入可接受；目標再決定要在其中選哪個。",
+      "nearest": [
+        {
+          "title": "Conditional Value-at-Risk for General Loss Distributions",
+          "authors": "R. Tyrrell Rockafellar; Stanislav Uryasev",
+          "year": "2002",
+          "url": "https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf",
+          "relation": "已研究一般損失分布的CVaR，並可把CVaR限制與其他目標、不同風險水準一起建模。",
+          "difference": "以風險作目標、以風險作硬上限及在硬上限內減少交易，是不同的投資要求。",
+          "scope": "已讀第4節、Theorem 16與第5節投資例；未重審全部證明。"
+        }
+      ],
+      "boundary": "ES是尾端平均損失，不是某個超損事件的機率；用估計值或上界合規，也不自動證明未知真實ES合規。"
+    },
+    {
+      "id": "ssd-and-omega",
+      "title": "SSD與Omega：要保護基準的哪些要求？",
+      "question": "除了自己的收益與不足額偏好，是否還要求配置在各個門檻下，都不比指定基準差？",
+      "decision": "選資產比例，並先交代基準、報酬口徑和容許的偏離。",
+      "objective": "在可接受範圍內追求指定效用或Omega比率；若改變優先次序，也要明說。",
+      "constraints": "SSD可要求在同一分布下，各門檻的平均不足額不超過基準。",
+      "example": "教學自擬，非原論文實驗：兩種情況各半，A報酬為−2%、+6%，基準為0%、+1%。A平均較高，但在0%門檻的平均不足額是1%，基準是0；單看平均不能通過全部SSD要求。",
+      "takeaway": "SSD增加的是相對基準的接受條件，不是免費改善原目標。",
+      "nearest": [
+        {
+          "title": "Portfolio optimization with stochastic dominance constraints",
+          "authors": "Darinka Dentcheva; Andrzej Ruszczyński",
+          "year": "2006",
+          "url": "https://doi.org/10.1016/j.jbankfin.2005.04.024",
+          "relation": "已有以基準及不同門檻下的短缺條件建立投資組合SSD限制的研究。",
+          "difference": "對一個門檻的偏好、單一ES上限及完整SSD，是不同要求；目標的選擇仍須另行決定。",
+          "scope": "已讀期刊第437–440頁的表示與模型段落；未重新證明全文定理。"
+        }
+      ],
+      "boundary": "固定的非減凹效用與Omega比率不同；新增SSD限制縮小可行集合，不保證同一原目標更好或未來財富更高。"
+    },
+    {
+      "id": "scenario-budget",
+      "title": "情境預算：模擬更多次，知道得更多嗎？",
+      "question": "增加模擬情境與增加獨立市場觀察，分別能減少哪種不確定性？",
+      "decision": "依假設的情境分布選資產比例，也決定用多少模擬情境近似評估。",
+      "objective": "例如最小化情境下的CVaR，或同時考慮平均損失與CVaR。",
+      "constraints": "配置可要求非負且合計100%，情境與機率則須說明資料及模型依據。",
+      "example": "教學自擬，非原論文實驗：10個情境各占10%，A只在其中一個損失10%，其餘為0；B每次損失2%。90%CVaR為10%、2%。重複模擬不會自動修正情境機率。",
+      "takeaway": "更多模擬能更仔細計算假設的世界，不能自動修正假設本身。",
+      "nearest": [
+        {
+          "title": "Model-Uncertainty-Aware Residuals-Based Sample Average Approximation",
+          "authors": "Man Yiu Tsang; Karmel S. Shehadeh; Güzin Bayraksan",
+          "year": "2026年7月13日預印本",
+          "url": "https://optimization-online.org/2026/07/model-uncertainty-aware-residuals-based-sample-average-approximation/",
+          "relation": "已研究未知迴歸關係及殘差所形成的情境分布，也有考慮風險的投資案例。",
+          "difference": "平均損失加CVaR與純CVaR目標不同；模擬精度、估計模型誤差與新市場資料也不能混為一談。",
+          "scope": "已讀預印本第2.1–2.2節、PDF第7–10頁及第6.1節第22頁；作者順序依此預印本。"
+        }
+      ],
+      "boundary": "這個比較依賴指定的等機率情境；模擬次數不是新的歷史樣本數，也不直接提供真實市場風險保證。"
+    },
+    {
+      "id": "removal-and-allocation",
+      "title": "移除資產的資訊，如何幫助配權？",
+      "question": "知道拿掉一檔資產後少了多少最佳效用，是否就知道最後應給它多少權重？",
+      "decision": "先比較有無該資產時重新配置的結果，再交代如何用比較結果選最終權重。",
+      "objective": "可追求既定效用，也可在接近最佳的範圍內，依另行說明的分散需求選擇。",
+      "constraints": "比較時固定資料、效用與其他規則，移除資產後允許剩餘資產重新配置。",
+      "example": "教學自擬，非原論文實驗：假設全部資產重新配置的最佳效用是10，移除A後是8，差2個效用單位。這兩個最佳值尚未說明最後應投A多少；還需要把比較資訊用於選擇的規則。",
+      "takeaway": "移除後的效用差和最終權重，是兩個需要分開回答的問題。",
+      "nearest": [
+        {
+          "title": "Robust Portfolio Selection with Near Optimal Centering",
+          "authors": "Dany Cajas",
+          "year": "2019年12月作者稿（初版2019年10月）",
+          "url": "https://doi.org/10.2139/ssrn.3572435",
+          "relation": "已有在容許的報酬與風險範圍內，選擇靠近可行區域中央之配置的研究。",
+          "difference": "如何從接近最佳的配置中選擇，與如何把移除資產的效用差轉成最終權重，不直接等同。",
+          "scope": "已讀2019年12月作者稿第2.1節、第7–8頁及第3.1節、第16–17頁；SSRN頁另列2021年修訂版，未作同版判定，不據此宣稱未來淨報酬保證。"
+        }
+      ],
+      "boundary": "效用單位不一定是報酬率或金額；比較資訊不會自動決定配置，也不能單憑不同寫法宣稱新缺口。"
+    },
+    {
+      "id": "model-explanations",
+      "title": "模型解釋：預測相近，依賴的資料相同嗎？",
+      "question": "表現相近的模型，是否可能對同一項資料有不同依賴？允不允許重新訓練，答案會怎樣改變？",
+      "decision": "選擇要解釋固定模型，還是比較一組表現相近的模型。",
+      "objective": "先固定預測表現的衡量方式，再比較各模型對資料的依賴。",
+      "constraints": "使用相同評估資料與表現要求，並明確區分固定模型和移除資料後重新訓練。",
+      "example": "教學自擬，非原論文實驗：歷史上大盤X與產業指數Y總相同，甲只用X、乙只用Y，預測完全一致。日後X為1、Y為2，輸出可能不同；但仍不能由此判斷誰更準或誰造成結果。",
+      "takeaway": "表現相近不代表依賴相同；先分清是否允許重新訓練。",
+      "nearest": [
+        {
+          "title": "All Models are Wrong, but Many are Useful: Learning a Variable’s Importance by Studying an Entire Class of Prediction Models Simultaneously",
+          "authors": "Aaron Fisher; Cynthia Rudin; Francesca Dominici",
+          "year": "2019",
+          "url": "https://www.jmlr.org/papers/v20/18-760.html",
+          "relation": "已區別固定模型的依賴與移除變數後重訓，並研究表現良好模型的依賴範圍。",
+          "difference": "單一模型的解釋、跨模型的依賴差異及移除資料後可達的表現，是不同比較。",
+          "scope": "已讀第3.2節、第10頁及第4節、第11頁。"
+        },
+        {
+          "title": "The Rashomon Importance Distribution: Getting RID of Unstable, Single Model-based Variable Importance",
+          "authors": "Jon Donnelly; Srikar Katta; Cynthia Rudin; Edward P. Browne",
+          "year": "2023",
+          "url": "https://papers.nips.cc/paper_files/paper/2023/hash/1403ab1a427050538ec59c7f570aec8b-Abstract-Conference.html",
+          "relation": "已研究表現良好的多個模型之重要性分布與bootstrap。",
+          "difference": "比較多模型或重抽樣本身已有先例；特定資料、定義與保證仍須逐項核對。",
+          "scope": "已讀NeurIPS正式會議PDF第3–4頁；作者姓名以正式PDF首頁為準。"
+        }
+      ],
+      "boundary": "變數重要性不是因果效果；有限模型集的結果，也不能直接當成所有可能模型的結論。"
+    },
+    {
+      "id": "smaller-investment-universe",
+      "title": "刪減名單：剩下的投資機會少了多少？",
+      "question": "減少可投資公司後，允許剩餘資產重新配置，對投資人可達的結果有多大影響？",
+      "decision": "選保留哪些資產，再比較完整名單與縮減名單下各自可達的最佳配置。",
+      "objective": "衡量同一偏好下兩個最佳結果的差額；若比較多種偏好，須先定義其範圍與尺度。",
+      "constraints": "兩次比較固定報酬分布、效用與投資規則，只改可投資資產集合。",
+      "example": "教學自擬，非原論文實驗：A、B、C報酬確定為5%、4%、3%，長倉且合計100%，暫不計費。只重視報酬時，全部保留可得5%；刪除A後重新配置可得4%，差1個百分點。",
+      "takeaway": "若要比較刪減名單的機會損失，要讓剩餘資產重新配置。",
+      "nearest": [
+        {
+          "title": "Stochastic Spanning",
+          "authors": "Stelios Arvanitis; Mark Hallam; Thierry Post; Nikolas Topaloglou",
+          "year": "2017年4月29日作者稿；2018線上；2019期刊版",
+          "url": "https://doi.org/10.1080/07350015.2017.1391099",
+          "relation": "已有比較嵌套投資集合對風險趨避投資人可達機會的研究，並包含統計程序。",
+          "difference": "投資集合的比較、已知分布的效用差及從有限資料得到的有效界限，不能視為同一結論。",
+          "scope": "已讀2017年4月29日作者稿PDF第1–2、7頁；作者姓名和稿件日期核自首頁，不把作者稿頁碼套用到期刊版。"
+        }
+      ],
+      "boundary": "這個例子只對一種偏好計算；一整類投資人的結論與有限樣本保證，需要另外的定義及證據。"
+    }
+  ],
+  "paths": [
+    {
+      "question": "一、什麼時候必須決定？",
+      "example": "沿用同一個自擬情境：今天有100元，可投A、B或現金，月底才知道報酬。若今天就要鎖定一個月，模型只能用今天知道的資料選擇。",
+      "takeaway": "先畫出決策時點，才能判斷哪些事情仍然不確定。"
+    },
+    {
+      "question": "二、決定時能知道哪些資訊？",
+      "example": "同一筆100元，今天只看得到歷史價格；明早才有新的景氣訊號。今日配置不能使用尚未出現的訊號，更不能先知道月底報酬。",
+      "takeaway": "相同的報酬情境，配上不同資訊時點，就可能是不同決策問題。"
+    },
+    {
+      "question": "三、投資人想要什麼？",
+      "example": "仍投這100元：假設A月底報酬為+10%或−6%，各半；B固定+1%。A平均較高，但較重視虧損的人可能選B；只說報酬最好還不夠。",
+      "takeaway": "目標表達優先追求什麼，硬限制表達哪些結果不能接受。"
+    },
+    {
+      "question": "四、哪些未來及機率有理由相信？",
+      "example": "同樣的A漲10%或跌6%、B固定1%。若A下跌機率為20%，其平均6.8%；若為60%，平均只剩0.4%。這是自擬假設的差異，沒有指出哪組機率才是真的。",
+      "takeaway": "先檢查情境與機率的理由，再問是否需要在多種可信假設下作決定。"
+    },
+    {
+      "question": "五、後來看到資訊，還能調整嗎？",
+      "example": "同一筆100元，如果明早收到訊號後可以改比例，模型就要考慮後續選擇與交易費；若已鎖定一個月，就不能假設隨時改投B。",
+      "takeaway": "一次決定與之後可調整的計畫不同，後續決策也只能使用當時已有的資訊。"
+    },
+    {
+      "question": "六、取得資訊要付多少代價？",
+      "example": "管理這100元時，可以購買研究報告。在同一評估準則下，若扣掉報告費後的事前最佳結果不比不買好，就沒有購買理由；這不是事後挑一份剛好猜對的報告。",
+      "takeaway": "資訊要看是否改變可採取的行動，並把取得成本一起計入。"
+    }
+  ],
+  "question_conclusion": "這些條件會改變要回答的問題。若某項差異會影響應採取的決策或能成立的保證，而最接近的文獻尚不能回答，才有進一步研究的理由；不能只因換目標、加限制或組合方法，就宣稱有新缺口。",
+  "sources": [
+    {
+      "label": "Shapiro（2018）：stochastic programming教程；本輪使用已讀導論",
+      "url": "https://optimization-online.org/2018/02/6455/"
+    },
+    {
+      "label": "Sen與Higle（1999）：stochastic programming入門；本輪僅據摘要作概念參考",
+      "url": "https://doi.org/10.1287/inte.29.2.33"
+    },
+    {
+      "label": "Rockafellar與Uryasev（2002）：Conditional Value-at-Risk for General Loss Distributions",
+      "url": "https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf"
+    }
+  ]
+}

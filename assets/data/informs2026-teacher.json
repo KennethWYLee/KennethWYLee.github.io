@@ -1,0 +1,49 @@
+{
+  "prepared_on": "2026-11-01",
+  "title": "老師提供的文章",
+  "note": "老師提供表示資料來源，不表示老師是文章作者。以下依使用者提供的議程資料整理；僅取得摘要的部分不當成已讀全文。",
+  "articles": [
+    {
+      "id": "001",
+      "title": "W-ARMA: Wasserstein Autoregressive Moving Average Models",
+      "authors": [
+        "Yujing Huang",
+        "Xiaoyu Chen",
+        "Xinwei Deng"
+      ],
+      "abstract": "Distribution-valued time series are estimated from finite within-period samples, so each recorded distribution carries measurement error. We show that this sampling error induces moving-average dependence in the observed series, which purely autoregressive models cannot represent. We develop W-ARMA to model it directly, placing ARMA dynamics on tangent vectors of the Wasserstein manifold and providing Bayesian Information Criterion order selection, estimation, and asymptotic inference. On S&P 500 intraday return distributions, the moving-average structure is pervasive but mostly observation-driven. Modeling it filters\n\nsampling noise that W-AR ignores. This reduces one-step out-of-sample forecast error by 6.4% and outperforms functional and moment-based baselines.",
+      "takeaway": "這篇預測的是每一期的整個分布。每期資料少時，分布本身就有估計噪音；作者把這一層誤差也放進時間序列。",
+      "session": "MC41",
+      "date_time": "Monday, November 2, 1:15 PM - 2:30 PM",
+      "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。"
+    },
+    {
+      "id": "002",
+      "title": "Comparative analysis of two-stage distributionally robust optimization over 1-Wasserstein and 2-Wasserstein balls",
+      "authors": [
+        "Geunyeong Byeon"
+      ],
+      "abstract": "This talk studies the use of 2-Wasserstein ambiguity sets in two-stage distributionally robust optimization with right-hand side uncertainty. We compare worst-case distributions induced by 1- and 2-Wasserstein balls and highlight a pathological behavior associated with 1-Wasserstein sets. Using a newsvendor example with closed- form solutions, we show that 2-Wasserstein balls can yield more informative decisions. A penalty-based dual interpretation further suggests that 2-Wasserstein formulations may provide advantages over a wider range of Wasserstein radii, even with general support sets.",
+      "takeaway": "不確定集合的形狀會改變最壞情況與決策。這篇在特定兩階段模型比較W1與W2，不能直接理解成W2永遠比較好。",
+      "session": "TB29",
+      "date_time": "Tuesday, November 3, 11:00 AM - 12:15 PM",
+      "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。"
+    },
+    {
+      "id": "003",
+      "title": "Regret-Optimal Wasserstein-Robust Decision Making",
+      "authors": [
+        "Sloan Nietert",
+        "Daniel Kuhn"
+      ],
+      "abstract": "Wasserstein distributionally robust optimization (DRO) is a prominent paradigm for robust decision-making in the face of distributional uncertainty. We ask: when is DRO optimal, as measured by ex-ante regret (or excess risk)? Our short answer: often for low-dimensional tasks, rarely for high-dimensional tasks. In this talk, we formalize this question, examine the typical failure modes for DRO, and develop new, efficient algorithms which achieve minimax-optimal regret guarantees under adversarial Wasserstein data corruption. Along the way, we introduce a novel, instance-dependent measure of robust estimation complexity and a convex reformulation for distributionally robust regret optimization applied to linear regression, which may be of independent interest.",
+      "takeaway": "作者問：什麼條件下，Wasserstein DRO能把事前regret（相對於知道真實分布時最佳決策的額外風險）降到最優？答案依任務、維度，以及對手如何按Wasserstein距離改動資料而異，不能解讀成DRO普遍有效或無效。",
+      "session": "WA33",
+      "date_time": "Wednesday, November 4, 8:00 AM - 9:15 AM",
+      "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。"
+    }
+  ]
+}
