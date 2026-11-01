@@ -19,6 +19,7 @@ assert(Number.isInteger(data.special_defaults_version) && data.special_defaults_
 assert.equal(new Set(data.default_special_keys).size, data.default_special_keys.length);
 const defaultTalks = data.default_special_keys.map(key => data.special_talks.find(t => t.key === key));
 assert(defaultTalks.every(Boolean), 'Unknown default special talk');
+assert(defaultTalks.every(t => Number.isInteger(data.special_default_versions[t.key]) && data.special_default_versions[t.key] > 0 && data.special_default_versions[t.key] <= data.special_defaults_version), 'Missing default selection version');
 assert.equal(new Set(defaultTalks.map(t => `${t.date}_${t.start}_${t.end}`)).size, defaultTalks.length, 'Conflicting default special talks');
 assert(data.special_talks.filter(t => t.type === 'Plenary').every(t => data.default_special_keys.includes(t.key)), 'All plenaries must be selected by default');
 assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, data.sessions.length + data.alternatives.length);

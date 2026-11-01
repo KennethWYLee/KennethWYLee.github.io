@@ -5427,7 +5427,7 @@
       }
     }
   ],
-  "special_talks_checked_on": "2026-10-27",
+  "special_talks_checked_on": "2026-11-01",
   "conflict_rule": "同一天開始時間早於另一場結束、結束時間晚於另一場開始，才算時間重疊；相接不算撞場。",
   "conflict_summary": {
     "technical_primary_overlap_pairs": [],
@@ -5488,12 +5488,23 @@
   "selection_updated_on": "2026-11-01",
   "selection_note": "依建模問題重排：每天兩個主要技術場，其餘時段可探索研究問題；全部plenary/keynote教材保留。",
   "modelling_reviewed_on": "2026-11-01",
-  "special_defaults_version": 1,
+  "special_defaults_version": 2,
   "default_special_keys": [
     "jordan",
     "dwork",
     "smilowitz",
+    "romero",
     "allgor",
+    "fernandez",
     "lodi"
-  ]
+  ],
+  "special_default_versions": {
+    "jordan": 1,
+    "dwork": 1,
+    "smilowitz": 1,
+    "romero": 2,
+    "allgor": 1,
+    "fernandez": 2,
+    "lodi": 1
+  }
 }

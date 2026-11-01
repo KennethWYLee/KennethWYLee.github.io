@@ -32,8 +32,13 @@
           const key = saved.specialSelections?.[group.id];
           if (key === '' || group.talks.some(t => t.key === key)) state.specialSelections[group.id] = key;
         }
-        defaultsNeedSaving = saved.specialDefaultsVersion !== data.special_defaults_version;
-        if (defaultsNeedSaving) Object.assign(state.specialSelections, defaultSpecialSelections);
+        const previousDefaultsVersion = Number.isInteger(saved.specialDefaultsVersion) ? saved.specialDefaultsVersion : 0;
+        defaultsNeedSaving = previousDefaultsVersion < data.special_defaults_version;
+        if (defaultsNeedSaving) {
+          for (const talk of talks.filter(t => data.default_special_keys.includes(t.key))) {
+            if (data.special_default_versions[talk.key] > previousDefaultsVersion) state.specialSelections[groupId(talk)] = talk.key;
+          }
+        }
       }
     } catch { /* A blocked or invalid store must not prevent the itinerary from opening. */ }
 
@@ -184,8 +189,9 @@
       const summary = document.getElementById('conflict-summary');
       if (summary) {
         summary.className = `conflict-summary ${conflicts.length ? 'has-conflict' : 'no-conflict'}`;
-        const hasConcurrentOptions = groups.some(g => g.date === state.day && g.talks.length > 1);
-        summary.innerHTML = conflicts.length ? `<strong>已選行程有 ${conflicts.length} 組時間重疊</strong><ul class="conflict-list">${conflicts.map(pair => '<li>' + escape(pair.map(label).join(' ↔ ')) + '</li>').join('')}</ul>` : '<strong>目前已選行程沒有時間重疊。</strong><span>' + (hasConcurrentOptions ? ' 晚間同時段 keynote 仍須擇一；下方會列出同時段選項。' : ' 依已選場次的實際起迄時間比較。') + '</span>';
+        const concurrentGroups = groups.filter(g => g.date === state.day && g.talks.length > 1);
+        const choiceNote = concurrentGroups.length ? (concurrentGroups.some(g => !state.specialSelections[g.id]) ? ' 晚間keynote可選一場，也可留作休息。' : ' 晚間keynote已選定；其餘同時段演講保留為備選。') : ' 依已選場次的實際起迄時間比較。';
+        summary.innerHTML = conflicts.length ? `<strong>已選行程有 ${conflicts.length} 組時間重疊</strong><ul class="conflict-list">${conflicts.map(pair => '<li>' + escape(pair.map(label).join(' ↔ ')) + '</li>').join('')}</ul>` : '<strong>目前已選行程沒有時間重疊。</strong><span>' + choiceNote + '</span>';
       }
       document.getElementById('timeline').hidden = state.view !== 'route';
       document.getElementById('table-view').hidden = state.view !== 'table';
