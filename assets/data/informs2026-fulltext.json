@@ -1,0 +1,737 @@
+{
+  "checked_on": "2026-11-02",
+  "scope_note": "已排17個技術場次、SC37備選、WB34備讀、7場預選演講；其餘依有無完成查找標示。僅依10/14議程冊與本次查找，不保證全文不存在。",
+  "items": [
+    {
+      "id": "SA04-2",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7164418",
+      "note": "同題working paper頁；自動取得遭403，全文尚未成功下載。"
+    },
+    {
+      "id": "SB30-1",
+      "status": "not_found"
+    },
+    {
+      "id": "SB30-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2409.19926v4",
+      "note": "題名略有差異；同作者與研究，arXiv v4。"
+    },
+    {
+      "id": "SB30-3",
+      "status": "not_found"
+    },
+    {
+      "id": "SB30-4",
+      "status": "full",
+      "url": "https://optimization-online.org/wp-content/uploads/2026/07/MUR-SAA_paper.pdf",
+      "note": "同題預印本；作者順序與議程不同。"
+    },
+    {
+      "id": "SB30-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2609.27144v1",
+      "note": "同題預印本含Andrés Gómez；議程作者欄未列，摘要版本數字也有差異。"
+    },
+    {
+      "id": "SC36-2",
+      "status": "not_found"
+    },
+    {
+      "id": "SD30-1",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2211.07288v4",
+      "note": "與報告摘要高度吻合，但題名及作者列示不同；報告版本尚待確認。"
+    },
+    {
+      "id": "SD30-2",
+      "status": "not_found"
+    },
+    {
+      "id": "SD30-3",
+      "status": "not_found"
+    },
+    {
+      "id": "SD30-4",
+      "status": "not_found"
+    },
+    {
+      "id": "SD30-5",
+      "status": "related",
+      "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bf/liu24bf.pdf",
+      "note": "重尾樣本平均近似相關論文，題名與作者列示不同；不能確認為報告同篇。"
+    },
+    {
+      "id": "SE32-1",
+      "status": "not_found"
+    },
+    {
+      "id": "SE32-2",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6223718",
+      "note": "同題working paper頁；自動取得遭403，全文尚未成功下載。"
+    },
+    {
+      "id": "SE32-3",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5769803",
+      "note": "同題working paper頁；自動取得遭403，全文尚未成功下載。"
+    },
+    {
+      "id": "SE32-4",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6175961",
+      "note": "作者研究頁連至同題working paper，來源遭403，全文尚未成功下載。"
+    },
+    {
+      "id": "SE32-5",
+      "status": "not_found"
+    },
+    {
+      "id": "SE32-6",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2509.19670",
+      "note": "題名Max-Margin與Large-Margin不同、作者署名待核，相關稿不視為確認同篇。"
+    },
+    {
+      "id": "MA30-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.01081v2",
+      "note": "同題同作者預印本。"
+    },
+    {
+      "id": "MA30-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2608.04312v1",
+      "note": "作者研究頁指向同一研究的較新工作稿；題名增副標題，作者排序不同。"
+    },
+    {
+      "id": "MB40-1",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2502.02561v1",
+      "note": "題名不同、相關研究；對應本報告待確認。"
+    },
+    {
+      "id": "MB40-2",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2606.10261v1",
+      "note": "同作者與摘要高度相近但題名有增補；是否報告同版本待確認。"
+    },
+    {
+      "id": "MB40-3",
+      "status": "not_found"
+    },
+    {
+      "id": "MB40-4",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2603.11229",
+      "note": "相關研究，作者與報告不完全相同；不能當成同篇。"
+    },
+    {
+      "id": "MC41-5",
+      "status": "not_found",
+      "note": "以W-ARMA同題與作者搜尋，尚未確認公開全文。"
+    },
+    {
+      "id": "MD30-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2609.36275v1",
+      "note": "同題同作者預印本。"
+    },
+    {
+      "id": "MD30-2",
+      "status": "not_found"
+    },
+    {
+      "id": "MD30-3",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2607.11714v1",
+      "note": "同作者及摘要方法高度吻合、題名不同；是否同篇待確認。"
+    },
+    {
+      "id": "MD30-4",
+      "status": "not_found"
+    },
+    {
+      "id": "MD30-5",
+      "status": "not_found"
+    },
+    {
+      "id": "ME48-1",
+      "status": "not_found"
+    },
+    {
+      "id": "ME48-2",
+      "status": "not_found"
+    },
+    {
+      "id": "ME48-3",
+      "status": "not_found"
+    },
+    {
+      "id": "ME48-4",
+      "status": "not_found"
+    },
+    {
+      "id": "ME48-5",
+      "status": "not_found"
+    },
+    {
+      "id": "ME48-6",
+      "status": "not_found"
+    },
+    {
+      "id": "TA40-1",
+      "status": "not_found"
+    },
+    {
+      "id": "TA40-2",
+      "status": "not_found",
+      "url": "https://yiqiyang33.github.io/",
+      "note": "作者頁列同題研究進行中，尚未取得全文；作者名單與議程有差。"
+    },
+    {
+      "id": "TA40-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2602.08118",
+      "note": "同題預印本；議程列報告者，預印本列共同作者。"
+    },
+    {
+      "id": "TA40-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2301.10932v5",
+      "note": "同題預印本v5；較早版本題名不同。"
+    },
+    {
+      "id": "TA40-5",
+      "status": "not_found"
+    },
+    {
+      "id": "TB29-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2501.05619",
+      "note": "同題同作者預印本。"
+    },
+    {
+      "id": "TC30-1",
+      "status": "related",
+      "url": "https://open.clemson.edu/all_dissertations/4070/",
+      "note": "相關博士論文章節；與報告一一對應待確認。"
+    },
+    {
+      "id": "TC30-2",
+      "status": "related",
+      "url": "https://optimization-online.org/wp-content/uploads/2025/04/main_Opt_Online.pdf",
+      "note": "方法相近，作者及題名有差；不是已確認的同篇全文。"
+    },
+    {
+      "id": "TC30-3",
+      "status": "not_found"
+    },
+    {
+      "id": "TC30-4",
+      "status": "not_found"
+    },
+    {
+      "id": "TC30-5",
+      "status": "not_found"
+    },
+    {
+      "id": "TD47-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.25378",
+      "note": "作者機構頁以會議題名連至此稿；預印本題名多Unrestricted、作者次序不同。"
+    },
+    {
+      "id": "TD47-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.02917",
+      "note": "同題同作者預印本，作者順序與會議不同。"
+    },
+    {
+      "id": "TD47-3",
+      "status": "not_found"
+    },
+    {
+      "id": "TD47-4",
+      "status": "not_found"
+    },
+    {
+      "id": "TD47-5",
+      "status": "not_found"
+    },
+    {
+      "id": "TD47-6",
+      "status": "not_found"
+    },
+    {
+      "id": "TD47-7",
+      "status": "not_found"
+    },
+    {
+      "id": "TD47-8",
+      "status": "not_found"
+    },
+    {
+      "id": "TE36-1",
+      "status": "not_found"
+    },
+    {
+      "id": "WA33-1",
+      "status": "related",
+      "url": "https://optimization-online.org/wp-content/uploads/2026/10/neurips.pdf",
+      "note": "同作者相關線性迴歸研究，題名與報告不同；尚未確認同篇。"
+    },
+    {
+      "id": "WB35-1",
+      "status": "not_found"
+    },
+    {
+      "id": "WB35-2",
+      "status": "not_found"
+    },
+    {
+      "id": "WB35-3",
+      "status": "not_found"
+    },
+    {
+      "id": "WB35-4",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2609.06284v1",
+      "note": "作者與摘要高度相近，但題名proximity與dissimilarity不同；同篇待確認。"
+    },
+    {
+      "id": "WB35-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2601.11420v1",
+      "note": "同題同作者預印本。"
+    },
+    {
+      "id": "SC37-1",
+      "status": "not_found"
+    },
+    {
+      "id": "SC37-2",
+      "status": "not_found"
+    },
+    {
+      "id": "SC37-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2602.13494",
+      "note": "同題預印本；報告僅列部分作者。"
+    },
+    {
+      "id": "SC37-4",
+      "status": "not_found"
+    },
+    {
+      "id": "SC37-5",
+      "status": "not_found"
+    },
+    {
+      "id": "WB34-4",
+      "status": "related",
+      "url": "https://optimization-online.org/wp-content/uploads/2025/04/main.pdf",
+      "note": "作者部分重疊、題名不同的相關研究，非已確認同篇。"
+    },
+    {
+      "id": "SA04-1",
+      "status": "not_found"
+    },
+    {
+      "id": "SA04-3",
+      "status": "not_found"
+    },
+    {
+      "id": "SA04-4",
+      "status": "related",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7544921",
+      "note": "同作者、題名及部分內容不同的相關工作，頁面403，是否同篇待核。"
+    },
+    {
+      "id": "SA04-5",
+      "status": "not_found"
+    },
+    {
+      "id": "SC36-1",
+      "status": "not_found"
+    },
+    {
+      "id": "SC36-3",
+      "status": "not_found"
+    },
+    {
+      "id": "SC36-4",
+      "status": "not_found"
+    },
+    {
+      "id": "SC36-5",
+      "status": "not_found"
+    },
+    {
+      "id": "SC36-6",
+      "status": "not_found"
+    },
+    {
+      "id": "MA30-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.27837",
+      "note": "同題同作者預印本；作者順序與議程不同。"
+    },
+    {
+      "id": "MA30-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2607.03385",
+      "note": "同題同作者預印本；作者順序與議程不同。"
+    },
+    {
+      "id": "MA30-3",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2608.14906",
+      "note": "同作者與具體內容高度吻合，題名不同，是否同篇待確認。"
+    },
+    {
+      "id": "MC41-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.18514",
+      "note": "同題同作者預印本。"
+    },
+    {
+      "id": "MC41-2",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2606.17364",
+      "note": "同作者與方法高度吻合、題名不同；是否同篇待確認。"
+    },
+    {
+      "id": "MC41-3",
+      "status": "full",
+      "url": "https://link.springer.com/content/pdf/10.1007/s10589-026-00824-x.pdf",
+      "note": "同題同作者開放取得正式版。"
+    },
+    {
+      "id": "MC41-4",
+      "status": "not_found"
+    },
+    {
+      "id": "MC41-6",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2608.04312v1",
+      "note": "作者研究頁指向同一研究的較新工作稿；題名增副標題，作者排序不同。"
+    },
+    {
+      "id": "TB29-2",
+      "status": "related",
+      "url": "https://optimization-online.org/wp-content/uploads/2026/10/Kadpat-recourse.pdf",
+      "note": "同作者及摘要相近，題名多Integer；與現場版本關係待核。"
+    },
+    {
+      "id": "TB29-3",
+      "status": "not_found"
+    },
+    {
+      "id": "TB29-4",
+      "status": "not_found"
+    },
+    {
+      "id": "TB29-5",
+      "status": "not_found"
+    },
+    {
+      "id": "TE36-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.00010v2",
+      "note": "同題同作者預印本。"
+    },
+    {
+      "id": "TE36-3",
+      "status": "not_found"
+    },
+    {
+      "id": "TE36-4",
+      "status": "not_found"
+    },
+    {
+      "id": "TE36-5",
+      "status": "not_found"
+    },
+    {
+      "id": "WA33-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.25657v1",
+      "note": "同題同作者預印本。"
+    },
+    {
+      "id": "WA33-3",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2602.11128v1",
+      "note": "作者與摘要高度相近，但題名不同；同篇關係待確認。"
+    },
+    {
+      "id": "WA33-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2503.19925v2",
+      "note": "同題同作者預印本v2；v1題名不同。"
+    },
+    {
+      "id": "WA33-5",
+      "status": "full",
+      "url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/huang26bk/huang26bk.pdf",
+      "note": "同題全文；議程列報告者，論文另有共同作者。"
+    },
+    {
+      "id": "talk-jordan",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2507.06268v3",
+      "note": "同題作者文章；不代表演講逐字稿或投影片。"
+    },
+    {
+      "id": "talk-dwork",
+      "status": "not_found",
+      "note": "演講不一定有同題論文；本次未找到同題全文。"
+    },
+    {
+      "id": "talk-smilowitz",
+      "status": "not_found",
+      "note": "演講不一定有同題論文；本次未找到同題全文。"
+    },
+    {
+      "id": "talk-romero",
+      "status": "not_found",
+      "note": "演講不一定有同題論文；本次未找到同題全文。"
+    },
+    {
+      "id": "talk-allgor",
+      "status": "not_found",
+      "note": "演講不一定有同題論文；本次未找到同題全文。"
+    },
+    {
+      "id": "talk-fernandez",
+      "status": "not_found",
+      "note": "演講不一定有同題論文；本次未找到同題全文。"
+    },
+    {
+      "id": "talk-lodi",
+      "status": "not_found",
+      "note": "演講不一定有同題論文；本次未找到同題全文。"
+    },
+    {
+      "id": "WA32-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.20031v2",
+      "note": "同題預印本；備讀資料。"
+    },
+    {
+      "id": "WA25-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.26350",
+      "note": "同題預印本；議程只列報告者，備選資料。"
+    },
+    {
+      "id": "WA25-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.20151",
+      "note": "同題預印本；備選資料。"
+    },
+    {
+      "id": "WB19-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2608.16842",
+      "note": "同題預印本；議程只列報告者，備選資料。"
+    },
+    {
+      "id": "WB19-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.03158v2",
+      "note": "同題同作者，書冊作者順序不同；備選資料。"
+    },
+    {
+      "id": "WB19-5",
+      "status": "full",
+      "url": "https://www.nber.org/system/files/working_papers/w33012/w33012.pdf",
+      "note": "同題NBER working paper；作者順序依原稿，備選資料。"
+    },
+    {
+      "id": "WB19-3",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4166368",
+      "note": "同題working paper頁；全文取得情形尚未確認。"
+    }
+  ],
+  "supplemental": [
+    {
+      "session": "SA04",
+      "number": 1,
+      "title": "Information Design of the Monty Hall Problem",
+      "authors_text": "Zhenyu Hu, National University of Singapore, Singapore, Singapore, Shouqiang Wang, Yangge Xiao"
+    },
+    {
+      "session": "SA04",
+      "number": 3,
+      "title": "Information Design Before Bargaining with Competing Sellers",
+      "authors_text": "Zhenxiao Chen, The Hong Kong Polytechnic University, Hong Kong, Hong Kong"
+    },
+    {
+      "session": "SA04",
+      "number": 4,
+      "title": "Persuading the Manufacturer: Information Design with Imperfect Forecast Capability",
+      "authors_text": "Tao Lu, University of Connecticut, Storrs, CT, United States, Yue Feng"
+    },
+    {
+      "session": "SA04",
+      "number": 5,
+      "title": "Information Design and Pricing in Dual-Queue Service Systems",
+      "authors_text": "Dongyuan Zhan, USTC, Hefei, China, People's Republic of"
+    },
+    {
+      "session": "SC36",
+      "number": 1,
+      "title": "Optimization of a Closed-Loop Supply Chain Using a Robust Stochastic Possibilistic Technique",
+      "authors_text": "Saman Hassanzadeh Amin, Mechanical, Industrial, and Mechatronics Engineering, Toronto Metropolitan University, Toronto, ON, Canada, Samira Rouhani , Leslie J. Wardley"
+    },
+    {
+      "session": "SC36",
+      "number": 3,
+      "title": "Managing Circularity, Authenticity, and Exclusivity in Luxury Supply Chains",
+      "authors_text": "Bita Alimohammadi, Texas A&M University, College Station, TX, United States, Amarnath Banerjee, Bimal Nepal"
+    },
+    {
+      "session": "SC36",
+      "number": 4,
+      "title": "Irrigation Planning under Flash Drought and Flood Risks Using Remote Sensing and Stochastic Optimization",
+      "authors_text": "Rui Xi, University of Tennessee, Knoxville, Knoxville, TN, United States, Yuefeng Hao, Mingzhou Jin"
+    },
+    {
+      "session": "SC36",
+      "number": 5,
+      "title": "Joint Optimization of Inventory Replenishment and Customer Selection in a Supply Chain with Two- Level Trade Credit",
+      "authors_text": "Jianen Qi, Southeast University, NanJing, China, People's Republic of"
+    },
+    {
+      "session": "SC36",
+      "number": 6,
+      "title": "Two-stage stochastic optimisation of drone facility location and rider-drone coordination for food delivery",
+      "authors_text": "Mingzhi Lyu, The Hong Kong Polytechnic University, Hong Kong, Hong Kong, Wei Liu"
+    },
+    {
+      "session": "MA30",
+      "number": 1,
+      "title": "Optimal Spectral Design with Prior Information",
+      "authors_text": "Weijun Xie, Georgia Institute of Technology, Atlanta, GA, United States, Anton Kleywegt, Johannes Milz, Mohit Singh"
+    },
+    {
+      "session": "MA30",
+      "number": 2,
+      "title": "A Hierarchy of Policy Learning Problems",
+      "authors_text": "Osbert Bastani, Computer and Information Science, University of Pennsylvania, Philadelphia, PA, United States, Hamsa Bastani, Shihan Chen"
+    },
+    {
+      "session": "MA30",
+      "number": 3,
+      "title": "Adaptive Discovery of Watermarks in Human-Modified LLM Texts",
+      "authors_text": "Hao Liu, Stanford University, Stanford, CA, United States, Jose Blanchet, T. Tony Cai, Xiang Li, Qi Long, Weijie Su"
+    },
+    {
+      "session": "MC41",
+      "number": 1,
+      "title": "On the Peril of (Even a Little) Nonstationarity in Satisficing Regret Minimization",
+      "authors_text": "Yixuan Zhang, University of Wisconsin-Madison, Madison, WI, United States, Ruihao Zhu, Qiaomin Xie"
+    },
+    {
+      "session": "MC41",
+      "number": 2,
+      "title": "One-Pass Streaming Inference with Adam: A Polyak-Ruppert Central Limit Theorem Where Adaptivity Is Invisible",
+      "authors_text": "Sunyoung An, Georgia Institute of Technology, Atlanta, GA, United States, Xiaoming Huo"
+    },
+    {
+      "session": "MC41",
+      "number": 3,
+      "title": "Estimating Lower Bound Functions in Surrogate Optimization",
+      "authors_text": "Mohammadsina Almasi, University of Illinois at Chicago, Santa Clara, CA, United States, Hadis Anahideh, Jay Rosenberger"
+    },
+    {
+      "session": "MC41",
+      "number": 4,
+      "title": "Learning Where to Look and How to Aggregate: Scale and Occurrence Aware Concept Modeling for Interpretable Computational Pathology",
+      "authors_text": "Xuan Wang, The University of Texas at Austin, Austin, TX, United States, Zhongling Xu, Gopi Kannedhara, Joakim Nguyen, Jian Yu, Abdurrahmaan Baghdadi, Tianlong Chen, Awais Naeem, Chandra Krishnan, Edward Castillo, Andrew Song, Ankita Shukla, Ying Ding, Nicolas Konz, Hairong Wang"
+    },
+    {
+      "session": "MC41",
+      "number": 6,
+      "title": "Achieving First-Order Statistical Improvements in Data-Driven Optimization.",
+      "authors_text": "Tianyu Wang, Columbia University, Boston, MA, United States, Henry Lam"
+    },
+    {
+      "session": "TB29",
+      "number": 2,
+      "title": "K-Adaptability in Stochastic Optimization with Recourse",
+      "authors_text": "Arnav Aakash, University of Wisconsin Madison, Madison, WI, United States, Jim Luedtke, Carla Michini"
+    },
+    {
+      "session": "TB29",
+      "number": 3,
+      "title": "Combining Benders Decomposition and Stochastic Dual Dynamic Programming: Novel Approaches for Enhanced Performance",
+      "authors_text": "Anil Kaya, Karlsruhe Institute of Technology, Karlsruhe, Germany, Alexander Shapiro, Steffen Rebennack"
+    },
+    {
+      "session": "TB29",
+      "number": 4,
+      "title": "Augmented Lagrangian Duality-based Intersection Cuts for Stochastic Integer Optimization",
+      "authors_text": "Jiamin Chen, Texas A&M University, College Station, TX, United States, Shixuan Zhang"
+    },
+    {
+      "session": "TB29",
+      "number": 5,
+      "title": "Regularized stochastic dual dynamic programming with two prox-center selection policies",
+      "authors_text": "Zhiyuan Zhang, Southern Methodist University, Dallas, TX, United States, Harsha Gangammanavar"
+    },
+    {
+      "session": "TE36",
+      "number": 2,
+      "title": "Transit Network Design with Two-Level Demand Uncertainties: A Machine Learning and Contextual Stochastic Optimization Framework",
+      "authors_text": "Hongzhao Guan, Georiga Institute of Technology, Atlanta, GA, United States, Beste Basciftci, Pascal Van Hentenryck"
+    },
+    {
+      "session": "TE36",
+      "number": 3,
+      "title": "Surveillance Optimization for Early Detection in Forest Fires",
+      "authors_text": "Cagri Koc, Hacettepe University, Ankara, Turkey, Mert Ali Yigit, Erdi Dasdemir"
+    },
+    {
+      "session": "TE36",
+      "number": 4,
+      "title": "GNN-Accelerated Bilevel Optimization for Integrated Fixed and Mobile EV Charging Station Management",
+      "authors_text": "Hanieh Rastegar Moghaddam Bajestani, Civil, Materials, and Environmental Engineering, University of Illinois-Chicago, Chicago, IL, United States, Amir Shafiee, Jane Lin"
+    },
+    {
+      "session": "TE36",
+      "number": 5,
+      "title": "An Exact Optimization Framework for Large-Scale Multi-Objective Airport Gate Assignment and Reassignment Problems",
+      "authors_text": "Heejae Lee, Department of Industrial and Management Engineering, Pohang University of Science and Technology (POSTECH), Pohang, Gyeongbuk, Korea, Republic of, Eun-guk Cho, Byung-In Kim"
+    },
+    {
+      "session": "WA33",
+      "number": 2,
+      "title": "Instance-optimal stochastic convex optimization: Can we improve upon sample-average and robust stochastic approximation?",
+      "authors_text": "Liwei Jiang, Purdue University, West Lafayette, IN, United States, Ashwin Pananjady"
+    },
+    {
+      "session": "WA33",
+      "number": 3,
+      "title": "When Signal Is Rare: Asymmetric Weighting for RLVR",
+      "authors_text": "Mahdi Soltanolkotabi, University of Southern California, Los Angeles, CA, United States"
+    },
+    {
+      "session": "WA33",
+      "number": 4,
+      "title": "Accurate, Provable, and Fast Polychromatic Tomographic Reconstruction: A Variational Inequality Approach",
+      "authors_text": "Mengqi Lou, University of Chicago, Chicago, IL, United States, Kabir Verchand, Sara Fridovich-Keil, Ashwin Pananjady"
+    },
+    {
+      "session": "WA33",
+      "number": 5,
+      "title": "On the Emergence of Implicit Curriculum in RLVR Learning Dynamics",
+      "authors_text": "Yu Huang, University of Pennsylvania, Philadelphia, PA, United States"
+    }
+  ]
+}

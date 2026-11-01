@@ -1142,6 +1142,94 @@
   line-height: 1.65;
 }
 
+.daily-conference .fulltext-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.45rem;
+  min-width: 0;
+  margin: 0.45rem 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .fulltext-status strong,
+.daily-conference .fulltext-status.is-full > span:first-of-type {
+  color: var(--accent-dark);
+}
+
+.daily-conference .fulltext-status a {
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.daily-conference .fulltext-note {
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.daily-conference .issue-supplemental {
+  min-width: 0;
+  margin-top: 1rem;
+  border: 1px solid var(--daily-line-strong);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.daily-conference .issue-supplemental > summary {
+  min-height: 44px;
+  padding: 0.7rem 0.9rem;
+  color: var(--accent-dark);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.daily-conference .issue-supplemental[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.daily-conference .supplemental-list {
+  padding: 0 0.9rem;
+}
+
+.daily-conference .supplemental-paper {
+  min-width: 0;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.daily-conference .supplemental-paper:last-child {
+  border-bottom: 0;
+}
+
+.daily-conference .supplemental-number {
+  margin: 0 0 0.2rem;
+  color: var(--accent-dark);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.daily-conference .supplemental-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .supplemental-authors {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
 .daily-conference .issue-paper-body > :is(.issue-lesson, .lesson-sources) {
   margin-top: 0.75rem;
 }

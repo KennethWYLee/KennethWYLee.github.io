@@ -7,7 +7,7 @@ import { renderModelOverview } from './render-informs-extra.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const json=async name=>JSON.parse(await readFile(path.join(root,`assets/data/informs2026-${name}.json`),'utf8'));
-const [data,reading,modelling,articles,primers,template]=await Promise.all([json('sessions'),json('reading'),json('modelling'),json('teacher'),json('primers'),readFile(path.join(root,'tools/informs-2026.template.html'),'utf8')]);
+const [data,reading,modelling,articles,primers,fulltext,template]=await Promise.all([json('sessions'),json('reading'),json('modelling'),json('teacher'),json('primers'),json('fulltext'),readFile(path.join(root,'tools/informs-2026.template.html'),'utf8')]);
 assert.equal(data.sessions.length,17);
 assert.equal(data.special_talks.length,13);
 assert.equal(new Set([...data.sessions,...data.alternatives].map(s=>s.code)).size,data.sessions.length+data.alternatives.length);
@@ -24,6 +24,25 @@ for (const primer of primers.items) {
   assert(Array.isArray(primer.example.steps)&&primer.example.steps.length>=3&&primer.example.steps.length<=4);
   assert(primer.example.steps.every(step=>typeof step==='string'&&step.trim()));
 }
+assert(Array.isArray(fulltext.items) && Array.isArray(fulltext.supplemental), 'Invalid full-text data');
+assert.equal(new Set(fulltext.items.map(item=>item.id)).size,fulltext.items.length,'Duplicate full-text ids');
+const fulltextStatuses=new Set(['full','related','unavailable','not_found','not_searched']);
+for(const item of fulltext.items){
+  assert(typeof item.id==='string'&&/^(?:[A-Z]{2}\d+-[1-9]\d*|talk-[a-z0-9-]+)$/.test(item.id),`Invalid full-text id ${item.id}`);
+  assert(fulltextStatuses.has(item.status),`Invalid full-text status ${item.id}`);
+  if(item.note!==undefined) assert(typeof item.note==='string',`Invalid full-text note ${item.id}`);
+  if(item.status==='full') assert(item.url,`Missing full-text URL ${item.id}`);
+  if(item.url!==undefined){const url=new URL(item.url);assert(url.protocol==='https:'&&!url.username&&!url.password,`Invalid full-text URL ${item.id}`);}
+}
+const sessionByCode=new Map([...data.sessions,...data.alternatives].map(item=>[item.code,item]));
+const supplementalKeys=new Set();
+for(const paper of fulltext.supplemental){
+  const session=sessionByCode.get(paper.session),key=`${paper.session}-${paper.number}`;
+  assert(session&&Number.isInteger(paper.number)&&paper.number>0&&!supplementalKeys.has(key),`Invalid supplemental paper ${key}`);
+  assert(!(session.papers||[]).some(p=>p.number===paper.number),`Supplemental paper repeats existing article ${key}`);
+  assert(typeof paper.title==='string'&&paper.title.trim()&&typeof paper.authors_text==='string'&&paper.authors_text.trim(),`Incomplete supplemental paper ${key}`);
+  supplementalKeys.add(key);
+}
 const talks=data.default_special_keys.map(k=>data.special_talks.find(t=>t.key===k));
 assert(talks.every(Boolean));
 assert.equal(new Set(talks.map(t=>`${t.date}_${t.start}_${t.end}`)).size,talks.length);
@@ -37,7 +56,7 @@ for(const slot of data.sessions){
   }
 }
 const tabs=`<nav class="daily-tabs" id="day-tabs" aria-label="選擇日期">${data.days.map((d,i)=>`<a class="daily-tab" href="#day${i+1}-reading" data-day="${d.date}" title="${d.theme}"><span>${d.label}</span><small>${d.theme}</small></a>`).join('')}</nav>`;
-const output=template.replace('{{DAY_TABS}}',tabs).replace('{{DAILY_PROGRAM}}',renderDailyProgram(data,reading,articles,primers)).replace('{{MODELLING_OVERVIEW}}',renderModelOverview(modelling)).replace('{{SESSION_DATA}}',JSON.stringify(data).replace(/</g,'\\u003c')).replace(/[\t ]+$/gm,'');
+const output=template.replace('{{DAY_TABS}}',tabs).replace('{{DAILY_PROGRAM}}',renderDailyProgram(data,reading,articles,primers,fulltext)).replace('{{MODELLING_OVERVIEW}}',renderModelOverview(modelling)).replace('{{SESSION_DATA}}',JSON.stringify(data).replace(/</g,'\\u003c')).replace(/[\t ]+$/gm,'');
 assert(!/\{\{[A-Z_]+\}\}/.test(output));
 assert(!/[CD]:[\\/]|file:\/\/\//.test(output));
 await writeFile(path.join(root,'informs-2026.html'),output,'utf8');

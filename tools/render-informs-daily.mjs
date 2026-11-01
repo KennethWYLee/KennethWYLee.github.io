@@ -21,10 +21,19 @@ function table(t) {
   return `<div class="reading-table-wrap" tabindex="0" role="region" aria-label="自擬教學例子"><table class="reading-table"><caption>自擬教學例子，非作者實驗</caption><thead><tr>${t.headers.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${t.rows.map(row=>`<tr>${row.map((v,i)=>`<${i?'td':'th scope="row"'}>${esc(v)}</${i?'td':'th'}>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
 
-export function renderDailyProgram(program, reading, articleSources, primers) {
+export function renderDailyProgram(program, reading, articleSources, primers, fulltext = {items: [], supplemental: []}) {
   assert(Array.isArray(primers?.items), 'renderDailyProgram(program, reading, articleSources, primers) requires primers.items');
+  assert(Array.isArray(fulltext?.items) && Array.isArray(fulltext?.supplemental), 'Full-text data requires items and supplemental arrays');
   const byCode = new Map([...program.sessions,...program.alternatives].map(s=>[s.code,s]));
   const originals = new Map(articleSources.articles.map(a=>[`${a.session}-${a.paper_number}`,a]));
+  const fulltextById = new Map(fulltext.items.map(item=>[item.id, item]));
+  assert.equal(fulltextById.size, fulltext.items.length, 'Full-text ids must be unique');
+  const supplementalBySession = new Map();
+  for (const paper of fulltext.supplemental) {
+    assert(byCode.has(paper.session), `Unknown supplemental session ${paper.session}`);
+    if (!supplementalBySession.has(paper.session)) supplementalBySession.set(paper.session, []);
+    supplementalBySession.get(paper.session).push(paper);
+  }
   const primerByKey = new Map();
   for (const p of primers.items) {
     assert(p && typeof p.key === 'string' && p.key, 'Every primer needs a key');
@@ -82,6 +91,34 @@ export function renderDailyProgram(program, reading, articleSources, primers) {
       + `</section>`;
   }
 
+  function fulltextStatus(id, talk = false) {
+    const item = fulltextById.get(id) || {status: 'not_searched'};
+    const labels = {
+      full: '已有全文', related: '找到相關文章，是否同篇待確認',
+      unavailable: '已找到來源，本次未能下載',
+      not_found: talk ? '尚未找到同題全文' : '尚未找到公開全文',
+      not_searched: '尚未查找'
+    };
+    assert(Object.hasOwn(labels, item.status), `Invalid full-text status for ${id}`);
+    if (item.status === 'full') assert(item.url, `Missing full-text URL for ${id}`);
+    let source = '';
+    if (item.url) {
+      const url = new URL(item.url);
+      assert(url.protocol === 'https:' && !url.username && !url.password, `Invalid full-text URL for ${id}`);
+      const text = item.status === 'full' ? '閱讀全文' : item.status === 'related' ? '查看相關文章' : '查看來源';
+      source = ` ${link(text, item.url)}`;
+    }
+    const note = item.note ? `<span class="fulltext-note">${esc(item.note)}</span>` : '';
+    return `<p class="fulltext-status is-${esc(item.status)}" data-fulltext-id="${esc(id)}" data-fulltext-status="${esc(item.status)}"><strong>全文：</strong><span>${esc(labels[item.status])}</span>${source}${note}</p>`;
+  }
+
+  function supplementalPapers(item) {
+    const papers = supplementalBySession.get(item.code) || [];
+    if (!papers.length) return '';
+    return `<details class="issue-supplemental"><summary>本場其他文章與全文狀態（${papers.length}）</summary>`
+      + `<div class="supplemental-list">${papers.map(paper => `<article class="supplemental-paper"><p class="supplemental-number">第${esc(paper.number)}篇</p><h4 class="supplemental-title" lang="en">${esc(paper.title)}</h4><p class="supplemental-authors">${esc(paper.authors_text)}</p>${fulltextStatus(`${item.code}-${paper.number}`)}</article>`).join('')}</div></details>`;
+  }
+
   // 原58段教材：每段一個可收合的「深入帶讀」，id 不變，舊連結由 JS 自動展開祖先 details。
   function lesson(step, item, paper, shown) {
     assert(!renderedSteps.has(step.id), `Duplicate lesson ${step.id}`); renderedSteps.add(step.id);
@@ -109,7 +146,7 @@ export function renderDailyProgram(program, reading, articleSources, primers) {
     const flag = primerPapers.includes(paper) ? '<span class="issue-paper-flag">上手例子</span>' : '';
     const abstract = original ? `<details class="lesson-sources"><summary>Original Abstract（英文原文摘要）</summary><p lang="en">${esc(original.abstract)}</p><p>${esc(clean(original.takeaway))}</p></details>` : '';
     const authorLink = paper.authors_source_url ? ` · ${link('作者資料', paper.authors_source_url)}` : '';
-    return `<article class="issue-paper" data-paper-key="${esc(paper.key)}"><p class="issue-paper-no">第${paper.number}篇${flag}</p><div class="issue-paper-body"><h4 class="issue-paper-title" lang="en">${esc(paper.title)}</h4><p class="issue-paper-authors">${esc(paper.authors.join('; '))}</p>${paper.summary_zh ? `<p class="issue-paper-summary">${esc(clean(paper.summary_zh))}</p>` : ''}${lessons.map(step => lesson(step, item, paper, [paper.summary_zh])).join('')}${abstract}<p class="issue-paper-source">${esc(clean(paper.source_note))} · ${link(sourceLabel(paper.source_url, '來源'), paper.source_url)}${authorLink}</p></div></article>`;
+    return `<article class="issue-paper" data-paper-key="${esc(paper.key)}"><p class="issue-paper-no">第${paper.number}篇${flag}</p><div class="issue-paper-body"><h4 class="issue-paper-title" lang="en">${esc(paper.title)}</h4><p class="issue-paper-authors">${esc(paper.authors.join('; '))}</p>${fulltextStatus(originalKey)}${paper.summary_zh ? `<p class="issue-paper-summary">${esc(clean(paper.summary_zh))}</p>` : ''}${lessons.map(step => lesson(step, item, paper, [paper.summary_zh])).join('')}${abstract}<p class="issue-paper-source">${esc(clean(paper.source_note))} · ${link(sourceLabel(paper.source_url, '來源'), paper.source_url)}${authorLink}</p></div></article>`;
   }
 
   function sessionContent(item, ref, primer) {
@@ -125,7 +162,7 @@ export function renderDailyProgram(program, reading, articleSources, primers) {
     const count = Number.isInteger(total) && total > papers.length ? `議程冊本場共${total}篇，這裡列出已整理的${papers.length}篇。` : '';
     const deep = byPaper.size ? `標「深入帶讀」的篇目可再展開。` : '';
     const overview = (!ref.steps.length || !papers.length) && item.abstract?.summary_zh && !papers.some(p => same(p.summary_zh, item.abstract.summary_zh)) ? `<p class="issue-overview">${esc(clean(item.abstract.summary_zh))}</p>` : '';
-    return `<section class="issue-papers" aria-label="本場文章"><h3 class="issue-section-title">本場文章 <span class="issue-section-count">${papers.length}篇</span></h3>${overview}<p class="issue-section-note">${count}題名保留英文原題。${deep}</p><div class="issue-paper-list">${papers.map(p => paperEntry(item, p, byPaper.get(p.number) || [], primer.papers)).join('')}</div></section>`;
+    return `<section class="issue-papers" aria-label="本場文章"><h3 class="issue-section-title">本場文章 <span class="issue-section-count">${papers.length}篇</span></h3>${overview}<p class="issue-section-note">${count}題名保留英文原題。${deep}</p><div class="issue-paper-list">${papers.map(p => paperEntry(item, p, byPaper.get(p.number) || [], primer.papers)).join('')}</div>${supplementalPapers(item)}</section>`;
   }
 
   function talkContent(item, ref) {
@@ -135,7 +172,7 @@ export function renderDailyProgram(program, reading, articleSources, primers) {
     const links = [link(sourceLabel(abstractUrl, '官方演講說明'), abstractUrl)];
     if (item.source_url && item.source_url !== abstractUrl) links.push(link('官方演講頁', item.source_url));
     const note = clean(item.abstract?.abstract_version_note || '');
-    return `<section class="issue-talk" aria-label="演講內容"><h3 class="issue-section-title">演講內容</h3><p class="issue-talk-ref">${esc([item.kind, item.speaker].filter(Boolean).join(' · '))}</p>${summary ? `<p class="issue-talk-summary">${esc(clean(summary))}</p>` : ''}${ref.steps.map(step => lesson(step, item, null, [summary])).join('')}<p class="issue-paper-source">${note ? `${esc(note)} · ` : ''}${links.join(' · ')}</p></section>`;
+    return `<section class="issue-talk" aria-label="演講內容"><h3 class="issue-section-title">演講內容</h3><p class="issue-talk-ref">${esc([item.kind, item.speaker].filter(Boolean).join(' · '))}</p>${fulltextStatus(`talk-${item.key}`, true)}${summary ? `<p class="issue-talk-summary">${esc(clean(summary))}</p>` : ''}${ref.steps.map(step => lesson(step, item, null, [summary])).join('')}<p class="issue-paper-source">${note ? `${esc(note)} · ` : ''}${links.join(' · ')}</p></section>`;
   }
 
   const days=reading.guides.map((guide,index)=>{
