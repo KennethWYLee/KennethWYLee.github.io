@@ -2,100 +2,33 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-import { renderReadingGuides } from './render-informs-reading.mjs';
-import { renderModelOverview, renderTeacherPage } from './render-informs-extra.mjs';
+import { renderDailyProgram } from './render-informs-daily.mjs';
+import { renderModelOverview } from './render-informs-extra.mjs';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const data = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-sessions.json'), 'utf8'));
-const template = await readFile(path.join(root, 'tools/informs-2026.template.html'), 'utf8');
-const reading = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-reading.json'), 'utf8'));
-const modelling = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-modelling.json'), 'utf8'));
-const teacher = JSON.parse(await readFile(path.join(root, 'assets/data/informs2026-teacher.json'), 'utf8'));
-const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
-assert.equal(data.sessions.length, 17);
-assert.equal(data.special_talks.length, 13);
-assert.equal(new Set(data.special_talks.map(t => t.key)).size, 13);
-assert(Number.isInteger(data.special_defaults_version) && data.special_defaults_version > 0);
-assert.equal(new Set(data.default_special_keys).size, data.default_special_keys.length);
-const defaultTalks = data.default_special_keys.map(key => data.special_talks.find(t => t.key === key));
-assert(defaultTalks.every(Boolean), 'Unknown default special talk');
-assert(defaultTalks.every(t => Number.isInteger(data.special_default_versions[t.key]) && data.special_default_versions[t.key] > 0 && data.special_default_versions[t.key] <= data.special_defaults_version), 'Missing default selection version');
-assert.equal(new Set(defaultTalks.map(t => `${t.date}_${t.start}_${t.end}`)).size, defaultTalks.length, 'Conflicting default special talks');
-assert(data.special_talks.filter(t => t.type === 'Plenary').every(t => data.default_special_keys.includes(t.key)), 'All plenaries must be selected by default');
-assert(Number.isInteger(data.teacher_selection_version) && data.teacher_selection_version > 0);
-assert.deepEqual(new Set(data.teacher_session_codes), new Set(teacher.articles.map(a => a.session)), 'Missing teacher attendance');
-for (const article of teacher.articles) {
-  const session = data.sessions.find(s => s.code === article.session);
-  const paper = session?.papers.find(p => p.number === article.paper_number);
-  assert(session?.teacher_requested && session.priority !== '可加聽', 'Teacher session must be a main choice');
-  assert.equal(paper?.title.replace(/\s+/g, ''), article.title.replace(/\s+/g, ''), 'Teacher article mismatch');
-  assert.deepEqual(paper.authors, article.authors);
-  assert.equal(session.room, article.room);
-}
-assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, data.sessions.length + data.alternatives.length);
-const papers = [...data.sessions, ...data.alternatives].flatMap(session => session.papers || []);
-assert.equal(new Set(papers.map(paper => paper.key)).size, papers.length);
-for (const day of data.days) assert.equal(data.sessions.filter(s => s.date === day.date && s.priority !== '可加聽').length, 2, `Need two main sessions: ${day.date}`);
-for (const session of data.sessions) {
-  assert(session.start < session.end);
-  if (session.priority === '必去') assert.equal(session.alternative_codes.length, 0, 'Required session cannot offer attendance alternatives');
-  assert((session.previous_codes || []).every(code => session.alternative_codes.includes(code)));
-  for (const code of session.alternative_codes) {
-    const alternative = data.alternatives.find(a => a.code === code);
-    assert(alternative);
-    assert.equal(alternative.date, session.date);
-    assert.equal(alternative.start, session.start);
-    assert.equal(alternative.end, session.end);
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const json=async name=>JSON.parse(await readFile(path.join(root,`assets/data/informs2026-${name}.json`),'utf8'));
+const [data,reading,modelling,articles,template]=await Promise.all([json('sessions'),json('reading'),json('modelling'),json('teacher'),readFile(path.join(root,'tools/informs-2026.template.html'),'utf8')]);
+assert.equal(data.sessions.length,17);
+assert.equal(data.special_talks.length,13);
+assert.equal(new Set([...data.sessions,...data.alternatives].map(s=>s.code)).size,data.sessions.length+data.alternatives.length);
+const talks=data.default_special_keys.map(k=>data.special_talks.find(t=>t.key===k));
+assert(talks.every(Boolean));
+assert.equal(new Set(talks.map(t=>`${t.date}_${t.start}_${t.end}`)).size,talks.length);
+assert(data.special_talks.filter(t=>t.type==='Plenary').every(t=>data.default_special_keys.includes(t.key)));
+for(const slot of data.sessions){
+  assert(slot.start<slot.end);
+  if(slot.priority==='必去') assert.equal(slot.alternative_codes.length,0,'Required slot cannot offer attendance alternatives');
+  for(const code of slot.alternative_codes){
+    const other=data.alternatives.find(s=>s.code===code);
+    assert(other&&other.date===slot.date&&other.start===slot.start&&other.end===slot.end);
   }
 }
-const overlaps = (a, b) => a.date === b.date && a.start < b.end && a.end > b.start;
-function abstractDetails(item) {
-  assert(item.abstract?.summary_zh, `Missing abstract: ${item.key || item.code}`);
-  const abstract = item.abstract;
-  const paragraphs = abstract.summary_zh.split(/\n+/).filter(Boolean).map(text => `<p>${escape(text)}</p>`).join('');
-  assert(abstract.source_url?.startsWith('https://'), `Missing abstract source: ${item.key || item.code}`);
-  return `<details class="event-abstract"><summary aria-label="查看 ${escape(item.speaker || item.code)} 的摘要">摘要</summary><div class="abstract-body" lang="zh-Hant"><p class="abstract-meta">${escape(abstract.summary_label)}</p>${paragraphs}<p class="abstract-source">${escape(abstract.abstract_version_note)} · <a href="${escape(abstract.source_url)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></p></div></details>`;
-}
-function paperList(session, collapsed = false) {
-  assert.equal(session.papers?.length, session.abstract.paper_count, `Missing papers: ${session.code}`);
-  const heading = session.papers_complete === false ? `本頁精選報告（${session.papers.length}／全場${session.total_paper_count}）` : `論文題目與作者（${session.papers.length}）`;
-  const papers = session.papers.map(paper => {
-    assert(paper.title && paper.authors?.length && paper.summary_zh && paper.source_note, `Incomplete paper: ${paper.key}`);
-    assert(paper.source_url?.startsWith('https://'), `Missing paper source: ${paper.key}`);
-    const paragraphs = paper.summary_zh.split(/\n+/).filter(Boolean).map(text => `<p>${escape(text)}</p>`).join('');
-    const authorSource = paper.authors_source_url?.startsWith('https://') ? ` · <a href="${escape(paper.authors_source_url)}" target="_blank" rel="noopener noreferrer">作者資料 ↗</a>` : '';
-    if (paper.recommendation) assert(paper.recommendation.reason_zh, `Missing recommendation reason: ${paper.key}`);
-    const badge = paper.recommendation ? '<span class="paper-focus-badge">重點</span> ' : '';
-    const reason = paper.recommendation ? `<span class="paper-recommendation"><strong>推薦理由：</strong>${escape(paper.recommendation.reason_zh)}</span>` : '';
-    return `<details class="paper-item${paper.recommendation ? ' is-recommended' : ''}" data-paper-key="${paper.key}" data-session-code="${session.code}"><summary class="paper-summary"><span class="paper-heading"><span class="paper-number">${paper.number}.</span> ${badge}<span class="paper-title" lang="en">${escape(paper.title)}</span></span><span class="paper-authors"><span>作者：</span><span lang="en">${escape(paper.authors.join('; '))}</span></span>${reason}</summary><div class="abstract-body paper-abstract" lang="zh-Hant"><p class="abstract-meta">${escape(paper.summary_label)}</p>${paragraphs}<p class="abstract-source">${escape(paper.source_note)} · <a href="${escape(paper.source_url)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a>${authorSource}</p></div></details>`;
-  }).join('');
-  return collapsed ? `<details class="paper-list-disclosure"><summary>${heading}</summary><div class="paper-items">${papers}</div></details>` : `<section class="session-papers" aria-label="${session.code} ${heading}"><h4>${heading}</h4><div class="paper-items">${papers}</div></section>`;
-}
-function alternativeDetails(session) {
-  if (!session.alternative_codes.length) return '';
-  const alternatives = session.alternative_codes.map(code => {
-    const item = data.alternatives.find(s => s.code === code);
-    return `<div class="static-alternative"><p><strong>${escape(item.code)}</strong> ${escape(item.title)}<br><small>${escape(item.room)}</small></p>${abstractDetails(item)}${paperList(item, true)}</div>`;
-  }).join('');
-  return `<details class="session-alternatives"><summary>同時段備選（${session.alternative_codes.length}）</summary>${alternatives}</details>`;
-}
-const fallback = data.days.map(day => {
-  const events = [...data.sessions, ...data.special_talks].filter(s => s.date === day.date).sort((a, b) => a.start.localeCompare(b.start));
-  const rows = events.map(s => {
-    const special = !!s.key;
-    const technicalClashes = special ? [...data.sessions, ...data.alternatives].filter(t => overlaps(s, t)).map(t => t.code) : [];
-    const mutual = special ? data.special_talks.filter(t => t.key !== s.key && overlaps(s, t)) : [];
-    const note = special ? `${data.default_special_keys.includes(s.key) ? '預設參加' : '備選演講'} · ${escape(s.kind)}；${technicalClashes.length ? '與技術場次 ' + escape(technicalClashes.join('、')) + ' 撞場' : '與表列技術場次無重疊'}${mutual.length ? '；同時段另有' + mutual.length + '場演講，需擇一' : ''}` : escape(s.priority === '可加聽' ? '自由探索' : s.priority);
-    return `<tr${special ? ' class="special-table-row"' : ''}><td data-label="時間"><div class="cell-content">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><strong>${escape(s.code || s.speaker)}</strong><br>${escape(s.title)}</div></td><td data-label="教室"><div class="cell-content">${escape(s.room || '教室待官方確認')}</div></td><td data-label="安排"><div class="cell-content">${note}${abstractDetails(s)}${special ? '' : paperList(s) + alternativeDetails(s)}</div></td></tr>`;
-  }).join('\n');
-  return `<section class="static-day"><h3>${escape(day.label)}</h3><div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}建議場次 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">安排</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
-}).join('\n');
-const readingNav = `<nav class="reading-entry-links" aria-label="每日閱讀入口">${reading.guides.map(guide => `<a class="reading-entry" href="#${escape(guide.id)}"><span>${escape(guide.date.slice(5).replace('-', '/'))}</span> ${escape(guide.title)} →</a>`).join('')}</nav>`;
-const output = template.replace('{{STATIC_SCHEDULE}}', fallback).replace('{{READING_GUIDES}}', renderReadingGuides(reading, data)).replace('{{READING_NAV}}', readingNav).replace('{{MODELLING_OVERVIEW}}', renderModelOverview(modelling)).replace('{{TECHNICAL_SLOT_COUNT}}', String(data.sessions.length)).replace('{{SESSION_DATA}}', JSON.stringify(data).replace(/</g, '\\u003c')).replace(/[\t ]+$/gm, '');
-assert(!/\{\{(?:STATIC_SCHEDULE|READING_GUIDES|READING_NAV|MODELLING_OVERVIEW|TECHNICAL_SLOT_COUNT|SESSION_DATA)\}\}/.test(output));
+const tabs=`<nav class="daily-tabs" id="day-tabs" aria-label="選擇日期">${data.days.map((d,i)=>`<a class="daily-tab" href="#day${i+1}-reading" data-day="${d.date}" title="${d.theme}"><span>${d.label}</span><small>${d.theme}</small></a>`).join('')}</nav>`;
+const output=template.replace('{{DAY_TABS}}',tabs).replace('{{DAILY_PROGRAM}}',renderDailyProgram(data,reading,articles)).replace('{{MODELLING_OVERVIEW}}',renderModelOverview(modelling)).replace('{{SESSION_DATA}}',JSON.stringify(data).replace(/</g,'\\u003c')).replace(/[\t ]+$/gm,'');
+assert(!/\{\{[A-Z_]+\}\}/.test(output));
 assert(!/[CD]:[\\/]|file:\/\/\//.test(output));
-await writeFile(path.join(root, 'informs-2026.html'), output, 'utf8');
-const teacherOutput = renderTeacherPage(teacher);
-assert(!/[CD]:[\\/]|file:\/\/\//.test(teacherOutput));
-await writeFile(path.join(root, 'informs-2026-teacher.html'), teacherOutput, 'utf8');
-console.log(`Generated informs-2026.html: ${data.sessions.length} technical slots, ${data.alternatives.length} alternatives, ${data.special_talks.length} special talks, ${reading.guides.length} days.`);
+await writeFile(path.join(root,'informs-2026.html'),output,'utf8');
+// Saved links continue to work after removing the separate article page.
+const redirect='<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="robots" content="noindex"><noscript><meta http-equiv="refresh" content="0;url=informs-2026.html#daily-reading"></noscript><title>每日重點與行程</title></head><body><p><a href="informs-2026.html#daily-reading">內容已整合至每日重點與行程</a></p><script>const targets={"#teacher-001":"#day2-session-mc41","#teacher-001-title":"#day2-session-mc41","#teacher-002":"#day3-session-tb29","#teacher-002-title":"#day3-session-tb29","#teacher-003":"#day4-session-wa33","#teacher-003-title":"#day4-session-wa33"};location.replace("informs-2026.html"+(targets[location.hash]||"#daily-reading"));</script></body></html>\n';
+await writeFile(path.join(root,'informs-2026-teacher.html'),redirect,'utf8');
+console.log(`Generated integrated daily program: ${data.sessions.length} slots, ${data.alternatives.length} other sessions, ${data.special_talks.length} talks, ${reading.guides.reduce((n,g)=>n+g.steps.length,0)} lessons.`);

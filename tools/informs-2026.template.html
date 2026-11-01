@@ -3,106 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="INFORMS 2026 建模閱讀：用好懂例子與take away理解研究問題、目標與限制；附每天先聽與自由探索，以及老師提供文章的獨立頁面。">
+  <meta name="description" content="INFORMS 2026 每日研究問題與行程：展開問題，直接閱讀文章重點、投資例子與take away。">
   <meta name="theme-color" content="#f6f8fa">
   <meta name="robots" content="noindex, nofollow">
-  <title>INFORMS 2026 聽會行程 | Wen-Yi Kenneth Lee</title>
+  <title>INFORMS 2026 每日重點與行程 | Wen-Yi Kenneth Lee</title>
   <link rel="icon" type="image/png" href="images/og.png">
   <link rel="preload" href="assets/vendor/inter/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/vendor/modern-normalize/modern-normalize.css">
   <link rel="stylesheet" href="css/site.css">
-  <link rel="stylesheet" href="css/informs-2026.css">
-  <link rel="stylesheet" href="css/informs-reading.css">
   <link rel="stylesheet" href="css/informs-modelling.css">
-  <script src="js/informs-2026.js?v=20261101-5" defer></script>
+  <link rel="stylesheet" href="css/informs-daily.css?v=20261101-1">
+  <script src="js/informs-2026.js?v=20261101-6" defer></script>
 </head>
-<body class="conference-page">
-  <a class="skip-link" href="#main">跳至行程</a>
-  <div class="conference-shell">
-    <header class="conference-header">
-      <a class="brand-link" href="index.html">Wen-Yi Kenneth Lee</a>
-      <a class="back-link" href="index.html">← 個人首頁</a>
-    </header>
-
+<body class="conference-page daily-conference">
+  <a class="skip-link" href="#main">跳至每日重點與行程</a>
+  <div class="daily-shell">
+    <header class="daily-topbar"><a href="index.html">Wen-Yi Kenneth Lee</a><a href="index.html">← 個人首頁</a></header>
     <main id="main" tabindex="-1">
-      <div class="conference-hero">
-        <div>
-          <p class="conference-kicker">2026 INFORMS Annual Meeting</p>
-          <h1>每天聽什麼，先讀什麼？</h1>
-          <p>先抓住研究問題，再用一個例子理解目標與限制，帶走一句真正懂的話。</p>
-          {{READING_NAV}}
-          <nav class="reading-entry-links" aria-label="依研究問題閱讀"><a class="reading-entry" href="#from-questions-to-models">從問題看模型 →</a><a class="reading-entry" href="#where-questions-come-from">研究問題從哪裡來？ →</a><a class="reading-entry" href="informs-2026-teacher.html" target="_blank" rel="noopener noreferrer">老師指定要聽的三篇 ↗</a></nav>
-        </div>
-        <dl class="event-meta">
-          <div><dt>日期</dt><dd>November 1–4, 2026</dd></div>
-          <div><dt>場地</dt><dd>Moscone Center South</dd></div>
-          <div><dt>時間</dt><dd>舊金山當地時間</dd></div>
-        </dl>
-      </div>
-
-      <aside class="source-notice" aria-label="議程核對狀態">
-        <strong>教室與個別場次仍待複核</strong>
-        <p>技術場次與教室依 10 月 14 日書冊暫排；keynote／plenary 的日期與時段已於11/1核對<a href="https://meetings.informs.org/wordpress/annual/plenaries-keynotes/" target="_blank" rel="noopener noreferrer">官方演講頁</a>。各場最新教室、取消與篇序請以現場議程為準；Yinyu Ye 的教室仍待確認。</p>
-      </aside>
-
-      <p class="status-line">11/1 建模版：每天先選兩個主要技術場，空檔可自由探索研究問題，不必全聽。例子與take away為主；求解方法降優先，全部13場plenary／keynote教材保留。</p>
-      <p class="status-line">老師指定現場聽：11/2 MC41（W-ARMA，必去）、11/3 TB29（W1與W2）、11/4 WA33（Regret-Optimal，必去）。MC41與WA33各自時段只排指定場次；其他同時段內容僅供閱讀，不列出席選項。</p>
-      <p class="status-line">SC37「Quantum Computing and Optimization」已列11/1 13:15–14:30備選，South-215 · Level 2。取消「只看優先與保留」後，可在13:15時段的「同時段備選」選擇。</p>
-
-      <p class="status-line">你指定特別準備：<a href="#day4-session-wb34">WB34第4篇 Scalable First-Order Methods for 0–1 Loss SVMs</a>。10:15–10:30為你提供的單篇時間，待核；與WB35同時，本次先備讀，原出席安排保留。</p>
-
-      <p id="load-status" class="status-line" role="status">下方提供完整表格；互動行程正在載入。</p>
-      <div id="interactive-route" hidden>
-        <div class="conference-controls" aria-label="行程選項">
-          <div id="day-tabs" class="day-tabs" role="group" aria-label="選擇日期"></div>
-          <div class="toolbar-actions">
-            <label class="priority-filter"><input id="priority-only" type="checkbox" checked> 只看優先與保留</label>
-            <div class="view-switch" role="group" aria-label="顯示方式">
-              <button class="view-button" type="button" data-view="route" aria-pressed="true">行程</button>
-              <button class="view-button" type="button" data-view="table" aria-pressed="false">表格</button>
-            </div>
-            <button id="print-day" type="button">列印這一天</button>
-            <button id="reset-route" type="button">套用本版建議</button>
-          </div>
-        </div>
-
-        <div class="day-heading">
-          <div><h2 id="day-title"></h2><p id="day-theme" class="day-theme"></p></div>
-          <p id="day-count"></p>
-        </div>
-        <p class="status-line">各場可點「摘要」閱讀整場重點；下方列出各篇題目與作者，點論文題目可展開中文摘要與來源。MD18 採教程原稿。同時段備選也可先閱讀再選場。</p>
-        <p class="status-line">「重點」依研究問題、目標與限制挑選；各篇旁列一個現場問題。若曾自行選場，瀏覽器會保留原選擇，可按「套用本版建議」切換。</p>
-        <div id="conflict-summary" class="conflict-summary" role="status"></div>
-        <section class="route-panel" aria-labelledby="route-title">
-          <h3 id="route-title">今天的前往順序</h3>
-          <ol id="route-stops" class="route-stops"></ol>
-          <p>這是教室的先後順序；樓層依議程標示，不含步行距離或時間。</p>
-        </section>
-        <section class="special-program" aria-labelledby="special-program-title">
-          <div class="special-program-heading"><h3 id="special-program-title">Keynote / Plenary</h3><p id="special-count"></p></div>
-          <p class="special-selection-note">四天全部plenary已預設加入行程。晚間keynote：11/1 Cynthia Dwork（South-154）、11/2 Dolores Romero Morales（South-154）、11/3 Elena Fernández（South-155），皆為17:45–18:35、Upper Mezz，時間以舊金山當地為準。主要行程已選齊；你仍可改選並保存在目前瀏覽器。</p>
-          <div id="special-options"></div>
-        </section>
-        <div id="timeline" class="session-list"></div>
-        <div id="table-view" hidden></div>
-        <p class="status-line">取消「只看優先與保留」可查看自由探索；也可用來休息、交流或整理。每天兩個主要技術場、四場plenary及三晚keynote已排定；同時段備選和自由探索可到現場再決定。選場保存在目前瀏覽器。</p>
-      </div>
-
-      <div id="static-schedule">
-        <h2>完整建議行程</h2>
-        <p>{{TECHNICAL_SLOT_COUNT}} 個技術時段（含可加聽）與13場 keynote／plenary；主選與備選均可展開摘要。晚間同時段演講需擇一，以下演講清單不代表已全部加入行程。</p>
-        {{STATIC_SCHEDULE}}
-      </div>
-
-      {{MODELLING_OVERVIEW}}
-
-      {{READING_GUIDES}}
-
-      <footer class="conference-footer">
-        <p>主要技術場：SB30／SD30；MC41／ME48；TB29／TD47；WA33／WB35。老師指定MC41、TB29、WA33；WB35保留整場。其餘時段自由探索；同時段備選整場擇一，不推算單篇報告時間。</p>
-        <p><a href="https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/default.aspx" target="_blank" rel="noopener noreferrer">完整技術議程 ↗</a> · <a href="https://meetings.informs.org/wordpress/annual/plenaries-keynotes/" target="_blank" rel="noopener noreferrer">Keynote / Plenary 官方頁 ↗</a> · <a href="https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx" target="_blank" rel="noopener noreferrer">Program Book ↗</a> · <a href="https://arxiv.org/abs/2606.21773" target="_blank" rel="noopener noreferrer">MD18 教程原稿 ↗</a></p>
-        <p>MD18 內容採新版 Decision-Focused Learning 教程；時間與教室仍依原書冊。這份行程為會前安排。</p>
-      </footer>
+      <div class="daily-hero"><p class="daily-kicker">2026 INFORMS Annual Meeting · November 1–4 · San Francisco</p><h1 id="daily-reading-title">每天的研究問題與行程</h1><p>選一天，按時間看問題。展開就有對應文章、重點範例與 take away。</p></div>
+      {{DAY_TABS}}
+      <div class="daily-toolbar"><label><input id="priority-only" type="checkbox" checked> 只看主要安排</label><button id="reset-route" type="button">套用本版建議</button><button id="print-day" type="button">列印這一天</button></div>
+      <p id="load-status" class="daily-status" role="status">以下四天都可閱讀；啟用互動後可切換日期與同時段選場。</p>
+      <aside class="daily-source-note"><details><summary>時間、教室與資料來源</summary><p>時間皆為舊金山當地時間。技術場次與教室依10/14書冊；plenary／keynote日期與時段於11/1核對官方說明。最新取消、教室與篇序以現場為準。WB34第4篇10:15–10:30由使用者提供，尚未獨立核實；與WB35同時。</p><p>四場plenary與三晚keynote預選保留；同時段其他演講可展開閱讀或改選。數字例子為教學自擬，來源與適用範圍放在文章下方。</p></details></aside>
+      {{DAILY_PROGRAM}}
+      <details class="daily-library"><summary>更多投資建模問題與例子（11）</summary><p>這些一般投資問題供延伸思考；與現場文章的設定並不必然相同，文獻及適用範圍各自保留。</p>{{MODELLING_OVERVIEW}}</details>
+      <footer class="daily-footer"><p>展開問題即可閱讀；改選場次會保存在目前瀏覽器。這是聽前準備，尚未記為實際出席或研究結論。</p><p><a href="https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/default.aspx" target="_blank" rel="noopener noreferrer">完整議程 ↗</a> · <a href="https://meetings.informs.org/wordpress/annual/plenaries-keynotes/" target="_blank" rel="noopener noreferrer">Plenary／Keynote官方頁 ↗</a> · <a href="https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx" target="_blank" rel="noopener noreferrer">Program Book ↗</a></p></footer>
     </main>
   </div>
   <script id="informs-data" type="application/json">{{SESSION_DATA}}</script>

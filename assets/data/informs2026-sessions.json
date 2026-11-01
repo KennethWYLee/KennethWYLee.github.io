@@ -773,9 +773,9 @@
         861
       ],
       "priority": "必去",
-      "question": "老師指定：分布時間序列裡，哪些變化來自抽樣誤差？",
-      "focus": "老師指定：W-ARMA分布時間序列",
-      "selection_note": "必去：老師指定W-ARMA，該時段只排MC41，不提供其他出席選項。",
+      "question": "分布時間序列裡，哪些變化來自抽樣誤差？",
+      "focus": "W-ARMA分布時間序列",
+      "selection_note": "必去；該時段只排本場，其他同時段文章保留備讀。",
       "alternative_codes": [],
       "key_session": true,
       "order": 8,
@@ -808,12 +808,11 @@
           "source_type": "user_provided_program_book",
           "source_note": "2026-10-14 Program Book，PDF第860頁起；未讀本篇完整論文，單篇時刻待現場確認。",
           "recommendation": {
-            "reason_zh": "老師指定要聽；先分清真實分布動態與每期有限樣本的量測誤差。"
+            "reason_zh": "先分清真實分布動態與每期有限樣本的量測誤差。"
           }
         }
       ],
-      "previous_codes": [],
-      "teacher_requested": true
+      "previous_codes": []
     },
     {
       "code": "MD30",
@@ -1286,8 +1285,7 @@
       ],
       "previous_codes": [
         "TB35"
-      ],
-      "teacher_requested": true
+      ]
     },
     {
       "code": "TC30",
@@ -1682,7 +1680,7 @@
       "priority": "必去",
       "question": "最壞損失與相對理想決策差距，是同一個目標嗎？",
       "focus": "最壞損失與相對理想決策差距，是同一個目標嗎？",
-      "selection_note": "必去：老師指定Regret-Optimal，該時段只排WA33，不提供其他出席選項。",
+      "selection_note": "必去；該時段只排本場，其他同時段文章保留備讀。",
       "alternative_codes": [],
       "key_session": true,
       "order": 16,
@@ -1718,8 +1716,7 @@
           }
         }
       ],
-      "previous_codes": [],
-      "teacher_requested": true
+      "previous_codes": []
     },
     {
       "code": "WB35",
@@ -2218,7 +2215,7 @@
       "priority": "優先安排",
       "question": "回測使用的每一項資料，在當時決策時點是否真的可取得？",
       "focus": "第1篇 Auditing Point-in-Time Integrity in Financial Machine Learning Workflows",
-      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
+      "selection_note": "MC41為必去；本場只保留閱讀，不列出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": 8,
@@ -2802,7 +2799,7 @@
       "priority": "優先安排",
       "question": "哪些代表環境足以保留決策？",
       "focus": "Decision-Focused Clustering；A Cardinality-Constrained Approach for Integrated Prediction and Optimization",
-      "selection_note": "WA33為必去；本場內容僅供閱讀，不列入此時段出席選項。",
+      "selection_note": "WA33為必去；本場只保留閱讀，不列出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": 16,
@@ -3619,7 +3616,7 @@
       "priority": "備選",
       "question": null,
       "focus": null,
-      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
+      "selection_note": "MC41為必去；本場只保留閱讀，不列出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": null,
@@ -4343,7 +4340,7 @@
       "priority": "備選",
       "question": null,
       "focus": null,
-      "selection_note": "WA33為必去；本場內容僅供閱讀，不列入此時段出席選項。",
+      "selection_note": "WA33為必去；本場只保留閱讀，不列出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": null,
@@ -4572,7 +4569,7 @@
       "priority": "可加聽",
       "question": "先看這篇要做什麼決策，再看目標與限制。",
       "focus": "建模問題",
-      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
+      "selection_note": "MC41為必去；本場只保留閱讀，不列出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": 0,
@@ -4622,7 +4619,7 @@
       "priority": "可加聽",
       "question": "投資下行要求如何放進模型？",
       "focus": "投資下行要求如何放進模型？",
-      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
+      "selection_note": "MC41為必去；本場只保留閱讀，不列出席選項。",
       "alternative_codes": [],
       "key_session": true,
       "order": 0,
@@ -5669,7 +5666,7 @@
     "recommended_count": 28
   },
   "selection_updated_on": "2026-11-01",
-  "selection_note": "每天兩個主要技術場；老師指定MC41、TB29、WA33，MC41與WA33必去，同時段舊選項移除。MC47與WA32教材保留；WB34第4篇特別備讀，尚未更換WB35。plenary與三晚keynote維持已選。",
+  "selection_note": "每日行程與研究問題整合；依使用者確認保留MC41與WA33必去及TB29原主行程，移除來源指定分類與獨立頁。其他場次與演講選擇保留；WB34維持專門備讀。",
   "modelling_reviewed_on": "2026-11-01",
   "special_defaults_version": 2,
   "default_special_keys": [
@@ -5689,11 +5686,5 @@
     "allgor": 1,
     "fernandez": 2,
     "lodi": 1
-  },
-  "teacher_selection_version": 1,
-  "teacher_session_codes": [
-    "MC41",
-    "TB29",
-    "WA33"
-  ]
+  }
 }

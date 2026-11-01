@@ -1,0 +1,1704 @@
+/* ==========================================================================
+   2026 INFORMS：每天的研究問題與行程（daily-conference）
+   - 依賴 normalize + site.css 變數；不載入 informs-2026.css / informs-reading.css。
+   - 內容顯示/隱藏由 JS 的 [hidden] 控制；本檔不以全域 display:none 隱藏內容。
+   - 印表時只隱藏控制項、slot-alternatives、daily-more、daily-library。
+   ========================================================================== */
+
+[hidden],
+.daily-conference [hidden] {
+  display: none !important;
+}
+
+.daily-conference {
+  --daily-width: 1080px;
+  --daily-pad: 1.25rem;
+  --daily-time-col: 7.25rem;
+  --daily-gap: 1rem;
+  --daily-indent: calc(var(--daily-pad) + var(--daily-time-col) + var(--daily-gap));
+  --daily-radius: 10px;
+  --daily-measure: 42rem;
+  --daily-content-max: 48rem;
+  --daily-sticky-offset: 4.75rem;
+  --daily-line-strong: #b0cbd0;
+  --daily-line-choice: #8bb0b8;
+  --daily-hover: #f7fafb;
+  --daily-amber: #78551b;
+  --daily-amber-line: #e6d3aa;
+  --daily-amber-bar: #b98b3e;
+  --daily-amber-surface: #fffbf2;
+  /* 與仍載入的 informs-modelling.css 相容（原定義在 informs-2026.css） */
+  --conference-radius: 12px;
+  --conference-amber: #78551b;
+  --conference-amber-surface: #fff9ed;
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.daily-conference *,
+.daily-conference *::before,
+.daily-conference *::after {
+  box-sizing: border-box;
+}
+
+/* site.css 的全域 nav 樣式在本頁重設 */
+.daily-conference nav {
+  display: block;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.daily-conference main {
+  min-width: 0;
+}
+
+.daily-conference main [id] {
+  scroll-margin-top: calc(var(--daily-sticky-offset) + 0.75rem);
+}
+
+.daily-conference [tabindex="-1"]:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.daily-conference :is(button, input, select, textarea) {
+  font: inherit;
+}
+
+.daily-conference :is(input[type="checkbox"], input[type="radio"]) {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.daily-conference :is(h1, h2, h3, h4) {
+  letter-spacing: normal;
+}
+
+/* ---------- 外框 ---------- */
+
+.daily-shell {
+  width: min(var(--daily-width), calc(100% - 4rem));
+  margin-inline: auto;
+}
+
+.daily-conference .daily-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.25rem;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.daily-conference .daily-topbar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 0;
+  color: var(--muted);
+  background: transparent;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.daily-conference .daily-topbar a:first-child,
+.daily-conference .daily-topbar .brand-link {
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+/* ---------- 頁首 ---------- */
+
+.daily-conference .daily-hero {
+  padding: 2.25rem 0 1.5rem;
+}
+
+.daily-conference .daily-kicker {
+  margin: 0 0 0.7rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.daily-conference .daily-hero h1 {
+  max-width: 22em;
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.5rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.daily-conference :where(.daily-hero > p) {
+  max-width: var(--daily-measure);
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ---------- 日期分頁（sticky，單列；手機 2x2） ---------- */
+
+.daily-conference .daily-tabs {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+.daily-conference .daily-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.05rem;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--white);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.daily-conference .daily-tab > span {
+  font-size: 0.9375rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.daily-conference .daily-tab > small {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.daily-conference .daily-tab[aria-current="date"] {
+  border-color: var(--accent);
+  color: var(--white);
+  background: var(--accent);
+}
+
+.daily-conference .daily-tab[aria-current="date"] > small {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------- 工具列與狀態 ---------- */
+
+.daily-conference .daily-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0.85rem 0 0;
+}
+
+.daily-conference .daily-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  margin-right: auto;
+  color: var(--ink);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.daily-conference .daily-toolbar button {
+  min-height: 44px;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--accent-dark);
+  background: var(--white);
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.daily-conference .daily-toolbar button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.daily-conference .daily-status {
+  min-height: 1.6em;
+  margin: 0.35rem 0 1rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+/* ---------- 共用：本頁自有 details 的 summary ---------- */
+
+.daily-conference :is(
+  .daily-source-note details,
+  .daily-issue,
+  .lesson-answer,
+  .lesson-extra,
+  .lesson-sources,
+  .issue-other-papers,
+  .slot-alternatives,
+  .daily-more,
+  .daily-review,
+  .daily-library
+) > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.daily-conference :is(
+  .daily-source-note details,
+  .daily-issue,
+  .lesson-answer,
+  .lesson-extra,
+  .lesson-sources,
+  .issue-other-papers,
+  .slot-alternatives,
+  .daily-more,
+  .daily-review,
+  .daily-library
+) > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 卡片內的小區塊，以箭頭表示展開狀態。 */
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-source-note details) {
+  --fold-pad: 0.9rem;
+  min-width: 0;
+  padding: 0 var(--fold-pad);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  overflow: clip;
+}
+
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-source-note details) > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 44px;
+  margin: 0 calc(-1 * var(--fold-pad));
+  padding: 0.55rem var(--fold-pad);
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1.5;
+}
+
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-source-note details) > summary::after {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  margin: -0.2rem 0.3rem 0 0;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  content: "";
+}
+
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-source-note details)[open] > summary {
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-source-note details)[open] > summary::after {
+  margin-top: 0.25rem;
+  transform: rotate(225deg);
+}
+
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-source-note details)[open] {
+  padding-bottom: var(--fold-pad);
+}
+
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-source-note details) > :last-child {
+  margin-bottom: 0;
+}
+
+/* 每日底部的補充內容，以 + / − 表示展開狀態。 */
+.daily-conference :is(.daily-more, .daily-review, .daily-library) {
+  --fold-pad: var(--daily-pad);
+  min-width: 0;
+  margin: 1.25rem 0 0;
+  padding: 0 var(--fold-pad);
+  border: 1px solid var(--line);
+  border-radius: var(--daily-radius);
+  background: var(--white);
+  overflow: clip;
+}
+
+.daily-conference :is(.daily-more, .daily-review, .daily-library) > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 52px;
+  margin: 0 calc(-1 * var(--fold-pad));
+  padding: 0.8rem var(--fold-pad);
+  color: var(--accent-dark);
+  background: var(--surface);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.daily-conference :is(.daily-more, .daily-review, .daily-library, .slot-alternatives) > summary::after {
+  flex: 0 0 auto;
+  width: 2rem;
+  color: var(--accent);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  content: "+";
+}
+
+.daily-conference :is(.daily-more, .daily-review, .daily-library, .slot-alternatives)[open] > summary::after {
+  content: "\2212";
+}
+
+.daily-conference :is(.daily-more, .daily-review, .daily-library)[open] > summary {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.daily-conference :is(.daily-more, .daily-review, .daily-library)[open] {
+  padding-bottom: var(--fold-pad);
+}
+
+/* ---------- 議程來源與待確認 ---------- */
+
+.daily-conference .daily-source-note {
+  margin: 0 0 1.75rem;
+}
+
+.daily-conference .daily-source-note details {
+  border-color: var(--daily-amber-line);
+  border-left: 3px solid var(--daily-amber-bar);
+  border-radius: 0 8px 8px 0;
+  background: var(--daily-amber-surface);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.daily-conference .daily-source-note details > summary {
+  color: var(--daily-amber);
+}
+
+.daily-conference .daily-source-note details[open] > summary {
+  border-bottom-color: var(--daily-amber-line);
+}
+
+.daily-conference :where(.daily-source-note) :where(p, li) {
+  max-width: var(--daily-measure);
+}
+
+.daily-conference :where(.daily-source-note) p {
+  margin: 0 0 0.6rem;
+}
+
+.daily-conference .daily-source-note a {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 每一天 ---------- */
+
+.daily-conference .daily-day {
+  min-width: 0;
+}
+
+.daily-conference .daily-day + .daily-day {
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.daily-conference .daily-day-heading {
+  margin: 1.75rem 0 1.1rem;
+}
+
+.daily-conference .daily-date {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.daily-conference .daily-day-heading h2 {
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  font-size: clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.daily-conference :where(.daily-day-heading > p) {
+  max-width: var(--daily-measure);
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.daily-conference .daily-route {
+  max-width: none;
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 時間軸：每個時段一張卡 ---------- */
+
+.daily-conference .daily-timeline {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.daily-conference .daily-slot {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--daily-radius);
+  background: var(--white);
+  overflow: clip;
+}
+
+.daily-conference .daily-slot.special-slot {
+  border-color: var(--daily-line-strong);
+  background: #fcfefe;
+}
+
+/* 主要安排：左側 teal 線（在 special 之後，保留左線） */
+.daily-conference .daily-slot[data-priority="main"] {
+  border-color: var(--daily-line-strong);
+  border-left: 3px solid var(--accent);
+}
+
+.daily-conference .slot-current {
+  min-width: 0;
+}
+
+.daily-conference .slot-empty {
+  max-width: none;
+  margin: 0;
+  padding: 0.9rem var(--daily-pad) 0.9rem var(--daily-indent);
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* ---------- 研究問題卡（details.daily-issue） ---------- */
+
+.daily-conference .daily-issue {
+  min-width: 0;
+  margin: 0;
+}
+
+.daily-conference .issue-summary {
+  display: grid;
+  grid-template-columns: var(--daily-time-col) minmax(0, 1fr) 2rem;
+  align-items: start;
+  column-gap: var(--daily-gap);
+  min-height: 44px;
+  padding: 1rem var(--daily-pad);
+  color: var(--ink);
+}
+
+.daily-conference .daily-issue[open] > .issue-summary {
+  border-bottom: 1px solid #d3e4e6;
+  background: var(--accent-light);
+}
+
+.daily-conference .daily-issue:target > .issue-summary {
+  background: var(--accent-light);
+}
+
+.daily-conference .issue-time {
+  padding-top: 0.1rem;
+  color: var(--accent-dark);
+  font-size: 0.9375rem;
+  font-weight: 650;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.daily-conference .issue-summary-main {
+  display: block;
+  min-width: 0;
+}
+
+.daily-conference .issue-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.6rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .issue-meta b {
+  color: var(--accent-dark);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.daily-conference .issue-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.05rem 0.45rem;
+  border: 1px solid #b5d0d4;
+  border-radius: 4px;
+  color: var(--accent-dark);
+  background: #eaf4f4;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.55;
+  white-space: nowrap;
+}
+
+/* 備讀區的 badge 降一階 */
+.daily-conference .daily-more .issue-badge {
+  border-color: var(--line);
+  color: var(--muted);
+  background: var(--surface);
+}
+
+.daily-conference .issue-title {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--ink);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.daily-conference .issue-preview {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+/* 原文中的 "+" 以色彩隱去，改畫兩條線；展開後直線收起成「−」 */
+.daily-conference .issue-toggle {
+  position: relative;
+  justify-self: end;
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: transparent;
+  background: var(--white);
+  font-size: 0;
+  line-height: 0;
+  user-select: none;
+}
+
+.daily-conference .issue-toggle::before,
+.daily-conference .issue-toggle::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  margin: -1px 0 0 -6px;
+  border-radius: 1px;
+  background: var(--accent);
+  content: "";
+}
+
+.daily-conference .issue-toggle::after {
+  width: 2px;
+  height: 12px;
+  margin: -6px 0 0 -1px;
+  transition: transform 0.15s ease;
+}
+
+.daily-conference .daily-issue[open] > .issue-summary .issue-toggle {
+  border-color: var(--daily-line-strong);
+}
+
+.daily-conference .daily-issue[open] > .issue-summary .issue-toggle::after {
+  transform: scaleY(0);
+}
+
+/* 展開內容：桌機對齊標題欄，左側保留時間欄 */
+.daily-conference .issue-body {
+  min-width: 0;
+  padding: 0.25rem var(--daily-pad) 1.5rem var(--daily-indent);
+}
+
+.daily-conference :where(.issue-body > *) {
+  max-width: var(--daily-content-max);
+}
+
+.daily-conference :where(.issue-body) :where(p, li) {
+  max-width: var(--daily-measure);
+}
+
+.daily-conference :where(.issue-body) p {
+  margin: 0 0 0.9rem;
+  line-height: 1.85;
+  text-wrap: pretty;
+}
+
+.daily-conference :where(.issue-body) :where(ul, ol) {
+  margin: 0 0 0.9rem;
+  padding-left: 1.35rem;
+}
+
+.daily-conference :where(.issue-body) li + li {
+  margin-top: 0.35rem;
+}
+
+.daily-conference .issue-body [lang="en"] {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.daily-conference .issue-body a {
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .issue-original-title {
+  margin: 1rem 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* 本場文章錨點 */
+.daily-conference .issue-paper-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.daily-conference .issue-paper-nav :is(ul, ol) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.daily-conference .issue-paper-nav li + li {
+  margin: 0;
+}
+
+.daily-conference .issue-paper-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--accent-dark);
+  background: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 550;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+/* ---------- 單篇文章段落（issue-lesson） ---------- */
+
+.daily-conference .issue-lesson {
+  min-width: 0;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.daily-conference .issue-lesson:target {
+  border-top-color: var(--accent);
+  box-shadow: 0 -1px 0 var(--accent);
+}
+
+.daily-conference .issue-lesson > .lesson-reference {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+.daily-conference .issue-lesson > h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .issue-lesson .lesson-title {
+  margin: 0.45rem 0 0.8rem;
+  color: var(--accent-dark);
+  font-size: 1.1875rem;
+  font-weight: 650;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* 表格：外層橫向捲動 */
+.daily-conference .reading-table-wrap {
+  max-width: 100%;
+  margin: 1rem 0 1.1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  -webkit-overflow-scrolling: touch;
+}
+
+.daily-conference .reading-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+.daily-conference .reading-table caption {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  text-align: left;
+  caption-side: top;
+}
+
+.daily-conference .reading-table :is(th, td) {
+  min-width: 6.5rem;
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.daily-conference .reading-table :is(th, td) + :is(th, td) {
+  border-left: 1px solid var(--line);
+}
+
+.daily-conference .reading-table thead th {
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.daily-conference .reading-table tbody th {
+  background: #fafbfc;
+  font-weight: 600;
+}
+
+.daily-conference .reading-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+/* Take away 與現場提示：兩種強度 */
+.daily-conference .lesson-takeaway {
+  max-width: var(--daily-measure);
+  margin: 1rem 0 0.75rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: var(--ink);
+  background: var(--accent-light);
+  line-height: 1.8;
+}
+
+.daily-conference .lesson-takeaway strong {
+  color: var(--accent-dark);
+  font-weight: 650;
+}
+
+.daily-conference .lesson-listen {
+  max-width: var(--daily-measure);
+  margin: 0 0 0.75rem;
+  padding: 0.6rem 1rem;
+  border-left: 3px solid #a9c4c8;
+  border-radius: 0 8px 8px 0;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources) {
+  margin-top: 0.6rem;
+}
+
+.daily-conference .lesson-answer > summary {
+  color: var(--accent-dark);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.daily-conference .lesson-extra-example {
+  min-width: 0;
+}
+
+.daily-conference .lesson-extra-example + .lesson-extra-example {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.daily-conference .lesson-extra-example h4 {
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.daily-conference .lesson-sources {
+  font-size: 0.875rem;
+}
+
+.daily-conference :where(.lesson-sources, .issue-other-papers) p {
+  line-height: 1.75;
+}
+
+/* 本場其他文章 */
+.daily-conference .issue-other-papers {
+  margin-top: 1.25rem;
+}
+
+.daily-conference .issue-paper {
+  min-width: 0;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+
+.daily-conference .issue-paper:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.daily-conference .issue-paper:last-child {
+  padding-bottom: 0;
+}
+
+.daily-conference .issue-paper h4 {
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.daily-conference :where(.issue-paper) p {
+  margin: 0 0 0.5rem;
+}
+
+.daily-conference :where(.issue-paper) > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 同時段其他研究問題 ---------- */
+
+.daily-conference .slot-alternatives {
+  --fold-pad-l: var(--daily-indent);
+  --fold-pad-r: var(--daily-pad);
+  min-width: 0;
+  padding: 0 var(--fold-pad-r) 0 var(--fold-pad-l);
+  border-top: 1px solid var(--line);
+}
+
+.daily-conference .slot-current:empty + .slot-alternatives {
+  border-top: 0;
+}
+
+.daily-conference .slot-alternatives > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  margin: 0 calc(-1 * var(--fold-pad-r)) 0 calc(-1 * var(--fold-pad-l));
+  padding: 0.6rem var(--fold-pad-r) 0.6rem var(--fold-pad-l);
+  color: var(--accent);
+  background: #fafbfc;
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1.5;
+}
+
+.daily-conference .special-slot .slot-alternatives > summary {
+  background: #f4f9f9;
+}
+
+.daily-conference .slot-alternatives[open] > summary {
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.daily-conference .slot-alternatives[open] {
+  padding-bottom: var(--daily-pad);
+}
+
+.daily-conference .slot-choice-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 0.45rem;
+  min-width: 0;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.daily-conference .slot-choice-controls > legend {
+  float: left;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0 0 0.15rem;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* label 用 block + 絕對定位 radio，讓代碼與題目維持同一段文字流 */
+.daily-conference .slot-choice-controls label {
+  position: relative;
+  display: block;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.65rem 0.8rem 0.65rem 2.6rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--ink);
+  background: var(--white);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.daily-conference .slot-choice-controls label > input {
+  position: absolute;
+  top: calc(0.65rem + (1.55em - 18px) / 2);
+  left: 0.8rem;
+}
+
+.daily-conference .slot-choice-controls label :is(b, strong) {
+  margin-right: 0.35rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.daily-conference .slot-choice-controls label:has(input:checked) {
+  border-color: var(--daily-line-choice);
+  color: var(--accent-dark);
+  background: var(--accent-light);
+}
+
+.daily-conference .slot-choice-controls label:has(input:focus-visible) {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.daily-conference .slot-other-issues,
+.daily-conference .daily-more-issues {
+  display: grid;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+/* 備選卡與備讀卡：精簡版（時間在上一行，內文不縮排） */
+.daily-conference :is(.slot-other-issues, .daily-more-issues) > .daily-issue {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  overflow: clip;
+}
+
+.daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-summary {
+  grid-template-columns: minmax(0, 1fr) 2rem;
+  row-gap: 0.15rem;
+  column-gap: 0.75rem;
+  padding: 0.8rem 1rem;
+}
+
+.daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-summary > .issue-time {
+  grid-column: 1;
+  grid-row: 1;
+  padding-top: 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-summary > .issue-summary-main {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-summary > .issue-toggle {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-title {
+  font-size: 1rem;
+}
+
+.daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-body {
+  padding: 0.25rem 1rem 1.25rem;
+}
+
+/* ---------- 今天讀完、延伸資料 ---------- */
+
+.daily-conference :where(.daily-review) :where(p, li, dd) {
+  max-width: var(--daily-measure);
+}
+
+.daily-conference :where(.daily-review) p {
+  margin: 0 0 0.8rem;
+  line-height: 1.8;
+}
+
+.daily-conference :where(.daily-review) :where(ul, ol) {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+}
+
+.daily-conference :where(.daily-review) li + li {
+  margin-top: 0.45rem;
+}
+
+.daily-conference :where(.daily-review) :where(h3, h4) {
+  margin: 1.1rem 0 0.5rem;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.daily-conference :where(.daily-review) dl {
+  margin: 0 0 1rem;
+}
+
+.daily-conference :where(.daily-review) dt {
+  margin-top: 0.6rem;
+  font-weight: 650;
+}
+
+.daily-conference :where(.daily-review) dd {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+}
+
+.daily-conference .daily-review a {
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .daily-library {
+  margin-top: 2.5rem;
+}
+
+.daily-conference .daily-library .model-cases {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ---------- 頁尾 ---------- */
+
+.daily-conference .daily-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin-top: 2.5rem;
+  padding: 1.25rem 0 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.daily-conference .daily-footer p {
+  margin: 0;
+}
+
+.daily-conference .daily-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 焦點與 hover ---------- */
+
+.daily-conference :is(a, button, input, summary):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* summary 多位於 overflow:clip 的卡內，改內縮避免被裁切 */
+.daily-conference summary:focus-visible {
+  outline-offset: -3px;
+}
+
+@media (hover: hover) {
+  .daily-conference .daily-topbar a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .daily-conference .daily-tab:not([aria-current="date"]):hover {
+    border-color: #9bb7bd;
+    color: var(--accent-dark);
+    background: var(--accent-light);
+  }
+
+  .daily-conference .daily-toolbar button:not(:disabled):hover {
+    border-color: #9bb7bd;
+    background: var(--accent-light);
+  }
+
+  .daily-conference .issue-summary:hover {
+    background: var(--daily-hover);
+  }
+
+  .daily-conference .daily-issue[open] > .issue-summary:hover {
+    background: #e6f1f1;
+  }
+
+  .daily-conference .issue-summary:hover .issue-toggle {
+    border-color: var(--accent);
+  }
+
+  .daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers) > summary:hover,
+  .daily-conference .slot-alternatives > summary:hover {
+    color: var(--accent-dark);
+    background: var(--daily-hover);
+  }
+
+  .daily-conference :is(.daily-more, .daily-review, .daily-library) > summary:hover {
+    background: #eef3f5;
+  }
+
+  .daily-conference .daily-source-note details > summary:hover {
+    background: #fff5e2;
+  }
+
+  .daily-conference .slot-choice-controls label:hover {
+    border-color: #9bb7bd;
+  }
+
+  .daily-conference .issue-paper-nav a:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+}
+
+@media (pointer: coarse) {
+  .daily-conference .issue-paper-nav a {
+    min-height: 44px;
+  }
+}
+
+/* ---------- 響應式 ---------- */
+
+@media (max-width: 1000px) {
+  .daily-shell {
+    width: calc(100% - 3rem);
+  }
+
+  .daily-conference {
+    --daily-time-col: 6.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .daily-shell {
+    width: calc(100% - 2rem);
+  }
+
+  .daily-conference {
+    --daily-pad: 1rem;
+    --daily-indent: var(--daily-pad);
+  }
+
+  .daily-conference .daily-hero {
+    padding: 1.75rem 0 1.25rem;
+  }
+
+  .daily-conference .issue-summary {
+    grid-template-columns: minmax(0, 1fr) 2.25rem;
+    row-gap: 0.2rem;
+    column-gap: 0.75rem;
+    padding: 0.85rem var(--daily-pad);
+  }
+
+  .daily-conference .issue-summary > .issue-time {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0;
+    font-size: 0.875rem;
+  }
+
+  .daily-conference .issue-summary > .issue-summary-main {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .daily-conference .issue-summary > .issue-toggle {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .daily-conference .issue-title {
+    font-size: 1rem;
+  }
+
+  .daily-conference .issue-body {
+    padding: 0.25rem var(--daily-pad) 1.25rem;
+  }
+
+  .daily-conference .issue-lesson .lesson-title {
+    font-size: 1.125rem;
+  }
+
+  .daily-conference :where(.issue-body) p {
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 600px) {
+  .daily-conference {
+    --daily-sticky-offset: 7.25rem;
+  }
+
+  .daily-conference .daily-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+    padding: 0.4rem 0;
+  }
+
+  .daily-conference .daily-tab {
+    padding: 0.35rem 0.65rem;
+  }
+
+  .daily-conference .daily-tab > span {
+    font-size: 0.875rem;
+  }
+
+  .daily-conference .daily-toolbar label {
+    flex: 1 0 100%;
+    margin-right: 0;
+  }
+
+  .daily-conference .daily-toolbar button {
+    flex: 1 1 0;
+    padding-inline: 0.6rem;
+  }
+
+  .daily-conference .daily-day-heading {
+    margin-top: 1.5rem;
+  }
+
+  .daily-conference .daily-footer {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .daily-shell {
+    width: calc(100% - 1.5rem);
+  }
+
+  .daily-conference {
+    --daily-pad: 0.875rem;
+    --daily-indent: var(--daily-pad);
+  }
+
+  .daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers) {
+    --fold-pad: 0.75rem;
+  }
+
+  .daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-summary {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .daily-conference :is(.slot-other-issues, .daily-more-issues) .issue-body {
+    padding: 0.25rem 0.85rem 1.1rem;
+  }
+}
+
+/* 矮視窗（手機橫放等）：分頁不黏頂，避免吃掉閱讀高度 */
+@media (max-height: 560px) {
+  .daily-conference {
+    --daily-sticky-offset: 0rem;
+  }
+
+  .daily-conference .daily-tabs {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .daily-conference .issue-toggle::after {
+    transition: none;
+  }
+}
+
+/* ---------- 列印：只留選定日與每時段的已選問題 ---------- */
+
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  .daily-conference {
+    --daily-pad: 0.6rem;
+    --daily-gap: 0.6rem;
+    --daily-indent: 0.6rem;
+    --daily-sticky-offset: 0rem;
+    color: #000;
+    background: #fff;
+    font-size: 10.5pt;
+    line-height: 1.6;
+  }
+
+  .daily-shell {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* 只隱藏控制項、同時段備選、備讀、延伸資料 */
+  .daily-conference :is(
+    .skip-link,
+    .daily-topbar,
+    .daily-tabs,
+    .daily-toolbar,
+    .daily-status,
+    .issue-paper-nav,
+    .issue-toggle,
+    .slot-choice-controls,
+    .slot-alternatives,
+    .daily-more,
+    .daily-library
+  ) {
+    display: none !important;
+  }
+
+  body.has-daily-js .daily-day[hidden] {
+    display: none !important;
+  }
+
+  .daily-conference a {
+    color: #000;
+  }
+
+  .daily-conference .daily-hero {
+    padding: 0 0 0.5rem;
+  }
+
+  .daily-conference .daily-kicker {
+    margin-bottom: 0.3rem;
+    color: #333;
+    font-size: 7.5pt;
+  }
+
+  .daily-conference .daily-hero h1 {
+    margin-bottom: 0.3rem;
+    font-size: 15pt;
+  }
+
+  .daily-conference :where(.daily-hero > p) {
+    color: #333;
+    font-size: 9pt;
+  }
+
+  .daily-conference .daily-source-note {
+    margin-bottom: 0.6rem;
+  }
+
+  .daily-conference .daily-source-note details {
+    border-color: #bbb;
+    background: transparent;
+    font-size: 8.5pt;
+  }
+
+  .daily-conference .daily-day + .daily-day {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    break-before: page;
+  }
+
+  .daily-conference .daily-day-heading {
+    margin: 0.4rem 0 0.6rem;
+    break-after: avoid;
+  }
+
+  .daily-conference .daily-date {
+    color: #333;
+  }
+
+  .daily-conference .daily-day-heading h2 {
+    font-size: 15pt;
+  }
+
+  .daily-conference :where(.daily-day-heading > p) {
+    color: #333;
+    font-size: 9pt;
+  }
+
+  .daily-conference .daily-route {
+    border-color: #bbb;
+    background: transparent;
+    font-size: 9pt;
+  }
+
+  .daily-conference .daily-timeline {
+    gap: 0.5rem;
+  }
+
+  .daily-conference .daily-slot,
+  .daily-conference .daily-slot.special-slot {
+    border: 1px solid #999;
+    border-radius: 4px;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .daily-conference .daily-slot[data-priority="main"] {
+    border-left: 3px solid #333;
+  }
+
+  .daily-conference .issue-summary,
+  .daily-conference .daily-issue[open] > .issue-summary {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    column-gap: 0.6rem;
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid #bbb;
+    background: transparent;
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  .daily-conference .issue-summary > .issue-time {
+    grid-column: 1;
+    grid-row: 1;
+    color: #000;
+    font-size: 9.5pt;
+  }
+
+  .daily-conference .issue-summary > .issue-summary-main {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .daily-conference .issue-meta,
+  .daily-conference .issue-preview {
+    color: #333;
+  }
+
+  .daily-conference .issue-title {
+    font-size: 11pt;
+  }
+
+  .daily-conference .issue-preview {
+    font-size: 9pt;
+  }
+
+  .daily-conference .issue-badge {
+    border-color: #999;
+    color: #000;
+    background: transparent;
+  }
+
+  .daily-conference .issue-body {
+    padding: 0.3rem 0.6rem 0.6rem;
+  }
+
+  .daily-conference :where(.issue-body > *),
+  .daily-conference :where(.issue-body) :where(p, li) {
+    max-width: none;
+  }
+
+  .daily-conference :where(.issue-body) p {
+    line-height: 1.65;
+    orphans: 2;
+    widows: 2;
+  }
+
+  .daily-conference .issue-lesson {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top-color: #bbb;
+    box-shadow: none;
+  }
+
+  .daily-conference .issue-lesson > h3,
+  .daily-conference .issue-lesson .lesson-title {
+    break-after: avoid;
+  }
+
+  .daily-conference .issue-lesson .lesson-title {
+    color: #000;
+    font-size: 11.5pt;
+  }
+
+  .daily-conference .reading-table-wrap {
+    overflow: visible;
+    border-color: #999;
+    break-inside: avoid;
+  }
+
+  .daily-conference .reading-table {
+    font-size: 8.5pt;
+  }
+
+  .daily-conference .reading-table :is(th, td) {
+    min-width: 0;
+    padding: 0.3rem 0.45rem;
+    border-color: #bbb;
+  }
+
+  .daily-conference .reading-table :is(thead th, tbody th) {
+    background: transparent;
+  }
+
+  .daily-conference .lesson-takeaway,
+  .daily-conference .lesson-listen {
+    padding: 0.4rem 0.6rem;
+    background: transparent;
+    break-inside: avoid;
+  }
+
+  .daily-conference .lesson-takeaway {
+    border-left-color: #333;
+  }
+
+  .daily-conference .lesson-takeaway strong {
+    color: #000;
+  }
+
+  .daily-conference .lesson-listen {
+    border-left-color: #999;
+  }
+
+  .daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-review) {
+    border-color: #bbb;
+    background: transparent;
+  }
+
+  .daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-review, .daily-source-note details) > summary {
+    min-height: 0;
+    padding-block: 0.3rem;
+    color: #000;
+    background: transparent;
+  }
+
+  .daily-conference :is(.lesson-answer, .lesson-extra, .lesson-sources, .issue-other-papers, .daily-review, .daily-source-note details) > summary::after {
+    content: none;
+  }
+
+  .daily-conference .daily-footer {
+    margin-top: 1rem;
+    padding: 0.6rem 0 0;
+    border-top-color: #bbb;
+    font-size: 8pt;
+  }
+
+  .daily-conference .daily-footer a {
+    display: inline;
+    min-height: 0;
+  }
+}
+
+/* 支援 ::details-content 的瀏覽器：印表時展開已選問題與其例子（不支援者忽略此規則） */
+@media print {
+  .daily-conference .slot-current :is(.daily-issue, .lesson-answer, .lesson-extra)::details-content {
+    content-visibility: visible;
+  }
+}
+
+/* Integration refinements after reviewing the real daily content. */
+body.has-daily-js .daily-day + .daily-day { margin-top: 0; padding-top: 0; border-top: 0; }
+.daily-conference .daily-route-disclosure { margin: .25rem 0 .75rem; color: var(--muted); font-size: .8125rem; }
+.daily-conference .daily-route-disclosure > summary { min-height: 44px; padding-block: .6rem; color: var(--accent); cursor: pointer; }
+.daily-conference .daily-route { list-style: none; }
+.daily-conference .issue-badge.is-required { color: var(--daily-amber); border-color: var(--daily-amber-line); background: var(--daily-amber-surface); }
+@media print { .daily-conference .daily-route-disclosure { display: none !important; } }
