@@ -15,6 +15,12 @@ const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': 
 assert.equal(data.sessions.length, 17);
 assert.equal(data.special_talks.length, 13);
 assert.equal(new Set(data.special_talks.map(t => t.key)).size, 13);
+assert(Number.isInteger(data.special_defaults_version) && data.special_defaults_version > 0);
+assert.equal(new Set(data.default_special_keys).size, data.default_special_keys.length);
+const defaultTalks = data.default_special_keys.map(key => data.special_talks.find(t => t.key === key));
+assert(defaultTalks.every(Boolean), 'Unknown default special talk');
+assert.equal(new Set(defaultTalks.map(t => `${t.date}_${t.start}_${t.end}`)).size, defaultTalks.length, 'Conflicting default special talks');
+assert(data.special_talks.filter(t => t.type === 'Plenary').every(t => data.default_special_keys.includes(t.key)), 'All plenaries must be selected by default');
 assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, data.sessions.length + data.alternatives.length);
 const papers = [...data.sessions, ...data.alternatives].flatMap(session => session.papers || []);
 assert.equal(new Set(papers.map(paper => paper.key)).size, papers.length);
@@ -67,7 +73,7 @@ const fallback = data.days.map(day => {
     const special = !!s.key;
     const technicalClashes = special ? [...data.sessions, ...data.alternatives].filter(t => overlaps(s, t)).map(t => t.code) : [];
     const mutual = special ? data.special_talks.filter(t => t.key !== s.key && overlaps(s, t)) : [];
-    const note = special ? `${escape(s.kind)}；${technicalClashes.length ? '與技術場次 ' + escape(technicalClashes.join('、')) + ' 撞場' : '與表列技術場次無重疊'}${mutual.length ? '；同時段另有' + mutual.length + '場演講，需擇一' : ''}` : escape(s.priority === '可加聽' ? '自由探索' : s.priority);
+    const note = special ? `${data.default_special_keys.includes(s.key) ? '預設參加' : '備選演講'} · ${escape(s.kind)}；${technicalClashes.length ? '與技術場次 ' + escape(technicalClashes.join('、')) + ' 撞場' : '與表列技術場次無重疊'}${mutual.length ? '；同時段另有' + mutual.length + '場演講，需擇一' : ''}` : escape(s.priority === '可加聽' ? '自由探索' : s.priority);
     return `<tr${special ? ' class="special-table-row"' : ''}><td data-label="時間"><div class="cell-content">${escape(s.start)}–${escape(s.end)}</div></td><td data-label="場次"><div class="cell-content"><strong>${escape(s.code || s.speaker)}</strong><br>${escape(s.title)}</div></td><td data-label="教室"><div class="cell-content">${escape(s.room || '教室待官方確認')}</div></td><td data-label="安排"><div class="cell-content">${note}${abstractDetails(s)}${special ? '' : paperList(s) + alternativeDetails(s)}</div></td></tr>`;
   }).join('\n');
   return `<section class="static-day"><h3>${escape(day.label)}</h3><div class="table-wrap"><table class="schedule-table"><caption>${escape(day.label)}建議場次 · 舊金山當地時間</caption><thead><tr><th scope="col">時間</th><th scope="col">場次</th><th scope="col">教室</th><th scope="col">安排</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;

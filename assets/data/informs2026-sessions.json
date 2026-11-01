@@ -5487,5 +5487,13 @@
   },
   "selection_updated_on": "2026-11-01",
   "selection_note": "依建模問題重排：每天兩個主要技術場，其餘時段可探索研究問題；全部plenary/keynote教材保留。",
-  "modelling_reviewed_on": "2026-11-01"
+  "modelling_reviewed_on": "2026-11-01",
+  "special_defaults_version": 1,
+  "default_special_keys": [
+    "jordan",
+    "dwork",
+    "smilowitz",
+    "allgor",
+    "lodi"
+  ]
 }

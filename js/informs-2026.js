@@ -12,8 +12,10 @@
     const groups = [...new Map(talks.map(t => [groupId(t), { id: groupId(t), date: t.date, start: t.start, end: t.end }])).values()]
       .map(g => ({ ...g, talks: talks.filter(t => groupId(t) === g.id) }));
     const overlaps = (a, b) => a.date === b.date && a.start < b.end && a.end > b.start;
-    const initial = () => ({ day: data.days[0].date, priorityOnly: true, view: 'route', selections: {}, specialSelections: {} });
+    const defaultSpecialSelections = Object.fromEntries(talks.filter(t => data.default_special_keys.includes(t.key)).map(t => [groupId(t), t.key]));
+    const initial = () => ({ day: data.days[0].date, priorityOnly: true, view: 'route', selections: {}, specialSelections: { ...defaultSpecialSelections }, specialDefaultsVersion: data.special_defaults_version });
     let state = initial();
+    let defaultsNeedSaving = true;
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
       if (saved && typeof saved === 'object') {
@@ -28,8 +30,10 @@
         }
         for (const group of groups) {
           const key = saved.specialSelections?.[group.id];
-          if (group.talks.some(t => t.key === key)) state.specialSelections[group.id] = key;
+          if (key === '' || group.talks.some(t => t.key === key)) state.specialSelections[group.id] = key;
         }
+        defaultsNeedSaving = saved.specialDefaultsVersion !== data.special_defaults_version;
+        if (defaultsNeedSaving) Object.assign(state.specialSelections, defaultSpecialSelections);
       }
     } catch { /* A blocked or invalid store must not prevent the itinerary from opening. */ }
 
@@ -231,7 +235,7 @@
         const value = specialInput.value;
         state.specialSelections[group.id] = value;
         render();
-        save();
+        if (!save()) status.textContent += ' 此瀏覽器無法儲存，選擇僅保留在本頁。';
         document.querySelector(`input[data-special-group="${group.id}"][value="${value}"]`)?.focus({ preventScroll: true });
         return;
       }
@@ -254,13 +258,14 @@
     document.getElementById('reset-route').addEventListener('click', () => {
       state = { ...initial(), day: state.day, view: state.view };
       render();
-      save();
       status.textContent += ' 已套用本版建議。';
+      if (!save()) status.textContent += ' 此瀏覽器無法儲存，選擇僅保留在本頁。';
     });
     document.getElementById('print-day').addEventListener('click', () => window.print());
     render();
     document.getElementById('interactive-route').hidden = false;
     document.getElementById('static-schedule').hidden = true;
+    if (defaultsNeedSaving) save();
   } catch {
     status.textContent = '互動行程無法載入，請使用下方完整表格。';
     document.getElementById('interactive-route').hidden = true;
