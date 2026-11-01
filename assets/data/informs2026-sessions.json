@@ -244,11 +244,12 @@
       "priority": "可加聽",
       "question": "成本目標與可靠度限制各保護什麼？",
       "focus": "成本目標與可靠度限制各保護什麼？",
-      "selection_note": "整場擇一。主場先聽，其他時段自由探索；不必全部排滿。",
+      "selection_note": "整場擇一。主場先聽，其他時段自由探索；不必全部排滿。 使用者另指定SC37為同時段備選；選SC37就不在同時段前往SC36等其他場。",
       "alternative_codes": [
         "SC31",
         "SC30",
-        "SC28"
+        "SC28",
+        "SC37"
       ],
       "key_session": false,
       "order": 3,
@@ -759,147 +760,68 @@
       ]
     },
     {
-      "code": "MC47",
-      "title": "Machine Learning and Robust Portfolios",
+      "code": "MC41",
+      "title": "2026 Data Mining Society (DMS) Best Student Paper Award - Student Track",
       "date": "2026-11-02",
       "start": "13:15",
       "end": "14:30",
-      "room": "Moscone South-310 (Level 3)",
-      "room_short": "South-310",
+      "room": "Moscone South-303 (Level 3)",
+      "room_short": "South-303",
       "floor": "Level 3",
       "source_pages": [
-        870,
-        871,
-        872
+        860,
+        861
       ],
-      "priority": "優先安排",
-      "question": "投資下行要求如何放進模型？",
-      "focus": "投資下行要求如何放進模型？",
-      "selection_note": "整場擇一。主場先聽，其他時段自由探索；不必全部排滿。",
+      "priority": "保留",
+      "question": "老師指定：分布時間序列裡，哪些變化來自抽樣誤差？",
+      "focus": "老師指定：W-ARMA分布時間序列",
+      "selection_note": "老師指定現場聽W-ARMA；與MC47、MC03等完全同時，保留整場時段，不按篇號推算單篇時間。",
       "alternative_codes": [
+        "MC47",
         "MC48",
         "MC03",
-        "MC41",
         "MC24"
       ],
       "key_session": true,
       "order": 8,
+      "papers_complete": false,
+      "total_paper_count": 6,
       "abstract": {
-        "summary_zh": "本場5篇報告討論非平穩報酬預測、互相依賴的生醫投資、模型公開前後的回測偏誤、DRO downside risk與algorithmic pricing。重點包括模型複雜度與訓練窗口的共同選擇、分散投資與目標報酬的取捨，以及演算法學習造成的進入障礙。DRO投組的解析結果則採Mahalanobis distance與elliptical reference distribution等具體設定。",
-        "summary_label": "中文重點整理｜依場內5篇報告摘要",
-        "source_type": "user_provided_program_book",
-        "source_pages": [
-          870,
-          871,
-          872
-        ],
+        "summary_zh": "本頁精選報告：每期的觀察本身是一個用有限資料估出的分布；作者把其量測誤差與分布時間序列一起建模。不是直接預測單一指數收盤點位，摘要的6.4%是分布預測誤差改善。",
+        "summary_label": "本場精選報告重點",
         "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "來源：10/14議程書冊，第870–872頁。",
-        "paper_count": 5
+        "abstract_version_note": "依10/14議程冊的精選報告摘要整理；不是整場所有報告的摘要。",
+        "paper_count": 1
       },
       "papers": [
         {
-          "key": "paper-02488",
-          "number": 1,
-          "title": "The Nonstationarity-Complexity Tradeoff in Return Prediction",
-          "authors": [
-            "Kaizheng Wang",
-            "Agostino Capponi",
-            "Chengpiao Huang",
-            "Jose Sidaoui",
-            "Jiacheng Zou"
-          ],
-          "summary_zh": "同時選擇報酬預測模型類別與訓練窗口，以處理模型誤設、估計變異與非平穩性間的取捨。作者以非平穩驗證資料進行tournament選模，並在17個產業投組報酬上報告樣本外預測與交易結果。",
-          "source_pages": [
-            870,
-            871
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第870–871頁。",
-          "recommendation": {
-            "reason_zh": "作者固定了什麼資訊和評估損失？哪些條件可轉到自己的題目？"
-          }
-        },
-        {
-          "key": "paper-02489",
-          "number": 2,
-          "title": "Valuation and Portfolio Theory for Biomedical Investments",
-          "authors": [
-            "Chaoyi Zhao",
-            "Andrew Lo"
-          ],
-          "summary_zh": "把生醫專案估值與portfolio construction放在同一架構中，考慮共同科學、市場、策略互動及分階段投資。報告說明分散投資雖可能降低傳統風險指標，卻也可能降低達成目標報酬倍數的機率。",
-          "source_pages": [
-            871
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第871頁。"
-        },
-        {
-          "key": "paper-02490",
-          "number": 3,
-          "title": "The Anachronistic Testing-Date Bias of Machine Learning Strategies",
-          "authors": [
-            "Federico Tiberga"
-          ],
-          "summary_zh": "檢查機器學習策略的回測優勢，是否部分來自模型尚未公開、競爭者尚不能採用的測試期間。作者比較2005–2022年的八類模型與公開前後表現，報告部分alpha差異及局部窗口結果。",
-          "source_pages": [
-            871
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第871頁。"
-        },
-        {
-          "key": "paper-02491",
-          "number": 4,
-          "title": "Distributionally Robust Downside Risk Optimization",
-          "authors": [
-            "Zheng Liu",
-            "Nathan Lassance",
-            "Steven Vanduffel",
-            "Jing Yao"
-          ],
-          "summary_zh": "以lower partial moment描述downside risk，並用Wasserstein ball納入分布不確定性。報告推導convex dual與Slater條件，另在Mahalanobis成本和elliptical reference distribution下分析最適投組及其與mean–variance frontier的關係。",
-          "source_pages": [
-            871,
-            872
-          ],
-          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
-          "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第871–872頁。",
-          "recommendation": {
-            "reason_zh": "門檻、偏好係數和分布集合各自怎樣改變可選配置？"
-          }
-        },
-        {
-          "key": "paper-02492",
+          "key": "MC41-5",
           "number": 5,
-          "title": "Entry Deterrence by Algorithmic Pricing",
+          "title": "W-ARMA: Wasserstein Autoregressive Moving Average Models",
           "authors": [
-            "Patrick Chang",
-            "Alvaro Cartea",
-            "Jose Penalva"
+            "Yujing Huang",
+            "Xiaoyu Chen",
+            "Xinwei Deng"
           ],
-          "summary_zh": "以高頻交易市場模型研究自動定價演算法能否阻止其他交易商進入。作者指出，在所研究模擬中，即使均衡分析不支持持續排除，學習演算法仍可能形成limit price結果，且慢速交易商的最佳反應可穩定此學習結果。",
+          "summary_zh": "每期的觀察本身是一個用有限資料估出的分布；作者把其量測誤差與分布時間序列一起建模。不是直接預測單一指數收盤點位，摘要的6.4%是分布預測誤差改善。",
           "source_pages": [
-            872
+            860,
+            861
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文重點整理",
+          "summary_label": "中文閱讀重點（依原議程摘要）",
           "source_type": "user_provided_program_book",
-          "source_note": "來源：10/14議程書冊，第872頁。"
+          "source_note": "2026-10-14 Program Book，PDF第860頁起；未讀本篇完整論文，單篇時刻待現場確認。",
+          "recommendation": {
+            "reason_zh": "老師指定要聽；先分清真實分布動態與每期有限樣本的量測誤差。"
+          }
         }
       ],
       "previous_codes": [
+        "MC47",
         "MC48"
-      ]
+      ],
+      "teacher_requested": true
     },
     {
       "code": "MD30",
@@ -1330,7 +1252,7 @@
       "source_pages": [
         1259
       ],
-      "priority": "優先安排",
+      "priority": "保留",
       "question": "W1與W2怎樣改最壞情況與決策？",
       "focus": "W1與W2怎樣改最壞情況與決策？",
       "selection_note": "整場擇一。主場先聽，其他時段自由探索；不必全部排滿。",
@@ -1372,7 +1294,8 @@
       ],
       "previous_codes": [
         "TB35"
-      ]
+      ],
+      "teacher_requested": true
     },
     {
       "code": "TC30",
@@ -1764,7 +1687,7 @@
         1685,
         1686
       ],
-      "priority": "優先安排",
+      "priority": "保留",
       "question": "最壞損失與相對理想決策差距，是同一個目標嗎？",
       "focus": "最壞損失與相對理想決策差距，是同一個目標嗎？",
       "selection_note": "整場擇一。主場先聽，其他時段自由探索；不必全部排滿。",
@@ -1808,7 +1731,8 @@
       ],
       "previous_codes": [
         "WA32"
-      ]
+      ],
+      "teacher_requested": true
     },
     {
       "code": "WB35",
@@ -4695,55 +4619,140 @@
       ]
     },
     {
-      "code": "MC41",
-      "title": "2026 Data Mining Society (DMS) Best Student Paper Award - Student Track",
+      "code": "MC47",
+      "title": "Machine Learning and Robust Portfolios",
       "date": "2026-11-02",
       "start": "13:15",
       "end": "14:30",
-      "room": "Moscone South-303 (Level 3)",
-      "room_short": "South-303",
+      "room": "Moscone South-310 (Level 3)",
+      "room_short": "South-310",
       "floor": "Level 3",
       "source_pages": [
-        860,
-        861
+        870,
+        871,
+        872
       ],
       "priority": "可加聽",
-      "question": "先看這篇要做什麼決策，再看目標與限制。",
-      "focus": "建模問題",
-      "selection_note": "同時段只選一整場；不按篇號推算起訖。",
+      "question": "投資下行要求如何放進模型？",
+      "focus": "投資下行要求如何放進模型？",
+      "selection_note": "與老師指定MC41完全同時；保留建模閱讀或整場備選，不安排跨場追篇。",
       "alternative_codes": [],
-      "key_session": false,
+      "key_session": true,
       "order": 0,
-      "papers_complete": false,
-      "total_paper_count": 6,
       "abstract": {
-        "summary_zh": "本頁精選報告：每期的觀察本身是一個用有限資料估出的分布；作者把其量測誤差與分布時間序列一起建模。不是直接預測單一指數收盤點位，摘要的6.4%是分布預測誤差改善。",
-        "summary_label": "本場精選報告重點",
+        "summary_zh": "本場5篇報告討論非平穩報酬預測、互相依賴的生醫投資、模型公開前後的回測偏誤、DRO downside risk與algorithmic pricing。重點包括模型複雜度與訓練窗口的共同選擇、分散投資與目標報酬的取捨，以及演算法學習造成的進入障礙。DRO投組的解析結果則採Mahalanobis distance與elliptical reference distribution等具體設定。",
+        "summary_label": "中文重點整理｜依場內5篇報告摘要",
+        "source_type": "user_provided_program_book",
+        "source_pages": [
+          870,
+          871,
+          872
+        ],
         "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-        "abstract_version_note": "依10/14議程冊的精選報告摘要整理；不是整場所有報告的摘要。",
-        "paper_count": 1
+        "abstract_version_note": "來源：10/14議程書冊，第870–872頁。",
+        "paper_count": 5
       },
       "papers": [
         {
-          "key": "MC41-5",
-          "number": 5,
-          "title": "W-ARMA: Wasserstein Autoregressive Moving Average Models",
+          "key": "paper-02488",
+          "number": 1,
+          "title": "The Nonstationarity-Complexity Tradeoff in Return Prediction",
           "authors": [
-            "Yujing Huang",
-            "Xiaoyu Chen",
-            "Xinwei Deng"
+            "Kaizheng Wang",
+            "Agostino Capponi",
+            "Chengpiao Huang",
+            "Jose Sidaoui",
+            "Jiacheng Zou"
           ],
-          "summary_zh": "每期的觀察本身是一個用有限資料估出的分布；作者把其量測誤差與分布時間序列一起建模。不是直接預測單一指數收盤點位，摘要的6.4%是分布預測誤差改善。",
+          "summary_zh": "同時選擇報酬預測模型類別與訓練窗口，以處理模型誤設、估計變異與非平穩性間的取捨。作者以非平穩驗證資料進行tournament選模，並在17個產業投組報酬上報告樣本外預測與交易結果。",
           "source_pages": [
-            860,
-            861
+            870,
+            871
           ],
           "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-          "summary_label": "中文閱讀重點（依原議程摘要）",
+          "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
-          "source_note": "2026-10-14 Program Book，PDF第860頁起；未讀本篇完整論文，單篇時刻待現場確認。"
+          "source_note": "來源：10/14議程書冊，第870–871頁。",
+          "recommendation": {
+            "reason_zh": "作者固定了什麼資訊和評估損失？哪些條件可轉到自己的題目？"
+          }
+        },
+        {
+          "key": "paper-02489",
+          "number": 2,
+          "title": "Valuation and Portfolio Theory for Biomedical Investments",
+          "authors": [
+            "Chaoyi Zhao",
+            "Andrew Lo"
+          ],
+          "summary_zh": "把生醫專案估值與portfolio construction放在同一架構中，考慮共同科學、市場、策略互動及分階段投資。報告說明分散投資雖可能降低傳統風險指標，卻也可能降低達成目標報酬倍數的機率。",
+          "source_pages": [
+            871
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第871頁。"
+        },
+        {
+          "key": "paper-02490",
+          "number": 3,
+          "title": "The Anachronistic Testing-Date Bias of Machine Learning Strategies",
+          "authors": [
+            "Federico Tiberga"
+          ],
+          "summary_zh": "檢查機器學習策略的回測優勢，是否部分來自模型尚未公開、競爭者尚不能採用的測試期間。作者比較2005–2022年的八類模型與公開前後表現，報告部分alpha差異及局部窗口結果。",
+          "source_pages": [
+            871
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第871頁。"
+        },
+        {
+          "key": "paper-02491",
+          "number": 4,
+          "title": "Distributionally Robust Downside Risk Optimization",
+          "authors": [
+            "Zheng Liu",
+            "Nathan Lassance",
+            "Steven Vanduffel",
+            "Jing Yao"
+          ],
+          "summary_zh": "以lower partial moment描述downside risk，並用Wasserstein ball納入分布不確定性。報告推導convex dual與Slater條件，另在Mahalanobis成本和elliptical reference distribution下分析最適投組及其與mean–variance frontier的關係。",
+          "source_pages": [
+            871,
+            872
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第871–872頁。",
+          "recommendation": {
+            "reason_zh": "門檻、偏好係數和分布集合各自怎樣改變可選配置？"
+          }
+        },
+        {
+          "key": "paper-02492",
+          "number": 5,
+          "title": "Entry Deterrence by Algorithmic Pricing",
+          "authors": [
+            "Patrick Chang",
+            "Alvaro Cartea",
+            "Jose Penalva"
+          ],
+          "summary_zh": "以高頻交易市場模型研究自動定價演算法能否阻止其他交易商進入。作者指出，在所研究模擬中，即使均衡分析不支持持續排除，學習演算法仍可能形成limit price結果，且慢速交易商的最佳反應可穩定此學習結果。",
+          "source_pages": [
+            872
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理",
+          "source_type": "user_provided_program_book",
+          "source_note": "來源：10/14議程書冊，第872頁。"
         }
-      ]
+      ],
+      "previous_codes": []
     },
     {
       "code": "SC28",
@@ -5025,6 +5034,137 @@
           "summary_label": "中文重點整理",
           "source_type": "user_provided_program_book",
           "source_note": "來源：10/14議程書冊，第1575頁。"
+        }
+      ]
+    },
+    {
+      "code": "SC37",
+      "title": "Quantum Computing and Optimization",
+      "date": "2026-11-01",
+      "start": "13:15",
+      "end": "14:30",
+      "room": "Moscone South-215 (Level 2)",
+      "room_short": "South-215",
+      "floor": "Level 2",
+      "source_pages": [
+        283,
+        284
+      ],
+      "priority": "可加聽",
+      "question": "量子與量子啟發式方法處理哪些最佳化問題，適用條件與實作限制是什麼？",
+      "focus": "使用者指定備選：Quantum Computing and Optimization",
+      "selection_note": "與SC36、SC28、SC31等13:15時段完全同時；以整場為單位擇一，不按篇號跨場追篇。",
+      "alternative_codes": [],
+      "key_session": false,
+      "order": 0,
+      "abstract": {
+        "summary_zh": "本場五篇討論量子與量子啟發式最佳化，包括內點法、放射治療規劃、整數規劃的group relaxation，以及連續鬆弛幾何。使用者指定列為備選；報告多涉及求解方法，效果與加速主張需連同各篇條件閱讀。",
+        "summary_label": "中文重點整理｜依場內5篇原摘要",
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "source_pages": [
+          283,
+          284
+        ],
+        "source_type": "user_provided_program_book",
+        "abstract_version_note": "2026-10-14議程書冊；未完成此場現場異動核實。",
+        "paper_count": 5
+      },
+      "papers": [
+        {
+          "key": "SC37-1",
+          "number": 1,
+          "title": "Recent advances on Quantum Interior Point Methods",
+          "authors": [
+            "Tamás Terlaky",
+            "Mohammad Mohammadisiahroudi",
+            "Pouya Sampourmahani",
+            "Luis Zuluaga",
+            "Jun-Kai You",
+            "Adrian Harkness"
+          ],
+          "summary_zh": "回顧量子與量子啟發式內點法的進展，包括iterative refinement、inexact feasible方法，以及由線性與半正定最佳化延伸到其他特定凸模型的研究。",
+          "source_pages": [
+            283
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理（依原議程摘要）",
+          "source_type": "user_provided_program_book",
+          "source_note": "2026-10-14 Program Book，摘要PDF第283頁；單篇時刻與最新教室待現場確認。"
+        },
+        {
+          "key": "SC37-2",
+          "number": 2,
+          "title": "Quantum inspired treatment optimization in radiation therapy",
+          "authors": [
+            "Mohammadhossein Mohammadisiahroudi",
+            "Yuxiang Peng",
+            "Jiaqi Leng",
+            "Xiaodi Wu",
+            "Tamás Terlaky"
+          ],
+          "summary_zh": "使用GPU增強的quantum-inspired Hamiltonian descent處理放射治療規劃。作者在其數值測試中報告流程時間由數小時降至數分鐘；摘要同時指出，實務最佳化的明確量子優勢仍難展示。",
+          "source_pages": [
+            283
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理（依原議程摘要）",
+          "source_type": "user_provided_program_book",
+          "source_note": "2026-10-14 Program Book，摘要PDF第283頁；單篇時刻與最新教室待現場確認。"
+        },
+        {
+          "key": "SC37-3",
+          "number": 3,
+          "title": "Quantum Speedups for Group Relaxations of Integer Linear Programs",
+          "authors": [
+            "Brandon Augustino"
+          ],
+          "summary_zh": "針對Gomory group relaxation提出古典局部搜尋及量子對應方法；超二次加速與還原原ILP最優解，各依技術及非退化條件。其他情況主要改善界限，不能概括為任意ILP皆有同樣加速。",
+          "source_pages": [
+            283
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理（依原議程摘要）",
+          "source_type": "user_provided_program_book",
+          "source_note": "2026-10-14 Program Book，摘要PDF第283頁；單篇時刻與最新教室待現場確認。"
+        },
+        {
+          "key": "SC37-4",
+          "number": 4,
+          "title": "Quantum Interior Point Methods in Practice",
+          "authors": [
+            "Adrian Harkness",
+            "Pouya Sampourmahani",
+            "Mohammadhossein Mohammadisiahroudi",
+            "Tamás Terlaky"
+          ],
+          "summary_zh": "以模擬與真實量子硬體測試量子內點法，用量子線性系統方法處理Newton系統，並討論子程序誤差、病態條件與測量瓶頸。",
+          "source_pages": [
+            283,
+            284
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理（依原議程摘要）",
+          "source_type": "user_provided_program_book",
+          "source_note": "2026-10-14 Program Book，摘要PDF第283–284頁；單篇時刻與最新教室待現場確認。"
+        },
+        {
+          "key": "SC37-5",
+          "number": 5,
+          "title": "Towards Super-polynomial quantum speedups for optimization via continuous relaxation",
+          "authors": [
+            "Jiaqi Leng",
+            "Sofía González-García",
+            "Vadim Smelyanskiy",
+            "Murphy Yuezhen Niu"
+          ],
+          "summary_zh": "在特製的二元二次最佳化問題，研究連續鬆弛幾何與Quantum Hamiltonian Descent。摘要對指定古典基準與條件描述quasi-polynomial speedups，不能把標題概括成所有模型皆有普遍量子優勢。",
+          "source_pages": [
+            284
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文重點整理（依原議程摘要）",
+          "source_type": "user_provided_program_book",
+          "source_note": "2026-10-14 Program Book，摘要PDF第284頁；單篇時刻與最新教室待現場確認。"
         }
       ]
     }
@@ -5486,7 +5626,7 @@
     "recommended_count": 28
   },
   "selection_updated_on": "2026-11-01",
-  "selection_note": "依建模問題重排：每天兩個主要技術場，其餘時段可探索研究問題；全部plenary/keynote教材保留。",
+  "selection_note": "每天兩個主要技術場；老師指定MC41、TB29、WA33優先安排，MC47保留閱讀與備選。plenary與三晚keynote維持已選。",
   "modelling_reviewed_on": "2026-11-01",
   "special_defaults_version": 2,
   "default_special_keys": [
@@ -5506,5 +5646,11 @@
     "allgor": 1,
     "fernandez": 2,
     "lodi": 1
-  }
+  },
+  "teacher_selection_version": 1,
+  "teacher_session_codes": [
+    "MC41",
+    "TB29",
+    "WA33"
+  ]
 }

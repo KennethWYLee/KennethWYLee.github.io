@@ -1,7 +1,7 @@
 {
   "prepared_on": "2026-11-01",
-  "title": "老師提供的文章",
-  "note": "老師提供表示資料來源，不表示老師是文章作者。以下依使用者提供的議程資料整理；僅取得摘要的部分不當成已讀全文。",
+  "title": "老師指定要聽的文章",
+  "note": "這三篇已確認是老師指定現場要聽的文章，已排入主行程。老師提供表示資料來源，不表示老師是文章作者。原英文摘要完整保留；只取得摘要的部分不當成已讀全文。",
   "articles": [
     {
       "id": "001",
@@ -16,7 +16,11 @@
       "session": "MC41",
       "date_time": "Monday, November 2, 1:15 PM - 2:30 PM",
       "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。"
+      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。",
+      "attendance_required": true,
+      "paper_number": 5,
+      "room": "Moscone South-303 (Level 3)",
+      "reading_anchor": "day2-session-mc41"
     },
     {
       "id": "002",
@@ -29,7 +33,11 @@
       "session": "TB29",
       "date_time": "Tuesday, November 3, 11:00 AM - 12:15 PM",
       "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。"
+      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。",
+      "attendance_required": true,
+      "paper_number": 1,
+      "room": "Moscone South-207 (Level 2)",
+      "reading_anchor": "day3-session-tb29"
     },
     {
       "id": "003",
@@ -43,7 +51,11 @@
       "session": "WA33",
       "date_time": "Wednesday, November 4, 8:00 AM - 9:15 AM",
       "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
-      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。"
+      "source_note": "2026-10-14 Program Book；原題、作者與英文摘要另與使用者提供的議程照片對照。",
+      "attendance_required": true,
+      "paper_number": 1,
+      "room": "Moscone South-211 (Level 2)",
+      "reading_anchor": "day4-session-wa33"
     }
   ]
 }

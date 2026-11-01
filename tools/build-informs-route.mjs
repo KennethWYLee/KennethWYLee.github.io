@@ -22,6 +22,16 @@ assert(defaultTalks.every(Boolean), 'Unknown default special talk');
 assert(defaultTalks.every(t => Number.isInteger(data.special_default_versions[t.key]) && data.special_default_versions[t.key] > 0 && data.special_default_versions[t.key] <= data.special_defaults_version), 'Missing default selection version');
 assert.equal(new Set(defaultTalks.map(t => `${t.date}_${t.start}_${t.end}`)).size, defaultTalks.length, 'Conflicting default special talks');
 assert(data.special_talks.filter(t => t.type === 'Plenary').every(t => data.default_special_keys.includes(t.key)), 'All plenaries must be selected by default');
+assert(Number.isInteger(data.teacher_selection_version) && data.teacher_selection_version > 0);
+assert.deepEqual(new Set(data.teacher_session_codes), new Set(teacher.articles.map(a => a.session)), 'Missing teacher attendance');
+for (const article of teacher.articles) {
+  const session = data.sessions.find(s => s.code === article.session);
+  const paper = session?.papers.find(p => p.number === article.paper_number);
+  assert(session?.teacher_requested && session.priority !== '可加聽', 'Teacher session must be a main choice');
+  assert.equal(paper?.title.replace(/\s+/g, ''), article.title.replace(/\s+/g, ''), 'Teacher article mismatch');
+  assert.deepEqual(paper.authors, article.authors);
+  assert.equal(session.room, article.room);
+}
 assert.equal(new Set([...data.sessions, ...data.alternatives].map(s => s.code)).size, data.sessions.length + data.alternatives.length);
 const papers = [...data.sessions, ...data.alternatives].flatMap(session => session.papers || []);
 assert.equal(new Set(papers.map(paper => paper.key)).size, papers.length);

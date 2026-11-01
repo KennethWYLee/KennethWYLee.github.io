@@ -13,9 +13,11 @@
       .map(g => ({ ...g, talks: talks.filter(t => groupId(t) === g.id) }));
     const overlaps = (a, b) => a.date === b.date && a.start < b.end && a.end > b.start;
     const defaultSpecialSelections = Object.fromEntries(talks.filter(t => data.default_special_keys.includes(t.key)).map(t => [groupId(t), t.key]));
-    const initial = () => ({ day: data.days[0].date, priorityOnly: true, view: 'route', selections: {}, specialSelections: { ...defaultSpecialSelections }, specialDefaultsVersion: data.special_defaults_version });
+    const defaultTeacherSelections = Object.fromEntries(data.teacher_session_codes.map(code => [code, code]));
+    const initial = () => ({ day: data.days[0].date, priorityOnly: true, view: 'route', selections: { ...defaultTeacherSelections }, specialSelections: { ...defaultSpecialSelections }, specialDefaultsVersion: data.special_defaults_version, teacherSelectionVersion: data.teacher_selection_version });
     let state = initial();
     let defaultsNeedSaving = true;
+    let teacherSelectionsNeedSaving = true;
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
       if (saved && typeof saved === 'object') {
@@ -28,6 +30,8 @@
             .find(code => [slot.code, ...slot.alternative_codes].includes(code));
           if ([slot.code, ...slot.alternative_codes].includes(selected)) state.selections[slot.code] = selected;
         }
+        teacherSelectionsNeedSaving = saved.teacherSelectionVersion !== data.teacher_selection_version;
+        if (teacherSelectionsNeedSaving) Object.assign(state.selections, defaultTeacherSelections);
         for (const group of groups) {
           const key = saved.specialSelections?.[group.id];
           if (key === '' || group.talks.some(t => t.key === key)) state.specialSelections[group.id] = key;
@@ -120,7 +124,7 @@
 
     function badges(slot, session) {
       const clashes = chosenTalks().filter(t => overlaps(t, session));
-      return `<span class="badge ${badgeClass(slot)}">${escape(slot.priority === '可加聽' ? '自由探索' : slot.priority)}</span>${session.key_session ? '<span class="badge badge-core">優先留意</span>' : ''}${session.code !== slot.code ? '<span class="badge">已改選備選</span>' : ''}${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(t => t.speaker).join('、')) + ' 撞場</span>' : ''}`;
+      return `<span class="badge ${badgeClass(slot)}">${escape(slot.priority === '可加聽' ? '自由探索' : slot.priority)}</span>${session.teacher_requested ? '<span class="badge badge-core">老師指定</span>' : ''}${session.key_session ? '<span class="badge badge-core">優先留意</span>' : ''}${session.code !== slot.code ? '<span class="badge">已改選備選</span>' : ''}${clashes.length ? '<span class="conflict-badge">與 ' + escape(clashes.map(t => t.speaker).join('、')) + ' 撞場</span>' : ''}`;
     }
 
     function question(slot, session) {
@@ -271,7 +275,7 @@
     render();
     document.getElementById('interactive-route').hidden = false;
     document.getElementById('static-schedule').hidden = true;
-    if (defaultsNeedSaving) save();
+    if (defaultsNeedSaving || teacherSelectionsNeedSaving) save();
   } catch {
     status.textContent = '互動行程無法載入，請使用下方完整表格。';
     document.getElementById('interactive-route').hidden = true;
