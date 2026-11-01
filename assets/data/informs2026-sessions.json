@@ -772,16 +772,11 @@
         860,
         861
       ],
-      "priority": "保留",
+      "priority": "必去",
       "question": "老師指定：分布時間序列裡，哪些變化來自抽樣誤差？",
       "focus": "老師指定：W-ARMA分布時間序列",
-      "selection_note": "老師指定現場聽W-ARMA；與MC47、MC03等完全同時，保留整場時段，不按篇號推算單篇時間。",
-      "alternative_codes": [
-        "MC47",
-        "MC48",
-        "MC03",
-        "MC24"
-      ],
+      "selection_note": "必去：老師指定W-ARMA，該時段只排MC41，不提供其他出席選項。",
+      "alternative_codes": [],
       "key_session": true,
       "order": 8,
       "papers_complete": false,
@@ -817,10 +812,7 @@
           }
         }
       ],
-      "previous_codes": [
-        "MC47",
-        "MC48"
-      ],
+      "previous_codes": [],
       "teacher_requested": true
     },
     {
@@ -2231,7 +2223,7 @@
       "priority": "優先安排",
       "question": "回測使用的每一項資料，在當時決策時點是否真的可取得？",
       "focus": "第1篇 Auditing Point-in-Time Integrity in Financial Machine Learning Workflows",
-      "selection_note": "本版先看第1篇的回測時間洩漏；MC47保留為報酬預測、非平穩性與下檔風險備選，MC24為其他不確定性應用。",
+      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": 8,
@@ -3632,7 +3624,7 @@
       "priority": "備選",
       "question": null,
       "focus": null,
-      "selection_note": "MC24偏異質資料與decision-dependent uncertainty；目前以portfolio為連結，先選MC47。若當日只聽三場，這場可改會後索文。",
+      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": null,
@@ -4585,7 +4577,7 @@
       "priority": "可加聽",
       "question": "先看這篇要做什麼決策，再看目標與限制。",
       "focus": "建模問題",
-      "selection_note": "同時段只選一整場；不按篇號推算起訖。",
+      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": 0,
@@ -4635,7 +4627,7 @@
       "priority": "可加聽",
       "question": "投資下行要求如何放進模型？",
       "focus": "投資下行要求如何放進模型？",
-      "selection_note": "與老師指定MC41完全同時；保留建模閱讀或整場備選，不安排跨場追篇。",
+      "selection_note": "MC41為必去；本場內容僅供閱讀，不列入此時段出席選項。",
       "alternative_codes": [],
       "key_session": true,
       "order": 0,

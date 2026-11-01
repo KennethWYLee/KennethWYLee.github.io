@@ -20,7 +20,8 @@
       "attendance_required": true,
       "paper_number": 5,
       "room": "Moscone South-303 (Level 3)",
-      "reading_anchor": "day2-session-mc41"
+      "reading_anchor": "day2-session-mc41",
+      "attendance_priority": "必去"
     },
     {
       "id": "002",

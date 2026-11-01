@@ -122,7 +122,7 @@ export function renderTeacherPage(teacher) {
       assert(/^day[1-4]-session-[a-z0-9]+$/.test(article.reading_anchor));
     }
     return `<article class="teacher-article" id="teacher-${escape(article.id)}" aria-labelledby="teacher-${escape(article.id)}-title">
-      <header><p class="teacher-session">${escape(article.session)} · ${escape(article.date_time)}</p><h2 id="teacher-${escape(article.id)}-title" lang="en">${escape(article.title)}</h2><p class="teacher-authors">作者：<span lang="en">${authors.map(escape).join('、')}</span></p>${article.attendance_required ? `<p class="teacher-session"><strong>老師指定現場聽</strong> · 第${article.paper_number}篇 · ${escape(article.room)} · <a href="informs-2026.html#${escape(article.reading_anchor)}">已排入主行程</a></p>` : ''}</header>
+      <header><p class="teacher-session">${escape(article.session)} · ${escape(article.date_time)}</p><h2 id="teacher-${escape(article.id)}-title" lang="en">${escape(article.title)}</h2><p class="teacher-authors">作者：<span lang="en">${authors.map(escape).join('、')}</span></p>${article.attendance_required ? `<p class="teacher-session"><strong>老師指定現場聽${article.attendance_priority === '必去' ? ' · 必去' : ''}</strong> · 第${article.paper_number}篇 · ${escape(article.room)} · <a href="informs-2026.html#${escape(article.reading_anchor)}">已排入主行程</a></p>` : ''}</header>
       <div class="teacher-abstract"><h3>英文摘要</h3><p lang="en">${escape(article.abstract)}</p></div>
       <div class="teacher-takeaway"><h3>這篇先帶走什麼</h3><p>${escape(article.takeaway)}</p></div>
       <p class="teacher-source">${escape(article.source_note)} ${link('查看議程來源', article.source_url)}</p>

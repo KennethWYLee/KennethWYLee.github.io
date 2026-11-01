@@ -49,7 +49,7 @@
     const isPriority = slot => slot.priority !== '可加聽';
     const selected = slot => byCode.get(state.selections[slot.code] || slot.code);
     const sourcePages = s => s.source_pages.length > 1 ? `${s.source_pages[0]}–${s.source_pages.at(-1)}` : s.source_pages[0];
-    const badgeClass = slot => ({ 優先安排: 'badge-priority', 保留: 'badge-reserved', 可加聽: 'badge-optional' }[slot.priority]);
+    const badgeClass = slot => ({ 必去: 'badge-priority', 優先安排: 'badge-priority', 保留: 'badge-reserved', 可加聽: 'badge-optional' }[slot.priority]);
     const chosenTalks = () => groups.flatMap(g => g.talks.filter(t => state.specialSelections[g.id] === t.key));
     const techConflicts = talk => [...data.sessions, ...data.alternatives].filter(s => overlaps(talk, s));
     const label = event => event.special ? event.speaker : selected(event.slot).code;

@@ -82,7 +82,7 @@ export function renderReadingGuides(reading, program) {
       lastStart = item.start;
       const clashes = event.special_key ? program.special_talks.filter(other => other.key !== item.key && other.date === item.date && other.start < item.end && other.end > item.start) : [];
       const label = item.code || item.speaker;
-      const arrangement = item.code ? (item.teacher_requested ? '老師指定 · 保留整場時段' : item.priority === '可加聽' ? '自由探索' : item.priority === '保留' ? '保留整場' : '先聽這場') : item.type;
+      const arrangement = item.code ? (item.priority === '必去' ? '必去 · 老師指定' : item.teacher_requested ? '老師指定 · 保留整場時段' : item.priority === '可加聽' ? '自由探索' : item.priority === '保留' ? '保留整場' : '先聽這場') : item.type;
       const content = event.step_ids.map(id => {
         const step = stepById.get(id);
         assert(step && !stepIdsUsed.has(id), `Invalid or reused lesson: ${id}`);
@@ -104,7 +104,8 @@ export function renderReadingGuides(reading, program) {
       assert(Array.isArray(event.step_ids) && event.step_ids.length, `Missing retained lessons: ${event.id}`);
       const sameSession = item.code && events.some(other => other.item.code === item.code);
       const concurrentCodes = [...new Set(events.filter(other => other.item.code && other.item.code !== item.code && other.item.start < item.end && other.item.end > item.start).map(other => other.item.code))];
-      const relation = [sameSession ? '同場延伸閱讀' : '備選閱讀', concurrentCodes.length ? `與 ${concurrentCodes.join('、')} 同時段` : ''].filter(Boolean).join('；');
+      const mandatoryCodes = events.filter(other => other.item.code && other.item.code !== item.code && other.item.priority === '必去' && other.item.start < item.end && other.item.end > item.start).map(other => other.item.code);
+      const relation = mandatoryCodes.length ? `僅供閱讀，不列出席選項；此時段必去 ${mandatoryCodes.join('、')}` : [sameSession ? '同場延伸閱讀' : '備選閱讀', concurrentCodes.length ? `與 ${concurrentCodes.join('、')} 同時段` : ''].filter(Boolean).join('；');
       const content = event.step_ids.map(id => {
         const step = stepById.get(id);
         assert(step && !stepIdsUsed.has(id), `Invalid or reused lesson: ${id}`);

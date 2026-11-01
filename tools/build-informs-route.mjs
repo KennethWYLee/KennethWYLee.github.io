@@ -38,6 +38,7 @@ assert.equal(new Set(papers.map(paper => paper.key)).size, papers.length);
 for (const day of data.days) assert.equal(data.sessions.filter(s => s.date === day.date && s.priority !== '可加聽').length, 2, `Need two main sessions: ${day.date}`);
 for (const session of data.sessions) {
   assert(session.start < session.end);
+  if (session.priority === '必去') assert.equal(session.alternative_codes.length, 0, 'Required session cannot offer attendance alternatives');
   assert((session.previous_codes || []).every(code => session.alternative_codes.includes(code)));
   for (const code of session.alternative_codes) {
     const alternative = data.alternatives.find(a => a.code === code);
