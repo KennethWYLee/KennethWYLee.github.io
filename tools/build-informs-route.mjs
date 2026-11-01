@@ -4,10 +4,11 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import { renderDailyProgram } from './render-informs-daily.mjs';
 import { renderModelOverview } from './render-informs-extra.mjs';
+import { renderTutorialPage } from './render-informs-tutorial.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const json=async name=>JSON.parse(await readFile(path.join(root,`assets/data/informs2026-${name}.json`),'utf8'));
-const [data,reading,modelling,articles,primers,fulltext,template]=await Promise.all([json('sessions'),json('reading'),json('modelling'),json('teacher'),json('primers'),json('fulltext'),readFile(path.join(root,'tools/informs-2026.template.html'),'utf8')]);
+const [data,reading,modelling,articles,primers,fulltext,tutorials,template,tutorialTemplate]=await Promise.all([json('sessions'),json('reading'),json('modelling'),json('teacher'),json('primers'),json('fulltext'),json('tutorials'),readFile(path.join(root,'tools/informs-2026.template.html'),'utf8'),readFile(path.join(root,'tools/informs-2026-tutorial.template.html'),'utf8')]);
 assert.equal(data.sessions.length,17);
 assert.equal(data.special_talks.length,13);
 assert.equal(new Set([...data.sessions,...data.alternatives].map(s=>s.code)).size,data.sessions.length+data.alternatives.length);
@@ -59,8 +60,10 @@ const tabs=`<nav class="daily-tabs" id="day-tabs" aria-label="選擇日期">${da
 const output=template.replace('{{DAY_TABS}}',tabs).replace('{{DAILY_PROGRAM}}',renderDailyProgram(data,reading,articles,primers,fulltext)).replace('{{MODELLING_OVERVIEW}}',renderModelOverview(modelling)).replace('{{SESSION_DATA}}',JSON.stringify(data).replace(/</g,'\\u003c')).replace(/[\t ]+$/gm,'');
 assert(!/\{\{[A-Z_]+\}\}/.test(output));
 assert(!/[CD]:[\\/]|file:\/\/\//.test(output));
+const tutorialOutput=renderTutorialPage(tutorials,tutorialTemplate);
 await writeFile(path.join(root,'informs-2026.html'),output,'utf8');
+await writeFile(path.join(root,'informs-2026-tutorial.html'),tutorialOutput,'utf8');
 // Saved links continue to work after removing the separate article page.
 const redirect='<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="robots" content="noindex"><noscript><meta http-equiv="refresh" content="0;url=informs-2026.html#daily-reading"></noscript><title>每日重點與行程</title></head><body><p><a href="informs-2026.html#daily-reading">內容已整合至每日重點與行程</a></p><script>const targets={"#teacher-001":"#day2-session-mc41","#teacher-001-title":"#day2-session-mc41","#teacher-002":"#day3-session-tb29","#teacher-002-title":"#day3-session-tb29","#teacher-003":"#day4-session-wa33","#teacher-003-title":"#day4-session-wa33"};location.replace("informs-2026.html"+(targets[location.hash]||"#daily-reading"));</script></body></html>\n';
 await writeFile(path.join(root,'informs-2026-teacher.html'),redirect,'utf8');
-console.log(`Generated integrated daily program: ${data.sessions.length} slots, ${data.alternatives.length} other sessions, ${data.special_talks.length} talks, ${reading.guides.reduce((n,g)=>n+g.steps.length,0)} lessons.`);
+console.log(`Generated daily program: ${data.sessions.length} slots, ${data.alternatives.length} other sessions, ${data.special_talks.length} talks, ${reading.guides.reduce((n,g)=>n+g.steps.length,0)} lessons; tutorials: ${tutorials.sessions.length}.`);

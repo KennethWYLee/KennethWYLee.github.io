@@ -2377,3 +2377,111 @@
     content-visibility: visible;
   }
 }
+
+/* Navigation between the daily itinerary and the tutorial collection. */
+.daily-conference .informs-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+  padding: 0.35rem;
+  border: 1px solid #d6e2e4;
+  border-radius: 0.75rem;
+  background: #f3f7f7;
+}
+
+.daily-conference .informs-sections a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  color: #24545a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.daily-conference .informs-sections a[aria-current="page"] {
+  color: #fff;
+  background: #205760;
+}
+
+.daily-conference .informs-sections a:focus-visible {
+  outline: 3px solid #c59128;
+  outline-offset: 2px;
+}
+
+.daily-conference :is(.tutorial-source, .tutorial-empty-day) {
+  margin: 1rem 0 1.5rem;
+  color: #42545d;
+  line-height: 1.7;
+}
+
+.daily-conference .tutorial-day {
+  margin: 2rem 0;
+}
+
+.daily-conference .tutorial-day > h2 {
+  margin: 0 0 0.8rem;
+  color: #164f59;
+  font-size: 1.3rem;
+}
+
+.daily-conference .tutorial-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.daily-conference .tutorial-card {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.05rem 1.15rem;
+  border: 1px solid #d6e2e4;
+  border-left: 4px solid #356e74;
+  border-radius: 0.65rem;
+  background: #fff;
+}
+
+.daily-conference .tutorial-time {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: #24545a;
+  font-size: 0.95rem;
+}
+
+.daily-conference .tutorial-body {
+  min-width: 0;
+}
+
+.daily-conference .tutorial-body h3 {
+  margin: 0;
+  color: #1e303b;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .tutorial-presenters {
+  margin: 0.4rem 0;
+  color: #53616b;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.daily-conference .tutorial-card .fulltext-status {
+  margin: 0.55rem 0 0;
+}
+
+@media (max-width: 600px) {
+  .daily-conference .informs-sections a { flex: 1 1 9rem; }
+  .daily-conference .tutorial-card { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; padding: 0.9rem; }
+  .daily-conference .tutorial-time { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
+}
+
+@media print {
+  .daily-conference .informs-sections { display: none; }
+  .daily-conference .tutorial-card { break-inside: avoid; border-color: #999; }
+}

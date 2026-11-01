@@ -556,6 +556,18 @@
       "status": "unavailable",
       "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4166368",
       "note": "同題working paper頁；全文取得情形尚未確認。"
+    },
+    {
+      "id": "SB18-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.11507v2",
+      "note": "同題公開預印本；論文署名與議程講者寫法略有不同。"
+    },
+    {
+      "id": "MD18-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.21773",
+      "note": "同題公開預印本；議程冊摘要誤植，以作者原稿為準。"
     }
   ],
   "supplemental": [

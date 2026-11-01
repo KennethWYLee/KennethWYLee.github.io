@@ -1,0 +1,185 @@
+{
+  "checked_at": "2026-11-02",
+  "source_url": "https://meetings.informs.org/wordpress/annual/tutorials/",
+  "sessions": [
+    {
+      "code": "SA18",
+      "date": "2026-11-01",
+      "time": "08:00–09:15",
+      "title": "Transform Method for Stochastic Processing and Matching Networks",
+      "presenters": [
+        "Sushil Mahavir Varma",
+        "Prakirt Jhunjhunwala",
+        "Daniela Hurtado-Lange",
+        "Siva Theja Maguluri"
+      ],
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2607.22618",
+      "note": "同題預印本；議程中的 Prakirt Raj 與預印本署名不同。"
+    },
+    {
+      "code": "SB18",
+      "date": "2026-11-01",
+      "time": "11:00–12:15",
+      "title": "Deep Learning for Sequential Decision Making under Uncertainty: Foundations, Frameworks, and Frontiers",
+      "presenters": [
+        "Esra Buyuktahtakin Toy"
+      ],
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.11507v2",
+      "note": "同題預印本；論文署名為 İ. Esra Büyüktahtakın。"
+    },
+    {
+      "code": "SC18",
+      "date": "2026-11-01",
+      "time": "13:15–14:30",
+      "title": "A Tutorial on Reinforcement Learning for LLMs: RLHF and Beyond",
+      "presenters": [
+        "Daniel Jiang"
+      ],
+      "status": "full",
+      "url": "https://danielrjiang.github.io/files/publications/llm_rl_tutorial.pdf",
+      "note": "作者網站同題全文，版本日期為 2026-10-19。"
+    },
+    {
+      "code": "SE18",
+      "date": "2026-11-01",
+      "time": "16:15–17:30",
+      "title": "Fraud Analytics as a Sequential Decision System: Integrating Machine Learning, Optimization, and Adversarial Learning",
+      "presenters": [
+        "Tahir Ekin"
+      ],
+      "status": "not_found",
+      "url": "",
+      "note": "本次尚未找到可確認對應本場的公開全文。"
+    },
+    {
+      "code": "MA18",
+      "date": "2026-11-02",
+      "time": "08:00–09:15",
+      "title": "Multiagent Online Learning in Dynamic and Uncertain Environments",
+      "presenters": [
+        "Ceyhun Eksin",
+        "Jeff S. Shamma",
+        "Behrouz Touri"
+      ],
+      "status": "not_found",
+      "url": "https://netmas.engr.tamu.edu/",
+      "note": "作者研究室列有同題待刊紀錄，未提供全文。"
+    },
+    {
+      "code": "MB18",
+      "date": "2026-11-02",
+      "time": "11:00–12:15",
+      "title": "Multi-objective Combinatorial Optimization: Foundations, Theory, and Methods",
+      "presenters": [
+        "Banu Lokman"
+      ],
+      "status": "not_found",
+      "url": "",
+      "note": "本次尚未找到可確認對應本場的公開全文。"
+    },
+    {
+      "code": "MC18",
+      "date": "2026-11-02",
+      "time": "13:15–14:30",
+      "title": "Self-Adapting Approximations of Markov Decision Processes: A Guided Tour",
+      "presenters": [
+        "Andre Augusto Cire",
+        "Selvaprabu Nadarajah",
+        "Parshan Pakiman",
+        "Negar Soheili"
+      ],
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6717699",
+      "note": "SSRN 有同題 35 頁全文紀錄；本次下載回傳 HTTP 403，尚未取得檔案。"
+    },
+    {
+      "code": "MD18",
+      "date": "2026-11-02",
+      "time": "14:45–16:00",
+      "title": "Decision-Focused Learning: When and Why Traditional Prediction Models Fail",
+      "presenters": [
+        "Mo Liu"
+      ],
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.21773",
+      "note": "同題預印本；議程冊此場摘要誤植，請以作者原稿為準。"
+    },
+    {
+      "code": "ME18",
+      "date": "2026-11-02",
+      "time": "16:15–17:30",
+      "title": "Generative Models for Decision-Making under Distributional Shift",
+      "presenters": [
+        "Yao Xie",
+        "Xiuyuan Cheng",
+        "Yunqin Zhu"
+      ],
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.04342",
+      "note": "同題預印本；預印本作者次序與議程列示不同。"
+    },
+    {
+      "code": "TB18",
+      "date": "2026-11-03",
+      "time": "11:00–12:15",
+      "title": "GPU-Accelerated Decision Optimization",
+      "presenters": [
+        "Nicolas Blin",
+        "Burcin Bozkaya",
+        "Akif Çördük",
+        "Christopher Maes"
+      ],
+      "status": "not_found",
+      "url": "",
+      "note": "本次尚未找到可確認對應本場的公開全文。"
+    },
+    {
+      "code": "TC18",
+      "date": "2026-11-03",
+      "time": "13:15–14:30",
+      "title": "Modern Primal-Dual Frameworks for Prior-Free Online Resource Allocation",
+      "presenters": [
+        "Rad Niazadeh",
+        "Rajan Udwani"
+      ],
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.15501",
+      "note": "作者與摘要相符；官方 TutORials 網頁使用題名 A Modern Treatment of the Primal–Dual Framework for Online Resource Allocation。"
+    },
+    {
+      "code": "TD18",
+      "date": "2026-11-03",
+      "time": "14:45–16:00",
+      "title": "Foundations of Reinforcement Learning and Control: Connections and New Perspectives",
+      "presenters": [
+        "Martha White",
+        "Claire Vernade",
+        "Onno Eberhard",
+        "Florian Dörfler",
+        "Csaba Szepesvári",
+        "Miroslav Krstic",
+        "Michael Muehlebach"
+      ],
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2608.02433",
+      "note": "同題預印本；預印本作者次序與議程列示不同。"
+    },
+    {
+      "code": "TE18",
+      "date": "2026-11-03",
+      "time": "16:15–17:30",
+      "title": "Parallel Computing for Two-Stage Stochastic Infrastructure Planning",
+      "presenters": [
+        "Tomás Valencia Zuluaga",
+        "Amelia Musselman",
+        "Elizabeth Glista",
+        "Jean-Paul Watson"
+      ],
+      "status": "not_found",
+      "url": "",
+      "note": "本次尚未找到可確認對應本場的公開全文。"
+    }
+  ]
+}
