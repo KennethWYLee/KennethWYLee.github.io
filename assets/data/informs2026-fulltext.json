@@ -251,7 +251,9 @@
     },
     {
       "id": "TD47-3",
-      "status": "not_found"
+      "status": "not_found",
+      "url": "https://www2.fields.utoronto.ca/talks/Dynamic-Portfolio-Optimization-Regime-Switching-and-Transaction-Costs",
+      "note": "作者演講摘要與報告高度相關；尚未找到全文。"
     },
     {
       "id": "TD47-4",
@@ -341,7 +343,9 @@
     },
     {
       "id": "SA04-3",
-      "status": "not_found"
+      "status": "not_found",
+      "url": "https://sites.google.com/view/zhenxiaochen",
+      "note": "作者研究頁列出同題工作論文，未見全文。"
     },
     {
       "id": "SA04-4",
@@ -351,7 +355,9 @@
     },
     {
       "id": "SA04-5",
-      "status": "not_found"
+      "status": "not_found",
+      "url": "https://blogs.imperial.ac.uk/zhe-liu/research/",
+      "note": "作者研究頁列同題研究稿件準備中，尚未取得全文。"
     },
     {
       "id": "SC36-1",
@@ -363,15 +369,21 @@
     },
     {
       "id": "SC36-4",
-      "status": "not_found"
+      "status": "not_found",
+      "url": "https://iise.secure-platform.com/annual2026/solicitations/102014/sessiongallery/schedule/items/95427",
+      "note": "同題另見 IISE 議程，未找到同篇全文。"
     },
     {
       "id": "SC36-5",
-      "status": "not_found"
+      "status": "not_found",
+      "url": "https://link.springer.com/article/10.1007/s12351-026-01031-6",
+      "note": "同篇全文尚未找到；此為同作者不同題相關研究，出版社全文需訂閱。"
     },
     {
       "id": "SC36-6",
-      "status": "not_found"
+      "status": "not_found",
+      "url": "https://www.informs-sim.org/wsc23papers/156.pdf",
+      "note": "同篇全文尚未找到；此為不同作者、先選址再按需求配送的2023相關全文，非同篇。"
     },
     {
       "id": "MA30-1",
@@ -421,9 +433,9 @@
     },
     {
       "id": "TB29-2",
-      "status": "related",
+      "status": "full",
       "url": "https://optimization-online.org/wp-content/uploads/2026/10/Kadpat-recourse.pdf",
-      "note": "同作者及摘要相近，題名多Integer；與現場版本關係待核。"
+      "note": "同作者、摘要高度一致的同研究預印本；預印本題名多 Integer，版本和結果表述有差。"
     },
     {
       "id": "TB29-3",
