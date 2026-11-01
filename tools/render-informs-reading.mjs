@@ -82,12 +82,12 @@ export function renderReadingGuides(reading, program) {
       lastStart = item.start;
       const clashes = event.special_key ? program.special_talks.filter(other => other.key !== item.key && other.date === item.date && other.start < item.end && other.end > item.start) : [];
       const label = item.code || item.speaker;
-      const arrangement = item.code ? (item.priority === '必去' ? '必去 · 老師指定' : item.teacher_requested ? '老師指定 · 保留整場時段' : item.priority === '可加聽' ? '自由探索' : item.priority === '保留' ? '保留整場' : '先聽這場') : item.type;
+      const arrangement = event.kind === 'preparation' ? '你指定準備 · 未改選出席' : item.code ? (item.priority === '必去' ? '必去 · 老師指定' : item.teacher_requested ? '老師指定 · 保留整場時段' : item.priority === '可加聽' ? '自由探索' : item.priority === '保留' ? '保留整場' : '先聽這場') : item.type;
       const content = event.step_ids.map(id => {
         const step = stepById.get(id);
         assert(step && !stepIdsUsed.has(id), `Invalid or reused lesson: ${id}`);
         stepIdsUsed.add(id);
-        return renderStep(step, event, index === 0 && event.step_ids[0] === id);
+        return renderStep(step, event, (index === 0 || event.kind === 'preparation') && event.step_ids[0] === id);
       }).join('');
       return { event, item, label, html: `<section class="reading-event${event.kind === 'explore' ? ' is-exploration' : ''}" id="${event.id}" aria-labelledby="${event.id}-title"><header class="reading-event-heading"><p class="reading-event-time">${escape(item.start)}–${escape(item.end)} <span>${escape(arrangement)}</span></p><h4 id="${event.id}-title">${escape(label)}</h4><p class="reading-event-title" lang="en">${escape(item.title)}</p><p>${escape(event.focus)}</p>${clashes.length ? '<p class="reading-concurrent">晚間三場 keynote 同時進行，現場完整聽會需擇一。</p>' : ''}</header>${content}</section>` };
     });

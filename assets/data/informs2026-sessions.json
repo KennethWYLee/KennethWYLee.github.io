@@ -5154,6 +5154,62 @@
           "source_note": "2026-10-14 Program Book，摘要PDF第284頁；單篇時刻與最新教室待現場確認。"
         }
       ]
+    },
+    {
+      "code": "WB34",
+      "title": "First-Order Methods and Complexity of Non-Linear Optimization",
+      "date": "2026-11-04",
+      "start": "09:30",
+      "end": "10:45",
+      "room": "Moscone South-212 (Level 2)",
+      "room_short": "South-212",
+      "floor": "Level 2",
+      "source_pages": [
+        1779,
+        1780
+      ],
+      "priority": "可加聽",
+      "question": "少數極端樣本，該影響分類模型多少？",
+      "focus": "使用者指定第4篇；單篇10:15–10:30為使用者提供",
+      "selection_note": "本次專門備讀第4篇，尚未更換WB35出席安排；WB34與WB35整場同時，單篇時間以現場議程確認。",
+      "alternative_codes": [],
+      "key_session": true,
+      "order": 0,
+      "papers_complete": false,
+      "total_paper_count": 5,
+      "reading_only": true,
+      "abstract": {
+        "summary_zh": "作者研究含雜訊或離群值的大型0–1 SVM分類問題，提出利用誘導損失結構的第一階方法；摘要指出損失與正則化合用時保留凸性，並報告可擴展性及離群值下的實驗表現。同題全文、精確模型、規模、速率與保證待確認。",
+        "summary_label": "本頁精選第4篇報告重點",
+        "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+        "source_pages": [
+          1780
+        ],
+        "abstract_version_note": "僅依第4篇原摘要整理，不代表全場五篇摘要。",
+        "paper_count": 1
+      },
+      "papers": [
+        {
+          "key": "WB34-4",
+          "number": 4,
+          "title": "Scalable First-Order Methods for 0–1 Loss SVMs",
+          "authors": [
+            "Soobin Choi",
+            "Andres Gomez"
+          ],
+          "summary_zh": "作者研究含雜訊或離群值的大型0–1 SVM分類問題，提出利用誘導損失結構的第一階方法；摘要指出損失與正則化合用時保留凸性，並報告可擴展性及離群值下的實驗表現。同題全文、精確模型、規模、速率與保證待確認。",
+          "source_pages": [
+            1780
+          ],
+          "source_url": "https://submissions.mirasmart.com/InformsAnnual2026/Publication/ProgramBook.aspx",
+          "summary_label": "中文閱讀重點｜僅依議程摘要",
+          "source_type": "user_provided_program_book",
+          "source_note": "10/14 Program Book，PDF第1780頁。使用者指定單篇10:15–10:30，尚未由官方單篇議程核實。2025相關文章不同題，不能當成本報告全文。",
+          "recommendation": {
+            "reason_zh": "使用者指定特別準備：資料如何計罰、替代目標改變什麼、與Gurobi可建的模型如何比較？"
+          }
+        }
+      ]
     }
   ],
   "sources": {
@@ -5613,7 +5669,7 @@
     "recommended_count": 28
   },
   "selection_updated_on": "2026-11-01",
-  "selection_note": "每天兩個主要技術場；老師指定MC41、TB29、WA33優先安排，MC47保留閱讀與備選。plenary與三晚keynote維持已選。",
+  "selection_note": "每天兩個主要技術場；老師指定MC41、TB29、WA33，MC41與WA33必去，同時段舊選項移除。MC47與WA32教材保留；WB34第4篇特別備讀，尚未更換WB35。plenary與三晚keynote維持已選。",
   "modelling_reviewed_on": "2026-11-01",
   "special_defaults_version": 2,
   "default_special_keys": [
