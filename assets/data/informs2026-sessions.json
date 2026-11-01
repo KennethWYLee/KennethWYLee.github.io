@@ -1679,14 +1679,11 @@
         1685,
         1686
       ],
-      "priority": "保留",
+      "priority": "必去",
       "question": "最壞損失與相對理想決策差距，是同一個目標嗎？",
       "focus": "最壞損失與相對理想決策差距，是同一個目標嗎？",
-      "selection_note": "整場擇一。主場先聽，其他時段自由探索；不必全部排滿。",
-      "alternative_codes": [
-        "WA32",
-        "WA25"
-      ],
+      "selection_note": "必去：老師指定Regret-Optimal，該時段只排WA33，不提供其他出席選項。",
+      "alternative_codes": [],
       "key_session": true,
       "order": 16,
       "papers_complete": false,
@@ -1721,9 +1718,7 @@
           }
         }
       ],
-      "previous_codes": [
-        "WA32"
-      ],
+      "previous_codes": [],
       "teacher_requested": true
     },
     {
@@ -2807,7 +2802,7 @@
       "priority": "優先安排",
       "question": "哪些代表環境足以保留決策？",
       "focus": "Decision-Focused Clustering；A Cardinality-Constrained Approach for Integrated Prediction and Optimization",
-      "selection_note": "WA25偏厚尾隨機求解與現代AI；目前代表情境／決策比較較適合WA32。",
+      "selection_note": "WA33為必去；本場內容僅供閱讀，不列入此時段出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": 16,
@@ -4348,7 +4343,7 @@
       "priority": "備選",
       "question": null,
       "focus": null,
-      "selection_note": "WA25偏厚尾隨機求解與現代AI；目前代表情境／決策比較較適合WA32。",
+      "selection_note": "WA33為必去；本場內容僅供閱讀，不列入此時段出席選項。",
       "alternative_codes": [],
       "key_session": false,
       "order": null,

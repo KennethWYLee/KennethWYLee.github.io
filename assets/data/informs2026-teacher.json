@@ -56,7 +56,8 @@
       "attendance_required": true,
       "paper_number": 1,
       "room": "Moscone South-211 (Level 2)",
-      "reading_anchor": "day4-session-wa33"
+      "reading_anchor": "day4-session-wa33",
+      "attendance_priority": "必去"
     }
   ]
 }
