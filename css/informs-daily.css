@@ -614,6 +614,16 @@
   background: var(--surface);
 }
 
+.daily-conference .issue-session-title {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
 .daily-conference .issue-title {
   display: block;
   margin-top: 0.3rem;
@@ -928,8 +938,15 @@
 }
 
 /* 本場其他文章 */
-.daily-conference .issue-other-papers {
+.daily-conference section.issue-other-papers {
   margin-top: 1.25rem;
+  padding: 1rem;
+}
+
+.daily-conference section.issue-other-papers > h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .daily-conference .issue-paper {
