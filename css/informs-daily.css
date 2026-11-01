@@ -1122,6 +1122,25 @@
   line-height: 1.5;
 }
 
+/* 保留英文題名作為獨立標題，小字緊接同一行。 */
+.daily-conference :is(.issue-paper-title, .supplemental-title) {
+  display: inline;
+}
+
+/* 文章或單場演講題名旁的簡短狀態；詳細來源仍在原位置。 */
+.daily-conference .title-fulltext-status {
+  margin-left: 0.25rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.daily-conference .title-fulltext-status.is-full {
+  color: var(--accent-dark);
+}
+
 .daily-conference .issue-paper-authors {
   margin: 0.2rem 0 0;
   color: var(--muted);
