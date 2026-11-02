@@ -1,6 +1,6 @@
 {
   "checked_on": "2026-11-02",
-  "scope_note": "已排17個技術場次、SC37備選、WB34備讀、7場預選演講；其餘依有無完成查找標示。僅依10/14議程冊與本次查找，不保證全文不存在。",
+  "scope_note": "已依 10/14 議程冊查核四天推薦及備選的 48 個技術場次、233 篇報告及 plenary、keynote；尚未找到不代表全文不存在。相關稿未確認與演講同篇。",
   "items": [
     {
       "id": "SA04-2",
@@ -500,7 +500,8 @@
     {
       "id": "talk-dwork",
       "status": "not_found",
-      "note": "演講不一定有同題論文；本次未找到同題全文。"
+      "url": "https://cs-people.bu.edu/ads22/pubs/PS-CSAIL/sensitivity-tcc-final.pdf",
+      "note": "演講不一定有同題論文；本次未找到同題全文。連結為 2006 年不同題的相關背景論文，非本場演講。"
     },
     {
       "id": "talk-smilowitz",
@@ -509,8 +510,9 @@
     },
     {
       "id": "talk-romero",
-      "status": "not_found",
-      "note": "演講不一定有同題論文；本次未找到同題全文。"
+      "status": "related",
+      "url": "https://arxiv.org/abs/2310.12822v1",
+      "note": "演講不一定有同題論文；本次未找到同題全文。連結是不同題相關研究，不是確認的本場資料。"
     },
     {
       "id": "talk-allgor",
@@ -519,8 +521,9 @@
     },
     {
       "id": "talk-fernandez",
-      "status": "not_found",
-      "note": "演講不一定有同題論文；本次未找到同題全文。"
+      "status": "related",
+      "url": "https://arxiv.org/abs/2310.18981v1",
+      "note": "演講不一定有同題論文；本次未找到同題全文。連結是不同題的選址相關研究，不是本場全文。"
     },
     {
       "id": "talk-lodi",
@@ -580,6 +583,767 @@
       "status": "full",
       "url": "https://arxiv.org/pdf/2606.21773",
       "note": "同題公開預印本；議程冊摘要誤植，以作者原稿為準。"
+    },
+    {
+      "id": "SA31-1",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2608.15035",
+      "note": "相關研究 PDF 已保存，未確認同篇；同兩作者，兩步長相關，報告另涉及多步；非確定同篇。"
+    },
+    {
+      "id": "SA31-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2412.14291",
+      "note": "同題全文 PDF 已保存；題名與三位作者對應；正式演講版本待確認。"
+    },
+    {
+      "id": "SA31-3",
+      "status": "related",
+      "url": "https://optimization-online.org/wp-content/uploads/2026/08/Online-Performative-Decision-Making.pdf",
+      "note": "高度對應作者稿已保存，同一版本待確認；作者與摘要高度相符，題名有差異；精確版本待確認。"
+    },
+    {
+      "id": "SA31-4",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2607.11878",
+      "note": "高度對應作者稿已保存，同一版本待確認；Zhe Zhang 作者頁列 Jimmy (Zhe)；W-certificate 主題相符，題名不同。"
+    },
+    {
+      "id": "SA31-5",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2606.11515",
+      "note": "相關研究 PDF 已保存，未確認同篇；報告者與 Bregman/CVaR 研究有關，題名及作者名單不同，待確認。"
+    },
+    {
+      "id": "SA32-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.01378",
+      "note": "同題全文 PDF 已保存；同題且摘要吻合；演講者署名 Zoey、作者稿 Qing，作者研究頁列 Qing (Zoey) Zhu。"
+    },
+    {
+      "id": "SA32-2",
+      "status": "not_found",
+      "url": "https://sites.google.com/umn.edu/archisghate/publications",
+      "note": "本次未找到可確認的同篇全文；未找到同題全文；作者作品清單供後續查證。"
+    },
+    {
+      "id": "SA32-3",
+      "status": "not_found",
+      "url": "https://link.springer.com/article/10.1007/s10107-026-02368-8",
+      "note": "本次未找到可確認的同篇全文；僅找到部分共同作者的其他研究；非同篇。"
+    },
+    {
+      "id": "SA32-4",
+      "status": "related",
+      "url": "https://justin-goodson.com/papers/BoundedBackwardInduction.pdf",
+      "note": "高度對應作者稿已保存，同一版本待確認；作者和摘要對應，題名多 Max-Min；報告確切版本待確認。"
+    },
+    {
+      "id": "SA32-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.06516",
+      "note": "同題全文 PDF 已保存；題名與作者相符。"
+    },
+    {
+      "id": "SB31-1",
+      "status": "not_found",
+      "url": "https://orfe.princeton.edu/events/2026/aras-selvi-princeton-university",
+      "note": "本次未找到可確認的同篇全文；同題作者研討會摘要；尚未找到同篇PDF。"
+    },
+    {
+      "id": "SB31-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；已搜尋完整題名及作者，未找到不代表不存在。"
+    },
+    {
+      "id": "SB31-3",
+      "status": "not_found",
+      "url": "https://arxiv.org/abs/2403.18176",
+      "note": "本次未找到可確認的同篇全文；同作者不同題相關研究，不能直接視為同篇。"
+    },
+    {
+      "id": "SB31-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2602.20403",
+      "note": "同題全文 PDF 已保存；題名及三位作者相符。"
+    },
+    {
+      "id": "SB31-5",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；已搜尋完整題名及作者，未找到不代表不存在。"
+    },
+    {
+      "id": "SC28-1",
+      "status": "not_found",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4750470",
+      "note": "本次未找到可確認的同篇全文；同作者不同題研究，不能視為同篇。"
+    },
+    {
+      "id": "SC28-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.15840",
+      "note": "同題全文 PDF 已保存；題名及講者相符，作者稿另列共同作者。"
+    },
+    {
+      "id": "SC28-3",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2610.13751",
+      "note": "高度對應作者稿已保存，同一版本待確認；三位作者與摘要主題相符，題名多 via Simulation。"
+    },
+    {
+      "id": "SC30-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.30853",
+      "note": "同題全文 PDF 已保存；題名及四位作者相符。"
+    },
+    {
+      "id": "SC30-2",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2608.25551",
+      "note": "相關研究 PDF 已保存，未確認同篇；報告者和 trajectory-adaptive stopping 題旨相近，但題名和處理範圍不同。"
+    },
+    {
+      "id": "SC30-3",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；已搜尋完整題名及作者，未找到不代表不存在。"
+    },
+    {
+      "id": "SC30-4",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；已搜尋完整題名及作者，未找到不代表不存在。"
+    },
+    {
+      "id": "SC30-5",
+      "status": "not_found",
+      "url": "https://arxiv.org/abs/2410.14885",
+      "note": "本次未找到可確認的同篇全文；同作者不同研究，不能視為同篇。"
+    },
+    {
+      "id": "SC31-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；已搜尋完整題名及作者，未找到不代表不存在。"
+    },
+    {
+      "id": "SC31-2",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2607.21520",
+      "note": "高度對應作者稿已保存，同一版本待確認；三位作者與無限期控制、抽樣誤差主題吻合，題名不同。"
+    },
+    {
+      "id": "SC31-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2511.16568",
+      "note": "同題全文 PDF 已保存；題名及作者相符。"
+    },
+    {
+      "id": "SC31-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2607.20411",
+      "note": "同題全文 PDF 已保存；題名及作者相符。"
+    },
+    {
+      "id": "SC31-5",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；已搜尋完整題名及作者，未找到不代表不存在。"
+    },
+    {
+      "id": "SE22-1",
+      "status": "not_found",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5310416",
+      "note": "本次未找到可確認的同篇全文；作者部分重疊，不同題研究，不能視為同篇。"
+    },
+    {
+      "id": "SE22-2",
+      "status": "not_found",
+      "url": "https://conferences.fuqua.duke.edu/2026-informs-advances-in-decision-analysis-conference/wp-content/uploads/sites/5/2026/06/ADA_2026_Provisional_Program_v10.pdf",
+      "note": "本次未找到可確認的同篇全文；同作者相關會議日程；尚未找到同篇全文。"
+    },
+    {
+      "id": "SE22-3",
+      "status": "not_found",
+      "url": "https://conferences.fuqua.duke.edu/2026-informs-advances-in-decision-analysis-conference/wp-content/uploads/sites/5/2026/06/ADA_2026_Provisional_Program_v10.pdf",
+      "note": "本次未找到可確認的同篇全文；同題會議日程；尚未找到同篇全文。"
+    },
+    {
+      "id": "SE22-4",
+      "status": "not_found",
+      "url": "https://forecastingresearch.org/research/psychometric-properties-of-probability-and-quantile-forecasts",
+      "note": "本次未找到可確認的同篇全文；部分作者重疊的不同題研究；不能視為同篇。"
+    },
+    {
+      "id": "SE22-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2508.17907",
+      "note": "同題全文 PDF 已保存；題名及作者相符。"
+    },
+    {
+      "id": "MA47-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.06007",
+      "note": "同題全文 PDF 已保存；預印本作者含報告者"
+    },
+    {
+      "id": "MA47-2",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2606.03158v1",
+      "note": "高度對應作者稿已保存，同一版本待確認；議程題名截斷；同作者與摘要主題高度對應完整題名 Portfolio Choice with Competing Precautionary and Accumulation Goals，版本關係待核對。 已保存 v1；議程題名截斷，作者與摘要高度對應，v2 的研究條件有變。"
+    },
+    {
+      "id": "MA47-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2610.07162",
+      "note": "同題全文 PDF 已保存；同題、同報告者預印本"
+    },
+    {
+      "id": "MA47-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2608.18120",
+      "note": "同題全文 PDF 已保存；同題、同報告者預印本"
+    },
+    {
+      "id": "MC03-1",
+      "status": "unavailable",
+      "url": "https://sandeepchitla.com/",
+      "note": "僅找到相關來源；尚未保存同篇 PDF；作者頁列同場次、相近但不同題名，註明草稿可向作者索取；是否同篇待查。"
+    },
+    {
+      "id": "MC03-2",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5579190",
+      "note": "找到同題來源；尚未保存同篇 PDF；SSRN 同題及作者，顯示 52 頁； 本次下載回應 HTTP 403。"
+    },
+    {
+      "id": "MC03-3",
+      "status": "unavailable",
+      "url": "https://yuriresende.github.io/research/",
+      "note": "找到來源頁；尚未取得同篇 PDF；作者研究頁同題、同作者列為進行中；尚未找到全文。"
+    },
+    {
+      "id": "MC03-4",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5282750",
+      "note": "僅找到相關來源；尚未保存同篇 PDF；同作者不同題 An Equilibrium Solver for a Dynamic Queueing Game；與議程估計問題是否同篇未確認。"
+    },
+    {
+      "id": "MC03-5",
+      "status": "unavailable",
+      "url": "https://www.xiaoni.page/",
+      "note": "找到來源頁；尚未取得同篇 PDF；作者頁列工作論文；未找到可確認的公開全文。"
+    },
+    {
+      "id": "MC03-6",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；以題名與作者搜尋，未找到可確認同篇全文；不表示全文不存在。"
+    },
+    {
+      "id": "MC24-1",
+      "status": "unavailable",
+      "url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/302644/preprint_pdf/f1cf7a8a7efeed3a23ba7595624aaac6.pdf",
+      "note": "找到同題來源；尚未保存同篇 PDF；同題、同作者預印本； 下載時網域解析失敗。"
+    },
+    {
+      "id": "MC24-2",
+      "status": "unavailable",
+      "url": "https://soml.ise.vt.edu/people.html",
+      "note": "找到來源頁；尚未取得同篇 PDF；研究群網頁有同題研究；未找到可確認公開全文。"
+    },
+    {
+      "id": "MC24-3",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；議程標題跨頁，報告者依議程第 835 頁確認；同題與作者搜尋未找到全文。"
+    },
+    {
+      "id": "MC47-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2512.23596",
+      "note": "同題全文 PDF 已保存；同題、同報告者預印本"
+    },
+    {
+      "id": "MC47-2",
+      "status": "unavailable",
+      "url": "https://zhaochaoyi.github.io/talks/",
+      "note": "找到來源頁；尚未取得同篇 PDF；作者列同題會議演講；未找到公開全文。"
+    },
+    {
+      "id": "MC47-3",
+      "status": "unavailable",
+      "url": "https://www.aeaweb.org/conference/2027/preliminary/1767?q=eNqrVipOLS7OzM8LqSxIVbKqhnGVrAxrawGlCArI",
+      "note": "找到來源頁；尚未取得同篇 PDF；同題、同報告者會議摘要；未找到全文。題名中的反斜線為議程轉檔符號，已移除。"
+    },
+    {
+      "id": "MC47-4",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6446118",
+      "note": "找到同題來源；尚未保存同篇 PDF；SSRN 同題同作者 65 頁工作稿；下載端點 https://papers.ssrn.com/sol3/Delivery.cfm/6446118.pdf?abstractid=6446118&mirid=1 ，能否 本次下載回應 HTTP 403。"
+    },
+    {
+      "id": "MC47-5",
+      "status": "unavailable",
+      "url": "https://patrickchang.net/research/",
+      "note": "找到來源頁；尚未取得同篇 PDF；作者頁同題列 work in progress；未見全文。"
+    },
+    {
+      "id": "MC48-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；精確題名與作者搜尋未找到可確認全文。"
+    },
+    {
+      "id": "MC48-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；精確題名與作者搜尋未找到可確認全文。"
+    },
+    {
+      "id": "MC48-3",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；精確題名與作者搜尋未找到可確認全文。"
+    },
+    {
+      "id": "MC48-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2509.16334",
+      "note": "同題全文 PDF 已保存；同題同作者預印本"
+    },
+    {
+      "id": "MC48-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2411.04321",
+      "note": "同題全文 PDF 已保存；同題同作者預印本"
+    },
+    {
+      "id": "MC48-6",
+      "status": "unavailable",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0927539826000836",
+      "note": "找到同題來源；尚未保存同篇 PDF；同題同作者期刊網頁顯示全文；PDF 下載本次回應 HTTP 403。"
+    },
+    {
+      "id": "MC48-7",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6765360",
+      "note": "找到高度對應來源；尚未保存 PDF；SSRN 題名多出 Propagation Risk and；作者相同，摘要與議程逐段一致，對應工作稿； 本次下載回應 HTTP 403。"
+    },
+    {
+      "id": "ME30-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；精確題名與作者搜尋未找到可確認全文。"
+    },
+    {
+      "id": "ME30-2",
+      "status": "related",
+      "url": "https://optimization-online.org/wp-content/uploads/2026/03/optimizationOnlineSubmission.pdf",
+      "note": "高度對應作者稿已保存，同一版本待確認；同作者與摘要對應；全文標題末尾為 Programs，議程為 Programming；另有 https://arxiv.org/pdf/2603.12805 。"
+    },
+    {
+      "id": "ME30-3",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；精確題名與作者搜尋未找到可確認全文。"
+    },
+    {
+      "id": "ME30-4",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2406.20004",
+      "note": "高度對應作者稿已保存，同一版本待確認；同作者同主題；arXiv 新版標題增加副標，議程的 Zoey Zhu 與文獻 Qing Zhu 姓名差異待核對。"
+    },
+    {
+      "id": "ME36-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；精確題名與作者搜尋未找到可確認全文。"
+    },
+    {
+      "id": "ME36-2",
+      "status": "unavailable",
+      "url": "https://www.sutd.edu.sg/events-listing/relaxed-joint-chance-constraints-with-surrogate-tail-bounds-arjun-ramachandra",
+      "note": "找到來源頁；尚未取得同篇 PDF；講者同題研討會摘要；未找到全文。"
+    },
+    {
+      "id": "ME36-3",
+      "status": "unavailable",
+      "url": "https://anasabdelhakmi.github.io/",
+      "note": "找到來源頁；尚未取得同篇 PDF；同作者相關題名稿註明可向作者索取；同題摘要見 https://informs-aps.isye.gatech.edu/sites/default/files/informs-abstracts.pdf 第 167 頁，並非全文。"
+    },
+    {
+      "id": "ME36-4",
+      "status": "unavailable",
+      "url": "https://ie.metu.edu.tr/en/departmental-seminars",
+      "note": "找到來源頁；尚未取得同篇 PDF；同題、同報告者學術演講記錄；未找到全文。"
+    },
+    {
+      "id": "ME36-5",
+      "status": "unavailable",
+      "url": "https://openreview.net/pdf/79c84325b6b0d75f517c47d339f75eea983a4fed.pdf",
+      "note": "僅找到相關來源；尚未保存同篇 PDF；同作者、題名前半相同之相關稿，OpenReview 版本限 φ-divergence，會議摘要描述範圍較廣；是否同一版本待查。 本次下載回應 HTTP 403。"
+    },
+    {
+      "id": "ME36-6",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；精確題名與作者搜尋未找到可確認全文。"
+    },
+    {
+      "id": "TA30-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2606.17285",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TA30-2",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2512.14979",
+      "note": "相關研究 PDF 已保存，未確認同篇；同作者 SLAM 相關文章，題名及研究範圍不同，不能確定同篇；另有 https://arxiv.org/pdf/2610.37947。"
+    },
+    {
+      "id": "TA30-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.06945",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TA30-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2609.10732",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TA30-5",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2608.15894",
+      "note": "相關研究 PDF 已保存，未確認同篇；作者相同但題名不同；此稿為無導數目標與確定性等式限制，議程範圍更廣，不能確認同篇。"
+    },
+    {
+      "id": "TA47-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2607.07967",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TA47-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.13010v1",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文； 議程同名為 v1；最新版 v2 已更改題名，已保存 v1。"
+    },
+    {
+      "id": "TA47-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.17705",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TA47-4",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2602.05533",
+      "note": "相關研究 PDF 已保存，未確認同篇；同講者條件擴散相關文章，標題不同，不能確定同篇。"
+    },
+    {
+      "id": "TB22-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.24421",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TB22-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.06941",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TB22-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.17925",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TB22-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.25971v1",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文； 議程同名為 v1；最新版 v2 已更改題名，已保存 v1。"
+    },
+    {
+      "id": "TB22-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.21851",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TB35-1",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6731601",
+      "note": "找到同題來源；尚未保存同篇 PDF；找到同題 SSRN 頁； 本次下載回應 HTTP 403。"
+    },
+    {
+      "id": "TB35-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TB35-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.14840",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TB35-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2608.08718",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TC35-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.20147",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TC35-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TC35-3",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TC35-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2602.13485",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TC35-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.17691",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TC35-6",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2603.22548",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TD24-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD24-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD24-3",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD24-4",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD24-5",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD24-6",
+      "status": "unavailable",
+      "url": "https://doi.org/10.1016/j.ress.2026.113273",
+      "note": "僅找到相關來源；尚未保存同篇 PDF；同五位作者、相同主題但標題不同的期刊文章；索引 https://ideas.repec.org/a/eee/reensy/v277y2027ip5s0951832026010823.html ，出版頁存取及是否為同篇待確認。"
+    },
+    {
+      "id": "TD60-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD60-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD60-3",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TD60-4",
+      "status": "unavailable",
+      "url": "https://doi.org/10.1016/j.ejor.2026.02.020",
+      "note": "找到同題來源；尚未保存同篇 PDF；同題期刊入口；出版社頁於本次查詢回 403，未核實 PDF 是否可取得。"
+    },
+    {
+      "id": "TE30-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TE30-2",
+      "status": "unavailable",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6100287",
+      "note": "找到同題來源；尚未保存同篇 PDF；找到同題 SSRN 頁； 本次下載回應 HTTP 403。"
+    },
+    {
+      "id": "TE30-3",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2510.10767",
+      "note": "相關研究 PDF 已保存，未確認同篇；五位作者一致，題目及摘要高度相關，但 PDF 標題較長，未確認是否為同一篇報告。"
+    },
+    {
+      "id": "TE30-4",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "TE30-5",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2605.24345",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TE46-1",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2604.10967v1",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文； 議程同名為 v1；最新版 v2 已更改題名，已保存 v1。"
+    },
+    {
+      "id": "TE46-2",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2602.03461",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TE46-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2505.13564",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "TE46-4",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2512.15726",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+    },
+    {
+      "id": "WA25-1",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2603.10230",
+      "note": "相關研究 PDF 已保存，未確認同篇；作者重疊但題目和設定不同：此稿為隨機目標、確定性限制；報告題目提及期望限制和 heavy-tailed noise。"
+    },
+    {
+      "id": "WA25-4",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "WA32-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "WA32-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "WA32-3",
+      "status": "unavailable",
+      "url": "https://sites.google.com/view/kaipanuf/research",
+      "note": "找到同題來源；尚未保存同篇 PDF；作者研究頁出現同題工作，尚未取得 PDF。"
+    },
+    {
+      "id": "WA32-5",
+      "status": "unavailable",
+      "url": "https://doi.org/10.17615/kpct-6d02",
+      "note": "僅找到相關來源；尚未保存同篇 PDF；相關學位論文，同一作者但作者名單不同；未確認是同篇或能下載 PDF。"
+    },
+    {
+      "id": "WB19-1",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "WB34-1",
+      "status": "related",
+      "url": "https://arxiv.org/pdf/2510.02174",
+      "note": "相關研究 PDF 已保存，未確認同篇；作者重疊，題目和方法不同；此稿是一階方法，議程為 zeroth-order；僅列相關文章。"
+    },
+    {
+      "id": "WB34-2",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "WB34-3",
+      "status": "full",
+      "url": "https://arxiv.org/pdf/2511.02082v2",
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文； 題名對應 v2，已固定版本。"
+    },
+    {
+      "id": "WB34-5",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇全文；本次搜尋未找到同題全文；不能因此斷定全文不存在。"
+    },
+    {
+      "id": "talk-wang",
+      "status": "full",
+      "url": "https://arxiv.org/abs/2510.14861v2",
+      "note": "同題、摘要對應的作者預印本；非已確認本場投影片。"
+    },
+    {
+      "id": "talk-vanroy",
+      "status": "related",
+      "url": "https://arxiv.org/abs/2603.15017v3",
+      "note": "尚未找到本場投影片；連結是同作者不同題相關研究，不能當成演講全文。"
+    },
+    {
+      "id": "talk-microsoft",
+      "status": "not_found",
+      "url": "https://www.informs.org/Impact/O.R.-Analytics-Success-Stories/Microsoft-Cloud-Supply-Chain",
+      "note": "未找到可確認本場投影片或全文；連結為 INFORMS 案例介紹。"
+    },
+    {
+      "id": "talk-ye",
+      "status": "related",
+      "url": "https://web.stanford.edu/~yyye/MPinEraofAI20250720.pdf",
+      "note": "同講者、同題的 2025 INFORMS International 投影片；是另一場活動，不能認定與 2026 年報告內容相同。"
+    },
+    {
+      "id": "talk-shen",
+      "status": "not_found",
+      "note": "官方頁有摘要；本次未找到可確認本場全文或投影片。"
+    },
+    {
+      "id": "talk-sokol",
+      "status": "not_found",
+      "note": "官方頁有活動與團隊介紹；本次未找到可確認本場全文或投影片。"
+    },
+    {
+      "id": "SD31-1",
+      "status": "not_found",
+      "url": "https://sites.google.com/view/nanjiangor/students",
+      "note": "作者研究頁有同題資訊；尚未取得可確認同篇全文。議程摘要討論機率限制與 CVaR 近似，不宜直接當成 SSD 問題。"
+    },
+    {
+      "id": "SD31-2",
+      "status": "full",
+      "url": "https://arxiv.org/abs/2602.10515",
+      "note": "同題同作者預印本；演講確切版本待確認。"
+    },
+    {
+      "id": "SD31-3",
+      "status": "full",
+      "url": "https://arxiv.org/abs/2608.09872",
+      "note": "同題同作者預印本；演講確切版本待確認。"
+    },
+    {
+      "id": "SD31-4",
+      "status": "related",
+      "url": "https://arxiv.org/abs/2603.17344",
+      "note": "高度對應作者稿，題名不同；演講確切版本待確認。"
+    },
+    {
+      "id": "SD31-5",
+      "status": "not_found",
+      "note": "本次未找到可確認的同篇公開全文；議程摘要討論機率限制、CVaR 近似和情境權重，不能直接認定是 SSD 解法。"
     }
   ],
   "supplemental": [
@@ -756,6 +1520,114 @@
       "number": 5,
       "title": "On the Emergence of Implicit Curriculum in RLVR Learning Dynamics",
       "authors_text": "Yu Huang, University of Pennsylvania, Philadelphia, PA, United States"
+    },
+    {
+      "session": "MC03",
+      "number": 1,
+      "title": "Should Platforms Show Customers What They Didn't Search For? A Transformer-Based Sequential Structural Choice Model of Online Grocery",
+      "authors_text": "Sandeep Chitla, Cornell University, Ithaca, NY, United States, Benjamin Knight, Emaad Ahmed Manzoor, Dmitry Mitrofanov"
+    },
+    {
+      "session": "MC03",
+      "number": 2,
+      "title": "Boxless Shipping: Balancing Sustainability and Security in Package Delivery",
+      "authors_text": "Neda Mirzaeian, University of Texas at Dallas, Richardson, TX, United States, Stanley Lim, Shouqiang Wang"
+    },
+    {
+      "session": "MC03",
+      "number": 3,
+      "title": "Recovering Tacit Knowledge from Unstructured Expert Logs: A Contextual Inverse Optimization Framework",
+      "authors_text": "Matthias Bickel, ETH Zürich, Zürich, Switzerland, Yuri Fonseca, Torbjørn Netland"
+    },
+    {
+      "session": "MC03",
+      "number": 4,
+      "title": "Estimation in Equilibrium of A Dynamic Queueing Game",
+      "authors_text": "Denise Cerna, University of California, Berkeley, Berkeley, CA, United States, Chiwei Yan, Hongyao Ma"
+    },
+    {
+      "session": "MC03",
+      "number": 5,
+      "title": "Eliminate Gender Wage Gap in the Gig Economy: Evidence from a Remote Customer Service Platform",
+      "authors_text": "Xiao Ni, Fudan University, Shanghai, China, People's Republic of, Qiuping Yu, TIANJUN FENG"
+    },
+    {
+      "session": "SC28",
+      "number": 1,
+      "title": "Scarce Resource Allocation under Heterogeneity and Uncertainty",
+      "authors_text": "Puyao Ge, Rice University, Houston, TX, United States"
+    },
+    {
+      "session": "SC28",
+      "number": 2,
+      "title": "Multi-Stage Stochastic Optimization and Reinforcement Learning Approaches for Dynamic Inspection of Infrastructure Systems",
+      "authors_text": "Juan-Alberto Estrada-Garcia, University of Michigan, Ann Arbor, MI, United States"
+    },
+    {
+      "session": "TB22",
+      "number": 1,
+      "title": "E-values as statistical evidence: A comparison to Bayes factors, likelihoods, and p-values",
+      "authors_text": "Ben Chugg, CMU, Pittsburgh, PA, United States, Aaditya Ramdas, Peter Grünwald"
+    },
+    {
+      "session": "TB22",
+      "number": 2,
+      "title": "Demonstration Experiments",
+      "authors_text": "Suhas Vijaykumar, Economics, University of California, San Diego, La Jolla, CA, United States, guido Imbens, Lorenzo Masoero, Alexander Rakhlin, Thomas Richardson"
+    },
+    {
+      "session": "TB22",
+      "number": 3,
+      "title": "Multi-Armed Sequential Hypothesis Testing by Betting",
+      "authors_text": "Ian Waudby-Smith, University of California, Berkeley, Berkeley, CA, United States"
+    },
+    {
+      "session": "TB22",
+      "number": 4,
+      "title": "Anytime-Valid Inference Under Outcome Delay: A Design-Based Approach",
+      "authors_text": "Michael Lindon, Netflix, Seattle, WA, United States, Nathan Kallus"
+    },
+    {
+      "session": "TD60",
+      "number": 1,
+      "title": "Koopman-Based Model Predictive Control for Cascade Dynamics on Social Networks",
+      "authors_text": "Alexander Semenov, Industrial and Management Systems Engineering, University of South Florida, Tampa, FL, United States, Xiaochen Xian"
+    },
+    {
+      "session": "TD60",
+      "number": 2,
+      "title": "Graph Neural Networks for Modeling Complex Relationships in Chemical and Agricultural Systems",
+      "authors_text": "Bibhusha Ojha, University of South Florida, Tampa, FL, United States"
+    },
+    {
+      "session": "TD60",
+      "number": 3,
+      "title": "Optimization of UAV–Truck Coordination for Persistent Surveillance Using Column Generation",
+      "authors_text": "Donald McMann, ISE, University of Florida, Shalimar, FL, United States"
+    },
+    {
+      "session": "WB34",
+      "number": 1,
+      "title": "Nonasymptotic Analysis of Zeroth-Order Langevin Dynamics",
+      "authors_text": "Dong-Young Lim, UNIST, Ulsan, Korea, Republic of, Stefano Bruno"
+    },
+    {
+      "session": "WB34",
+      "number": 2,
+      "title": "A First-Order Bundle Method for Smooth Multi-objective Optimization",
+      "authors_text": "Jeffrey Cheng, IEOR, University of California, Berkeley, CA, United States"
+    },
+    {
+      "session": "WB34",
+      "number": 3,
+      "title": "Tight Lower Bounds for Binary First-Order Oracles for Convex Optimization",
+      "authors_text": "Phillip Kerger, Industrial Engineering and Operations Research, UC Berkeley, Berkeley, CA, United States, Amitabh Basu, Marco Molinaro"
+    },
+    {
+      "session": "WB34",
+      "number": 5,
+      "title": "Scalable Penalized Quantile Regression via Modern Large-Scale Linear Programming",
+      "authors_text": "Cezareo Rodriguez, SimpleRose, Saint Louis, MO, United States"
     }
   ]
 }
