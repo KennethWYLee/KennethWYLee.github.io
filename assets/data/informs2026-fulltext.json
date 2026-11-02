@@ -453,7 +453,13 @@
     },
     {
       "id": "TB29-3",
-      "status": "not_found"
+      "status": "not_found",
+      "additional_sources": [
+        {
+          "label": "部分作者的相關研究全文（不同題，非確認同篇）",
+          "url": "https://publikationen.bibliothek.kit.edu/1000191437/177576291"
+        }
+      ]
     },
     {
       "id": "TB29-4",
@@ -1228,7 +1234,7 @@
       "id": "TE46-3",
       "status": "full",
       "url": "https://arxiv.org/pdf/2505.13564",
-      "note": "同題全文 PDF 已保存；arXiv 議程同題全文"
+      "note": "同題全文 PDF 已保存；arXiv 議程同題全文。議程冊將一位作者寫作 Alain Durmas；預印本為 Alain Durmus，網站作者欄採預印本拼法。"
     },
     {
       "id": "TE46-4",
