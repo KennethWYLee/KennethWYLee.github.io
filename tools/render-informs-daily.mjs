@@ -97,7 +97,7 @@ export function renderDailyProgram(program, reading, articleSources, primers, fu
     const labels = {
       full: '（已有全文）',
       related: '（找到相關稿）',
-      unavailable: '（全文未能下載）',
+      unavailable: '（本次未能下載）',
       not_found: id.startsWith('talk-') ? '（尚未找到同題全文）' : '（尚未找到公開全文）',
       not_searched: '（全文尚未查找）'
     };
@@ -123,7 +123,8 @@ export function renderDailyProgram(program, reading, articleSources, primers, fu
       source = ` ${link(text, item.url)}`;
     }
     const note = item.note ? `<span class="fulltext-note">${esc(item.note)}</span>` : '';
-    return `<p class="fulltext-status is-${esc(item.status)}" data-fulltext-id="${esc(id)}" data-fulltext-status="${esc(item.status)}"><strong>全文：</strong><span>${esc(labels[item.status])}</span>${source}${note}</p>`;
+    const additional = (item.additional_sources || []).map(s => ` ${link(s.label, s.url)}`).join('');
+    return `<p class="fulltext-status is-${esc(item.status)}" data-fulltext-id="${esc(id)}" data-fulltext-status="${esc(item.status)}"><strong>全文：</strong><span>${esc(labels[item.status])}</span>${source}${note}${additional}</p>`;
   }
 
   function supplementalPapers(item) {

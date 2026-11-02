@@ -22,7 +22,13 @@
     },
     {
       "id": "SB30-3",
-      "status": "not_found"
+      "status": "not_found",
+      "additional_sources": [
+        {
+          "label": "作者 2025 博士論文（相關背景，非確認同篇）",
+          "url": "https://preserve.lehigh.edu/_flysystem/fedora/2025-08/Tsang_lehigh_0105A_13120.pdf"
+        }
+      ]
     },
     {
       "id": "SB30-4",
@@ -72,19 +78,19 @@
       "id": "SE32-2",
       "status": "unavailable",
       "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6223718",
-      "note": "同題working paper頁；自動取得遭403，全文尚未成功下載。"
+      "note": "同題working paper頁；自動取得遭403，全文尚未成功下載。可前往 SSRN 頁面嘗試下載。"
     },
     {
       "id": "SE32-3",
       "status": "unavailable",
       "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5769803",
-      "note": "同題working paper頁；自動取得遭403，全文尚未成功下載。"
+      "note": "同題working paper頁；自動取得遭403，全文尚未成功下載。可前往 SSRN 頁面嘗試下載。"
     },
     {
       "id": "SE32-4",
       "status": "unavailable",
       "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6175961",
-      "note": "作者研究頁連至同題working paper，來源遭403，全文尚未成功下載。"
+      "note": "作者研究頁連至同題working paper，來源遭403，全文尚未成功下載。可前往 SSRN 頁面嘗試下載。"
     },
     {
       "id": "SE32-5",
@@ -385,7 +391,13 @@
       "id": "SC36-6",
       "status": "not_found",
       "url": "https://www.informs-sim.org/wsc23papers/156.pdf",
-      "note": "同篇全文尚未找到；此為不同作者、先選址再按需求配送的2023相關全文，非同篇。"
+      "note": "同篇全文尚未找到；此為不同作者、先選址再按需求配送的2023相關全文，非同篇。",
+      "additional_sources": [
+        {
+          "label": "同作者 2025 配送路徑相關研究（非同篇）",
+          "url": "https://research.polyu.edu.hk/en/publications/urban-food-delivery-service-optimisation-with-coordinated-deliver/"
+        }
+      ]
     },
     {
       "id": "MA30-1",
@@ -1345,7 +1357,13 @@
     {
       "id": "SD31-5",
       "status": "not_found",
-      "note": "本次未找到可確認的同篇公開全文；議程摘要討論機率限制、CVaR 近似和情境權重，不能直接認定是 SSD 解法。"
+      "note": "本次未找到可確認的同篇公開全文；議程摘要討論機率限制、CVaR 近似和情境權重，不能直接認定是 SSD 解法。",
+      "additional_sources": [
+        {
+          "label": "情境縮放相關研究（不同作者，非同篇）",
+          "url": "https://arxiv.org/abs/2603.27957v1"
+        }
+      ]
     }
   ],
   "supplemental": [

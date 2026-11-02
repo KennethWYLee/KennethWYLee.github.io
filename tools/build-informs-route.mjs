@@ -32,6 +32,13 @@ for(const item of fulltext.items){
   assert(typeof item.id==='string'&&/^(?:[A-Z]{2}\d+-[1-9]\d*|talk-[a-z0-9-]+)$/.test(item.id),`Invalid full-text id ${item.id}`);
   assert(fulltextStatuses.has(item.status),`Invalid full-text status ${item.id}`);
   if(item.note!==undefined) assert(typeof item.note==='string',`Invalid full-text note ${item.id}`);
+  if(item.additional_sources!==undefined){
+    assert(Array.isArray(item.additional_sources),`Invalid additional sources ${item.id}`);
+    for(const source of item.additional_sources){
+      assert(typeof source.label==='string'&&source.label.trim(),`Missing source label ${item.id}`);
+      const url=new URL(source.url);assert(url.protocol==='https:'&&!url.username&&!url.password,`Invalid additional source URL ${item.id}`);
+    }
+  }
   if(item.status==='full') assert(item.url,`Missing full-text URL ${item.id}`);
   if(item.url!==undefined){const url=new URL(item.url);assert(url.protocol==='https:'&&!url.username&&!url.password,`Invalid full-text URL ${item.id}`);}
 }
