@@ -2,6 +2,13 @@
 
 Static personal academic website for GitHub Pages.
 
+## 學生課程資料
+
+- [資料庫課程講義與課綱](https://kennethwylee.github.io/Database/)
+- [資料庫 SQL 查詢練習](https://database-query-practice.wy-lee9591.chatgpt.site/)
+
+從[個人網站](https://kennethwylee.github.io/)展開 **＋ Teaching**，也可以找到這兩個入口。課程講義網站公開，學生不需要取得私人課程 repo 的存取權。
+
 ## Contents
 
 - Current appointment and academic profile
