@@ -184,7 +184,8 @@ nav {
   border-top: 1px solid var(--line);
 }
 
-nav a {
+nav a,
+.teaching-nav > summary {
   display: flex;
   align-items: center;
   min-height: 42px;
@@ -197,7 +198,55 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+.teaching-nav > summary:hover,
+.teaching-nav > summary:focus-visible {
+  color: var(--accent-dark);
+  background: var(--accent-light);
+}
+
+.teaching-nav {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.teaching-nav > summary {
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.teaching-nav > summary::-webkit-details-marker {
+  display: none;
+}
+
+.teaching-nav-indicator {
+  flex: 0 0 0.9em;
+  text-align: center;
+}
+
+.teaching-nav-indicator::before {
+  content: "+";
+}
+
+.teaching-nav[open] .teaching-nav-indicator::before {
+  content: "−";
+}
+
+.teaching-nav-links {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0.2rem 0 0.3rem 1rem;
+  padding-left: 0.35rem;
+  border-left: 1px solid var(--line);
+}
+
+.teaching-nav-links a {
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+
+.site-shell:has(#teaching:target) .teaching-nav > summary {
   color: var(--accent-dark);
   background: var(--accent-light);
 }
@@ -626,6 +675,7 @@ h3 {
 
   nav {
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 0.2rem 0.4rem;
     margin-top: 1.25rem;
@@ -633,7 +683,8 @@ h3 {
     border-bottom: 1px solid var(--line);
   }
 
-  nav a {
+  nav a,
+  .teaching-nav > summary {
     min-height: 44px;
     padding: 0.4rem 0.65rem;
   }
@@ -663,7 +714,8 @@ h3 {
     gap: 0.15rem;
   }
 
-  nav a {
+  nav a,
+  .teaching-nav > summary {
     padding-inline: 0.6rem;
     font-size: 0.8125rem;
   }
